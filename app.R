@@ -14,7 +14,8 @@ ui <- fluidPage(
                       # Equivalent to: click = clickOpts(id = "plot_click")
                       click = "plot1_click",
                       brush = brushOpts(
-                        id = "plot1_brush"
+                        id = "plot1_brush",
+                        direction = "x"
                       )
            )
     )
