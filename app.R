@@ -27,7 +27,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$plot1 <- renderPlot({
-    ggplot(df, aes(x = label, y = val)) + geom_bar(stat="identity")
+    ggplot(df, aes(x = label, y = val, fill = col)) + geom_bar(stat="identity")
   })
   
   output$click_info <- renderPrint({
@@ -41,7 +41,7 @@ server <- function(input, output) {
     if (!is.null(input$plot1_brush) && !is.na(input$plot1_brush)){
       dat <- brushedPoints(df, input$plot1_brush)
       # browser()
-      ggplot(dat, aes(x = label, y = val)) + geom_bar(stat="identity")
+      ggplot(dat, aes(x = label, y = val, fill = col)) + geom_bar(stat="identity")
     }
   })
 }
