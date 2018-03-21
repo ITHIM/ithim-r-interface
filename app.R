@@ -1,17 +1,16 @@
 library(shiny)
-library(shinythemes)
 library(readr)
 library(ggplot2)
-# library(Cairo)   # For nicer ggplot2 output when deployed on Linux
 
 df <- read_csv("data/car_miles_per_person_per_week_london.csv")
 df$label <- factor(df$label, levels = df$label)
+df$col <- factor(df$label, levels = df$label)
 
 
 ui <- fluidPage(
   fluidRow(
     column(width = 12,
-           plotOutput("plot1", height = 300,
+           plotOutput("plot1",
                       # Equivalent to: click = clickOpts(id = "plot_click")
                       click = "plot1_click",
                       brush = brushOpts(
@@ -22,13 +21,7 @@ ui <- fluidPage(
   ),
   fluidRow(width = 6,
            h4("Brushed points"),
-           plotOutput("brush_info", height = 300,
-                      # Equivalent to: click = clickOpts(id = "plot_click")
-                      click = "plot1_click",
-                      brush = brushOpts(
-                        id = "plot1_brush"
-                      )
-           )
+           plotOutput("brush_info")
   )
 )
 
@@ -50,8 +43,6 @@ server <- function(input, output) {
       # browser()
       ggplot(dat, aes(x = label, y = val)) + geom_bar(stat="identity")
     }
-    
-    # brushedPoints(df, input$plot1_brush)
   })
 }
 
