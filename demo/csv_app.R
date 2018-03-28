@@ -3,6 +3,9 @@ library(shinydashboard)
 
 source("../modules/csv_module.R")
 
+## Taken example from
+# https://github.com/AntoineGuillot2/Shiny_NextPreviousArrow
+
 Previous_Button=tags$div(actionButton("Prev_Tab",HTML('<div class="col-sm-4"><i class="fa fa-angle-double-left fa-2x"></i></div>
                                                                   ')))
 Next_Button=div(actionButton("Next_Tab",HTML('<div class="col-sm-4"><i class="fa fa-angle-double-right fa-2x"></i></div>')))
