@@ -1,5 +1,6 @@
 library(shiny)
 library(shinyjs)
+library(rCharts)
 
 source("../modules/csv_module.R")
 source("ict_var_setup.r")
@@ -25,7 +26,7 @@ ui <- fluidPage(title = "ITHIM",
                                                       )
                                              ),
                                              tabPanel("Results",
-                                                      tabBox(id = "ITHIM",
+                                                      tabsetPanel(id = "ITHIM",
                                                              tabPanel("a", value = 3.1),
                                                              tabPanel("b", value = 3.2,
                                                                       sidebarPanel(
