@@ -16,7 +16,7 @@ ui <- fluidPage(title = "ITHIM",
                                                       sidebarLayout(
                                                         sidebarPanel(
                                                           csvFileUI("datafile_1", "Travel Survey Data (.csv format)"),
-                                                          csvFileUI("datafile_2", "Health Survey Data (.csv format)")
+                                                          csvFileUI("datafile_2", "Non-travel Physical Activity Data (.csv format)")
                                                         ),
                                                         mainPanel(
                                                           fluidRow(dataTableOutput("table_1")),
