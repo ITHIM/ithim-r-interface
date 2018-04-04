@@ -309,6 +309,15 @@ server <- function(input, output, session) {
     updateTabsetPanel(session, "tabBox_next_previous", "Data Uploads")
   })
   
+  shinyjs::onclick("MSHelp", shinyjs::toggle(id = "MSHelpText", anim = FALSE))
+  shinyjs::onclick("MTHelp", shinyjs::toggle(id = "MTHelpText", anim = FALSE))
+  shinyjs::onclick("HealthHelp", shinyjs::toggle(id = "HealthHelpText", anim = FALSE))
+  shinyjs::onclick("PAHelp", shinyjs::toggle(id = "PAHelpText", anim = FALSE))
+  shinyjs::onclick("MCHelp", shinyjs::toggle(id = "MCHelpText", anim = FALSE))
+  shinyjs::onclick("CMHelp", shinyjs::toggle(id = "CMHelpText", anim = FALSE))
+  shinyjs::onclick("CO2Help", shinyjs::toggle(id = "CO2HelpText", anim = FALSE))
+  shinyjs::onclick("mainIntro", shinyjs::toggle(id = "mainIntroText", anim = FALSE))
+  
 }
 
 shinyApp(ui, server)
