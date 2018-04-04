@@ -1,12 +1,15 @@
 library(shiny)
 library(shinyjs)
 library(rCharts)
+library(shinythemes)
 
 source("../modules/csv_module.R")
 source("ict_var_setup.r")
 
-ui <- fluidPage(title = "ITHIM",
+ui <- fluidPage(theme = shinytheme("cerulean"),
+                title = "ITHIM",
                 useShinyjs(),
+                
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      tabPanel("Component 1"),
