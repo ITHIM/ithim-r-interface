@@ -4,11 +4,8 @@ library(rCharts)
 library(shinythemes)
 
 source("../modules/csv_module.R")
-source("data-processing.R")
-source("functions.R")
 source("setup.R")
 source("ict_var_setup.r")
-#cat("WD: - ", getwd(), "\n")
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
