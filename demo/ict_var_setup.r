@@ -1,4 +1,4 @@
-regions <- c('England')
+regions <- generateRegionsList()
 
 # Mode Share
 # Miles Cycled
@@ -78,8 +78,16 @@ genderForHealthCalculations <- c("All",
 
 # default MS/DP values are: 0.05 0.10 0.15 0.25 0.50 0.75 1.00
 # for init use the first (default) region from the list
-uniqueMS <- c(0.05, 0.10, 0.15, 0.25, 0.50, 0.75, 1.00)
+uniqueMS <- generateUniqueMS(region=unname(regions[1]))
 
 # for init use the first (default) region from the list
 # used in "Mode Share" in alternative region
-regionsList <- 'England'
+regionsList <- generateRegionsList(region=unname(regions[1]))
+
+# # default MS/DP values are: 0.05 0.10 0.15 0.25 0.50 0.75 1.00
+# # for init use the first (default) region from the list
+# uniqueMS <- c(0.05, 0.10, 0.15, 0.25, 0.50, 0.75, 1.00)
+# 
+# # for init use the first (default) region from the list
+# # used in "Mode Share" in alternative region
+# regionsList <- 'England'
