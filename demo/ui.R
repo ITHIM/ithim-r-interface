@@ -14,6 +14,12 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                 
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
+                                     p("ITHIM refers to a range of related models and tools developed at 
+                                       CEDAR to perform integrated assessment of the health effects of 
+                                       transport scenarios and policies at the urban and national level. 
+                                       The health effects of transport policies are modelled through the changes 
+                                       in physical activity, road traffic injury risk, and exposure to fine 
+                                       particulate matter (PM2.5) air pollution. "),
                                      p("Please select user scenario - where you need to provide data"),
                                      actionLink("link_data_upload", "User Scenario"),
                                      p("Please select predefined locations to see the ITHIM results for England"),
