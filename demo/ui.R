@@ -44,7 +44,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                  
                                      )
                             ),
-                            tabPanel("Predefined Locations",
+                            tabPanel("Predefined Case Studies",
                                      selectInput(inputId = "inRegions", label = "Select Region:", choices =  regions),
                                      #tabsetPanel(id = "ITHIM",
                                                  #tabPanel("a", value = 3.1),
