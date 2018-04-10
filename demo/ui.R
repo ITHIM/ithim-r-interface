@@ -57,9 +57,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              tags$div(title="Select percentage of total regional population who are as likely to cycle based on trip distance as existing cyclists",
                                                                                       selectInput(inputId = "inBDMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS)
                                                                              ),
-                                                                             
-                                                                             radioButtons(inputId = "inBDEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inBDEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons(inputId = "inBDEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                              radioButtons(inputId = "inBDEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              selectizeInput("inBDAG", "Age Group:", ag, selected = ag[1], multiple = F),
                                                                              radioButtons("inBDGender", "Gender: ", gender, inline = TRUE),
@@ -71,8 +72,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                             ),
                                                             conditionalPanel(condition="input.conditionedPanels == 2",
                                                                              selectInput(inputId = "inTTMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS),#, selected = uBDMS[2]),
-                                                                             radioButtons(inputId = "inTTEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inTTEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons(inputId = "inTTEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                              radioButtons(inputId = "inTTEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                              ),
                                                                              HTML("<hr>"),
                                                                              selectizeInput("inTTAG", "Age Group:", ag, selected = ag[1], multiple = F),
                                                                              radioButtons("inTTGender", "Gender: ", gender, inline = TRUE),
@@ -86,8 +89,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                             ),
                                                             conditionalPanel(condition="input.conditionedPanels == 3",
                                                                              selectInput(inputId = "inMSMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS),#uBDMS, selected = uBDMS[2]),
-                                                                             radioButtons(inputId = "inMSEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inMSEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                               radioButtons(inputId = "inMSEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                              radioButtons(inputId = "inMSEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              selectizeInput("inMSAG", "Age Group:", ag, multiple = F),
                                                                              radioButtons("inMSG", "Gender: ", gender, inline = TRUE),
@@ -103,8 +108,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              tags$div(title="Select percentage of total regional population who are as likely to cycle based on trip distance as existing cyclists",
                                                                                       selectInput(inputId = "inMETMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS)
                                                                              ),
-                                                                             radioButtons("inMETEQ", "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons("inMETEB", "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("inMETEQ", "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                              radioButtons("inMETEB", "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                             ),
                                                                              
                                                                              HTML("<hr>"),
                                                                              selectizeInput("mag", "Age Group:", ag, selected = ag[1], multiple = F),
@@ -119,8 +126,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                             ,
                                                             conditionalPanel(condition="input.conditionedPanels == 5",
                                                                              selectInput(inputId = "inHealthMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS),#uBDMS, selected = uBDMS[2]),
-                                                                             radioButtons(inputId = "inHealthEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inHealthEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                               radioButtons(inputId = "inHealthEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                               radioButtons(inputId = "inHealthEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              radioButtons("inHealthSwitch", label = "Comparison with:", c("Baseline" = "Baseline","An alternative scenario/Region"= "Scenario"), inline = TRUE),
                                                                              HTML("<hr>"),
@@ -142,8 +151,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                             ),
                                                             conditionalPanel(condition="input.conditionedPanels == 6",
                                                                              selectInput(inputId = "inCMMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS),#uBDMS, selected = uBDMS[2]),
-                                                                             radioButtons(inputId = "inCMEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inCMEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                               radioButtons(inputId = "inCMEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                               radioButtons(inputId = "inCMEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              selectizeInput("inCMAG", "Age Group:", ag, multiple = F),
                                                                              radioButtons("inCMG", "Gender: ", gender, inline = TRUE),
@@ -157,8 +168,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              tags$div(title="Select percentage of total regional population who are as likely to cycle based on trip distance as existing cyclists",
                                                                                       selectInput(inputId = "inCO2MS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS)
                                                                              ),
-                                                                             radioButtons(inputId = "inCO2EQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inCO2EB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons(inputId = "inCO2EQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                              radioButtons(inputId = "inCO2EB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              selectizeInput("inCO2AG", "Age Group:", ag, multiple = F),
                                                                              radioButtons("inCO2G", "Gender: ", gender, inline = TRUE),
@@ -168,8 +181,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              radioButtons("inCO2flip", label = "Flip Histogram:", switchRButton, inline = TRUE)
                                                             ),
                                                             conditionalPanel(condition="input.conditionedPanels == 8",
-                                                                             radioButtons(inputId = "inEQ", label = "Select Equity (EQ):", allOnOffRButton, inline = TRUE),
-                                                                             radioButtons(inputId = "inEB", label = "Select Ebike (EB):", allOnOffRButton, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons(inputId = "inEQ", label = "Select Equity (EQ):", allOnOffRButton, inline = TRUE),
+                                                                              radioButtons(inputId = "inEB", label = "Select Ebike (EB):", allOnOffRButton, inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              
                                                                              radioButtons("varname", label = "Plot Variable:", variableRButton),
