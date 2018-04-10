@@ -25,7 +25,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                      sidebarLayout(
                                                        sidebarPanel(
                                                          csvFileUI("datafile_1", "Travel Survey Data (.csv format)"),
-                                                         csvFileUI("datafile_2", "Non-travel Physical Activity Data (.csv format)")
+                                                         csvFileUI("datafile_2", "Non-travel Physical Activity Data (.csv format)"),
+                                                         csvFileUI("datafile_3", "Injury Data (.csv format)")
                                                        ),
                                                        mainPanel(
                                                          fluidRow(dataTableOutput("table_1")),
