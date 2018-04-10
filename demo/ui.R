@@ -19,7 +19,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                      p("Please select predefined locations to see the ITHIM results for England"),
                                      actionLink("link_scenario", "Predefined Locations")
                             ),
-                            tabPanel("User Scenario",
+                            tabPanel("User Case Study",
                                      tabsetPanel(id = "ITHIM",
                                                  tabPanel("Data Sources", value = 2.1,
                                                      sidebarLayout(
