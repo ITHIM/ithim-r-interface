@@ -91,8 +91,6 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                         hidden(
                                                           radioButtons("inTTEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
                                                         ),
-                                                        #HTML("<hr>"),
-                                                        #radioButtons("flipTT", label = "Flip Histogram:", switchRButton, inline = TRUE),
                                                         HTML("<hr>"),
                                                         radioButtons("flipTTPlot", label = "Flip Plot:", TTRButton, inline = TRUE)
                                                         
@@ -201,7 +199,47 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                         HTML("<hr>"),
                                                         radioButtons("inCO2flip", label = "Flip Histogram:", switchRButton, inline = TRUE)
                                        ),
+                                       
                                        conditionalPanel(condition="input.conditionedPanels == 8",
+                                                        tags$div(title="Select percentage of total regional population who are as likely to cycle based on trip distance as existing cyclists",
+                                                                 selectInput(inputId = "inBDMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS)
+                                                        ),
+                                                        hidden(
+                                                          radioButtons(inputId = "inIEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                          radioButtons(inputId = "inIEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                        ),
+                                                        HTML("<hr>"),
+                                                        selectizeInput("inIAG", "Age Group:", ag, selected = ag[1], multiple = F),
+                                                        radioButtons("inIGender", "Gender: ", gender, inline = TRUE),
+                                                        selectizeInput("inISES", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
+                                                        hidden(
+                                                          radioButtons("inIEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                        ),
+                                                        HTML("<hr>"),
+                                                        radioButtons("flipMS", label = "Flip Histogram:", switchRButton, inline = TRUE)
+                                                        
+                                       ),
+                                       
+                                       conditionalPanel(condition="input.conditionedPanels == 9",
+                                                        tags$div(title="Select percentage of total regional population who are as likely to cycle based on trip distance as existing cyclists",
+                                                                 selectInput(inputId = "inAPMS", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS)
+                                                        ),
+                                                        hidden(
+                                                          radioButtons(inputId = "inAPEQ", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                          radioButtons(inputId = "inAPEB", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                        ),
+                                                        HTML("<hr>"),
+                                                        selectizeInput("inAPAG", "Age Group:", ag, selected = ag[1], multiple = F),
+                                                        radioButtons("inAPGender", "Gender: ", gender, inline = TRUE),
+                                                        selectizeInput("inAPSES", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
+                                                        hidden(
+                                                          radioButtons("inAPEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                        ),
+                                                        HTML("<hr>"),
+                                                        radioButtons("flipMS", label = "Flip Histogram:", switchRButton, inline = TRUE)
+                                                        
+                                       ),
+                                       conditionalPanel(condition="input.conditionedPanels == 10",
                                                         hidden(
                                                           radioButtons(inputId = "inEQ", label = "Select Equity (EQ):", allOnOffRButton, inline = TRUE),
                                                           radioButtons(inputId = "inEB", label = "Select Ebike (EB):", allOnOffRButton, inline = TRUE)
@@ -221,6 +259,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                           radioButtons("HVarName", label = "Health Variable:", summaryhealthRButton)
                                                         )
                                        ),
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
                                        # for now only "Mode Share", "Miles Cycled", "Physical Activity", "Car Miles", "CO2"
                                        conditionalPanel(condition="[1, 3, 4, 6, 7].indexOf(parseInt(input.conditionedPanels)) > -1",
                                                         HTML("<hr>"),
@@ -287,7 +333,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   showOutput("plotFilteredCO2", "highcharts"),
                                                   showOutput("plotCO2", "highcharts")
                                          ),
-                                         tabPanel("Summary", value = 8,
+                                         tabPanel("Injury", value = 8),
+                                         tabPanel("Air Pollution", value = 9),
+                                         tabPanel("Summary", value = 10,
                                                   showOutput("plotGenericVariable", "highcharts")
                                          ),
                                          
