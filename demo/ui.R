@@ -49,7 +49,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                               tags$li("Age bands")
                                                             )
                                                           ),
-                                                 tabPanel("Synthetic Baseline Data", value = 2.4),
+                                                 tabPanel("Synthetic Baseline Data", value = 2.4,
+                                                          strong("The process of creating a Synthetic population (sample of 10k individuals), through probabilistic matching of separate input data from population, travel, and health surveys, for baseline.")),
                                                  tabPanel("Scenario Definition", value = 2.5),
                                                  tabPanel("Environmental Impacts Calculations", value = 2.6),
                                                  tabPanel("Exposure Calculations", value = 2.7),
