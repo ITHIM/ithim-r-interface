@@ -1,10 +1,6 @@
-library(shiny)
-library(shinyjs)
-library(rCharts)
-library(shinythemes)
-
-source("../modules/csv_module.R")
 source("setup.R")
+source("../modules/csv_module.R")
+
 source("ITHIM_var_setup.r")
 
 
@@ -14,7 +10,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                 
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
-                                     p("ITHIM refers to a range of related models and tools developed at 
+                                     br(),
+                                     HTML("<hr>"),
+                                     p(strong('ITHIM'), "refers to a range of related models and tools developed at 
                                        CEDAR to perform integrated assessment of the health effects of 
                                        transport scenarios and policies at the urban and national level. 
                                        The health effects of transport policies are modelled through the changes 
@@ -30,6 +28,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                  tabPanel("Data Sources", value = 2.1,
                                                      sidebarLayout(
                                                        sidebarPanel(
+                                                         selectInput(inputId = "in_country_list", label = "Select Country for Global Burden of Disease Data:", choices =  countryExData$Country),
                                                          csvFileUI("datafile_1", "Travel Survey Data (.csv format)"),
                                                          csvFileUI("datafile_2", "Non-travel Physical Activity Data (.csv format)"),
                                                          csvFileUI("datafile_3", "Injury Data (.csv format)")
@@ -71,7 +70,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              selectizeInput("inBDAG", "Age Group:", ag, selected = ag[1], multiple = F),
                                                                              radioButtons("inBDGender", "Gender: ", gender, inline = TRUE),
                                                                              selectizeInput("inBDSES", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
-                                                                             radioButtons("inBDEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("inBDEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              radioButtons("flipMS", label = "Flip Histogram:", switchRButton, inline = TRUE)
                                                                              
@@ -86,7 +87,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              selectizeInput("inTTAG", "Age Group:", ag, selected = ag[1], multiple = F),
                                                                              radioButtons("inTTGender", "Gender: ", gender, inline = TRUE),
                                                                              selectizeInput("inTTSES", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
-                                                                             radioButtons("inTTEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("inTTEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                                             ),
                                                                              #HTML("<hr>"),
                                                                              #radioButtons("flipTT", label = "Flip Histogram:", switchRButton, inline = TRUE),
                                                                              HTML("<hr>"),
@@ -103,7 +106,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              selectizeInput("inMSAG", "Age Group:", ag, multiple = F),
                                                                              radioButtons("inMSG", "Gender: ", gender, inline = TRUE),
                                                                              selectizeInput("inMSSES", "Socio Economic Classification :", ses, multiple = F),
-                                                                             radioButtons("inMSEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("inMSEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              radioButtons("inMSflip", label = "Flip Histogram:", switchRButton, inline = TRUE),
                                                                              HTML("<hr>"),
@@ -123,7 +128,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              selectizeInput("mag", "Age Group:", ag, selected = ag[1], multiple = F),
                                                                              radioButtons("mgender", "Gender: ", gender, inline = TRUE),
                                                                              selectizeInput("mses", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
-                                                                             radioButtons("methnicity", label = "Ethnic Group:", ethnicity, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("methnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              radioButtons("flipMETHG", label = "Flip Histogram:", switchRButton, inline = TRUE),
                                                                              HTML("<hr>"),
@@ -144,8 +151,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                                selectInput(inputId = "inRegionSelectedHealth", label = "Select Region:", choices = regionsList),
                                                                                hidden(p(id = "region-health-switch-warning", class = "region-switch-warnings", "")),
                                                                                selectInput(inputId = "inHealthMS1", label = "Select % of Population who are Regular Cyclists:", choices =  uniqueMS),
-                                                                               radioButtons(inputId = "inHealthEQ1", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
-                                                                               radioButtons(inputId = "inHealthEB1", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                               hidden(
+                                                                                radioButtons(inputId = "inHealthEQ1", label = "Select Equity (EQ):", onOffRButton, inline = TRUE),
+                                                                                radioButtons(inputId = "inHealthEB1", label = "Select Ebike (EB):", onOffRButton, selected = onOffRButton[2], inline = TRUE)
+                                                                               )
                                                                              ),
                                                                              HTML("<hr>"),
                                                                              # Use same age groups for now
@@ -165,7 +174,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              selectizeInput("inCMAG", "Age Group:", ag, multiple = F),
                                                                              radioButtons("inCMG", "Gender: ", gender, inline = TRUE),
                                                                              selectizeInput("inCMSES", "Socio Economic Classification :", ses),
-                                                                             radioButtons("inCMEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("inCMEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                                             ),
+                                                                              
                                                                              HTML("<hr>"),
                                                                              radioButtons("inCMflip", label = "Flip Histogram:", switchRButton, inline = TRUE)
                                                                              
@@ -182,7 +194,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                              selectizeInput("inCO2AG", "Age Group:", ag, multiple = F),
                                                                              radioButtons("inCO2G", "Gender: ", gender, inline = TRUE),
                                                                              selectizeInput("inCO2SES", "Socio Economic Classification :", ses),
-                                                                             radioButtons("inCO2Ethnicity", label = "Ethnic Group:", ethnicity, inline = TRUE),
+                                                                             hidden(
+                                                                              radioButtons("inCO2Ethnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
+                                                                             ),
                                                                              HTML("<hr>"),
                                                                              radioButtons("inCO2flip", label = "Flip Histogram:", switchRButton, inline = TRUE)
                                                             ),
