@@ -8,8 +8,9 @@ pkgs <- c(
   "stringr",
   "Hmisc",
   "rCharts",
-  "shinyURL"
-  
+  "shinyURL",
+  "shiny",
+  "shinythemes"
 )
 # Which packages do we require?
 # lapply(pkgs, library, character.only = T)
