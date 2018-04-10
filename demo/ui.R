@@ -3,6 +3,10 @@ source("../modules/csv_module.R")
 
 source("ITHIM_var_setup.r")
 
+countryExData <- read_csv("data/countryExData.csv")
+countryExData <- select(countryExData, c("ISO3V10", "Country"))
+
+
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
