@@ -40,8 +40,15 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                             )
                                                           )
                                                  ),
-                                                 tabPanel("Data Localization", value = 2.2),
-                                                 tabPanel("Data Harmonization", value = 2.3),
+                                                 tabPanel("Data Localization", value = 2.2,
+                                                          strong('Using GBD to derive local disease and mortality rates.')),
+                                                 tabPanel("Data Harmonization", value = 2.3,
+                                                          strong("The process of conversion or matching of various data formats and variable definitions of external data to the generic data formats used in ITHIM. Including"),
+                                                          tags$ul(
+                                                              tags$li("Transport mode categories"),
+                                                              tags$li("Age bands")
+                                                            )
+                                                          ),
                                                  tabPanel("Synthetic Baseline Data", value = 2.4),
                                                  tabPanel("Scenario Definition", value = 2.5),
                                                  tabPanel("Environmental Impacts Calculations", value = 2.6),
