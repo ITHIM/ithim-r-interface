@@ -98,8 +98,6 @@ server <- shinyServer(function(input, output, session){
   # Create a session specific placeholder to contain all region specific datasets
   sessionData <- NULL
   
-  shinyURL.server()
-  
   observe({
     input$inRegions
     

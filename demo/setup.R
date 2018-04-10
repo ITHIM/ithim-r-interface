@@ -8,7 +8,6 @@ pkgs <- c(
   "stringr",
   "Hmisc",
   "rCharts",
-  "shinyURL",
   "shiny",
   "shinythemes"
 )
