@@ -11,7 +11,6 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      br(),
-                                     HTML("<hr>"),
                                      p(strong('ITHIM'), "refers to a range of related models and tools developed at 
                                        CEDAR to perform integrated assessment of the health effects of 
                                        transport scenarios and policies at the urban and national level. 
