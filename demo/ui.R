@@ -5,7 +5,7 @@ library(shinythemes)
 
 source("../modules/csv_module.R")
 source("setup.R")
-source("ict_var_setup.r")
+source("ITHIM_var_setup.r")
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
