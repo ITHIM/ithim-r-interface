@@ -9,7 +9,7 @@ source("ITHIM_var_setup.r")
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
-                title = "ITHIM",
+                title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
                 useShinyjs(),
                 
                 tabsetPanel(id="tabBox_next_previous",
