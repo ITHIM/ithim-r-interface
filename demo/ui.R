@@ -214,9 +214,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                         selectizeInput("inISES", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
                                                         hidden(
                                                           radioButtons("inIEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
-                                                        ),
-                                                        HTML("<hr>"),
-                                                        radioButtons("flipMS", label = "Flip Histogram:", switchRButton, inline = TRUE)
+                                                        )
                                                         
                                        ),
                                        
@@ -234,9 +232,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                         selectizeInput("inAPSES", "Socio Economic Classification :", ses, selected = ses[1], multiple = F),
                                                         hidden(
                                                           radioButtons("inAPEthnicity", label = "Ethnic Group:", ethnicity, inline = TRUE)
-                                                        ),
-                                                        HTML("<hr>"),
-                                                        radioButtons("flipMS", label = "Flip Histogram:", switchRButton, inline = TRUE)
+                                                        )
                                                         
                                        ),
                                        conditionalPanel(condition="input.conditionedPanels == 10",
