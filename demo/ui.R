@@ -1,5 +1,5 @@
 source("setup.R")
-source("../modules/csv_module.R")
+source("modules/csv_module.R")
 
 source("ITHIM_var_setup.r")
 
