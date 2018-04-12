@@ -63,7 +63,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                      )
                             ),
                             navbarMenu("Predefined Case Studies",
-                                       tabPanel("Accra"),
+                                       tabPanel("Accra",
+                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_scenario_mode.png"),
+                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease.png"),
+                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease_agegroup.png"),
+                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_mode.png"),
+                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_males.png")
+                                                
+                                       ),
                                        tabPanel("England",
                                                 
                                                 selectInput(inputId = "inRegions", label = "Select Region:", choices =  regions),
