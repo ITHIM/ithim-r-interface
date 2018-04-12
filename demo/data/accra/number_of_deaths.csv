@@ -1,0 +1,25 @@
+Disease,Male,Female,Scenario,Age
+Alzheimer disease and other dementias,0,0,Baseline,15-29
+Diabetes mellitus,0.365266799,0.227642033,Baseline,15-29
+Breast cancer,4.16E-03,0.155419317,Baseline,15-29
+Colon and rectum cancer,0.184714765,0.036151239,Baseline,15-29
+Ischemic heart disease,0.727715913,0.345328577,Baseline,15-29
+Cerebrovascular disease,1.199785798,0.550588744,Baseline,15-29
+Alzheimer disease and other dementias,0.405042079,0.371237473,Baseline,30-70
+Diabetes mellitus,6.268095402,3.699572987,Baseline,30-70
+Breast cancer,0.031260713,3.304952837,Baseline,30-70
+Colon and rectum cancer,1.053081396,0.783740483,Baseline,30-70
+Ischemic heart disease,11.88012922,13.59755884,Baseline,30-70
+Cerebrovascular disease,9.837868,16.25326793,Baseline,30-70
+Alzheimer disease and other dementias,0,0,Scenario,15-29
+Diabetes mellitus,0.405914795,0.245274188,Scenario,15-29
+Breast cancer,4.62E-03,0.167457417,Scenario,15-29
+Colon and rectum cancer,0.205270384,0.038951355,Scenario,15-29
+Ischemic heart disease,0.808698344,0.372076217,Scenario,15-29
+Cerebrovascular disease,1.333301595,0.593234937,Scenario,15-29
+Alzheimer disease and other dementias,0.541706205,0.427740385,Scenario,30-70
+Diabetes mellitus,8.382996115,4.262653666,Scenario,30-70
+Breast cancer,0.041808304,3.807971724,Scenario,30-70
+Colon and rectum cancer,1.408398674,0.903026985,Scenario,30-70
+Ischemic heart disease,15.88857072,15.66712813,Scenario,30-70
+Cerebrovascular disease,13.1572358,18.72704022,Scenario,30-70
