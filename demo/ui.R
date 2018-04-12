@@ -6,6 +6,9 @@ source("ITHIM_var_setup.r")
 countryExData <- read_csv("data/countryExData.csv")
 countryExData <- select(countryExData, c("ISO3V10", "Country"))
 
+accra_deaths <- read_csv("data/accra/number_of_deaths.csv")
+accra_diseases <- append('All', unique(accra_deaths$Disease))
+accra_ages <- append('All', unique(accra_deaths$Age))
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
@@ -64,11 +67,16 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             ),
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra",
-                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_scenario_mode.png"),
-                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease.png"),
-                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease_agegroup.png"),
-                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_mode.png"),
-                                                img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_males.png")
+                                                tabsetPanel(
+                                                  tabPanel("Changes in mortality",
+                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_scenario_mode.png"),
+                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease.png"),
+                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease_agegroup.png"),
+                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_mode.png"),
+                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_males.png")
+                                                  ),
+                                                  tabPanel("Travel Times")
+                                                )
                                                 
                                        ),
                                        tabPanel("England",
