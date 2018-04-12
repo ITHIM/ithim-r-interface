@@ -62,7 +62,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                  
                                      )
                             ),
-                            tabPanel("Predefined Case Studies",
+                            navbarMenu("Predefined Case Studies",
+                                     tabPanel("Accra"),
+                                     tabPanel("England",
+                                     
                                      selectInput(inputId = "inRegions", label = "Select Region:", choices =  regions),
                                      sidebarPanel(
                                        
@@ -353,7 +356,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             )
                             
                             
-                            
+                            )
                             
                             
                             
