@@ -4186,6 +4186,62 @@ server <- shinyServer(function(input, output, session){
     updateTabsetPanel(session, "tabBox_next_previous", "Predefined Case Studies")
   })
   
+  output$plotDeaths <- renderChart({
+    input$inAccraDisease
+    input$inAccraAges
+    
+    if (!is.null(accra_deaths)){
+      
+      h1 <- Highcharts$new()
+      h1$chart(type = "column", style = list(fontFamily = 'Arial, sans-serif',
+                                             fontSize = '12px'))
+      
+      
+      
+      
+      td <- filter(accra_deaths, Scenario == 'Baseline')# & Age == '15-29'
+      
+      td <- td %>% group_by(Disease) %>% summarise (Males = round(sum(Male)), 
+                                                    Females = round(sum(Female)))
+      
+      h1$xAxis(categories = c('Males', 'Females'), title = list(text = 'Number of deaths'))
+      h1$series(data = c(td$Males, td$Females), name = 'Males')
+      
+      h1$plotOptions(column=list(animation=FALSE))
+      
+      # Set exporting style
+      # Reduce font size of the x-axis
+      h1$exporting(enabled = T,
+                   chartOptions = list(
+                     legend = list(
+                       x = -30,
+                       itemDistance = 80,
+                       itemMarginBottom = 5
+                     ),
+                     xAxis = list(
+                       title = list(
+                         y = 10
+                       ),
+                       labels = list (
+                         style = list (
+                           fontSize = "8px"  
+                         )
+                       )
+                     )
+                   ))
+    }
+    
+    
+    h1$title(text = '')
+    h1$tooltip(formatter = "#! function() {  return this.series.name +'<br/>' + 'Value: <b>' + this.y + '%'; } !#")
+    
+    h1$set(dom = "plotDeaths")
+    
+    return(h1)
+  })
+  
+  
+  
   
   
 })
