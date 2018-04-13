@@ -27,10 +27,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                                            target = "_blank"), 
                                        "This is a work in progress involving partners from UK, Switzerland, 
                                        Brazil, USA and Canada.  "),
-                                     p("Please select user scenario - where you need to provide data"),
-                                     actionLink("link_data_upload", "User Scenario"),
-                                     p("Please select predefined locations to see the ITHIM results for England"),
-                                     actionLink("link_scenario", "Predefined Locations")
+                                     tags$ul(
+                                       tags$li(p("Please select ", actionLink("link_data_upload", "User Case Study"), 
+                                               " - where you need to provide data")),
+                                       tags$li(p("Please select ", actionLink("link_scenario", "Predefined Case Studies"),
+                                               " to see the ITHIM results for predefined locations."))
+                                     )
+                                     
+                                     
                             ),
                             tabPanel("User Case Study",
                                      tabsetPanel(id = "ITHIM",
