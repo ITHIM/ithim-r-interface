@@ -74,18 +74,26 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             ),
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra",
-                                                tabsetPanel(
-                                                  tabPanel("Changes in mortality",
-                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_scenario_mode.png"),
-                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease.png"),
-                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease_agegroup.png"),
-                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_mode.png"),
-                                                    img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_males.png")
+                                                sidebarPanel(
+                                                  selectizeInput("inAccraDisease", "Disease: ", accra_diseases ),
+                                                  HTML("<hr>"),
+                                                  selectizeInput("inAccraAges", "Age: ", accra_ages)
+                                                ),
+                                                  
+                                                  
+                                                  mainPanel(
+                                                    
+                                                    showOutput("plotDeaths", "highcharts")
+                                                    # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_scenario_mode.png"),
+                                                    # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease.png"),
+                                                    # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease_agegroup.png"),
+                                                    # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_mode.png"),
+                                                    # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_males.png")
                                                   ),
                                                   tabPanel("Travel Times")
                                                 )
                                                 
-                                       ),
+                                       ,
                                        tabPanel("England",
                                                 
                                                 selectInput(inputId = "inRegions", label = "Select Region:", choices =  regions),
