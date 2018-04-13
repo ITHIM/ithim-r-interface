@@ -18,12 +18,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      br(),
-                                     p(strong('ITHIM'), "refers to a range of related models and tools developed at 
-                                       CEDAR to perform integrated assessment of the health effects of 
-                                       transport scenarios and policies at the urban and national level. 
-                                       The health effects of transport policies are modelled through the changes 
-                                       in physical activity, road traffic injury risk, and exposure to fine 
-                                       particulate matter (PM2.5) air pollution. "),
+                                     p(strong('ITHIM'), " was developed out of work for the Lancet series on climate change mitigation and health 2009. Initially created as a spreadsheet model a more recent Analytica model has been used in studies for Sao Paulo and the London Cycle Hire scheme. An international team of researchers is moving the model to R with a Shiny interface [ links]. This is a work in progress involving partners from UK, Switzerland, Brazil, USA and Canada.  "),
                                      p("Please select user scenario - where you need to provide data"),
                                      actionLink("link_data_upload", "User Scenario"),
                                      p("Please select predefined locations to see the ITHIM results for England"),
