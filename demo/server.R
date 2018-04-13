@@ -4179,11 +4179,11 @@ server <- shinyServer(function(input, output, session){
   
   
   observeEvent(input$link_data_upload, {
-    updateTabsetPanel(session, "tabBox_next_previous", "User Scenario")
+    updateTabsetPanel(session, "tabBox_next_previous", "User Case Study")
   })
   
   observeEvent(input$link_scenario, {
-    updateTabsetPanel(session, "tabBox_next_previous", "Predefined Locations")
+    updateTabsetPanel(session, "tabBox_next_previous", "Predefined Case Studies")
   })
   
   
