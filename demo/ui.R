@@ -10,6 +10,8 @@ accra_population <- c('All', 'Males', 'Females')
 accra_diseases <- append('All', unique(accra_deaths$Disease))
 accra_ages <- (unique(accra_deaths$Age))
 
+accra_travel_modes <- unique(accra_travel_times$Mode)
+
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
@@ -82,7 +84,12 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Mortality'",
                                                     selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
+                                                  ),
+                                                  
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
+                                                                   selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
                                                   )
+                                                  
                                                   
                                                   
                                                   
