@@ -4279,10 +4279,6 @@ server <- shinyServer(function(input, output, session){
       
       lbls <- a$params$xAxis[[1]]$categories
       
-      if(length(lbls) == 1 ){
-        cat("-- ", paste0(lbls, "-"), "\n")
-      }
-      
       if(length(lbls) == 1 )
         h1$xAxis(categories = td$Disease,  title = list(text = 'Number of deaths'))
       else
