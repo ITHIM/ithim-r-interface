@@ -79,7 +79,12 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   HTML("<hr>"),
                                                   selectizeInput("inAccraAges", "Age: ", accra_ages),
                                                   HTML("<hr>"),
-                                                  selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
+                                                  
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Mortality'",
+                                                    selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
+                                                  )
+                                                  
+                                                  
                                                   
                                                 ),
                                                   
@@ -92,7 +97,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     
                                                   ),
                                                   
-                                                  tabPanel('Mode')
+                                                  tabPanel('Mode'),
+                                                  id = "accraConditionedPanels"
                                                 )
                                                   )
                                        )
