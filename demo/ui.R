@@ -8,9 +8,9 @@ countryExData <- select(countryExData, c("ISO3V10", "Country"))
 
 accra_population <- c('All', 'Males', 'Females')
 accra_diseases <- append('All', unique(accra_deaths$Disease))
-accra_ages <- (unique(accra_deaths$Age))
+accra_ages <- unique(accra_deaths$Age)
 
-accra_travel_modes <- unique(accra_travel_times$Mode)
+accra_travel_modes <- append('All', unique(accra_travel_times$Mode))
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
@@ -90,11 +90,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
                                                   )
                                                   
-                                                  
-                                                  
-                                                  
                                                 ),
-                                                  
                                                   
                                                   mainPanel(
                                                     tabsetPanel (
@@ -102,9 +98,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                           showOutput("plotBaselineDeaths", "highcharts"),
                                                           showOutput("plotScenarioDeaths", "highcharts")
                                                     
-                                                  ),
-                                                  
-                                                  tabPanel('Mode'),
+                                                  )
+                                                  ,
+
+                                                  tabPanel('Mode',
+                                                          showOutput("plotBaselinModes", "highcharts"),
+                                                          showOutput("plotScenarioModes", "highcharts")
+                                                          )
+                                                  ,
                                                   id = "accraConditionedPanels"
                                                 )
                                                   )
