@@ -4186,7 +4186,7 @@ server <- shinyServer(function(input, output, session){
     updateTabsetPanel(session, "tabBox_next_previous", "Predefined Case Studies")
   })
   
-  output$plotDeaths <- renderChart({
+  output$plotBaselineDeaths <- renderChart({
     
     input$inAccraPop
     input$inAccraAges
@@ -4273,7 +4273,7 @@ server <- shinyServer(function(input, output, session){
       #            group.na = 'NA\'s')
       # h1$series(a1$params$series)
     }
-    h1$set(dom = "plotDeaths")
+    h1$set(dom = "plotBaselineDeaths")
     
     #a <- hPlot(COUNT ~ YYYYMM, data=x, type="line") ######### doesnt WORK!
     return (h1)

@@ -86,7 +86,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   mainPanel(
                                                     
-                                                    showOutput("plotDeaths", "highcharts")
+                                                    showOutput("plotBaselineDeaths", "highcharts")
                                                     # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_scenario_mode.png"),
                                                     # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease.png"),
                                                     # img(src="accra_mockup/changes_in_mortality/number_of_deaths_avoided_baseline_disease_agegroup.png"),
