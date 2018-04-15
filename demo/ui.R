@@ -86,7 +86,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   mainPanel(
                                                     
-                                                    showOutput("plotBaselineDeaths", "highcharts")
+                                                    showOutput("plotBaselineDeaths", "highcharts"),
+                                                    showOutput("plotScenarioDeaths", "highcharts")
+                                                    
                                                   ),
                                                   tabPanel("Travel Times")
                                                 )
