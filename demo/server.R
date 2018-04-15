@@ -4294,5 +4294,115 @@ server <- shinyServer(function(input, output, session){
   })
   
   
+  
+  output$plotBaselinModes <- renderChart({
+    
+    input$inAccraPop
+    input$inAccraAges
+    input$inAccraModes
+    
+    h1 <- Highcharts$new()
+    if (!is.null(accra_travel_times)){
+      td <- filter(accra_travel_times, Scenario == 'Baseline')
+      
+      if(input$inAccraPop == 'All' && input$inAccraModes == 'All' && input$inAccraAges == 'All'){
+        input$inAccraModes != 'All'
+        td <- data.frame(Freq = sum(td$Freq), Mode = 'All', Sex = "All")
+      }
+      
+      
+      if(input$inAccraPop != 'All'){
+        td <- filter(td, Sex == input$inAccraPop)
+        
+      }
+      
+      if(input$inAccraModes != 'All'){
+        td <- filter(td, Mode == input$inAccraModes)
+        
+      }
+      
+      if(input$inAccraAges != 'All'){
+        td <- filter(td, Age == input$inAccraAges)
+        
+      }
+      
+      
+      local_td <<- td
+      
+      a <- hPlot(Freq ~ Mode, data = td, 
+                 type = 'column',
+                 group = 'Sex',
+                 group.na = 'NA\'s')
+      
+      lbls <- a$params$xAxis[[1]]$categories
+      
+      if(length(lbls) == 1 )
+        h1$xAxis(categories = td$Mode,  title = list(text = 'Number of deaths'))
+      else
+        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+      
+      
+      h1$series(a$params$series)
+    }
+    h1$set(dom = "plotBaselinModes")
+    
+    return (h1)
+  })
+  
+  
+  output$plotScenarioModes <- renderChart({
+    
+    input$inAccraPop
+    input$inAccraAges
+    input$inAccraModes
+    
+    h1 <- Highcharts$new()
+    if (!is.null(accra_travel_times)){
+      td <- filter(accra_travel_times, Scenario == 'Scenario')
+      
+      
+      if(input$inAccraPop == 'All' && input$inAccraModes == 'All' && input$inAccraAges == 'All'){
+        input$inAccraModes != 'All'
+        td <- data.frame(Freq = sum(td$Freq), Mode = 'All', Sex = "All")
+      }
+      
+      if(input$inAccraPop != 'All'){
+        td <- filter(td, Sex == input$inAccraPop)
+        
+      }
+      
+      if(input$inAccraModes != 'All'){
+        td <- filter(td, Mode == input$inAccraModes)
+        
+      }
+      
+      if(input$inAccraAges != 'All'){
+        td <- filter(td, Age == input$inAccraAges)
+      }
+      
+      
+      
+      a <- hPlot(Freq ~ Mode, data = td, 
+                 type = 'column',
+                 group = 'Sex',
+                 group.na = 'NA\'s')
+      
+      lbls <- a$params$xAxis[[1]]$categories
+      
+      if(length(lbls) == 1 )
+        h1$xAxis(categories = td$Mode,  title = list(text = 'Number of deaths'))
+      else
+        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+      
+      
+      h1$series(a$params$series)
+      
+      
+    }
+    h1$set(dom = "plotScenarioModes")
+    return (h1)
+  })
+  
+  
 })
 
