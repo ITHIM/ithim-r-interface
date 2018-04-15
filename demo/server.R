@@ -4358,7 +4358,98 @@ server <- shinyServer(function(input, output, session){
   # })
   # 
   
-  
+  output$plotScenarioDeaths <- renderChart({
+    
+    input$inAccraPop
+    input$inAccraAges
+    input$inAccraDisease
+    
+    h1 <- Highcharts$new()
+    if (!is.null(accra_deaths)){
+      td <- filter(accra_deaths, Scenario == 'Scenario')
+      #td1 <- filter(accra_deaths, Scenario == 'Scenario')
+      
+      
+      if(input$inAccraPop == 'All' && input$inAccraDisease == 'All' && input$inAccraAges == 'All'){
+        input$inAccraDisease != 'All'
+        td <- data.frame(Freq = sum(td$Freq), Disease = 'All', Sex = "All")
+        #td1 <- data.frame(Freq = sum(td1$Freq), Disease = 'All', Sex = "All")
+      }
+      
+      # else{
+      #   
+      #   if(input$inAccraPop == 'All'){
+      #     td <- ddply(td, c("Sex"), summarise, Freq = sum(Freq))
+      #   }
+      #   
+      #   if(input$inAccraDisease == 'All'){
+      #     td <- ddply(td, c("Disease"), summarise, Freq = sum(Freq))
+      #   }
+      #   
+      #   if(input$inAccraAges == 'All'){
+      #     td <- ddply(td, c("Age"), summarise, Freq = sum(Freq))
+      #   }
+      # }
+      
+      
+      
+      #
+      
+      #td <- td %>% group_by(Age, Disease) %>% summarise (Freq = sum(Freq),
+      #                                          Disease = first(Disease))
+      
+      if(input$inAccraPop != 'All'){
+        td <- filter(td, Sex == input$inAccraPop)
+        #td1 <- filter(td1, Sex == input$inAccraPop)
+        
+      }
+      
+      if(input$inAccraDisease != 'All'){
+        td <- filter(td, Disease == input$inAccraDisease)
+        #td1 <- filter(td1, Disease == input$inAccraDisease)
+        
+      }
+      
+      if(input$inAccraAges != 'All'){
+        td <- filter(td, Age == input$inAccraAges)
+        #td1 <- filter(td1, Age == input$inAccraAges)
+        
+      }
+      
+      
+      
+      a <- hPlot(Freq ~ Disease, data = td, 
+                 type = 'column',
+                 group = 'Sex',
+                 group.na = 'NA\'s')
+      
+      lbls <- a$params$xAxis[[1]]$categories
+      
+      if(length(lbls) == 1 ){
+        cat("-- ", paste0(lbls, "-"), "\n")
+      }
+      
+      cat(length(lbls), " - ", ifelse((length(lbls) > 1 ),lbls, paste0(lbls, " ")), "\n")
+      if(length(lbls) == 1 )
+        h1$xAxis(categories = td$Disease,  title = list(text = 'Number of deaths'))
+      else
+        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+      
+      
+      h1$series(a$params$series)
+      
+      
+      # a1 <- hPlot(Freq ~ Disease, data = td1, 
+      #            type = 'column',
+      #            group = 'Sex',
+      #            group.na = 'NA\'s')
+      # h1$series(a1$params$series)
+    }
+    h1$set(dom = "plotScenarioDeaths")
+    
+    #a <- hPlot(COUNT ~ YYYYMM, data=x, type="line") ######### doesnt WORK!
+    return (h1)
+  })
   
   
 })
