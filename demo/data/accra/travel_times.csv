@@ -1,25 +1,49 @@
-Modes,Male,Female,Scenario,Age
-Walk,3.103741497,2.893835616,Baseline,15-29
-Private car,0.765306122,0.479452055,Baseline,15-29
-Taxi,0.385487528,0.342465753,Baseline,15-29
-Bus,4.146825397,3.672945205,Baseline,15-29
-Bicycle,0.05952381,0.00E+00,Baseline,15-29
-Other,0.102040816,0.085616438,Baseline,15-29
-Walk,1.970108696,1.662234043,Baseline,30-70
-Private car,1.440217391,0.545212766,Baseline,30-70
-Taxi,1.630434783,0.726950355,Baseline,30-70
-Bus,4.682971014,5.241578014,Baseline,30-70
-Bicycle,0.013586957,6.65E-03,Baseline,30-70
-Other,0.230978261,0.093085106,Baseline,30-70
-Walk,3.103741497,2.893835616,Scenario,15-29
-Private car,0.382653061,0.239726027,Scenario,15-29
-Taxi,0.385487528,0.342465753,Scenario,15-29
-Bus,4.146825397,3.672945205,Scenario,15-29
-Bicycle,0.25085034,1.20E-01,Scenario,15-29
-Other,0.102040816,0.085616438,Scenario,15-29
-Walk,1.970108696,1.662234043,Scenario,30-70
-Private car,0.720108696,0.272606383,Scenario,30-70
-Taxi,1.630434783,0.726950355,Scenario,30-70
-Bus,4.682971014,5.241578014,Scenario,30-70
-Bicycle,0.373641304,0.142952128,Scenario,30-70
-Other,0.230978261,0.093085106,Scenario,30-70
+Mode,Freq,Age,Scenario
+Walk,3.103741497,15-29,Baseline
+Private car,0.765306122,15-29,Baseline
+Taxi,0.385487528,15-29,Baseline
+Bus,4.146825397,15-29,Baseline
+Bicycle,0.05952381,15-29,Baseline
+Other,0.102040816,15-29,Baseline
+Walk,1.970108696,30-70,Baseline
+Private car,1.440217391,30-70,Baseline
+Taxi,1.630434783,30-70,Baseline
+Bus,4.682971014,30-70,Baseline
+Bicycle,0.013586957,30-70,Baseline
+Other,0.230978261,30-70,Baseline
+Walk,3.103741497,15-29,Scenario
+Private car,0.382653061,15-29,Scenario
+Taxi,0.385487528,15-29,Scenario
+Bus,4.146825397,15-29,Scenario
+Bicycle,0.25085034,15-29,Scenario
+Other,0.102040816,15-29,Scenario
+Walk,1.970108696,30-70,Scenario
+Private car,0.720108696,30-70,Scenario
+Taxi,1.630434783,30-70,Scenario
+Bus,4.682971014,30-70,Scenario
+Bicycle,0.373641304,30-70,Scenario
+Other,0.230978261,30-70,Scenario
+Walk,2.893835616,15-29,Baseline
+Private car,0.479452055,15-29,Baseline
+Taxi,0.342465753,15-29,Baseline
+Bus,3.672945205,15-29,Baseline
+Bicycle,0.00E+00,15-29,Baseline
+Other,0.085616438,15-29,Baseline
+Walk,1.662234043,30-70,Baseline
+Private car,0.545212766,30-70,Baseline
+Taxi,0.726950355,30-70,Baseline
+Bus,5.241578014,30-70,Baseline
+Bicycle,6.65E-03,30-70,Baseline
+Other,0.093085106,30-70,Baseline
+Walk,2.893835616,15-29,Scenario
+Private car,0.239726027,15-29,Scenario
+Taxi,0.342465753,15-29,Scenario
+Bus,3.672945205,15-29,Scenario
+Bicycle,1.20E-01,15-29,Scenario
+Other,0.085616438,15-29,Scenario
+Walk,1.662234043,30-70,Scenario
+Private car,0.272606383,30-70,Scenario
+Taxi,0.726950355,30-70,Scenario
+Bus,5.241578014,30-70,Scenario
+Bicycle,0.142952128,30-70,Scenario
+Other,0.093085106,30-70,Scenario
