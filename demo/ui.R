@@ -6,9 +6,9 @@ source("ITHIM_var_setup.r")
 countryExData <- read_csv("data/countryExData.csv")
 countryExData <- select(countryExData, c("ISO3V10", "Country"))
 
-accra_deaths <- read_csv("data/accra/number_of_deaths.csv")
+accra_population <- c('All', 'Males', 'Females')
 accra_diseases <- append('All', unique(accra_deaths$Disease))
-accra_ages <- append('All', unique(accra_deaths$Age))
+accra_ages <- (unique(accra_deaths$Age))
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
@@ -75,9 +75,12 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra",
                                                 sidebarPanel(
-                                                  selectizeInput("inAccraDisease", "Disease: ", accra_diseases ),
+                                                  selectizeInput("inAccraPop", "Population: ", accra_population),
                                                   HTML("<hr>"),
-                                                  selectizeInput("inAccraAges", "Age: ", accra_ages)
+                                                  selectizeInput("inAccraAges", "Age: ", accra_ages),
+                                                  HTML("<hr>"),
+                                                  selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
+                                                  
                                                 ),
                                                   
                                                   
