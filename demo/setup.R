@@ -22,6 +22,7 @@ reqs <- as.numeric(lapply(pkgs, require, character.only = TRUE))
 # if(!require(shiny)) devtools::install_github("shiny", "rstudio")
 
 accra_deaths <- read_csv("data/accra/number_of_deaths.csv")
+accra_travel_times <- read_csv("data/accra/travel_times.csv")
 
 source("data-processing.R")
 # Functions
