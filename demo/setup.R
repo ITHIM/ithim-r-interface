@@ -1,3 +1,4 @@
+rm(list = ls())
 pkgs <- c(
   "DT",
   "devtools",
@@ -19,6 +20,8 @@ reqs <- as.numeric(lapply(pkgs, require, character.only = TRUE))
 # if(!require(rCharts)) devtools::install_github("rCharts", "ramnathv")
 # 
 # if(!require(shiny)) devtools::install_github("shiny", "rstudio")
+
+accra_deaths <- read_csv("data/accra/number_of_deaths.csv")
 
 source("data-processing.R")
 # Functions
