@@ -7,7 +7,8 @@ pkgs <- c(
   "Hmisc",
   "rCharts",
   "shiny",
-  "shinythemes"
+  "shinythemes",
+  "shinyBS"
 )
 # Which packages do we require?
 # lapply(pkgs, library, character.only = T)
