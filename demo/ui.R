@@ -41,10 +41,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                        "This is a work in progress involving partners from UK, Switzerland, 
                                        Brazil, USA and Canada.  "),
                                      tags$ul(
-                                       tags$li(p("Please select ", actionLink("link_data_upload", "User Case Study"), 
-                                               " - where you need to provide data")),
-                                       tags$li(p("Please select ", actionLink("link_scenario", "Predefined Case Studies"),
-                                               " to see the ITHIM results for predefined locations."))
+                                       tags$li(p("Please select ", HTML("<cite> User Case Study</cite>"), " where you need to provide data for both baseline and scenarios")),
+                                       tags$li(p("Please select ", HTML("<cite> Predefined Case Studies</cite>"), " to see the ITHIM results for predefined locations."))
                                      )
                                      
                                      
