@@ -8,7 +8,8 @@ pkgs <- c(
   "rCharts",
   "shiny",
   "shinythemes",
-  "shinyBS"
+  "shinyBS",
+  "slickR"
 )
 # Which packages do we require?
 # lapply(pkgs, library, character.only = T)
