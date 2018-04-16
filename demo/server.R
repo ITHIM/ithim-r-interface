@@ -4234,6 +4234,7 @@ server <- shinyServer(function(input, output, session){
       
       h1$series(a$params$series)
       h1$title(text = 'Baseline Number of Deaths Prevented by Active Travel')
+      h1$yAxis(title = list(text = 'Prevented deaths per year'))
     }
     h1$set(dom = "plotBaselineDeaths")
     
@@ -4288,6 +4289,7 @@ server <- shinyServer(function(input, output, session){
       
       h1$series(a$params$series)
       h1$title(text = 'Scenario Number of Deaths Prevented by Active Travel')
+      h1$yAxis(title = list(text = 'Prevented deaths per year'))
       
       
       
