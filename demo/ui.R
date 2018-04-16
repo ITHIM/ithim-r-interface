@@ -44,8 +44,11 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                           sidebarLayout(
                                                             sidebarPanel(
                                                               div(selectInput(inputId = "in_country_list", 
-                                                                              label = strong("Select Country for: Global Burden of Disease (GBD) and Injury"), choices =  countryExData$Country)
+                                                                              label = strong("Select Country for: Global Burden of Disease (GBD)"), choices =  countryExData$Country)
                                                               ),
+                                                              HTML("<hr>"),
+                                                              selectInput(inputId = "in_city_list", label = strong("Air Population: select city"), choices =  ''),
+                                                              HTML("<hr>"),
                                                               csvFileUI("datafile_1", "Travel Survey Data (.csv format)"),
                                                               csvFileUI("datafile_2", "Non-travel Physical Activity Data (.csv format)"),
                                                               csvFileUI("datafile_3", "Injury Data (.csv format)")
