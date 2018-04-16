@@ -77,7 +77,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra",
                                                 sidebarPanel(
-                                                  selectizeInput("inAccraPop", "Population: ", accra_population),
+                                                  selectizeInput("inAccraPop", "Gender: ", accra_population),
                                                   HTML("<hr>"),
                                                   selectizeInput("inAccraAges", "Age: ", accra_ages),
                                                   HTML("<hr>"),
