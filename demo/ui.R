@@ -16,9 +16,19 @@ accra_travel_modes <- append('All', unique(accra_travel_times$Mode))
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
                 useShinyjs(),
+                titlePanel(fluidRow(
+                  column(4, tags$a(img(src="./assets/mrc-cam.png", style = "height:50px"), href="http://www.mrc-epid.cam.ac.uk", target="_blank", align="left")),
+                  #column(2, tags$a(img(src="cam.png", style = "height:50px"), href="http://www.cam.ac.uk", target="_blank"), align = 'left'),
+                  column(2, offset = 6, div(tags$a(img(src="./assets/cedar.png", style = "height:50px"), href="http://www.cedar.iph.cam.ac.uk/", target="_blank")), align="right")
+                  
+                )),
                 
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
+                                     
+                                     #slickR(obj = c('./www/assets/shutterstock_25886038.jpg', './www/assets/shutterstock_110041646.jpg'), slickOpts=list(dots=T, autoplay=T,arrows=F, pauseOnHover=F, fade=T,speed=750), slideId = 'ex1', width = "100%", height = "400px"),
+                                     
+                                              
                                      br(),
                                      p(strong('ITHIM'), " was developed out of work for the Lancet series 
                                        on climate change mitigation and health 2009. Initially created as a 
@@ -96,8 +106,11 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
                                                   ),
                                                   HTML("<hr>"),
-                                                  bsCollapsePanel(" Prelimentary Results", "We have produced these results with constraint assumptions.
-                                                                  We have applied mortality data of Ghana to Accra.")
+                                                  bsCollapsePanel(" Preliminary Results", "These results are work in progress. We have not yet included changes in air pollution 
+                                                                  or road traffic injuries.
+                                                                  We have downscaled mortality data for the whole of Ghana to Accra and this may have led to an underestimation of the relative burden of non-communicable diseases.
+                                                                  We have also used simplified dose response relations and broad age categories.
+                                                                  ")
                                                   
                                                 ),
                                                   
@@ -417,7 +430,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                        )
                                        
                                        
-                            )
+                            )#,
+                            #tabPanel('About',
+                                     
+                            #         includeMarkdown("about.md"))
                             
                             
                             
