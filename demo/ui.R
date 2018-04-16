@@ -8,7 +8,7 @@ countryExData <- select(countryExData, c("ISO3V10", "Country"))
 
 accra_population <- c('All', 'Males', 'Females')
 accra_diseases <- append('All', unique(accra_deaths$Disease))
-accra_ages <- unique(accra_deaths$Age)
+accra_ages <- append('All', unique(accra_deaths$Age))
 
 accra_travel_modes <- append('All', unique(accra_travel_times$Mode))
 
