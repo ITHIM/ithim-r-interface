@@ -94,17 +94,21 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   mainPanel(
                                                     tabsetPanel (
+                                                      
+                                                      tabPanel('Mode',
+                                                               showOutput("plotBaselinModes", "highcharts"),
+                                                               showOutput("plotScenarioModes", "highcharts")
+                                                      ),
+                                                      
+                                                      
                                                       tabPanel('Mortality',
                                                           showOutput("plotBaselineDeaths", "highcharts"),
                                                           showOutput("plotScenarioDeaths", "highcharts")
                                                     
                                                   )
-                                                  ,
+                                                  
 
-                                                  tabPanel('Mode',
-                                                          showOutput("plotBaselinModes", "highcharts"),
-                                                          showOutput("plotScenarioModes", "highcharts")
-                                                          )
+                                                  
                                                   ,
                                                   id = "accraConditionedPanels"
                                                 )
