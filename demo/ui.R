@@ -26,7 +26,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      
-                                     #slickR(obj = c('./www/assets/Ciclovia_da_Av._Paulista_02.jpg', './www/assets/IMG_1516.jpg'), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
+                                     slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
+                                                    ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
                                      
                                               
                                      br(),
