@@ -431,10 +431,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                        )
                                        
                                        
-                            )#,
-                            #tabPanel('About',
-                                     
-                            #         includeMarkdown("about.md"))
+                            ),
+                            tabPanel('About',
+                                     includeMarkdown("about.md"))
                             
                             
                             
