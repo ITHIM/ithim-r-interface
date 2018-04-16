@@ -4342,6 +4342,8 @@ server <- shinyServer(function(input, output, session){
         h1$xAxis(categories = lbls,  title = list(text = 'Travel Times (hours per week)'))
       
       
+      h1$title(text = 'Baseline Travel Times by Modes')
+      
       h1$series(a$params$series)
     }
     h1$set(dom = "plotBaselinModes")
@@ -4396,6 +4398,8 @@ server <- shinyServer(function(input, output, session){
       
       
       h1$series(a$params$series)
+      
+      h1$title(text = 'Scenario Travel Times by Modes')
       
       
     }
