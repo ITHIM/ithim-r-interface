@@ -26,7 +26,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      
-                                     #slickR(obj = c('./www/assets/shutterstock_25886038.jpg', './www/assets/shutterstock_110041646.jpg'), slickOpts=list(dots=T, autoplay=T,arrows=F, pauseOnHover=F, fade=T,speed=750), slideId = 'ex1', width = "100%", height = "400px"),
+                                     #slickR(obj = c('./www/assets/Ciclovia_da_Av._Paulista_02.jpg', './www/assets/IMG_1516.jpg'), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
                                      
                                               
                                      br(),
@@ -98,7 +98,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   selectizeInput("inAccraAges", "Age: ", accra_ages),
                                                   HTML("<hr>"),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcome'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcomes'",
                                                     selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
                                                   ),
                                                   
@@ -123,7 +123,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                       ),
                                                       
                                                       
-                                                      tabPanel('Health Outcome',
+                                                      tabPanel('Health Outcomes',
                                                           showOutput("plotBaselineDeaths", "highcharts"),
                                                           showOutput("plotScenarioDeaths", "highcharts")
                                                     
