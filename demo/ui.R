@@ -69,21 +69,27 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                           )
                                                  ),
                                                  tabPanel("Data Localization", value = 2.2,
-                                                          strong('Using GBD to derive local disease and mortality rates.')),
+                                                          strong('Data Localization: '), 
+                                                          p("Using GBD to derive local disease and mortality rates.")),
                                                  tabPanel("Data Harmonization", value = 2.3,
-                                                          strong("The process of conversion or matching of various data formats and variable definitions of external data to the generic data formats used in ITHIM. Including"),
+                                                          strong("Data Harmonization: "), 
+                                                          p("The process of conversion or matching of various data formats and variable definitions of external data to the generic data formats used in ITHIM. Including"),
                                                           tags$ul(
                                                             tags$li("Transport mode categories"),
                                                             tags$li("Age bands")
                                                           )
                                                  ),
                                                  tabPanel("Synthetic Baseline Data", value = 2.4,
-                                                          strong("The process of creating a Synthetic population (sample of 10k individuals), through probabilistic matching of separate input data from population, travel, and health surveys, for baseline.")),
+                                                          strong("Synthetic population"),
+                                                          p("The process of creating a Synthetic population (sample of 10k individuals), through probabilistic matching of separate input data from population, travel, and health surveys, for baseline.")),
                                                  tabPanel("Scenario Definitions", value = 2.5),
                                                  tabPanel("Health Impacts", value = 2.6),
                                                  tabPanel("Physical Activity", value = 2.7),
                                                  tabPanel("Air Population", value = 2.8),
-                                                 tabPanel("Injury", value = 2.8)
+                                                 tabPanel("Injury", value = 2.8,
+                                                          strong("Road traffic injuries:"),
+                                                          p("Unlike most other models of walking and cycling ITHIM estimates injuries taking into account all the parties involved in collision. ITHIM uses a non-linear distance based method. That is the number of injuries is dependent on the distance travelled by all modes, but it is non-linear because it includes ‘safety-in-numbers’.")
+                                                          )
                                                  
                                      )
                             ),
