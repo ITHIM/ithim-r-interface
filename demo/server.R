@@ -4290,6 +4290,7 @@ server <- shinyServer(function(input, output, session){
       h1$title(text = 'Scenario Number of Deaths Prevented by Active Travel')
       
       
+      
     }
     h1$set(dom = "plotScenarioDeaths")
     return (h1)
@@ -4345,6 +4346,8 @@ server <- shinyServer(function(input, output, session){
       
       
       h1$title(text = 'Baseline Travel Times by Modes')
+      h1$yAxis(title = list(text = 'Hours per week'))
+      
       
       h1$series(a$params$series)
     }
@@ -4400,6 +4403,7 @@ server <- shinyServer(function(input, output, session){
       
       
       h1$series(a$params$series)
+      h1$yAxis(title = list(text = 'Hours per week'))
       
       h1$title(text = 'Scenario Travel Times by Modes')
       
