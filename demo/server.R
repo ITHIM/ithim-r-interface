@@ -4230,7 +4230,7 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Disease,  title = list(text = 'Prevented deaths'))
+        h1$xAxis(categories = append(td$Disease, td$Disease),   title = list(text = 'Prevented deaths'))
       else
         h1$xAxis(categories = lbls,  title = list(text = 'Prevented deaths'))
         
@@ -4288,7 +4288,7 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Disease,  title = list(text = 'Prevented deaths'))
+        h1$xAxis(categories = append(td$Disease, td$Disease),  title = list(text = 'Prevented deaths'))
       else
         h1$xAxis(categories = lbls,  title = list(text = 'Prevented deaths'))
       
@@ -4349,9 +4349,13 @@ server <- shinyServer(function(input, output, session){
                  group.na = 'NA\'s')
       
       lbls <- a$params$xAxis[[1]]$categories
+      #cat(length(lbls), "\n")
+      #print(lbls)
       
-      if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Mode,  title = list(text = 'Travel Times (hours per week)'))
+      if(length(lbls) == 1 ){
+        #cat(td$Mode, " - ", str_trim(td$Mode), ".", "\n")
+        h1$xAxis(categories = append(td$Mode, td$Mode),  title = list(text = 'Travel Times (hours per week)'))
+      }
       else
         h1$xAxis(categories = lbls,  title = list(text = 'Travel Times (hours per week)'))
       
@@ -4411,7 +4415,7 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Mode,  title = list(text = 'Travel Times (hours per week)'))
+        h1$xAxis(categories = append(td$Mode, td$Mode),  title = list(text = 'Travel Times (hours per week)'))
       else
         h1$xAxis(categories = lbls,  title = list(text = 'Travel Times (hours per week)'))
       
