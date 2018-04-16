@@ -4233,6 +4233,7 @@ server <- shinyServer(function(input, output, session){
         
       
       h1$series(a$params$series)
+      h1$title(text = 'Baseline Number of Deaths by Diseases')
     }
     h1$set(dom = "plotBaselineDeaths")
     
@@ -4286,6 +4287,7 @@ server <- shinyServer(function(input, output, session){
       
       
       h1$series(a$params$series)
+      h1$title(text = 'Scenario Number of Deaths by Diseases')
       
       
     }
