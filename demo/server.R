@@ -4227,9 +4227,9 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Disease,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = td$Disease,  title = list(text = 'Prevented deaths'))
       else
-        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = lbls,  title = list(text = 'Prevented deaths'))
         
       
       h1$series(a$params$series)
@@ -4282,9 +4282,9 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Disease,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = td$Disease,  title = list(text = 'Prevented deaths'))
       else
-        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = lbls,  title = list(text = 'Prevented deaths'))
       
       
       h1$series(a$params$series)
