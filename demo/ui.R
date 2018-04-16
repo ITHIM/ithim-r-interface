@@ -82,7 +82,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   selectizeInput("inAccraAges", "Age: ", accra_ages),
                                                   HTML("<hr>"),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Mortality'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcome'",
                                                     selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
                                                   ),
                                                   
@@ -101,7 +101,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                       ),
                                                       
                                                       
-                                                      tabPanel('Mortality',
+                                                      tabPanel('Health Outcome',
                                                           showOutput("plotBaselineDeaths", "highcharts"),
                                                           showOutput("plotScenarioDeaths", "highcharts")
                                                     
