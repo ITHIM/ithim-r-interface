@@ -91,7 +91,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
                                                                    selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
-                                                  )
+                                                  ),
+                                                  HTML("<hr>"),
+                                                  bsCollapsePanel(" Prelimentary Results", "We have produced these results with constraint assumptions.
+                                                                  We have applied mortality data of Ghana to Accra.")
                                                   
                                                 ),
                                                   
