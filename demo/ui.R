@@ -23,8 +23,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                      p(strong('ITHIM'), " was developed out of work for the Lancet series 
                                        on climate change mitigation and health 2009. Initially created as a 
                                        spreadsheet model a more recent Analytica model has been used in studies 
-                                       for Sao Paulo and the London Cycle Hire scheme. An international team 
-                                       of researchers is moving the model to R with a ", a("Shiny interface", 
+                                       for São Paulo and the London Cycle Hire scheme. An international team 
+                                       of researchers is moving the model to R with a ", a("Shiny interface.", 
                                                                                            href = "http://github.com/ITHIM/ithim-r",
                                                                                            target = "_blank"), 
                                        "This is a work in progress involving partners from UK, Switzerland, 
