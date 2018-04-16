@@ -4203,6 +4203,10 @@ server <- shinyServer(function(input, output, session){
       
       if(input$inAccraPop != 'All'){
         td <- filter(td, Sex == input$inAccraPop)
+        if (input$inAccraAges == 'All'){
+          td <- plyr::ddply(td, c("Disease"), summarise, Freq = sum(Freq))
+          td$Sex <- input$inAccraPop
+        }
         
       }
       
@@ -4258,6 +4262,10 @@ server <- shinyServer(function(input, output, session){
       
       if(input$inAccraPop != 'All'){
         td <- filter(td, Sex == input$inAccraPop)
+        if (input$inAccraAges == 'All'){
+          td <- plyr::ddply(td, c("Disease"), summarise, Freq = sum(Freq))
+          td$Sex <- input$inAccraPop
+        }
         
       }
       
