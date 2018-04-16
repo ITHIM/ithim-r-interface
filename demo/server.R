@@ -4197,8 +4197,7 @@ server <- shinyServer(function(input, output, session){
       td <- filter(accra_deaths, Scenario == 'Baseline')
       
       if(input$inAccraPop == 'All' && input$inAccraDisease == 'All' && input$inAccraAges == 'All'){
-        input$inAccraDisease != 'All'
-        td <- data.frame(Freq = sum(td$Freq), Disease = 'All', Sex = "All")
+        td <- plyr::ddply(td, c("Disease", "Sex"), summarise, Freq = sum(Freq))
       }
       
       
@@ -4254,8 +4253,7 @@ server <- shinyServer(function(input, output, session){
       
       
       if(input$inAccraPop == 'All' && input$inAccraDisease == 'All' && input$inAccraAges == 'All'){
-        input$inAccraDisease != 'All'
-        td <- data.frame(Freq = sum(td$Freq), Disease = 'All', Sex = "All")
+        td <- plyr::ddply(td, c("Disease", "Sex"), summarise, Freq = sum(Freq))
       }
       
       if(input$inAccraPop != 'All'){
@@ -4310,14 +4308,17 @@ server <- shinyServer(function(input, output, session){
     if (!is.null(accra_travel_times)){
       td <- filter(accra_travel_times, Scenario == 'Baseline')
       
-      if(input$inAccraPop == 'All' && input$inAccraModes == 'All' && input$inAccraAges == 'All'){
-        input$inAccraModes != 'All'
-        td <- data.frame(Freq = sum(td$Freq), Mode = 'All', Sex = "All")
+      if(input$inAccraPop == 'All' && input$inAccraDisease == 'All' && input$inAccraAges == 'All'){
+        td <- plyr::ddply(td, c("Mode", "Sex"), summarise, Freq = sum(Freq))
       }
       
       
       if(input$inAccraPop != 'All'){
         td <- filter(td, Sex == input$inAccraPop)
+        if (input$inAccraAges == 'All'){
+          td <- plyr::ddply(td, c("Mode"), summarise, Freq = sum(Freq))
+          td$Sex <- input$inAccraPop
+        }
         
       }
       
@@ -4370,13 +4371,16 @@ server <- shinyServer(function(input, output, session){
       td <- filter(accra_travel_times, Scenario == 'Scenario')
       
       
-      if(input$inAccraPop == 'All' && input$inAccraModes == 'All' && input$inAccraAges == 'All'){
-        input$inAccraModes != 'All'
-        td <- data.frame(Freq = sum(td$Freq), Mode = 'All', Sex = "All")
+      if(input$inAccraPop == 'All' && input$inAccraDisease == 'All' && input$inAccraAges == 'All'){
+        td <- plyr::ddply(td, c("Mode", "Sex"), summarise, Freq = sum(Freq))
       }
       
       if(input$inAccraPop != 'All'){
         td <- filter(td, Sex == input$inAccraPop)
+        if (input$inAccraAges == 'All'){
+          td <- plyr::ddply(td, c("Mode"), summarise, Freq = sum(Freq))
+          td$Sex <- input$inAccraPop
+        }
         
       }
       
