@@ -4327,7 +4327,7 @@ server <- shinyServer(function(input, output, session){
       }
       
       
-      local_td <<- td
+      # local_td <<- td
       
       a <- hPlot(Freq ~ Mode, data = td, 
                  type = 'column',
@@ -4337,9 +4337,9 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Mode,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = td$Mode,  title = list(text = 'Travel Times (hours per week)'))
       else
-        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = lbls,  title = list(text = 'Travel Times (hours per week)'))
       
       
       h1$series(a$params$series)
@@ -4390,9 +4390,9 @@ server <- shinyServer(function(input, output, session){
       lbls <- a$params$xAxis[[1]]$categories
       
       if(length(lbls) == 1 )
-        h1$xAxis(categories = td$Mode,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = td$Mode,  title = list(text = 'Travel Times (hours per week)'))
       else
-        h1$xAxis(categories = lbls,  title = list(text = 'Number of deaths'))
+        h1$xAxis(categories = lbls,  title = list(text = 'Travel Times (hours per week)'))
       
       
       h1$series(a$params$series)
