@@ -429,8 +429,16 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              showOutput("plotFilteredCO2", "highcharts"),
                                                              showOutput("plotCO2", "highcharts")
                                                     ),
-                                                    tabPanel("Injury", value = 8),
-                                                    tabPanel("Air Pollution", value = 9),
+                                                    
+                                                    tabPanel("Air Population", value = 8,
+                                                             strong("Air Population: "),
+                                                             p("Just like Physical Activity, ITHIM uses a non-linear dose relationship for calculating Air Population impacts.  ")
+                                                    ),
+                                                    tabPanel("Injury", value = 9,
+                                                             strong("Road traffic injuries: "),
+                                                             p("Unlike most other models of walking and cycling ITHIM estimates injuries taking into account all the parties involved in collision. ITHIM uses a non-linear distance based method. That is the number of injuries is dependent on the distance travelled by all modes, but it is non-linear because it includes ‘safety-in-numbers’.")
+                                                    ),
+                                                    
                                                     tabPanel("Health", value = 5,
                                                              a(id = "HealthHelp", "Help?", href = "#"),
                                                              hidden (div(id = "HealthHelpText",
