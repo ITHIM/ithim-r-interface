@@ -27,9 +27,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             tabPanel("Introduction",
                                      
                                      slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
-                                                    ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
+                                     ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
                                      
-                                              
+                                     
                                      br(),
                                      p(strong('ITHIM'), " was developed out of work for the Lancet series 
                                        on climate change mitigation and health 2009. Initially created as a 
@@ -89,7 +89,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                  tabPanel("Injury", value = 2.8,
                                                           strong("Road traffic injuries:"),
                                                           p("Unlike most other models of walking and cycling ITHIM estimates injuries taking into account all the parties involved in collision. ITHIM uses a non-linear distance based method. That is the number of injuries is dependent on the distance travelled by all modes, but it is non-linear because it includes ‘safety-in-numbers’.")
-                                                          )
+                                                 )
                                                  
                                      )
                             ),
@@ -105,7 +105,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   HTML("<hr>"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcomes'",
-                                                    selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
+                                                                   selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
                                                   ),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
@@ -119,30 +119,30 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                   ")
                                                   
                                                 ),
-                                                  
-                                                  mainPanel(
-                                                    tabsetPanel (
-                                                      
-                                                      tabPanel('Mode',
-                                                               showOutput("plotBaselinModes", "highcharts"),
-                                                               showOutput("plotScenarioModes", "highcharts")
-                                                      ),
-                                                      
-                                                      
-                                                      tabPanel('Health Outcomes',
-                                                          showOutput("plotBaselineDeaths", "highcharts"),
-                                                          showOutput("plotScenarioDeaths", "highcharts")
-                                                    
-                                                  )
-                                                  
-
-                                                  
-                                                  ,
-                                                  id = "accraConditionedPanels"
-                                                )
-                                                  )
-                                       )
                                                 
+                                                mainPanel(
+                                                  tabsetPanel (
+                                                    
+                                                    tabPanel('Mode',
+                                                             showOutput("plotBaselinModes", "highcharts"),
+                                                             showOutput("plotScenarioModes", "highcharts")
+                                                    ),
+                                                    
+                                                    
+                                                    tabPanel('Health Outcomes',
+                                                             showOutput("plotBaselineDeaths", "highcharts"),
+                                                             showOutput("plotScenarioDeaths", "highcharts")
+                                                             
+                                                    )
+                                                    
+                                                    
+                                                    
+                                                    ,
+                                                    id = "accraConditionedPanels"
+                                                  )
+                                                )
+                                       )
+                                       
                                        ,
                                        tabPanel("England",
                                                 
