@@ -80,16 +80,34 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                           )
                                                  ),
                                                  tabPanel("Synthetic Baseline Data", value = 2.4,
-                                                          strong("Synthetic population"),
-                                                          p("The process of creating a Synthetic population (sample of 10k individuals), through probabilistic matching of separate input data from population, travel, and health surveys, for baseline.")),
-                                                 tabPanel("Scenario Definitions", value = 2.5),
-                                                 tabPanel("Health Impacts", value = 2.6),
-                                                 tabPanel("Physical Activity", value = 2.7),
-                                                 tabPanel("Air Population", value = 2.8),
+                                                          strong("Synthetic population: "),
+                                                          p("The process of creating a Synthetic population (sample of 10k individuals), through probabilistic matching of 
+                                                            separate input data from population, travel, and health surveys, for baseline.")
+                                                 ),
+                                                 tabPanel("Scenario Definitions", value = 2.5,
+                                                          strong("Scenario Definitions: "),
+                                                          p("The process of creating scenarios based on user-inputs. Users are given options to describe scenarios, by modifdyign baseline's data.")
+                                                 ),
+                                                 tabPanel("Physical Activity", value = 2.6,
+                                                          strong("Physical activity: "),
+                                                          p("ITHIM uses ",  a("non-linear dose response relationships", 
+                                                                              href = "https://shiny.mrc-epid.cam.ac.uk/meta-analyses-physical-activity/",
+                                                                              target = "_blank"),
+                                                            " based on total physical activity and applies these individual diseases. This approach allows that baseline 
+                                                            travel and non-travel physical activity vary between populations and that the relative burden of diseases varies between countries.")
+                                                 ),
+                                                 tabPanel("Air Population", value = 2.7,
+                                                          strong("Air Population: "),
+                                                          p("Just like Physical Activity, ITHIM uses a non-linear dose relationship for calculating Air Population impacts.  ")
+                                                  ),
                                                  tabPanel("Injury", value = 2.8,
-                                                          strong("Road traffic injuries:"),
+                                                          strong("Road traffic injuries: "),
                                                           p("Unlike most other models of walking and cycling ITHIM estimates injuries taking into account all the parties involved in collision. ITHIM uses a non-linear distance based method. That is the number of injuries is dependent on the distance travelled by all modes, but it is non-linear because it includes ‘safety-in-numbers’.")
-                                                 )
+                                                 ),
+                                                 tabPanel("Health Impacts", value = 2.9,
+                                                          strong("Health Impacts: "),
+                                                          p("Calculates health gains measured as Years of Life Lost (YLL) and Premature Deaths Averted. The baseline for health comes from Global Burden of Disease Study")
+                                                          )
                                                  
                                      )
                             ),
