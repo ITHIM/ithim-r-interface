@@ -112,7 +112,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
                                                   ),
                                                   HTML("<hr>"),
-                                                  bsCollapsePanel(" Preliminary Results", "These results are work in progress. We have not yet included changes in air pollution 
+                                                  bsCollapsePanel(HTML("<font color=\"#FF0000\">Preliminary Results</font>"), "These results are work in progress. We have not yet included changes in air pollution 
                                                                   or road traffic injuries.
                                                                   We have downscaled mortality data for the whole of Ghana to Accra and this may have led to an underestimation of the relative burden of non-communicable diseases.
                                                                   We have also used simplified dose response relations and broad age categories.
