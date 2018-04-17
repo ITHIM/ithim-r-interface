@@ -417,20 +417,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              showOutput("plotMET", "highcharts"),
                                                              showOutput("plotScenarioMET", "highcharts")
                                                     ),
-                                                    tabPanel("Health", value = 5,
-                                                             a(id = "HealthHelp", "Help?", href = "#"),
-                                                             hidden (div(id = "HealthHelpText",
-                                                                         helpText(HTML("
-                                                                                      Displays two plots for health gains measured as Years of Life Lost (YLL) and Premature Deaths Averted. 
-                                                                                      YLLs are taken from the <a href='http://www.healthdata.org/gbd' target='_blank'>Global Burden of Disease Study for the UK 2013</a>. 
-                                                                                      YLL is an estimate of the age specific life expectancy against an &#39;ideal&#39; reference population. 
-                                                                                      A scenario is selected by a combination of three inputs: % of Population who are Regular Cyclists, Equity and Ebike &#45; 
-                                                                                      this scenario can then be compared against baseline or against an alternative scenario. Results are presented by 
-                                                                                      age and gender, or the display can be restricted to particular age and gender groups using the subpopulation option. "))
-                                                             )),
-                                                             showOutput("plotHealth", "highcharts"),
-                                                             showOutput("plotHealthReduction", "highcharts")
-                                                    ),
+                                                    
                                                     
                                                     tabPanel(HTML("CO<sub>2<sub>"), value = 7,
                                                              a(id = "CO2Help", "Help?", href = "#"),
@@ -444,6 +431,20 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     ),
                                                     tabPanel("Injury", value = 8),
                                                     tabPanel("Air Pollution", value = 9),
+                                                    tabPanel("Health", value = 5,
+                                                             a(id = "HealthHelp", "Help?", href = "#"),
+                                                             hidden (div(id = "HealthHelpText",
+                                                                         helpText(HTML("
+                                                                                       Displays two plots for health gains measured as Years of Life Lost (YLL) and Premature Deaths Averted. 
+                                                                                       YLLs are taken from the <a href='http://www.healthdata.org/gbd' target='_blank'>Global Burden of Disease Study for the UK 2013</a>. 
+                                                                                       YLL is an estimate of the age specific life expectancy against an &#39;ideal&#39; reference population. 
+                                                                                       A scenario is selected by a combination of three inputs: % of Population who are Regular Cyclists, Equity and Ebike &#45; 
+                                                                                       this scenario can then be compared against baseline or against an alternative scenario. Results are presented by 
+                                                                                       age and gender, or the display can be restricted to particular age and gender groups using the subpopulation option. "))
+                                                                         )),
+                                                             showOutput("plotHealth", "highcharts"),
+                                                             showOutput("plotHealthReduction", "highcharts")
+                                                    ),
                                                     tabPanel("Summary", value = 10,
                                                              showOutput("plotGenericVariable", "highcharts")
                                                     ),
