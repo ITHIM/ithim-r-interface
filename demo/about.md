@@ -2,7 +2,7 @@
 
 ITHIM is released under an <a href="https://github.com/ITHIM/ithim-r-interface/blob/master/LICENSE" target = '_blank'>Affero GPL</a> and we accept no liability, included but not limited to loss or damages. The code of which is hosted on <a href="https://github.com/ITHIM/ithim-r-interface" target="_blank">GitHub</a>.
 
-The ITHIM has been created by <a href = "http://www.cedar.iph.cam.ac.uk/" target = "_blank">CEDAR</a>. The ITHIM academic project members include:
+The ITHIM has been created by <a href = "http://www.cedar.iph.cam.ac.uk/" target = "_blank">CEDAR</a>. The ITHIM project members include:
 
 * <a href="http://www.cedar.iph.cam.ac.uk/people/leads/james-woodcock/" target = "_blank">Dr James Woodcock</a> 
 * <a href="http://www.cedar.iph.cam.ac.uk/people/cdfs/ali-abbas/" target = "_blank">Dr Ali Abbas</a>
