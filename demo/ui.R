@@ -31,7 +31,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                      
                                      
                                      br(),
-                                     p(strong('ITHIM'), " was developed out of work for the Lancet series 
+                                     p(strong('Integrated Transport and Health Impact Modelling Tool (ITHIM)'), " was developed out of work for the Lancet series 
                                        on climate change mitigation and health 2009. Initially created as a 
                                        spreadsheet model a more recent Analytica model has been used in studies 
                                        for São Paulo and the London Cycle Hire scheme. An international team 
