@@ -31,15 +31,13 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                      
                                      
                                      br(),
-                                     p(strong('Integrated Transport and Health Impact Modelling Tool (ITHIM)'), " was developed out of work for the Lancet series 
-                                       on climate change mitigation and health 2009. Initially created as a 
-                                       spreadsheet model a more recent Analytica model has been used in studies 
-                                       for São Paulo and the London Cycle Hire scheme. An international team 
-                                       of researchers is moving the model to R with a ", a("Shiny interface.", 
-                                                                                           href = "http://github.com/ITHIM/ithim-r",
-                                                                                           target = "_blank"), 
-                                       "This is a work in progress involving partners from UK, Switzerland, 
-                                       Brazil, USA and Canada.  "),
+                                     p(strong('Integrated Transport and Health Impact Modelling Tool (ITHIM)'), " ) was  originally developed out of work for the 
+                                       Lancet series on climate change mitigation and health 2009. Initially created as a spreadsheet model, a more recent Analytica 
+                                       model has been used in studies including São Paulo and the London Cycle Hire scheme. An international team of researchers is 
+                                       moving the model to R with a  ", a("Shiny interface.", href = "http://github.com/ITHIM/ithim-r", target = "_blank"), 
+                                       "This is a work in progress involving partners from UK, Switzerland, Brazil, USA and Canada. The work also involves collaboration 
+                                       with the World Health Organization, under the Urban Health Initiative, to adapt the tool for settings with limited evidence and data 
+                                       availability. "),
                                      tags$ul(
                                        tags$li(p("Please select ", HTML("<cite> User Case Study</cite>"), " where you need to provide data for both baseline and scenarios")),
                                        tags$li(p("Please select ", HTML("<cite> Predefined Case Studies</cite>"), " to see the ITHIM results for predefined locations."))
