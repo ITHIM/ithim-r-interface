@@ -56,7 +56,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                               label = strong("Select Country for: Global Burden of Disease (GBD)"), choices =  countryExData$Country)
                                                               ),
                                                               HTML("<hr>"),
-                                                              selectInput(inputId = "in_city_list", label = strong("Air Population: select city"), choices =  ''),
+                                                              selectInput(inputId = "in_city_list", label = strong("Air Pollution: select city"), choices =  ''),
                                                               HTML("<hr>"),
                                                               csvFileUI("datafile_1", "Travel Survey Data (.csv format)"),
                                                               csvFileUI("datafile_2", "Non-travel Physical Activity Data (.csv format)"),
@@ -96,9 +96,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                             " based on total physical activity and applies these individual diseases. This approach allows that baseline 
                                                             travel and non-travel physical activity vary between populations and that the relative burden of diseases varies between countries.")
                                                  ),
-                                                 tabPanel("Air Population", value = 2.7,
-                                                          strong("Air Population: "),
-                                                          p("Just like Physical Activity, ITHIM uses a non-linear dose relationship for calculating Air Population impacts.  ")
+                                                 tabPanel("Air Pollution", value = 2.7,
+                                                          strong("Air Pollution: "),
+                                                          p("Just like Physical Activity, ITHIM uses a non-linear dose relationship for calculating Air Pollution impacts.  ")
                                                   ),
                                                  tabPanel("Injury", value = 2.8,
                                                           strong("Road traffic injuries: "),
@@ -430,9 +430,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              showOutput("plotCO2", "highcharts")
                                                     ),
                                                     
-                                                    tabPanel("Air Population", value = 8,
-                                                             strong("Air Population: "),
-                                                             p("Just like Physical Activity, ITHIM uses a non-linear dose relationship for calculating Air Population impacts.  ")
+                                                    tabPanel("Air Pollution", value = 8,
+                                                             strong("Air Pollution: "),
+                                                             p("Just like Physical Activity, ITHIM uses a non-linear dose relationship for calculating Air Pollution impacts.  ")
                                                     ),
                                                     tabPanel("Injury", value = 9,
                                                              strong("Road traffic injuries: "),
