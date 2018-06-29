@@ -8,9 +8,11 @@ countryExData <- select(countryExData, c("ISO3V10", "Country"))
 
 accra_population <- c('All', 'Males', 'Females')
 accra_diseases <- append('All', unique(accra_deaths$Disease))
-accra_ages <- append('All', unique(accra_deaths$Age))
+accra_ages <- append('All', accra_age_cat)
 
-accra_travel_modes <- append('All', unique(accra_travel_times$Mode))
+accra_travel_modes <- append('All', accra_modes)
+
+
 
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
