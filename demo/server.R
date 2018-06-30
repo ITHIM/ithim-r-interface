@@ -4451,5 +4451,70 @@ server <- shinyServer(function(input, output, session){
   })
   
   
+  get_dose_plot <- function (dataset, q, plot_title){
+    
+    
+    if (!is.null(dataset)){
+      dataset$personyrs <- round(dataset$personyrs)
+      group_by(dataset, id) %>% select(dose, se) %>%
+        summarise(min = min(dose), max = max(dose), ref = dose[is.na(se)])
+      gg <- ggplotly(
+        ggplot(dataset, aes(dose, RR, col = ref_number, label = personyrs)) + geom_point(size = 4 * (dataset$personyrs - min(dataset$personyrs))/diff(range(dataset$personyrs))) +
+          geom_line() +
+          scale_x_continuous(expand = c(0, 0),
+                             breaks = seq(from = 0, to = max(dataset$dose, na.rm = T), by = 5)) +
+          scale_y_continuous(expand = c(0, 0),
+                             breaks = seq(from = 0, to = (max(dataset$RR, na.rm = T) + 0.4), by = 0.2),
+                             limits = c(0, NA)) +
+          #scale_y_continuous(trans = "log", breaks = c(.1, .25, .5, .75, 1, 1.25)) +
+          #scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(expand = c(0, 0)) +
+          # coord_cartesian(xlim = c(0, max(dataset$dose))) +
+          geom_vline(xintercept= q, linetype="dotted", alpha=0.4) + 
+          theme_classic() + guides(col = FALSE) + 
+          xlab("\nMarginal MET hours per week\n") +
+          ylab("\nRelative Risk\n") +
+          labs(title = paste(plot_title)) +
+          theme(legend.position="none")
+      )
+      
+    }else{
+      gg <- ggplot(data.frame()) + geom_point() + xlim(0, 100) + ylim(0, 1) + 
+        theme(
+          plot.margin = unit(c(2, 1, 1, 1), "cm"), 
+          plot.title = element_text(size = 12, colour = "red", vjust = 7),
+          plot.subtitle = element_text(size = 10, hjust=0.5, face="italic", color="red"),
+          legend.direction = "horizontal",
+          legend.position = c(0.1, 1.05)) +
+        labs (title = "Sorry no data is available")
+    }
+    
+    p <- ggplotly(gg)
+    p
+    
+  }
+  
+  
+  output$plotBaselinModes <- renderPlotly({
+    
+    td_baseline <- filter(accra_trips, !is.na(trip_mode) & trip_mode != "Short Walking")
+    
+    td_m_older <- td_baseline %>% filter(sex == "Male" & age_cat == "50-70") %>% group_by(trip_mode) %>%  summarise(n = n())
+    td_f_older <- td_baseline %>% filter(sex == "Female" & age_cat == "50-70") %>% group_by(trip_mode) %>%  summarise(n = n())
+    
+    p <- plot_ly() %>%
+           add_pie(data = td_f_older, labels = ~trip_mode, values = ~n,
+                                 name = "Cut", domain = list(x = c(0, 0.4), y = c(0.4, 1))) %>%
+           add_pie(data = td_m_older, labels = ~trip_mode, values = ~n,
+                                 name = "Color", domain = list(x = c(0.6, 1), y = c(0.4, 1)))
+    
+    
+    p
+  })
+  
+  
+  
+  
+  
+  
 })
 
