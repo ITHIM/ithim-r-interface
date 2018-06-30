@@ -6,11 +6,15 @@ source("ITHIM_var_setup.r")
 countryExData <- read_csv("data/countryExData.csv")
 countryExData <- select(countryExData, c("ISO3V10", "Country"))
 
-accra_population <- c('All', 'Males', 'Females')
-accra_diseases <- append('All', unique(accra_deaths$Disease))
+accra_population <- c('All', 'Male', 'Female')
+
 accra_ages <- append('All', accra_age_cat)
 
 accra_travel_modes <- append('All', accra_modes)
+
+accra_scenarios <- c('scen1' = '50% Walk trips to Car',
+                     'scen2' = '<= 7k long Car trips to bike',
+                     'scen3' = 'Long Car trips to Bus')
 
 
 
@@ -114,21 +118,21 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra",
                                                 sidebarPanel(
-                                                  radioButtons(inputId = "inAccraScenario", label = "Scenario:", 
-                                                               'Convert 50% private car trips to cycling trips', inline = TRUE),
+                                                  #radioButtons(inputId = "inAccraScenario", label = "Scenario:", 
+                                                  #             accra_scenarios),
+                                                  #HTML("<hr>"),
+                                                  radioButtons("inAccraPop", "Gender: ", accra_population),
                                                   HTML("<hr>"),
-                                                  selectizeInput("inAccraPop", "Gender: ", accra_population),
-                                                  HTML("<hr>"),
-                                                  selectizeInput("inAccraAges", "Age: ", accra_ages),
+                                                  radioButtons("inAccraAges", "Age: ", accra_ages),
                                                   HTML("<hr>"),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcomes'",
-                                                                   selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
-                                                  ),
-                                                  
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
-                                                                   selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
-                                                  ),
+                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcomes'",
+                                                  #                  selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
+                                                  # ),
+                                                  # 
+                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
+                                                  #                  selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
+                                                  # ),
                                                   HTML("<hr>"),
                                                   bsCollapsePanel(HTML("<font color=\"#FF0000\">Preliminary Results</font>"), "These results are work in progress. We have not yet included changes in air pollution 
                                                                   or road traffic injuries.
@@ -142,16 +146,18 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   tabsetPanel (
                                                     
                                                     tabPanel('Mode',
-                                                             showOutput("plotBaselinModes", "highcharts"),
-                                                             showOutput("plotScenarioModes", "highcharts")
-                                                    ),
+                                                             plotlyOutput("plotBaselinModes")#, "highcharts"),
+                                                             #showOutput("plotScenario1Modes", "highcharts"),
+                                                             #showOutput("plotScenario2Modes", "highcharts"),
+                                                             #showOutput("plotScenario3Modes", "highcharts")
+                                                    )#,
                                                     
                                                     
-                                                    tabPanel('Health Outcomes',
-                                                             showOutput("plotBaselineDeaths", "highcharts"),
-                                                             showOutput("plotScenarioDeaths", "highcharts")
+                                                    #tabPanel('Health Outcomes',
+                                                    #         showOutput("plotBaselineDeaths", "highcharts"),
+                                                    #         showOutput("plotScenarioDeaths", "highcharts")
                                                              
-                                                    )
+                                                    #)
                                                     
                                                     
                                                     
