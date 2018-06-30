@@ -9,7 +9,8 @@ pkgs <- c(
   "shiny",
   "shinythemes",
   "shinyBS",
-  "slickR"
+  "slickR",
+  "plotly"
 )
 # Which packages do we require?
 # lapply(pkgs, library, character.only = T)
