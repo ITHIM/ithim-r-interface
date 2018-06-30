@@ -4525,6 +4525,25 @@ server <- shinyServer(function(input, output, session){
   })
   
   
+  output$plotScenario2Modes <- renderPlotly({
+    
+    #if ()
+    get_modes_plot(scenario = "scen2", ac = input$inAccraAges, sc = input$inAccraPop)
+    
+    
+    
+  })
+  
+  output$plotScenario3Modes <- renderPlotly({
+    
+    #if ()
+    get_modes_plot(scenario = "scen3", ac = input$inAccraAges, sc = input$inAccraPop)
+    
+    
+    
+  })
+  
+  
   
   
   

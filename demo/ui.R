@@ -146,10 +146,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   tabsetPanel (
                                                     
                                                     tabPanel('Mode',
-                                                             plotlyOutput("plotScenario1Modes")#, "highcharts"),
-                                                             #showOutput("plotScenario1Modes", "highcharts"),
-                                                             #showOutput("plotScenario2Modes", "highcharts"),
-                                                             #showOutput("plotScenario3Modes", "highcharts")
+                                                             plotlyOutput("plotScenario1Modes"),
+                                                             plotlyOutput("plotScenario2Modes"),
+                                                             plotlyOutput("plotScenario3Modes")
+                                                             
                                                     )#,
                                                     
                                                     
