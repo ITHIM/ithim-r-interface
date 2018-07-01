@@ -24,8 +24,7 @@ reqs <- as.numeric(lapply(pkgs, require, character.only = TRUE))
 # 
 # if(!require(shiny)) devtools::install_github("shiny", "rstudio")
 
-accra_deaths <- read_csv("data/accra/number_of_deaths.csv")
-accra_travel_times <- read_csv("data/accra/travel_times.csv")
+accra_msi <- read_csv("data/accra/injuries/mode-specific-injuries.csv")
 
 accra_trips <- read_csv("data/accra/baseline_and_three_scenarios.csv")
 
@@ -35,6 +34,17 @@ accra_modes <- unique(accra_trips$trip_mode)
 accra_modes <- accra_modes[!is.na(accra_modes)]
 
 accra_modes <- subset(accra_modes, !(accra_modes %in% c("Short Walking")))
+
+accra_health_data <- read_csv("data/accra/health_outcomes.csv")
+accra_health_data <- filter(accra_health_data, cause != "total")
+
+
+accra_msi <- read_csv("data/accra/injuries/mode-specific-injuries.csv")
+
+accra_msi <- reshape2::melt(accra_msi)
+
+accra_msi$Modes <- factor(accra_msi$Modes, levels=unique(accra_msi$Modes))
+
 
 
 source("data-processing.R")
