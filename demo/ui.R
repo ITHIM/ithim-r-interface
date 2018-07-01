@@ -16,6 +16,11 @@ accra_scenarios <- c('scen1' = '50% Walk trips to Car',
                      'scen2' = '<= 7k long Car trips to bike',
                      'scen3' = 'Long Car trips to Bus')
 
+accra_health_outcomes <- c("Deaths", "YLLs")
+
+
+accra_trip_types <- c("Trips", "Distance", "Duration")
+
 
 
 
@@ -121,24 +126,23 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   #radioButtons(inputId = "inAccraScenario", label = "Scenario:", 
                                                   #             accra_scenarios),
                                                   #HTML("<hr>"),
-                                                  radioButtons("inAccraPop", "Gender: ", accra_population),
-                                                  HTML("<hr>"),
-                                                  radioButtons("inAccraAges", "Age: ", accra_ages),
-                                                  HTML("<hr>"),
                                                   
-                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Health Outcomes'",
-                                                  #                  selectizeInput("inAccraDisease", "Disease: ", accra_diseases )
-                                                  # ),
-                                                  # 
-                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
-                                                  #                  selectizeInput("inAccraModes", "Travel Mode: ", accra_travel_modes )
-                                                  # ),
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
+                                                                   radioButtons("inAccraPop", "Gender: ", accra_population),
+                                                                   HTML("<hr>"),
+                                                                   radioButtons("inAccraAges", "Age: ", accra_ages),
+                                                                   HTML("<hr>"),
+                                                                   radioButtons("inAccraTripTypes", "Type: ", accra_trip_types)
+                                                  ),
+                                                  
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
+                                                                   radioButtons("inAccraHealthPop", "Gender: ", c('Male', 'Female')),
+                                                                   HTML("<hr>"),
+                                                                   radioButtons("inAccraHealthAges", "Age: ", accra_age_cat)
+                                                  ),
+                                                  
                                                   HTML("<hr>"),
-                                                  bsCollapsePanel(HTML("<font color=\"#FF0000\">Preliminary Results</font>"), "These results are work in progress. We have not yet included changes in air pollution 
-                                                                  or road traffic injuries.
-                                                                  We have downscaled mortality data for the whole of Ghana to Accra and this may have led to an underestimation of the relative burden of non-communicable diseases.
-                                                                  We have also used simplified dose response relations and broad age categories.
-                                                                  ")
+                                                  div(HTML("<font color=\"#FF0000\">Preliminary Results</font>"))
                                                   
                                                 ),
                                                 
@@ -146,11 +150,21 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   tabsetPanel (
                                                     
                                                     tabPanel('Mode',
-                                                             plotlyOutput("plotScenario1Modes"),
-                                                             plotlyOutput("plotScenario2Modes"),
-                                                             plotlyOutput("plotScenario3Modes")
+                                                             plotlyOutput("plotAccraModes")
                                                              
-                                                    )#,
+                                                    ),
+                                                    
+                                                    
+                                                    tabPanel('Health',
+                                                             plotlyOutput("plotScenariosDeaths"),
+                                                             plotlyOutput("plotScenariosYLLs")
+                                                             
+                                                                          
+                                                             ),
+                                                    tabPanel('Road Injuries',
+                                                              plotlyOutput('plotInjuries')
+                                                  
+                                                    )
                                                     
                                                     
                                                     #tabPanel('Health Outcomes',

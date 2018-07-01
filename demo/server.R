@@ -4451,15 +4451,15 @@ server <- shinyServer(function(input, output, session){
   })
   
   
-  get_modes_plot <- function (scenario, ac, sc){
+  get_modes_plot <- function (type,  ac, sc){
     
     # scenario <- "scen1"
     # ac <- "All"
     # sc <- "All"
     
-    
     dataset <- accra_trips
     bd <- filter(accra_trips, !is.na(trip_mode) & trip_mode != "Short Walking")
+    bdnr <- nrow(bd)
     
     
     if (ac != "All"){
@@ -4476,49 +4476,125 @@ server <- shinyServer(function(input, output, session){
       bd <- filter(bd, sex == sc)
       
     }
-    
-    
-    bd <- bd %>% group_by(trip_mode) %>%  summarise(n = n())
-    
-    if (scenario == "scen1"){
+    if (type == "Trips"){
       
-      dataset <- filter(dataset, !is.na(scen1_mode) & scen1_mode != "Short Walking") %>% 
-        group_by(scen1_mode) %>%  summarise(n = n())
+      scen1 <- filter(dataset, !is.na(scen1_mode) & scen1_mode != "Short Walking")
+      scen1nr <- nrow(scen1)
+      scen2 <- filter(dataset, !is.na(scen2_mode) & scen2_mode != "Short Walking")
+      scen2nr <- nrow(scen2)
+      scen3 <- filter(dataset, !is.na(scen3_mode) & scen3_mode != "Short Walking")
+      scen3nr <- nrow(scen3)
+      
+      bd <- bd %>% group_by(trip_mode) %>%  summarise(baseline_n = round(n()/bdnr * 100, 1))
+      
+      scen1 <- scen1 %>% group_by(scen1_mode) %>%  summarise(scen1_n = round(n()/scen1nr * 100, 1)) %>% rename(trip_mode = scen1_mode)
+      scen2 <- scen2 %>% group_by(scen2_mode) %>%  summarise(scen2_n = round(n()/scen2nr * 100, 1)) %>% rename(trip_mode = scen2_mode)
+      scen3 <- scen3 %>% group_by(scen3_mode) %>%  summarise(scen3_n = round(n()/scen3nr * 100, 1)) %>% rename(trip_mode = scen3_mode)
       
       
-    }else if (scenario == "scen2"){
+      bd <- left_join(bd, scen1, by = "trip_mode")
+      bd <- left_join(bd, scen2, by = "trip_mode")
+      bd <- left_join(bd, scen3, by = "trip_mode")
       
-      dataset <- filter(dataset, !is.na(scen2_mode) & scen2_mode != "Short Walking") %>% 
-        group_by(scen2_mode) %>%  summarise(n = n())
+      bd <- reshape2::melt(bd)
       
       
-    }else if (scenario == "scen3"){
+      ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
+                 geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+                 theme_minimal())
       
-      dataset <- filter(dataset, !is.na(scen3_mode) & scen3_mode != "Short Walking") %>% 
-        group_by(scen3_mode) %>%  summarise(n = n())
       
+    }else if (type == "Distance"){
+      dist <- dataset %>% group_by(trip_mode) %>% summarise(baseline_dist = sum(trip_distance))
+      dist1 <- dataset %>% group_by(scen1_mode) %>% summarise(scen1_dist = sum(trip_distance)) %>% rename(trip_mode = scen1_mode)
+      dist2 <- dataset %>% group_by(scen2_mode) %>% summarise(scen2_dist = sum(trip_distance)) %>% rename(trip_mode = scen2_mode)
+      dist3 <- dataset %>% group_by(scen3_mode) %>% summarise(scen3_dist = sum(trip_distance)) %>% rename(trip_mode = scen3_mode)
+      
+      dist <- filter(dist, !is.na(trip_mode))
+      dist1 <- filter(dist1, !is.na(trip_mode))
+      dist2 <- filter(dist2, !is.na(trip_mode))
+      dist3 <- filter(dist3, !is.na(trip_mode))
+      
+      dist$baseline_dist[dist$trip_mode == "Walking"] <- dist$baseline_dist[dist$trip_mode == "Walking"] + dist$baseline_dist[dist$trip_mode == "Short Walking"]
+      
+      dist1$scen1_dist[dist1$trip_mode == "Walking"] <- dist1$scen1_dist[dist1$trip_mode == "Walking"] + dist1$scen1_dist[dist1$trip_mode == "Short Walking"]
+      
+      dist2$scen2_dist[dist2$trip_mode == "Walking"] <- dist2$scen2_dist[dist2$trip_mode == "Walking"] + dist2$scen2_dist[dist2$trip_mode == "Short Walking"]
+      
+      dist3$scen3_dist[dist3$trip_mode == "Walking"] <- dist3$scen3_dist[dist3$trip_mode == "Walking"] + dist3$scen3_dist[dist3$trip_mode == "Short Walking"]
+      
+      dist <- left_join(dist, dist1, by = "trip_mode")
+      dist <- left_join(dist, dist2, by = "trip_mode")
+      dist <- left_join(dist, dist3, by = "trip_mode")
+      
+      # Remove short walking
+      dist <- filter(dist, trip_mode != 'Short Walking')
+      
+      distm <- reshape2::melt(dist, by = trip_mode)
+      
+      
+      
+      # Plot
+      ggplotly(ggplot(data = distm, aes(x = trip_mode, y = value, fill = variable)) + 
+                 geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+                 theme_minimal() + xlab('Mode') + ylab('Distance (km)') + labs(title = "Mode distance (km)"))
+      
+    }else {
+      
+      
+      dur <- dataset %>% group_by(trip_mode) %>% summarise(baseline_dur = sum(trip_duration))
+      dur1 <- dataset %>% group_by(scen1_mode) %>% summarise(scen1_dur = sum(scen1_duration)) %>% rename(trip_mode = scen1_mode)
+      dur2 <- dataset %>% group_by(scen2_mode) %>% summarise(scen2_dur = sum(scen2_duration)) %>% rename(trip_mode = scen2_mode)
+      dur3 <- dataset %>% group_by(scen3_mode) %>% summarise(scen3_dur = sum(scen3_duration)) %>% rename(trip_mode = scen3_mode)
+      
+      dur <- filter(dur, !is.na(trip_mode))
+      dur1 <- filter(dur1, !is.na(trip_mode))
+      dur2 <- filter(dur2, !is.na(trip_mode))
+      dur3 <- filter(dur3, !is.na(trip_mode))
+      
+      dur$baseline_dur[dur$trip_mode == "Walking"] <- dur$baseline_dur[dur$trip_mode == "Walking"] + dur$baseline_dur[dur$trip_mode == "Short Walking"]
+      
+      dur1$scen1_dur[dur1$trip_mode == "Walking"] <- dur1$scen1_dur[dur1$trip_mode == "Walking"] + dur1$scen1_dur[dur1$trip_mode == "Short Walking"]
+      
+      dur2$scen2_dur[dur2$trip_mode == "Walking"] <- dur2$scen2_dur[dur2$trip_mode == "Walking"] + dur2$scen2_dur[dur2$trip_mode == "Short Walking"]
+      
+      dur3$scen3_dur[dur3$trip_mode == "Walking"] <- dur3$scen3_dur[dur3$trip_mode == "Walking"] + dur3$scen3_dur[dur3$trip_mode == "Short Walking"]
+      
+      dur <- left_join(dur, dur1, by = "trip_mode")
+      dur <- left_join(dur, dur2, by = "trip_mode")
+      dur <- left_join(dur, dur3, by = "trip_mode")
+      
+      
+      
+      # Remove short walking
+      dur <- filter(dur, trip_mode != 'Short Walking')
+      
+      
+      durm <- reshape2::melt(dur, by = trip_mode)
+      
+     
+      
+      durh <- durm
+      durh$value <- round(durh$value / 60, 2)
+      
+      # Plot
+      ggplotly(ggplot(data = durh, aes(x = trip_mode, y = value, fill = variable)) + 
+                 geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+                 theme_minimal() + xlab('Mode') + ylab('Duration (hours)') + labs(title = "Mode Duration (hours)"))
       
     }
     
-    names(dataset)[1] <- "trip_mode"
     
     
-   
-    p <- plot_ly() %>%
-      add_pie(data = bd, labels = ~trip_mode, values = ~n,  sort = FALSE,
-              name = "Baseline", domain = list(x = c(0, 0.4), y = c(0.4, 1))) %>%
-      add_pie(data = dataset, labels = ~trip_mode, values = ~n, sort = FALSE,
-              name = "Scenario", domain = list(x = c(0.6, 1), y = c(0.4, 1)))
     
-    p
       
   }
   
   
-  output$plotScenario1Modes <- renderPlotly({
+  output$plotAccraModes <- renderPlotly({
     
     #if ()
-    get_modes_plot(scenario = "scen1", ac = input$inAccraAges, sc = input$inAccraPop)
+    get_modes_plot(type = input$inAccraTripTypes, ac = input$inAccraAges, sc = input$inAccraPop)
     
    
     
@@ -4542,6 +4618,107 @@ server <- shinyServer(function(input, output, session){
     
     
   })
+  
+  
+  get_health_plot <- function(outcome, ac, sc){
+    
+    d <- accra_health_data
+    
+    if (ac != "All")
+      d <- filter(d, age.band == ac)
+    
+    if (sc != "All")
+      d <- filter(d, gender == sc)
+    
+    
+    if (outcome == "Deaths"){
+      
+      d <- d %>% select(cause, age.band, gender, baseline_deaths, scenario1_deaths, 
+                                        scenario2_deaths, scenario3_deaths)
+    }else{
+      
+      d <- d %>% select(cause, age.band, gender, baseline_ylls, scenario1_ylls,
+                                        scenario2_ylls, scenario3_ylls)
+    }
+    
+    d <- reshape2::melt(d)
+    
+    p <- NULL
+    
+    if (ac == "All" && sc == "All"){
+      p <- ggplot(data = d, aes(x = cause, y = value, 
+                                           fill = variable)) + 
+        geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+        theme_minimal()
+    }else if (ac == "All" && sc != "All"){
+      
+      p <- ggplot(data = d, aes(x = cause, y = value, 
+                                                 fill = variable, 
+                                                 interaction = age.band#,
+                                                 #label = age.band
+                                                 )) + 
+                              geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+                              theme_minimal() #+
+                              #geom_text(aes(label = age.band), position = position_dodge(0.8),
+                               #         vjust = 1, size = 2, color = "black", family = "Georgia")
+                            
+      
+    }else if (ac != "All" && sc == "All"){
+      
+      p <- ggplot(data = d, aes(x = cause, y = value, 
+                                                 fill = variable, interaction = gender)) + 
+        geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+        theme_minimal()
+      
+    }else{
+      
+      p <- ggplot(data = d, aes(x = cause, y = value, fill = variable)) + 
+        geom_bar(stat = 'identity', position = "dodge", color = "black") + 
+        theme_minimal()
+      
+    }
+    p <- p + labs(title = paste0(outcome)) + xlab("Cause") + ylab(outcome)
+    
+    plotly::ggplotly(p)
+    
+    
+  }
+  
+  
+  output$plotScenariosDeaths <- renderPlotly({
+    
+    #if ()
+    get_health_plot(outcome = "Deaths", ac = input$inAccraHealthAges, sc = input$inAccraHealthPop)
+    
+    
+    
+  })
+  
+  
+  output$plotScenariosYLLs <- renderPlotly({
+    
+    #if ()
+    get_health_plot(outcome = "YLLs", ac = input$inAccraHealthAges, sc = input$inAccraHealthPop)
+    
+    
+    
+  })
+  
+  output$plotInjuries <- renderPlotly({
+    
+    
+    
+    plotly::ggplotly(ggplot(data = accra_msi, aes(x = Modes, y = value, 
+                                            fill = variable)) + 
+                       geom_bar(stat = 'identity', position = 'dodge') + 
+                       theme_minimal()
+    )
+    
+    
+    
+  })
+  
+  
   
   
   
