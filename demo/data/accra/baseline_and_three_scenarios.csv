@@ -1,10 +1,10 @@
 trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distance_cat,age_cat,row_id,scen1_mode,scen1_duration,scen2_mode,scen2_duration,scen3_mode,scen3_duration
-5,Taxi,60,690101,36,Male,21,>10 km,15-49,1,Taxi,60,Taxi,60,Bus,7.5
+5,Taxi,60,690101,36,Male,21,>10 km,15-49,1,Taxi,60,Taxi,60,Bus,5.543747708457205
 10,Walking,45,690104,15,Male,3.6,3-5 km,15-49,2,Private Car,21,Walking,45,Walking,45
 11,Walking,5,690104,15,Male,0.4,0-1 km,15-49,3,Walking,5,Walking,5,Walking,5
 12,Walking,35,690104,15,Male,2.8,2-3 km,15-49,4,Walking,35,Walking,35,Walking,35
-14,Taxi,30,690301,52,Female,10.5,>10 km,50-70,5,Taxi,30,Taxi,30,Bus,10
-15,Taxi,60,690301,52,Female,21,>10 km,50-70,6,Taxi,60,Taxi,60,Bus,15
+14,Taxi,30,690301,52,Female,10.5,>10 km,50-70,5,Taxi,30,Taxi,30,Bus,5.299338409241062
+15,Taxi,60,690301,52,Female,21,>10 km,50-70,6,Taxi,60,Taxi,60,Bus,9.923050670133977
 16,Walking,60,690303,24,Female,4.8,3-5 km,15-49,7,Private Car,15.75,Walking,60,Walking,60
 17,Walking,90,690303,24,Female,7.2,7-10 km,15-49,8,Private Car,33.25,Walking,90,Walking,90
 20,Walking,5,690303,24,Female,0.4,0-1 km,15-49,9,Walking,5,Walking,5,Walking,5
@@ -26,7 +26,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 42,Walking,30,690701,30,Male,2.4,2-3 km,15-49,25,Walking,30,Walking,30,Walking,30
 43,Walking,5,690701,30,Male,0.4,0-1 km,15-49,26,Walking,5,Walking,5,Walking,5
 49,Taxi,20,690901,33,Male,7,5-7 km,15-49,27,Taxi,20,Bicycle,3.625,Taxi,20
-50,Taxi,40,690901,33,Male,14,>10 km,15-49,28,Taxi,40,Taxi,40,Bus,15
+50,Taxi,40,690901,33,Male,14,>10 km,15-49,28,Taxi,40,Taxi,40,Bus,9.410210818985828
 52,Walking,10,690902,28,Female,0.8,0-1 km,15-49,29,Private Car,3.5000000000000004,Walking,10,Walking,10
 53,Walking,10,690902,28,Female,0.8,0-1 km,15-49,30,Private Car,1.7500000000000002,Walking,10,Walking,10
 63,Walking,15,691102,40,Female,1.2,1-2 km,15-49,31,Private Car,5.25,Walking,15,Walking,15
@@ -50,21 +50,21 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 81,Walking,60,691301,27,Male,4.8,3-5 km,15-49,49,Walking,60,Walking,60,Walking,60
 82,Private Car,20,691301,27,Male,7,5-7 km,15-49,50,Private Car,20,Bicycle,3.625,Private Car,20
 83,Private Car,60,691301,27,Male,21,>10 km,15-49,51,Private Car,60,Private Car,60,Private Car,60
-84,Private Car,100,691301,27,Male,35,>10 km,15-49,52,Private Car,100,Private Car,100,Bus,7.5
+84,Private Car,100,691301,27,Male,35,>10 km,15-49,52,Private Car,100,Private Car,100,Bus,5.0027675991565115
 85,Taxi,30,691302,23,Female,10.5,>10 km,15-49,53,Taxi,30,Taxi,30,Taxi,30
 86,Taxi,45,691302,23,Female,15.75,>10 km,15-49,54,Taxi,45,Taxi,45,Taxi,45
-87,Taxi,40,691302,23,Female,14,>10 km,15-49,55,Taxi,40,Taxi,40,Bus,7.5
+87,Taxi,40,691302,23,Female,14,>10 km,15-49,55,Taxi,40,Taxi,40,Bus,5.945968308681401
 88,Private Car,10,691305,22,Male,3.5,3-5 km,15-49,56,Private Car,10,Private Car,10,Private Car,10
-89,Private Car,70,691305,22,Male,24.5,>10 km,15-49,57,Private Car,70,Private Car,70,Bus,15
-90,Private Car,100,691305,22,Male,35,>10 km,15-49,58,Private Car,100,Private Car,100,Bus,12.5
+89,Private Car,70,691305,22,Male,24.5,>10 km,15-49,57,Private Car,70,Private Car,70,Bus,6.471225061946594
+90,Private Car,100,691305,22,Male,35,>10 km,15-49,58,Private Car,100,Private Car,100,Bus,5.967503314557758
 91,Private Car,60,691305,22,Male,21,>10 km,15-49,59,Private Car,60,Private Car,60,Private Car,60
 92,Private Car,100,691305,22,Male,35,>10 km,15-49,60,Private Car,100,Private Car,100,Private Car,100
 93,Walking,5,691305,22,Male,0.4,0-1 km,15-49,61,Walking,5,Walking,5,Walking,5
 94,Walking,5,691305,22,Male,0.4,0-1 km,15-49,62,Private Car,3.5000000000000004,Walking,5,Walking,5
 97,Walking,5,691401,70,Male,0.4,0-1 km,50-70,63,Walking,5,Walking,5,Walking,5
 98,Walking,5,691401,70,Male,0.4,0-1 km,50-70,64,Walking,5,Walking,5,Walking,5
-99,Taxi,45,691402,50,Female,15.75,>10 km,50-70,65,Taxi,45,Taxi,45,Bus,22.5
-100,Taxi,60,691402,50,Female,21,>10 km,50-70,66,Taxi,60,Taxi,60,Bus,10
+99,Taxi,45,691402,50,Female,15.75,>10 km,50-70,65,Taxi,45,Taxi,45,Bus,10.419296571127292
+100,Taxi,60,691402,50,Female,21,>10 km,50-70,66,Taxi,60,Taxi,60,Bus,8.87536138115044
 101,Walking,5,691402,50,Female,0.4,0-1 km,50-70,67,Walking,5,Walking,5,Walking,5
 102,Walking,5,691402,50,Female,0.4,0-1 km,50-70,68,Private Car,1.7500000000000002,Walking,5,Walking,5
 103,Walking,18,691404,22,Male,1.44,1-2 km,15-49,69,Private Car,5.25,Walking,18,Walking,18
@@ -75,19 +75,19 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 108,Walking,5,691404,22,Male,0.4,0-1 km,15-49,74,Private Car,3.5000000000000004,Walking,5,Walking,5
 109,Walking,5,691404,22,Male,0.4,0-1 km,15-49,75,Walking,5,Walking,5,Walking,5
 110,Private Car,10,691405,17,Female,3.5,3-5 km,15-49,76,Private Car,10,Private Car,10,Private Car,10
-111,Private Car,50,691405,17,Female,17.5,>10 km,15-49,77,Private Car,50,Private Car,50,Bus,7.5
+111,Private Car,50,691405,17,Female,17.5,>10 km,15-49,77,Private Car,50,Private Car,50,Bus,5.433533821949024
 112,Walking,60,691405,17,Female,4.8,3-5 km,15-49,78,Walking,60,Walking,60,Walking,60
 113,Walking,5,691405,17,Female,0.4,0-1 km,15-49,79,Walking,5,Walking,5,Walking,5
 114,Taxi,5,691406,18,Female,1.75,1-2 km,15-49,80,Taxi,5,Bicycle,1.2083333333333333,Taxi,5
-115,Taxi,50,691406,18,Female,17.5,>10 km,15-49,81,Taxi,50,Taxi,50,Bus,15
+115,Taxi,50,691406,18,Female,17.5,>10 km,15-49,81,Taxi,50,Taxi,50,Bus,11.062270499359606
 116,Taxi,10,691406,18,Female,3.5,3-5 km,15-49,82,Taxi,10,Taxi,10,Taxi,10
-117,Taxi,50,691406,18,Female,17.5,>10 km,15-49,83,Taxi,50,Taxi,50,Bus,15
-118,Private Car,30,691501,42,Male,10.5,>10 km,15-49,84,Private Car,30,Private Car,30,Bus,10
-119,Private Car,60,691501,42,Male,21,>10 km,15-49,85,Private Car,60,Private Car,60,Bus,15
-120,Private Car,90,691501,42,Male,31.5,>10 km,15-49,86,Private Car,90,Private Car,90,Bus,12.5
-121,Private Car,60,691502,32,Female,21,>10 km,15-49,87,Private Car,60,Private Car,60,Bus,10
+117,Taxi,50,691406,18,Female,17.5,>10 km,15-49,83,Taxi,50,Taxi,50,Bus,6.998272132414494
+118,Private Car,30,691501,42,Male,10.5,>10 km,15-49,84,Private Car,30,Private Car,30,Bus,8.3064084299214
+119,Private Car,60,691501,42,Male,21,>10 km,15-49,85,Private Car,60,Private Car,60,Bus,5.549435279855914
+120,Private Car,90,691501,42,Male,31.5,>10 km,15-49,86,Private Car,90,Private Car,90,Bus,11.104027090742886
+121,Private Car,60,691502,32,Female,21,>10 km,15-49,87,Private Car,60,Private Car,60,Bus,5.251137744949511
 122,Private Car,65,691502,32,Female,22.75,>10 km,15-49,88,Private Car,65,Private Car,65,Private Car,65
-123,Private Car,60,691502,32,Female,21,>10 km,15-49,89,Private Car,60,Private Car,60,Bus,7.5
+123,Private Car,60,691502,32,Female,21,>10 km,15-49,89,Private Car,60,Private Car,60,Bus,6.19277215242671
 124,Walking,10,691601,58,Male,0.8,0-1 km,50-70,90,Walking,10,Walking,10,Walking,10
 125,Walking,10,691605,15,Male,0.8,0-1 km,15-49,91,Private Car,1.7500000000000002,Walking,10,Walking,10
 126,Walking,10,691605,15,Male,0.8,0-1 km,15-49,92,Private Car,3.5000000000000004,Walking,10,Walking,10
@@ -110,7 +110,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 150,Walking,30,700105,21,Male,2.4,2-3 km,15-49,109,Private Car,10.5,Walking,30,Walking,30
 151,Walking,5,700105,21,Male,0.4,0-1 km,15-49,110,Private Car,1.7500000000000002,Walking,5,Walking,5
 152,Walking,5,700105,21,Male,0.4,0-1 km,15-49,111,Walking,5,Walking,5,Walking,5
-153,Private Car,60,700401,49,Male,21,>10 km,15-49,112,Private Car,60,Private Car,60,Bus,10
+153,Private Car,60,700401,49,Male,21,>10 km,15-49,112,Private Car,60,Private Car,60,Bus,6.275500047143645
 154,Walking,60,700401,49,Male,4.8,3-5 km,15-49,113,Walking,60,Walking,60,Walking,60
 155,Private Car,10,700401,49,Male,3.5,3-5 km,15-49,114,Private Car,10,Private Car,10,Private Car,10
 156,Walking,10,700401,49,Male,0.8,0-1 km,15-49,115,Private Car,3.5000000000000004,Walking,10,Walking,10
@@ -120,28 +120,28 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 164,Walking,10,700601,48,Male,0.8,0-1 km,15-49,119,Walking,10,Walking,10,Walking,10
 165,Walking,30,700601,48,Male,2.4,2-3 km,15-49,120,Private Car,10.5,Walking,30,Walking,30
 166,Walking,30,700601,48,Male,2.4,2-3 km,15-49,121,Walking,30,Walking,30,Walking,30
-167,Private Car,30,700701,29,Male,10.5,>10 km,15-49,122,Private Car,30,Private Car,30,Bus,15
+167,Private Car,30,700701,29,Male,10.5,>10 km,15-49,122,Private Car,30,Private Car,30,Bus,6.49085736170044
 168,Private Car,30,700701,29,Male,10.5,>10 km,15-49,123,Private Car,30,Private Car,30,Private Car,30
-169,Private Car,60,700701,29,Male,21,>10 km,15-49,124,Private Car,60,Private Car,60,Bus,10
+169,Private Car,60,700701,29,Male,21,>10 km,15-49,124,Private Car,60,Private Car,60,Bus,5.042056041432664
 170,Private Car,60,700701,29,Male,21,>10 km,15-49,125,Private Car,60,Private Car,60,Private Car,60
 171,Private Car,15,700701,29,Male,5.25,5-7 km,15-49,126,Private Car,15,Bicycle,3.625,Private Car,15
 172,Private Car,75,700701,29,Male,26.25,>10 km,15-49,127,Private Car,75,Private Car,75,Private Car,75
 173,Private Car,120,700701,29,Male,42,>10 km,15-49,128,Private Car,120,Private Car,120,Private Car,120
-174,Private Car,30,700701,29,Male,10.5,>10 km,15-49,129,Private Car,30,Private Car,30,Bus,15
-175,Private Car,30,700701,29,Male,10.5,>10 km,15-49,130,Private Car,30,Private Car,30,Bus,11.25
-176,Private Car,60,700701,29,Male,21,>10 km,15-49,131,Private Car,60,Private Car,60,Bus,7.5
-177,Private Car,30,700701,29,Male,10.5,>10 km,15-49,132,Private Car,30,Private Car,30,Bus,12.5
+174,Private Car,30,700701,29,Male,10.5,>10 km,15-49,129,Private Car,30,Private Car,30,Bus,9.355837557974027
+175,Private Car,30,700701,29,Male,10.5,>10 km,15-49,130,Private Car,30,Private Car,30,Bus,8.756089818260335
+176,Private Car,60,700701,29,Male,21,>10 km,15-49,131,Private Car,60,Private Car,60,Bus,6.374465003213761
+177,Private Car,30,700701,29,Male,10.5,>10 km,15-49,132,Private Car,30,Private Car,30,Bus,5.323253645585276
 178,Private Car,50,700702,27,Female,17.5,>10 km,15-49,133,Private Car,50,Private Car,50,Private Car,50
-179,Private Car,50,700702,27,Female,17.5,>10 km,15-49,134,Private Car,50,Private Car,50,Bus,17.5
-180,Private Car,60,700702,27,Female,21,>10 km,15-49,135,Private Car,60,Private Car,60,Bus,11.25
+179,Private Car,50,700702,27,Female,17.5,>10 km,15-49,134,Private Car,50,Private Car,50,Bus,9.515991578639117
+180,Private Car,60,700702,27,Female,21,>10 km,15-49,135,Private Car,60,Private Car,60,Bus,9.9704813177093
 181,Private Car,60,700702,27,Female,21,>10 km,15-49,136,Private Car,60,Private Car,60,Private Car,60
-182,Taxi,60,700702,27,Female,21,>10 km,15-49,137,Taxi,60,Taxi,60,Bus,33.75
+182,Taxi,60,700702,27,Female,21,>10 km,15-49,137,Taxi,60,Taxi,60,Bus,27.15250057656084
 184,Walking,30,700703,24,Male,2.4,2-3 km,15-49,138,Private Car,10.5,Walking,30,Walking,30
 185,Walking,20,700703,24,Male,1.6,1-2 km,15-49,139,Walking,20,Walking,20,Walking,20
 186,Walking,20,700703,24,Male,1.6,1-2 km,15-49,140,Private Car,7.000000000000001,Walking,20,Walking,20
 188,Taxi,30,700703,24,Male,10.5,>10 km,15-49,141,Taxi,30,Taxi,30,Taxi,30
 189,Taxi,30,700801,48,Male,10.5,>10 km,15-49,142,Taxi,30,Taxi,30,Taxi,30
-190,Taxi,60,700801,48,Male,21,>10 km,15-49,143,Taxi,60,Taxi,60,Bus,15
+190,Taxi,60,700801,48,Male,21,>10 km,15-49,143,Taxi,60,Taxi,60,Bus,8.207054328663387
 193,Motorcycle,30,700803,24,Male,12.5,>10 km,15-49,144,Motorcycle,30,Motorcycle,30,Motorcycle,30
 194,Taxi,15,700901,32,Male,5.25,5-7 km,15-49,145,Taxi,15,Bicycle,3.625,Taxi,15
 195,Taxi,25,700901,32,Male,8.75,7-10 km,15-49,146,Taxi,25,Taxi,25,Taxi,25
@@ -149,7 +149,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 200,Motorcycle,50,700901,32,Male,20.833333333333332,>10 km,15-49,148,Motorcycle,50,Motorcycle,50,Motorcycle,50
 202,Taxi,60,700902,31,Female,21,>10 km,15-49,149,Taxi,60,Taxi,60,Taxi,60
 203,Taxi,60,700902,31,Female,21,>10 km,15-49,150,Taxi,60,Taxi,60,Taxi,60
-204,Taxi,60,700902,31,Female,21,>10 km,15-49,151,Taxi,60,Taxi,60,Bus,7.5
+204,Taxi,60,700902,31,Female,21,>10 km,15-49,151,Taxi,60,Taxi,60,Bus,5.2233032036342415
 205,Taxi,30,700902,31,Female,10.5,>10 km,15-49,152,Taxi,30,Taxi,30,Taxi,30
 206,Taxi,20,700902,31,Female,7,5-7 km,15-49,153,Taxi,20,Bicycle,4.833333333333333,Taxi,20
 222,Walking,40,701101,45,Female,3.2,3-5 km,15-49,154,Walking,40,Walking,40,Walking,40
@@ -201,7 +201,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 283,Walking,10,710303,26,Male,0.8,0-1 km,15-49,200,Private Car,1.7500000000000002,Walking,10,Walking,10
 284,Walking,5,710304,24,Male,0.4,0-1 km,15-49,201,Private Car,1.7500000000000002,Walking,5,Walking,5
 287,Bicycle,20,710304,24,Male,4.833333333333333,3-5 km,15-49,202,Bicycle,20,Bicycle,20,Bicycle,20
-290,Taxi,30,710304,24,Male,10.5,>10 km,15-49,203,Taxi,30,Taxi,30,Bus,30
+290,Taxi,30,710304,24,Male,10.5,>10 km,15-49,203,Taxi,30,Taxi,30,Bus,9.83094720226093
 291,Walking,5,710304,24,Male,0.4,0-1 km,15-49,204,Walking,5,Walking,5,Walking,5
 292,Walking,5,710304,24,Male,0.4,0-1 km,15-49,205,Walking,5,Walking,5,Walking,5
 293,Walking,5,710304,24,Male,0.4,0-1 km,15-49,206,Private Car,3.5000000000000004,Walking,5,Walking,5
@@ -279,8 +279,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 420,Walking,5,720302,20,Male,0.4,0-1 km,15-49,278,Walking,5,Walking,5,Walking,5
 421,Walking,5,720302,20,Male,0.4,0-1 km,15-49,279,Private Car,3.5000000000000004,Walking,5,Walking,5
 422,Private Car,30,720401,32,Male,10.5,>10 km,15-49,280,Private Car,30,Private Car,30,Private Car,30
-423,Private Car,30,720401,32,Male,10.5,>10 km,15-49,281,Private Car,30,Private Car,30,Bus,15
-424,Private Car,40,720401,32,Male,14,>10 km,15-49,282,Private Car,40,Private Car,40,Bus,15
+423,Private Car,30,720401,32,Male,10.5,>10 km,15-49,281,Private Car,30,Private Car,30,Bus,11.119411699760873
+424,Private Car,40,720401,32,Male,14,>10 km,15-49,282,Private Car,40,Private Car,40,Bus,5.685438774975582
 425,Private Car,40,720401,32,Male,14,>10 km,15-49,283,Private Car,40,Private Car,40,Private Car,40
 428,Walking,30,720601,25,Male,2.4,2-3 km,15-49,284,Private Car,10.5,Walking,30,Walking,30
 429,Walking,30,720601,25,Male,2.4,2-3 km,15-49,285,Private Car,10.5,Walking,30,Walking,30
@@ -333,7 +333,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 525,Walking,20,730602,26,Female,1.6,1-2 km,15-49,332,Private Car,7.000000000000001,Walking,20,Walking,20
 526,Walking,5,730602,26,Female,0.4,0-1 km,15-49,333,Walking,5,Walking,5,Walking,5
 540,Taxi,5,731202,30,Female,1.75,1-2 km,15-49,334,Taxi,5,Taxi,5,Taxi,5
-541,Taxi,30,731202,30,Female,10.5,>10 km,15-49,335,Taxi,30,Taxi,30,Bus,22.5
+541,Taxi,30,731202,30,Female,10.5,>10 km,15-49,335,Taxi,30,Taxi,30,Bus,13.828829907329911
 542,Walking,10,731202,30,Female,0.8,0-1 km,15-49,336,Private Car,3.5000000000000004,Walking,10,Walking,10
 543,Taxi,15,731202,30,Female,5.25,5-7 km,15-49,337,Taxi,15,Bicycle,3.625,Taxi,15
 544,Private Car,15,731202,30,Female,5.25,5-7 km,15-49,338,Private Car,15,Private Car,15,Private Car,15
@@ -531,8 +531,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 883,Walking,15,780502,30,Female,1.2,1-2 km,15-49,530,Walking,15,Walking,15,Walking,15
 884,Walking,15,780502,30,Female,1.2,1-2 km,15-49,531,Private Car,7.000000000000001,Walking,15,Walking,15
 885,Walking,15,780502,30,Female,1.2,1-2 km,15-49,532,Private Car,5.25,Walking,15,Walking,15
-886,Taxi,30,780601,30,Female,10.5,>10 km,15-49,533,Taxi,30,Taxi,30,Bus,7.5
-887,Taxi,30,780601,30,Female,10.5,>10 km,15-49,534,Taxi,30,Taxi,30,Bus,7.5
+886,Taxi,30,780601,30,Female,10.5,>10 km,15-49,533,Taxi,30,Taxi,30,Bus,5.4376821998900295
+887,Taxi,30,780601,30,Female,10.5,>10 km,15-49,534,Taxi,30,Taxi,30,Bus,6.820992171231396
 888,Walking,10,780604,18,Female,0.8,0-1 km,15-49,535,Walking,10,Walking,10,Walking,10
 889,Walking,10,780604,18,Female,0.8,0-1 km,15-49,536,Walking,10,Walking,10,Walking,10
 890,Walking,15,780701,32,Male,1.2,1-2 km,15-49,537,Private Car,7.000000000000001,Walking,15,Walking,15
@@ -545,8 +545,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 900,Walking,60,781001,48,Female,4.8,3-5 km,15-49,544,Walking,60,Walking,60,Walking,60
 901,Walking,30,781001,48,Female,2.4,2-3 km,15-49,545,Private Car,10.5,Walking,30,Walking,30
 903,Walking,5,781002,22,Female,0.4,0-1 km,15-49,546,Walking,5,Walking,5,Walking,5
-906,Private Car,30,781101,40,Male,10.5,>10 km,15-49,547,Private Car,30,Private Car,30,Bus,15
-907,Private Car,40,781101,40,Male,14,>10 km,15-49,548,Private Car,40,Private Car,40,Bus,7.5
+906,Private Car,30,781101,40,Male,10.5,>10 km,15-49,547,Private Car,30,Private Car,30,Bus,6.84704625230532
+907,Private Car,40,781101,40,Male,14,>10 km,15-49,548,Private Car,40,Private Car,40,Bus,5.280893326559799
 910,Walking,60,781201,37,Male,4.8,3-5 km,15-49,549,Private Car,21,Walking,60,Walking,60
 915,Walking,15,781204,19,Female,1.2,1-2 km,15-49,550,Private Car,7.000000000000001,Walking,15,Walking,15
 916,Walking,30,781204,19,Female,2.4,2-3 km,15-49,551,Private Car,10.5,Walking,30,Walking,30
@@ -556,7 +556,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 929,Walking,5,781401,41,Male,0.4,0-1 km,15-49,555,Private Car,3.5000000000000004,Walking,5,Walking,5
 930,Walking,5,781401,41,Male,0.4,0-1 km,15-49,556,Private Car,1.7500000000000002,Walking,5,Walking,5
 933,Private Car,15,781601,49,Male,5.25,5-7 km,15-49,557,Private Car,15,Bicycle,3.625,Private Car,15
-934,Private Car,30,781601,49,Male,10.5,>10 km,15-49,558,Private Car,30,Private Car,30,Bus,7.5
+934,Private Car,30,781601,49,Male,10.5,>10 km,15-49,558,Private Car,30,Private Car,30,Bus,6.046247019446615
 935,Private Car,15,781601,49,Male,5.25,5-7 km,15-49,559,Private Car,15,Bicycle,3.625,Private Car,15
 936,Private Car,30,781601,49,Male,10.5,>10 km,15-49,560,Private Car,30,Private Car,30,Private Car,30
 937,Walking,5,781602,42,Female,0.4,0-1 km,15-49,561,Walking,5,Walking,5,Walking,5
@@ -622,8 +622,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1047,Private Car,40,791201,36,Male,14,>10 km,15-49,621,Private Car,40,Private Car,40,Private Car,40
 1048,Private Car,60,791201,36,Male,21,>10 km,15-49,622,Private Car,60,Private Car,60,Private Car,60
 1049,Private Car,10,791202,35,Female,3.5,3-5 km,15-49,623,Private Car,10,Private Car,10,Private Car,10
-1050,Private Car,60,791202,35,Female,21,>10 km,15-49,624,Private Car,60,Private Car,60,Bus,7.5
-1051,Private Car,120,791202,35,Female,42,>10 km,15-49,625,Private Car,120,Private Car,120,Bus,15
+1050,Private Car,60,791202,35,Female,21,>10 km,15-49,624,Private Car,60,Private Car,60,Bus,5.7772839920208385
+1051,Private Car,120,791202,35,Female,42,>10 km,15-49,625,Private Car,120,Private Car,120,Bus,5.346168833872562
 1059,Walking,5,791403,22,Female,0.4,0-1 km,15-49,626,Private Car,3.5000000000000004,Walking,5,Walking,5
 1060,Walking,15,791404,21,Male,1.2,1-2 km,15-49,627,Walking,15,Walking,15,Walking,15
 1061,Walking,15,791404,21,Male,1.2,1-2 km,15-49,628,Private Car,8.75,Walking,15,Walking,15
@@ -646,7 +646,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1080,Walking,30,791502,16,Male,2.4,2-3 km,15-49,645,Private Car,10.5,Walking,30,Walking,30
 1081,Walking,30,791502,16,Male,2.4,2-3 km,15-49,646,Walking,30,Walking,30,Walking,30
 1084,Taxi,15,800102,22,Female,5.25,5-7 km,15-49,647,Taxi,15,Bicycle,3.625,Taxi,15
-1085,Taxi,30,800102,22,Female,10.5,>10 km,15-49,648,Taxi,30,Taxi,30,Bus,12.5
+1085,Taxi,30,800102,22,Female,10.5,>10 km,15-49,648,Taxi,30,Taxi,30,Bus,11.881873069926932
 1086,Walking,20,800102,22,Female,1.6,1-2 km,15-49,649,Walking,20,Walking,20,Walking,20
 1087,Walking,30,800102,22,Female,2.4,2-3 km,15-49,650,Walking,30,Walking,30,Walking,30
 1088,Walking,30,800102,22,Female,2.4,2-3 km,15-49,651,Walking,30,Walking,30,Walking,30
@@ -660,7 +660,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1099,Walking,20,800502,34,Female,1.6,1-2 km,15-49,659,Walking,20,Walking,20,Walking,20
 1100,Walking,20,800502,34,Female,1.6,1-2 km,15-49,660,Private Car,7.000000000000001,Walking,20,Walking,20
 1101,Private Car,30,800901,57,Male,10.5,>10 km,50-70,661,Private Car,30,Private Car,30,Private Car,30
-1102,Private Car,30,800901,57,Male,10.5,>10 km,50-70,662,Private Car,30,Private Car,30,Bus,15
+1102,Private Car,30,800901,57,Male,10.5,>10 km,50-70,662,Private Car,30,Private Car,30,Bus,7.588552981930099
 1103,Private Car,60,800901,57,Male,21,>10 km,50-70,663,Private Car,60,Private Car,60,Private Car,60
 1104,Private Car,20,800902,52,Female,7,5-7 km,50-70,664,Private Car,20,Private Car,20,Private Car,20
 1105,Private Car,20,800902,52,Female,7,5-7 km,50-70,665,Private Car,20,Bicycle,4.833333333333333,Private Car,20
@@ -678,13 +678,13 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1126,Walking,10,801401,29,Male,0.8,0-1 km,15-49,677,Walking,10,Walking,10,Walking,10
 1129,Walking,10,801401,29,Male,0.8,0-1 km,15-49,678,Private Car,1.7500000000000002,Walking,10,Walking,10
 1132,Private Car,60,810101,55,Male,21,>10 km,50-70,679,Private Car,60,Private Car,60,Private Car,60
-1133,Private Car,60,810101,55,Male,21,>10 km,50-70,680,Private Car,60,Private Car,60,Bus,7.5
+1133,Private Car,60,810101,55,Male,21,>10 km,50-70,680,Private Car,60,Private Car,60,Bus,5.33083634687388
 1134,Private Car,60,810101,55,Male,21,>10 km,50-70,681,Private Car,60,Private Car,60,Private Car,60
-1135,Private Car,60,810101,55,Male,21,>10 km,50-70,682,Private Car,60,Private Car,60,Bus,7.5
+1135,Private Car,60,810101,55,Male,21,>10 km,50-70,682,Private Car,60,Private Car,60,Bus,5.206895908261035
 1136,Private Car,60,810101,55,Male,21,>10 km,50-70,683,Private Car,60,Private Car,60,Private Car,60
 1139,Walking,5,810201,47,Female,0.4,0-1 km,15-49,684,Walking,5,Walking,5,Walking,5
-1140,Taxi,30,810201,47,Female,10.5,>10 km,15-49,685,Taxi,30,Taxi,30,Bus,7.5
-1141,Taxi,30,810201,47,Female,10.5,>10 km,15-49,686,Taxi,30,Taxi,30,Bus,18.75
+1140,Taxi,30,810201,47,Female,10.5,>10 km,15-49,685,Taxi,30,Taxi,30,Bus,5.3225025971294215
+1141,Taxi,30,810201,47,Female,10.5,>10 km,15-49,686,Taxi,30,Taxi,30,Bus,14.430524945412888
 1145,Walking,5,810301,31,Male,0.4,0-1 km,15-49,687,Private Car,2.45,Walking,5,Walking,5
 1146,Walking,5,810301,31,Male,0.4,0-1 km,15-49,688,Private Car,3.5000000000000004,Walking,5,Walking,5
 1147,Taxi,30,810301,31,Male,10.5,>10 km,15-49,689,Taxi,30,Taxi,30,Taxi,30
@@ -699,9 +699,9 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1160,Walking,30,810303,16,Male,2.4,2-3 km,15-49,698,Private Car,10.5,Walking,30,Walking,30
 1161,Private Car,30,810401,57,Male,10.5,>10 km,50-70,699,Private Car,30,Private Car,30,Private Car,30
 1162,Private Car,30,810401,57,Male,10.5,>10 km,50-70,700,Private Car,30,Private Car,30,Private Car,30
-1163,Private Car,30,810401,57,Male,10.5,>10 km,50-70,701,Private Car,30,Private Car,30,Bus,15
-1164,Private Car,30,810401,57,Male,10.5,>10 km,50-70,702,Private Car,30,Private Car,30,Bus,7.5
-1165,Private Car,60,810401,57,Male,21,>10 km,50-70,703,Private Car,60,Private Car,60,Bus,7.5
+1163,Private Car,30,810401,57,Male,10.5,>10 km,50-70,701,Private Car,30,Private Car,30,Bus,7.563488715756438
+1164,Private Car,30,810401,57,Male,10.5,>10 km,50-70,702,Private Car,30,Private Car,30,Bus,5.9045686874204755
+1165,Private Car,60,810401,57,Male,21,>10 km,50-70,703,Private Car,60,Private Car,60,Bus,5.749921773553938
 1166,Private Car,15,810403,25,Male,5.25,5-7 km,15-49,704,Private Car,15,Private Car,15,Private Car,15
 1167,Private Car,15,810403,25,Male,5.25,5-7 km,15-49,705,Private Car,15,Private Car,15,Private Car,15
 1168,Private Car,15,810403,25,Male,5.25,5-7 km,15-49,706,Private Car,15,Private Car,15,Private Car,15
@@ -730,7 +730,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1206,Private Car,10,811501,41,Male,3.5,3-5 km,15-49,729,Private Car,10,Private Car,10,Private Car,10
 1207,Private Car,15,811502,38,Female,5.25,5-7 km,15-49,730,Private Car,15,Private Car,15,Private Car,15
 1208,Walking,15,811502,38,Female,1.2,1-2 km,15-49,731,Private Car,5.25,Walking,15,Walking,15
-1209,Private Car,30,811502,38,Female,10.5,>10 km,15-49,732,Private Car,30,Private Car,30,Bus,7.5
+1209,Private Car,30,811502,38,Female,10.5,>10 km,15-49,732,Private Car,30,Private Car,30,Bus,5.213670257815652
 1210,Walking,30,811502,38,Female,2.4,2-3 km,15-49,733,Private Car,10.5,Walking,30,Walking,30
 1211,Private Car,60,811502,38,Female,21,>10 km,15-49,734,Private Car,60,Private Car,60,Private Car,60
 1212,Walking,60,811502,38,Female,4.8,3-5 km,15-49,735,Private Car,21,Walking,60,Walking,60
@@ -745,7 +745,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1225,Private Car,20,820201,33,Male,7,5-7 km,15-49,744,Private Car,20,Bicycle,4.833333333333333,Private Car,20
 1226,Private Car,20,820201,33,Male,7,5-7 km,15-49,745,Private Car,20,Private Car,20,Private Car,20
 1227,Private Car,60,820201,33,Male,21,>10 km,15-49,746,Private Car,60,Private Car,60,Private Car,60
-1228,Private Car,60,820201,33,Male,21,>10 km,15-49,747,Private Car,60,Private Car,60,Bus,15
+1228,Private Car,60,820201,33,Male,21,>10 km,15-49,747,Private Car,60,Private Car,60,Bus,13.192288785400768
 1229,Private Car,20,820201,33,Male,7,5-7 km,15-49,748,Private Car,20,Private Car,20,Private Car,20
 1230,Private Car,20,820201,33,Male,7,5-7 km,15-49,749,Private Car,20,Private Car,20,Private Car,20
 1231,Private Car,30,820201,33,Male,10.5,>10 km,15-49,750,Private Car,30,Private Car,30,Private Car,30
@@ -778,18 +778,18 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1265,Walking,20,820901,24,Male,1.6,1-2 km,15-49,777,Walking,20,Walking,20,Walking,20
 1266,Walking,10,820901,24,Male,0.8,0-1 km,15-49,778,Walking,10,Walking,10,Walking,10
 1269,Private Car,45,821001,65,Male,15.75,>10 km,50-70,779,Private Car,45,Private Car,45,Private Car,45
-1270,Private Car,30,821001,65,Male,10.5,>10 km,50-70,780,Private Car,30,Private Car,30,Bus,7.5
+1270,Private Car,30,821001,65,Male,10.5,>10 km,50-70,780,Private Car,30,Private Car,30,Bus,5.181183228144744
 1271,Walking,5,821003,27,Male,0.4,0-1 km,15-49,781,Walking,5,Walking,5,Walking,5
 1272,Walking,5,821003,27,Male,0.4,0-1 km,15-49,782,Walking,5,Walking,5,Walking,5
 1273,Walking,20,821003,27,Male,1.6,1-2 km,15-49,783,Private Car,5.25,Walking,20,Walking,20
 1275,Walking,10,821004,15,Male,0.8,0-1 km,15-49,784,Walking,10,Walking,10,Walking,10
 1276,Walking,10,821004,15,Male,0.8,0-1 km,15-49,785,Private Car,1.7500000000000002,Walking,10,Walking,10
 1277,Private Car,60,821006,35,Male,21,>10 km,15-49,786,Private Car,60,Private Car,60,Private Car,60
-1278,Private Car,50,821006,35,Male,17.5,>10 km,15-49,787,Private Car,50,Private Car,50,Bus,7.5
+1278,Private Car,50,821006,35,Male,17.5,>10 km,15-49,787,Private Car,50,Private Car,50,Bus,5.133860723076902
 1281,Walking,20,821201,25,Male,1.6,1-2 km,15-49,788,Private Car,7.000000000000001,Walking,20,Walking,20
 1282,Walking,20,821201,25,Male,1.6,1-2 km,15-49,789,Private Car,5.25,Walking,20,Walking,20
-1283,Private Car,55,821301,47,Male,19.25,>10 km,15-49,790,Private Car,55,Private Car,55,Bus,22.5
-1284,Private Car,30,821301,47,Male,10.5,>10 km,15-49,791,Private Car,30,Private Car,30,Bus,7.5
+1283,Private Car,55,821301,47,Male,19.25,>10 km,15-49,790,Private Car,55,Private Car,55,Bus,21.004099832153805
+1284,Private Car,30,821301,47,Male,10.5,>10 km,15-49,791,Private Car,30,Private Car,30,Bus,6.1789720612653385
 1285,Walking,10,821401,59,Male,0.8,0-1 km,50-70,792,Walking,10,Walking,10,Walking,10
 1286,Walking,30,821401,59,Male,2.4,2-3 km,50-70,793,Walking,30,Walking,30,Walking,30
 1287,Walking,20,821402,50,Female,1.6,1-2 km,50-70,794,Private Car,5.25,Walking,20,Walking,20
@@ -843,7 +843,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1362,Walking,30,831001,36,Male,2.4,2-3 km,15-49,842,Walking,30,Walking,30,Walking,30
 1363,Walking,5,831001,36,Male,0.4,0-1 km,15-49,843,Private Car,2.8,Walking,5,Walking,5
 1364,Walking,5,831001,36,Male,0.4,0-1 km,15-49,844,Walking,5,Walking,5,Walking,5
-1365,Private Car,45,831001,36,Male,15.75,>10 km,15-49,845,Private Car,45,Private Car,45,Bus,15
+1365,Private Car,45,831001,36,Male,15.75,>10 km,15-49,845,Private Car,45,Private Car,45,Bus,5.278588775464458
 1366,Private Car,15,831001,36,Male,5.25,5-7 km,15-49,846,Private Car,15,Private Car,15,Private Car,15
 1367,Private Car,60,831001,36,Male,21,>10 km,15-49,847,Private Car,60,Private Car,60,Private Car,60
 1368,Private Car,120,831001,36,Male,42,>10 km,15-49,848,Private Car,120,Private Car,120,Private Car,120
@@ -929,8 +929,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1482,Private Car,35,850101,31,Male,12.25,>10 km,15-49,928,Private Car,35,Private Car,35,Private Car,35
 1483,Private Car,20,850101,31,Male,7,5-7 km,15-49,929,Private Car,20,Private Car,20,Private Car,20
 1484,Private Car,15,850101,31,Male,5.25,5-7 km,15-49,930,Private Car,15,Bicycle,4.833333333333333,Private Car,15
-1485,Private Car,30,850101,31,Male,10.5,>10 km,15-49,931,Private Car,30,Private Car,30,Bus,15
-1486,Private Car,45,850101,31,Male,15.75,>10 km,15-49,932,Private Car,45,Private Car,45,Bus,25
+1485,Private Car,30,850101,31,Male,10.5,>10 km,15-49,931,Private Car,30,Private Car,30,Bus,5.757983801766265
+1486,Private Car,45,850101,31,Male,15.75,>10 km,15-49,932,Private Car,45,Private Car,45,Bus,21.78864586584362
 1487,Walking,60,850101,31,Male,4.8,3-5 km,15-49,933,Private Car,21,Walking,60,Walking,60
 1488,Walking,10,850201,20,Female,0.8,0-1 km,15-49,934,Private Car,3.5000000000000004,Walking,10,Walking,10
 1489,Walking,15,850201,20,Female,1.2,1-2 km,15-49,935,Walking,15,Walking,15,Walking,15
@@ -948,7 +948,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1502,Walking,15,850201,20,Female,1.2,1-2 km,15-49,947,Private Car,5.25,Walking,15,Walking,15
 1503,Private Car,30,850401,24,Male,10.5,>10 km,15-49,948,Private Car,30,Private Car,30,Private Car,30
 1504,Private Car,30,850401,24,Male,10.5,>10 km,15-49,949,Private Car,30,Private Car,30,Private Car,30
-1505,Private Car,30,850401,24,Male,10.5,>10 km,15-49,950,Private Car,30,Private Car,30,Bus,15
+1505,Private Car,30,850401,24,Male,10.5,>10 km,15-49,950,Private Car,30,Private Car,30,Bus,5.321069816377399
 1506,Private Car,45,850401,24,Male,15.75,>10 km,15-49,951,Private Car,45,Private Car,45,Private Car,45
 1507,Private Car,45,850401,24,Male,15.75,>10 km,15-49,952,Private Car,45,Private Car,45,Private Car,45
 1508,Private Car,15,850401,24,Male,5.25,5-7 km,15-49,953,Private Car,15,Bicycle,4.833333333333333,Private Car,15
@@ -964,8 +964,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1533,Walking,5,851001,47,Male,0.4,0-1 km,15-49,963,Private Car,1.7500000000000002,Walking,5,Walking,5
 1534,Walking,10,851001,47,Male,0.8,0-1 km,15-49,964,Walking,10,Walking,10,Walking,10
 1535,Walking,10,851001,47,Male,0.8,0-1 km,15-49,965,Private Car,3.5000000000000004,Walking,10,Walking,10
-1536,Private Car,30,851101,31,Male,10.5,>10 km,15-49,966,Private Car,30,Private Car,30,Bus,7.5
-1537,Private Car,75,851101,31,Male,26.25,>10 km,15-49,967,Private Car,75,Private Car,75,Bus,7.5
+1536,Private Car,30,851101,31,Male,10.5,>10 km,15-49,966,Private Car,30,Private Car,30,Bus,5.979683238990703
+1537,Private Car,75,851101,31,Male,26.25,>10 km,15-49,967,Private Car,75,Private Car,75,Bus,5.0994113861799635
 1538,Private Car,20,851101,31,Male,7,5-7 km,15-49,968,Private Car,20,Private Car,20,Private Car,20
 1540,Walking,20,851102,28,Female,1.6,1-2 km,15-49,969,Private Car,7.000000000000001,Walking,20,Walking,20
 1541,Walking,20,851102,28,Female,1.6,1-2 km,15-49,970,Private Car,5.25,Walking,20,Walking,20
@@ -979,8 +979,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1556,Walking,5,851501,25,Male,0.4,0-1 km,15-49,978,Private Car,3.5000000000000004,Walking,5,Walking,5
 1557,Walking,5,851501,25,Male,0.4,0-1 km,15-49,979,Walking,5,Walking,5,Walking,5
 1558,Walking,5,851501,25,Male,0.4,0-1 km,15-49,980,Private Car,1.7500000000000002,Walking,5,Walking,5
-1559,Private Car,30,851601,39,Male,10.5,>10 km,15-49,981,Private Car,30,Private Car,30,Bus,22.5
-1560,Private Car,90,851601,39,Male,31.5,>10 km,15-49,982,Private Car,90,Private Car,90,Bus,7.5
+1559,Private Car,30,851601,39,Male,10.5,>10 km,15-49,981,Private Car,30,Private Car,30,Bus,11.60627212118196
+1560,Private Car,90,851601,39,Male,31.5,>10 km,15-49,982,Private Car,90,Private Car,90,Bus,5.28023945977399
 1561,Private Car,30,851601,39,Male,10.5,>10 km,15-49,983,Private Car,30,Private Car,30,Private Car,30
 1562,Private Car,60,851601,39,Male,21,>10 km,15-49,984,Private Car,60,Private Car,60,Private Car,60
 1563,Private Car,30,851601,39,Male,10.5,>10 km,15-49,985,Private Car,30,Private Car,30,Private Car,30
@@ -1093,7 +1093,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1764,Taxi,20,880504,17,Female,7,5-7 km,15-49,1092,Taxi,20,Bicycle,3.625,Taxi,20
 1765,Walking,30,880504,17,Female,2.4,2-3 km,15-49,1093,Private Car,10.5,Walking,30,Walking,30
 1766,Private Car,55,880601,42,Male,19.25,>10 km,15-49,1094,Private Car,55,Private Car,55,Private Car,55
-1767,Private Car,60,880601,42,Male,21,>10 km,15-49,1095,Private Car,60,Private Car,60,Bus,7.5
+1767,Private Car,60,880601,42,Male,21,>10 km,15-49,1095,Private Car,60,Private Car,60,Bus,6.2468633970768
 1770,Walking,20,880701,37,Female,1.6,1-2 km,15-49,1096,Walking,20,Walking,20,Walking,20
 1771,Walking,20,880701,37,Female,1.6,1-2 km,15-49,1097,Private Car,5.25,Walking,20,Walking,20
 1772,Walking,20,880701,37,Female,1.6,1-2 km,15-49,1098,Private Car,5.25,Walking,20,Walking,20
@@ -1138,7 +1138,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1834,Walking,30,890202,15,Male,2.4,2-3 km,15-49,1137,Private Car,10.5,Walking,30,Walking,30
 1835,Motorcycle,35,890401,41,Male,14.583333333333334,>10 km,15-49,1138,Motorcycle,35,Motorcycle,35,Motorcycle,35
 1837,Walking,30,890401,41,Male,2.4,2-3 km,15-49,1139,Private Car,10.5,Walking,30,Walking,30
-1838,Taxi,30,890401,41,Male,10.5,>10 km,15-49,1140,Taxi,30,Taxi,30,Bus,7.5
+1838,Taxi,30,890401,41,Male,10.5,>10 km,15-49,1140,Taxi,30,Taxi,30,Bus,5.27044516637449
 1853,Walking,30,890403,22,Male,2.4,2-3 km,15-49,1141,Walking,30,Walking,30,Walking,30
 1854,Walking,10,890403,22,Male,0.8,0-1 km,15-49,1142,Private Car,3.5000000000000004,Walking,10,Walking,10
 1855,Walking,10,890403,22,Male,0.8,0-1 km,15-49,1143,Private Car,1.7500000000000002,Walking,10,Walking,10
@@ -1154,21 +1154,21 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1875,Private Car,10,890702,29,Female,3.5,3-5 km,15-49,1153,Private Car,10,Bicycle,2.4166666666666665,Private Car,10
 1876,Private Car,60,890702,29,Female,21,>10 km,15-49,1154,Private Car,60,Private Car,60,Private Car,60
 1877,Private Car,10,890702,29,Female,3.5,3-5 km,15-49,1155,Private Car,10,Bicycle,2.4166666666666665,Private Car,10
-1878,Private Car,60,890702,29,Female,21,>10 km,15-49,1156,Private Car,60,Private Car,60,Bus,12.5
+1878,Private Car,60,890702,29,Female,21,>10 km,15-49,1156,Private Car,60,Private Car,60,Bus,8.066901855596294
 1879,Private Car,90,890702,29,Female,31.5,>10 km,15-49,1157,Private Car,90,Private Car,90,Private Car,90
 1880,Private Car,10,890702,29,Female,3.5,3-5 km,15-49,1158,Private Car,10,Private Car,10,Private Car,10
 1881,Private Car,10,890702,29,Female,3.5,3-5 km,15-49,1159,Private Car,10,Bicycle,2.4166666666666665,Private Car,10
 1889,Walking,5,891002,25,Male,0.4,0-1 km,15-49,1160,Private Car,1.7500000000000002,Walking,5,Walking,5
 1890,Walking,5,891002,25,Male,0.4,0-1 km,15-49,1161,Private Car,3.5000000000000004,Walking,5,Walking,5
 1905,Walking,5,891301,32,Male,0.4,0-1 km,15-49,1162,Walking,5,Walking,5,Walking,5
-1906,Taxi,30,891301,32,Male,10.5,>10 km,15-49,1163,Taxi,30,Taxi,30,Bus,7.5
-1907,Taxi,60,891301,32,Male,21,>10 km,15-49,1164,Taxi,60,Taxi,60,Bus,7.5
-1908,Taxi,60,891301,32,Male,21,>10 km,15-49,1165,Taxi,60,Taxi,60,Bus,15
+1906,Taxi,30,891301,32,Male,10.5,>10 km,15-49,1163,Taxi,30,Taxi,30,Bus,5.201290950341335
+1907,Taxi,60,891301,32,Male,21,>10 km,15-49,1164,Taxi,60,Taxi,60,Bus,5.184201108620837
+1908,Taxi,60,891301,32,Male,21,>10 km,15-49,1165,Taxi,60,Taxi,60,Bus,8.100612846240963
 1909,Walking,5,891301,32,Male,0.4,0-1 km,15-49,1166,Walking,5,Walking,5,Walking,5
 1910,Walking,25,891301,32,Male,2,1-2 km,15-49,1167,Private Car,7.000000000000001,Walking,25,Walking,25
 1911,Walking,30,891301,32,Male,2.4,2-3 km,15-49,1168,Walking,30,Walking,30,Walking,30
 1912,Walking,20,891301,32,Male,1.6,1-2 km,15-49,1169,Walking,20,Walking,20,Walking,20
-1914,Taxi,60,891402,35,Female,21,>10 km,15-49,1170,Taxi,60,Taxi,60,Bus,13.75
+1914,Taxi,60,891402,35,Female,21,>10 km,15-49,1170,Taxi,60,Taxi,60,Bus,7.359712285410922
 1915,Walking,5,891402,35,Female,0.4,0-1 km,15-49,1171,Walking,5,Walking,5,Walking,5
 1916,Walking,5,891402,35,Female,0.4,0-1 km,15-49,1172,Walking,5,Walking,5,Walking,5
 1917,Walking,5,891402,35,Female,0.4,0-1 km,15-49,1173,Private Car,3.5000000000000004,Walking,5,Walking,5
@@ -1191,8 +1191,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1942,Walking,5,900102,29,Female,0.4,0-1 km,15-49,1190,Private Car,3.5000000000000004,Walking,5,Walking,5
 1943,Walking,5,900102,29,Female,0.4,0-1 km,15-49,1191,Private Car,1.7500000000000002,Walking,5,Walking,5
 1950,Walking,30,900301,48,Female,2.4,2-3 km,15-49,1192,Private Car,10.5,Walking,30,Walking,30
-1961,Private Car,30,900501,49,Male,10.5,>10 km,15-49,1193,Private Car,30,Private Car,30,Bus,15
-1962,Private Car,30,900501,49,Male,10.5,>10 km,15-49,1194,Private Car,30,Private Car,30,Bus,7.5
+1961,Private Car,30,900501,49,Male,10.5,>10 km,15-49,1193,Private Car,30,Private Car,30,Bus,6.674263347299205
+1962,Private Car,30,900501,49,Male,10.5,>10 km,15-49,1194,Private Car,30,Private Car,30,Bus,5.522119560751767
 1963,Walking,9,900503,20,Female,0.72,0-1 km,15-49,1195,Walking,9,Walking,9,Walking,9
 1964,Walking,5,900503,20,Female,0.4,0-1 km,15-49,1196,Private Car,3.5000000000000004,Walking,5,Walking,5
 1965,Walking,15,900601,36,Male,1.2,1-2 km,15-49,1197,Walking,15,Walking,15,Walking,15
@@ -1215,8 +1215,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 1991,Walking,10,900902,23,Female,0.8,0-1 km,15-49,1214,Private Car,3.5000000000000004,Walking,10,Walking,10
 1992,Walking,35,900902,23,Female,2.8,2-3 km,15-49,1215,Private Car,10.5,Walking,35,Walking,35
 1995,Taxi,60,901002,28,Female,21,>10 km,15-49,1216,Taxi,60,Taxi,60,Taxi,60
-1996,Taxi,60,901002,28,Female,21,>10 km,15-49,1217,Taxi,60,Taxi,60,Bus,15
-1997,Taxi,90,901002,28,Female,31.5,>10 km,15-49,1218,Taxi,90,Taxi,90,Bus,7.5
+1996,Taxi,60,901002,28,Female,21,>10 km,15-49,1217,Taxi,60,Taxi,60,Bus,5.884802905574784
+1997,Taxi,90,901002,28,Female,31.5,>10 km,15-49,1218,Taxi,90,Taxi,90,Bus,6.424936872042341
 1998,Walking,5,901101,37,Female,0.4,0-1 km,15-49,1219,Private Car,3.5000000000000004,Walking,5,Walking,5
 1999,Walking,60,901102,16,Female,4.8,3-5 km,15-49,1220,Private Car,21,Walking,60,Walking,60
 2e3,Walking,60,901102,16,Female,4.8,3-5 km,15-49,1221,Walking,60,Walking,60,Walking,60
@@ -1245,8 +1245,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2051,Walking,15,901601,35,Male,1.2,1-2 km,15-49,1244,Private Car,7.000000000000001,Walking,15,Walking,15
 2058,Walking,30,910202,60,Female,2.4,2-3 km,50-70,1245,Walking,30,Walking,30,Walking,30
 2059,Walking,30,910202,60,Female,2.4,2-3 km,50-70,1246,Private Car,10.5,Walking,30,Walking,30
-2060,Private Car,30,910401,46,Male,10.5,>10 km,15-49,1247,Private Car,30,Private Car,30,Bus,7.5
-2061,Private Car,60,910401,46,Male,21,>10 km,15-49,1248,Private Car,60,Private Car,60,Bus,7.5
+2060,Private Car,30,910401,46,Male,10.5,>10 km,15-49,1247,Private Car,30,Private Car,30,Bus,5.278386355400192
+2061,Private Car,60,910401,46,Male,21,>10 km,15-49,1248,Private Car,60,Private Car,60,Bus,5.451484926753152
 2062,Private Car,60,910401,46,Male,21,>10 km,15-49,1249,Private Car,60,Private Car,60,Private Car,60
 2063,Walking,60,910401,46,Male,4.8,3-5 km,15-49,1250,Walking,60,Walking,60,Walking,60
 2064,Walking,30,910402,43,Female,2.4,2-3 km,15-49,1251,Walking,30,Walking,30,Walking,30
@@ -1381,9 +1381,9 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2211,Walking,20,920902,53,Female,1.6,1-2 km,50-70,1380,Private Car,7.000000000000001,Walking,20,Walking,20
 2212,Private Car,40,920902,53,Female,14,>10 km,50-70,1381,Private Car,40,Private Car,40,Private Car,40
 2213,Private Car,100,920902,53,Female,35,>10 km,50-70,1382,Private Car,100,Private Car,100,Private Car,100
-2214,Private Car,130,920902,53,Female,45.5,>10 km,50-70,1383,Private Car,130,Private Car,130,Bus,15
-2215,Private Car,60,920902,53,Female,21,>10 km,50-70,1384,Private Car,60,Private Car,60,Bus,15
-2216,Private Car,30,920902,53,Female,10.5,>10 km,50-70,1385,Private Car,30,Private Car,30,Bus,11.25
+2214,Private Car,130,920902,53,Female,45.5,>10 km,50-70,1383,Private Car,130,Private Car,130,Bus,7.104284494416281
+2215,Private Car,60,920902,53,Female,21,>10 km,50-70,1384,Private Car,60,Private Car,60,Bus,13.890166405819214
+2216,Private Car,30,920902,53,Female,10.5,>10 km,50-70,1385,Private Car,30,Private Car,30,Bus,5.586260632504766
 2217,Walking,30,921001,30,Male,2.4,2-3 km,15-49,1386,Private Car,10.5,Walking,30,Walking,30
 2218,Walking,30,921001,30,Male,2.4,2-3 km,15-49,1387,Private Car,10.5,Walking,30,Walking,30
 2219,Walking,15,921002,24,Male,1.2,1-2 km,15-49,1388,Walking,15,Walking,15,Walking,15
@@ -1425,15 +1425,15 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2311,Taxi,15,930101,39,Male,5.25,5-7 km,15-49,1424,Taxi,15,Taxi,15,Taxi,15
 2314,Walking,15,930101,39,Male,1.2,1-2 km,15-49,1425,Walking,15,Walking,15,Walking,15
 2315,Taxi,15,930101,39,Male,5.25,5-7 km,15-49,1426,Taxi,15,Taxi,15,Taxi,15
-2316,Taxi,30,930101,39,Male,10.5,>10 km,15-49,1427,Taxi,30,Taxi,30,Bus,11.25
+2316,Taxi,30,930101,39,Male,10.5,>10 km,15-49,1427,Taxi,30,Taxi,30,Bus,7.669403210240111
 2320,Walking,15,930102,34,Female,1.2,1-2 km,15-49,1428,Walking,15,Walking,15,Walking,15
 2321,Walking,15,930102,34,Female,1.2,1-2 km,15-49,1429,Walking,15,Walking,15,Walking,15
 2322,Walking,10,930102,34,Female,0.8,0-1 km,15-49,1430,Private Car,1.7500000000000002,Walking,10,Walking,10
 2327,Walking,15,930102,34,Female,1.2,1-2 km,15-49,1431,Private Car,5.25,Walking,15,Walking,15
 2328,Walking,15,930102,34,Female,1.2,1-2 km,15-49,1432,Private Car,5.25,Walking,15,Walking,15
-2329,Private Car,60,930201,29,Female,21,>10 km,15-49,1433,Private Car,60,Private Car,60,Bus,10
-2330,Private Car,90,930201,29,Female,31.5,>10 km,15-49,1434,Private Car,90,Private Car,90,Bus,7.5
-2331,Private Car,30,930201,29,Female,10.5,>10 km,15-49,1435,Private Car,30,Private Car,30,Bus,15
+2329,Private Car,60,930201,29,Female,21,>10 km,15-49,1433,Private Car,60,Private Car,60,Bus,5.196324815650002
+2330,Private Car,90,930201,29,Female,31.5,>10 km,15-49,1434,Private Car,90,Private Car,90,Bus,5.0186461359901395
+2331,Private Car,30,930201,29,Female,10.5,>10 km,15-49,1435,Private Car,30,Private Car,30,Bus,13.184620643635625
 2332,Private Car,80,930201,29,Female,28,>10 km,15-49,1436,Private Car,80,Private Car,80,Private Car,80
 2333,Walking,10,930202,23,Female,0.8,0-1 km,15-49,1437,Private Car,3.5000000000000004,Walking,10,Walking,10
 2334,Walking,10,930202,23,Female,0.8,0-1 km,15-49,1438,Private Car,3.5000000000000004,Walking,10,Walking,10
@@ -1484,10 +1484,10 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2385,Walking,30,931202,28,Female,2.4,2-3 km,15-49,1483,Private Car,10.5,Walking,30,Walking,30
 2401,Walking,10,931401,30,Female,0.8,0-1 km,15-49,1484,Private Car,3.5000000000000004,Walking,10,Walking,10
 2402,Walking,10,931401,30,Female,0.8,0-1 km,15-49,1485,Private Car,3.5000000000000004,Walking,10,Walking,10
-2405,Taxi,50,931601,38,Male,17.5,>10 km,15-49,1486,Taxi,50,Taxi,50,Bus,7.5
+2405,Taxi,50,931601,38,Male,17.5,>10 km,15-49,1486,Taxi,50,Taxi,50,Bus,5.795058030177147
 2406,Walking,5,931601,38,Male,0.4,0-1 km,15-49,1487,Private Car,3.5000000000000004,Walking,5,Walking,5
 2407,Taxi,5,931601,38,Male,1.75,1-2 km,15-49,1488,Taxi,5,Bicycle,1.2083333333333333,Taxi,5
-2408,Taxi,30,931601,38,Male,10.5,>10 km,15-49,1489,Taxi,30,Taxi,30,Bus,7.5
+2408,Taxi,30,931601,38,Male,10.5,>10 km,15-49,1489,Taxi,30,Taxi,30,Bus,5.789554812228061
 2409,Walking,20,931601,38,Male,1.6,1-2 km,15-49,1490,Walking,20,Walking,20,Walking,20
 2410,Walking,10,940102,47,Female,0.8,0-1 km,15-49,1491,Private Car,3.5000000000000004,Walking,10,Walking,10
 2411,Walking,20,940102,47,Female,1.6,1-2 km,15-49,1492,Walking,20,Walking,20,Walking,20
@@ -1503,11 +1503,11 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2421,Taxi,20,940103,23,Female,7,5-7 km,15-49,1502,Taxi,20,Bicycle,4.833333333333333,Taxi,20
 2423,Walking,10,940103,23,Female,0.8,0-1 km,15-49,1503,Walking,10,Walking,10,Walking,10
 2424,Private Car,20,940201,23,Female,7,5-7 km,15-49,1504,Private Car,20,Private Car,20,Private Car,20
-2425,Private Car,70,940201,23,Female,24.5,>10 km,15-49,1505,Private Car,70,Private Car,70,Bus,32.5
+2425,Private Car,70,940201,23,Female,24.5,>10 km,15-49,1505,Private Car,70,Private Car,70,Bus,14.81869524376198
 2426,Private Car,15,940201,23,Female,5.25,5-7 km,15-49,1506,Private Car,15,Private Car,15,Private Car,15
 2427,Private Car,15,940201,23,Female,5.25,5-7 km,15-49,1507,Private Car,15,Private Car,15,Private Car,15
 2428,Private Car,75,940201,23,Female,26.25,>10 km,15-49,1508,Private Car,75,Private Car,75,Private Car,75
-2429,Private Car,135,940201,23,Female,47.25,>10 km,15-49,1509,Private Car,135,Private Car,135,Bus,7.5
+2429,Private Car,135,940201,23,Female,47.25,>10 km,15-49,1509,Private Car,135,Private Car,135,Bus,7.254745803352404
 2430,Private Car,145,940201,23,Female,50.75,>10 km,15-49,1510,Private Car,145,Private Car,145,Private Car,145
 2431,Walking,15,940301,34,Female,1.2,1-2 km,15-49,1511,Private Car,7.000000000000001,Walking,15,Walking,15
 2432,Walking,10,940301,34,Female,0.8,0-1 km,15-49,1512,Private Car,1.7500000000000002,Walking,10,Walking,10
@@ -1521,7 +1521,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2441,Walking,5,940601,33,Male,0.4,0-1 km,15-49,1520,Walking,5,Walking,5,Walking,5
 2442,Walking,20,940801,22,Female,1.6,1-2 km,15-49,1521,Private Car,7.000000000000001,Walking,20,Walking,20
 2443,Taxi,10,940801,22,Female,3.5,3-5 km,15-49,1522,Taxi,10,Taxi,10,Taxi,10
-2444,Taxi,60,940801,22,Female,21,>10 km,15-49,1523,Taxi,60,Taxi,60,Bus,30
+2444,Taxi,60,940801,22,Female,21,>10 km,15-49,1523,Taxi,60,Taxi,60,Bus,16.20236040789919
 2450,Walking,10,941102,22,Male,0.8,0-1 km,15-49,1524,Walking,10,Walking,10,Walking,10
 2451,Walking,45,941103,15,Male,3.6,3-5 km,15-49,1525,Walking,45,Walking,45,Walking,45
 2452,Walking,30,941103,15,Male,2.4,2-3 km,15-49,1526,Walking,30,Walking,30,Walking,30
@@ -1563,9 +1563,9 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2541,Walking,15,951608,26,Female,1.2,1-2 km,15-49,1562,Walking,15,Walking,15,Walking,15
 2576,Walking,60,960402,38,Female,4.8,3-5 km,15-49,1563,Private Car,19.25,Walking,60,Walking,60
 2582,Walking,5,960402,38,Female,0.4,0-1 km,15-49,1564,Private Car,3.5000000000000004,Walking,5,Walking,5
-2583,Taxi,30,960502,30,Female,10.5,>10 km,15-49,1565,Taxi,30,Taxi,30,Bus,15
+2583,Taxi,30,960502,30,Female,10.5,>10 km,15-49,1565,Taxi,30,Taxi,30,Bus,6.082207012810381
 2584,Walking,45,960502,30,Female,3.6,3-5 km,15-49,1566,Private Car,15.75,Walking,45,Walking,45
-2585,Private Car,45,960502,30,Female,15.75,>10 km,15-49,1567,Private Car,45,Private Car,45,Bus,15
+2585,Private Car,45,960502,30,Female,15.75,>10 km,15-49,1567,Private Car,45,Private Car,45,Bus,5.775260039603726
 2586,Private Car,15,960502,30,Female,5.25,5-7 km,15-49,1568,Private Car,15,Bicycle,3.625,Private Car,15
 2587,Motorcycle,50,960601,46,Male,20.833333333333332,>10 km,15-49,1569,Motorcycle,50,Motorcycle,50,Motorcycle,50
 2588,Walking,20,960601,46,Male,1.6,1-2 km,15-49,1570,Private Car,5.25,Walking,20,Walking,20
@@ -1620,7 +1620,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2694,Walking,10,961502,30,Female,0.8,0-1 km,15-49,1619,Private Car,1.7500000000000002,Walking,10,Walking,10
 2695,Walking,70,961502,30,Female,5.6,5-7 km,15-49,1620,Walking,70,Walking,70,Walking,70
 2696,Walking,130,961502,30,Female,10.4,>10 km,15-49,1621,Private Car,52.5,Walking,130,Walking,130
-2697,Private Car,30,961502,30,Female,10.5,>10 km,15-49,1622,Private Car,30,Private Car,30,Bus,15
+2697,Private Car,30,961502,30,Female,10.5,>10 km,15-49,1622,Private Car,30,Private Car,30,Bus,8.909748316834994
 2698,Private Car,20,961502,30,Female,7,5-7 km,15-49,1623,Private Car,20,Private Car,20,Private Car,20
 2699,Walking,40,961502,30,Female,3.2,3-5 km,15-49,1624,Private Car,21,Walking,40,Walking,40
 2700,Walking,70,961502,30,Female,5.6,5-7 km,15-49,1625,Walking,70,Walking,70,Walking,70
@@ -1635,14 +1635,14 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2711,Taxi,30,970303,33,Female,10.5,>10 km,15-49,1634,Taxi,30,Taxi,30,Taxi,30
 2714,Private Car,5,970304,28,Male,1.75,1-2 km,15-49,1635,Private Car,5,Private Car,5,Private Car,5
 2715,Private Car,5,970304,28,Male,1.75,1-2 km,15-49,1636,Private Car,5,Bicycle,1.2083333333333333,Private Car,5
-2716,Private Car,60,970304,28,Male,21,>10 km,15-49,1637,Private Car,60,Private Car,60,Bus,7.5
+2716,Private Car,60,970304,28,Male,21,>10 km,15-49,1637,Private Car,60,Private Car,60,Bus,6.785997580741362
 2717,Private Car,20,970304,28,Male,7,5-7 km,15-49,1638,Private Car,20,Bicycle,4.833333333333333,Private Car,20
-2718,Private Car,60,970701,60,Male,21,>10 km,50-70,1639,Private Car,60,Private Car,60,Bus,15
-2719,Private Car,30,970701,60,Male,10.5,>10 km,50-70,1640,Private Car,30,Private Car,30,Bus,11.25
+2718,Private Car,60,970701,60,Male,21,>10 km,50-70,1639,Private Car,60,Private Car,60,Bus,10.173869835827995
+2719,Private Car,30,970701,60,Male,10.5,>10 km,50-70,1640,Private Car,30,Private Car,30,Bus,5.029345510420567
 2720,Walking,60,970701,60,Male,4.8,3-5 km,50-70,1641,Walking,60,Walking,60,Walking,60
-2721,Private Car,30,970701,60,Male,10.5,>10 km,50-70,1642,Private Car,30,Private Car,30,Bus,7.5
+2721,Private Car,30,970701,60,Male,10.5,>10 km,50-70,1642,Private Car,30,Private Car,30,Bus,6.097552679475289
 2722,Private Car,20,970701,60,Male,7,5-7 km,50-70,1643,Private Car,20,Private Car,20,Private Car,20
-2723,Private Car,60,970701,60,Male,21,>10 km,50-70,1644,Private Car,60,Private Car,60,Bus,12.5
+2723,Private Car,60,970701,60,Male,21,>10 km,50-70,1644,Private Car,60,Private Car,60,Bus,7.4295501655518965
 2730,Walking,10,970802,55,Female,0.8,0-1 km,50-70,1645,Private Car,1.7500000000000002,Walking,10,Walking,10
 2731,Walking,10,970802,55,Female,0.8,0-1 km,50-70,1646,Private Car,1.7500000000000002,Walking,10,Walking,10
 2732,Walking,10,970802,55,Female,0.8,0-1 km,50-70,1647,Walking,10,Walking,10,Walking,10
@@ -1650,25 +1650,25 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2734,Walking,15,970802,55,Female,1.2,1-2 km,50-70,1649,Private Car,5.25,Walking,15,Walking,15
 2735,Private Car,15,971001,59,Male,5.25,5-7 km,50-70,1650,Private Car,15,Private Car,15,Private Car,15
 2736,Private Car,60,971101,63,Male,21,>10 km,50-70,1651,Private Car,60,Private Car,60,Private Car,60
-2737,Private Car,40,971101,63,Male,14,>10 km,50-70,1652,Private Car,40,Private Car,40,Bus,15
+2737,Private Car,40,971101,63,Male,14,>10 km,50-70,1652,Private Car,40,Private Car,40,Bus,10.826742306529244
 2738,Taxi,10,971102,52,Female,3.5,3-5 km,50-70,1653,Taxi,10,Taxi,10,Taxi,10
 2739,Taxi,15,971102,52,Female,5.25,5-7 km,50-70,1654,Taxi,15,Bicycle,3.625,Taxi,15
 2743,Walking,35,971104,15,Female,2.8,2-3 km,15-49,1655,Private Car,10.5,Walking,35,Walking,35
 2744,Walking,20,971104,15,Female,1.6,1-2 km,15-49,1656,Private Car,5.25,Walking,20,Walking,20
 2745,Walking,60,971104,15,Female,4.8,3-5 km,15-49,1657,Walking,60,Walking,60,Walking,60
 2746,Walking,10,971201,52,Female,0.8,0-1 km,50-70,1658,Walking,10,Walking,10,Walking,10
-2747,Taxi,40,971201,52,Female,14,>10 km,50-70,1659,Taxi,40,Taxi,40,Bus,7.5
-2748,Private Car,40,971303,20,Male,14,>10 km,15-49,1660,Private Car,40,Private Car,40,Bus,22.5
+2747,Taxi,40,971201,52,Female,14,>10 km,50-70,1659,Taxi,40,Taxi,40,Bus,5.971666173364012
+2748,Private Car,40,971303,20,Male,14,>10 km,15-49,1660,Private Car,40,Private Car,40,Bus,7.716028884594057
 2749,Walking,30,971303,20,Male,2.4,2-3 km,15-49,1661,Private Car,10.5,Walking,30,Walking,30
 2750,Private Car,10,971303,20,Male,3.5,3-5 km,15-49,1662,Private Car,10,Bicycle,2.4166666666666665,Private Car,10
-2751,Private Car,35,971303,20,Male,12.25,>10 km,15-49,1663,Private Car,35,Private Car,35,Bus,7.5
+2751,Private Car,35,971303,20,Male,12.25,>10 km,15-49,1663,Private Car,35,Private Car,35,Bus,6.565276853207856
 2752,Private Car,95,971303,20,Male,33.25,>10 km,15-49,1664,Private Car,95,Private Car,95,Private Car,95
-2753,Private Car,60,971303,20,Male,21,>10 km,15-49,1665,Private Car,60,Private Car,60,Bus,7.5
+2753,Private Car,60,971303,20,Male,21,>10 km,15-49,1665,Private Car,60,Private Car,60,Bus,5.265752042886982
 2754,Private Car,20,971303,20,Male,7,5-7 km,15-49,1666,Private Car,20,Bicycle,3.625,Private Car,20
-2755,Private Car,60,971303,20,Male,21,>10 km,15-49,1667,Private Car,60,Private Car,60,Bus,15
+2755,Private Car,60,971303,20,Male,21,>10 km,15-49,1667,Private Car,60,Private Car,60,Bus,7.86960037981545
 2756,Private Car,10,971303,20,Male,3.5,3-5 km,15-49,1668,Private Car,10,Bicycle,2.4166666666666665,Private Car,10
 2757,Private Car,30,971303,20,Male,10.5,>10 km,15-49,1669,Private Car,30,Private Car,30,Private Car,30
-2758,Private Car,30,971303,20,Male,10.5,>10 km,15-49,1670,Private Car,30,Private Car,30,Bus,7.5
+2758,Private Car,30,971303,20,Male,10.5,>10 km,15-49,1670,Private Car,30,Private Car,30,Bus,6.398523595539651
 2759,Walking,10,971304,18,Male,0.8,0-1 km,15-49,1671,Walking,10,Walking,10,Walking,10
 2760,Walking,10,971304,18,Male,0.8,0-1 km,15-49,1672,Private Car,3.5000000000000004,Walking,10,Walking,10
 2761,Walking,30,971402,27,Female,2.4,2-3 km,15-49,1673,Private Car,10.5,Walking,30,Walking,30
@@ -1685,8 +1685,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2772,Taxi,30,980103,34,Female,10.5,>10 km,15-49,1684,Taxi,30,Taxi,30,Taxi,30
 2773,Private Car,10,980301,32,Male,3.5,3-5 km,15-49,1685,Private Car,10,Private Car,10,Private Car,10
 2774,Private Car,10,980301,32,Male,3.5,3-5 km,15-49,1686,Private Car,10,Private Car,10,Private Car,10
-2775,Taxi,30,980401,58,Female,10.5,>10 km,50-70,1687,Taxi,30,Taxi,30,Bus,15
-2776,Taxi,30,980401,58,Female,10.5,>10 km,50-70,1688,Taxi,30,Taxi,30,Bus,7.5
+2775,Taxi,30,980401,58,Female,10.5,>10 km,50-70,1687,Taxi,30,Taxi,30,Bus,7.9013636597978465
+2776,Taxi,30,980401,58,Female,10.5,>10 km,50-70,1688,Taxi,30,Taxi,30,Bus,5.176855685189578
 2777,Taxi,15,980401,58,Female,5.25,5-7 km,50-70,1689,Taxi,15,Bicycle,3.625,Taxi,15
 2778,Walking,15,980401,58,Female,1.2,1-2 km,50-70,1690,Walking,15,Walking,15,Walking,15
 2779,Taxi,25,980401,58,Female,8.75,7-10 km,50-70,1691,Taxi,25,Taxi,25,Taxi,25
@@ -1702,7 +1702,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2794,Taxi,15,980504,22,Male,5.25,5-7 km,15-49,1701,Taxi,15,Bicycle,4.833333333333333,Taxi,15
 2795,Taxi,5,980504,22,Male,1.75,1-2 km,15-49,1702,Taxi,5,Taxi,5,Taxi,5
 2796,Taxi,16,980504,22,Male,5.6,5-7 km,15-49,1703,Taxi,16,Bicycle,4.833333333333333,Taxi,16
-2797,Private Car,30,980701,67,Male,10.5,>10 km,50-70,1704,Private Car,30,Private Car,30,Bus,15
+2797,Private Car,30,980701,67,Male,10.5,>10 km,50-70,1704,Private Car,30,Private Car,30,Bus,9.233263321522486
 2803,Walking,20,980703,21,Male,1.6,1-2 km,15-49,1705,Private Car,7.000000000000001,Walking,20,Walking,20
 2804,Taxi,20,980703,21,Male,7,5-7 km,15-49,1706,Taxi,20,Bicycle,3.625,Taxi,20
 2805,Walking,5,980703,21,Male,0.4,0-1 km,15-49,1707,Private Car,3.5000000000000004,Walking,5,Walking,5
@@ -1721,8 +1721,8 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 2830,Walking,5,981502,60,Female,0.4,0-1 km,50-70,1720,Walking,5,Walking,5,Walking,5
 2831,Walking,15,981503,21,Male,1.2,1-2 km,15-49,1721,Private Car,5.25,Walking,15,Walking,15
 2832,Private Car,5,981503,21,Male,1.75,1-2 km,15-49,1722,Private Car,5,Bicycle,1.2083333333333333,Private Car,5
-2833,Taxi,30,981503,21,Male,10.5,>10 km,15-49,1723,Taxi,30,Taxi,30,Bus,17.5
-2834,Taxi,30,981503,21,Male,10.5,>10 km,15-49,1724,Taxi,30,Taxi,30,Bus,15
+2833,Taxi,30,981503,21,Male,10.5,>10 km,15-49,1723,Taxi,30,Taxi,30,Bus,11.384320509587445
+2834,Taxi,30,981503,21,Male,10.5,>10 km,15-49,1724,Taxi,30,Taxi,30,Bus,8.729561831649605
 2835,Walking,5,981503,21,Male,0.4,0-1 km,15-49,1725,Private Car,3.5000000000000004,Walking,5,Walking,5
 2836,Walking,30,981601,61,Female,2.4,2-3 km,50-70,1726,Walking,30,Walking,30,Walking,30
 2837,Walking,50,981602,28,Male,4,3-5 km,15-49,1727,Walking,50,Walking,50,Walking,50
@@ -1870,17 +1870,17 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 3028,Walking,10,1010501,63,Male,0.8,0-1 km,50-70,1869,Walking,10,Walking,10,Walking,10
 3029,Private Car,25,1010501,63,Male,8.75,7-10 km,50-70,1870,Private Car,25,Private Car,25,Private Car,25
 3030,Walking,30,1010502,55,Female,2.4,2-3 km,50-70,1871,Walking,30,Walking,30,Walking,30
-3031,Private Car,50,1010502,55,Female,17.5,>10 km,50-70,1872,Private Car,50,Private Car,50,Bus,7.5
+3031,Private Car,50,1010502,55,Female,17.5,>10 km,50-70,1872,Private Car,50,Private Car,50,Bus,6.306072843693128
 3032,Private Car,30,1010502,55,Female,10.5,>10 km,50-70,1873,Private Car,30,Private Car,30,Private Car,30
 3033,Motorcycle,30,1010502,55,Female,12.5,>10 km,50-70,1874,Motorcycle,30,Motorcycle,30,Motorcycle,30
 3034,Private Car,30,1010504,22,Male,10.5,>10 km,15-49,1875,Private Car,30,Private Car,30,Private Car,30
-3035,Private Car,30,1010504,22,Male,10.5,>10 km,15-49,1876,Private Car,30,Private Car,30,Bus,7.5
+3035,Private Car,30,1010504,22,Male,10.5,>10 km,15-49,1876,Private Car,30,Private Car,30,Bus,5.02405721322015
 3036,Private Car,40,1010504,22,Male,14,>10 km,15-49,1877,Private Car,40,Private Car,40,Private Car,40
-3037,Private Car,60,1010504,22,Male,21,>10 km,15-49,1878,Private Car,60,Private Car,60,Bus,7.5
+3037,Private Car,60,1010504,22,Male,21,>10 km,15-49,1878,Private Car,60,Private Car,60,Bus,5.164329222615189
 3038,Private Car,30,1010504,22,Male,10.5,>10 km,15-49,1879,Private Car,30,Private Car,30,Private Car,30
-3039,Private Car,60,1010507,18,Male,21,>10 km,15-49,1880,Private Car,60,Private Car,60,Bus,15
+3039,Private Car,60,1010507,18,Male,21,>10 km,15-49,1880,Private Car,60,Private Car,60,Bus,5.142232885809805
 3040,Private Car,10,1010507,18,Male,3.5,3-5 km,15-49,1881,Private Car,10,Private Car,10,Private Car,10
-3041,Private Car,30,1010507,18,Male,10.5,>10 km,15-49,1882,Private Car,30,Private Car,30,Bus,15
+3041,Private Car,30,1010507,18,Male,10.5,>10 km,15-49,1882,Private Car,30,Private Car,30,Bus,6.744754657621476
 3042,Walking,15,1010507,18,Male,1.2,1-2 km,15-49,1883,Private Car,8.75,Walking,15,Walking,15
 3043,Private Car,30,1010507,18,Male,10.5,>10 km,15-49,1884,Private Car,30,Private Car,30,Private Car,30
 3044,Private Car,60,1010507,18,Male,21,>10 km,15-49,1885,Private Car,60,Private Car,60,Private Car,60
@@ -1894,7 +1894,7 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 3062,Walking,10,1010703,28,Male,0.8,0-1 km,15-49,1893,Private Car,1.7500000000000002,Walking,10,Walking,10
 3064,Walking,10,1010703,28,Male,0.8,0-1 km,15-49,1894,Private Car,3.5000000000000004,Walking,10,Walking,10
 3065,Walking,10,1010703,28,Male,0.8,0-1 km,15-49,1895,Private Car,3.5000000000000004,Walking,10,Walking,10
-3066,Taxi,60,1010703,28,Male,21,>10 km,15-49,1896,Taxi,60,Taxi,60,Bus,7.5
+3066,Taxi,60,1010703,28,Male,21,>10 km,15-49,1896,Taxi,60,Taxi,60,Bus,5.117141858782693
 3067,Walking,10,1010703,28,Male,0.8,0-1 km,15-49,1897,Private Car,3.5000000000000004,Walking,10,Walking,10
 3069,Taxi,15,1010703,28,Male,5.25,5-7 km,15-49,1898,Taxi,15,Bicycle,3.625,Taxi,15
 3072,Walking,5,1010704,17,Male,0.4,0-1 km,15-49,1899,Walking,5,Walking,5,Walking,5
@@ -1906,32 +1906,32 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 3078,Taxi,70,1010704,17,Male,24.5,>10 km,15-49,1905,Taxi,70,Taxi,70,Taxi,70
 3079,Walking,5,1010704,17,Male,0.4,0-1 km,15-49,1906,Walking,5,Walking,5,Walking,5
 3080,Taxi,20,1010710,41,Male,7,5-7 km,15-49,1907,Taxi,20,Bicycle,4.833333333333333,Taxi,20
-3081,Taxi,30,1010710,41,Male,10.5,>10 km,15-49,1908,Taxi,30,Taxi,30,Bus,7.5
-3082,Private Car,45,1010901,55,Male,15.75,>10 km,50-70,1909,Private Car,45,Private Car,45,Bus,15
+3081,Taxi,30,1010710,41,Male,10.5,>10 km,15-49,1908,Taxi,30,Taxi,30,Bus,5.627154249410222
+3082,Private Car,45,1010901,55,Male,15.75,>10 km,50-70,1909,Private Car,45,Private Car,45,Bus,6.423732529952815
 3083,Private Car,75,1010901,55,Male,26.25,>10 km,50-70,1910,Private Car,75,Private Car,75,Private Car,75
 3084,Private Car,60,1010901,55,Male,21,>10 km,50-70,1911,Private Car,60,Private Car,60,Private Car,60
 3085,Private Car,120,1010901,55,Male,42,>10 km,50-70,1912,Private Car,120,Private Car,120,Private Car,120
-3087,Private Car,30,1010902,46,Female,10.5,>10 km,15-49,1913,Private Car,30,Private Car,30,Bus,8.75
+3087,Private Car,30,1010902,46,Female,10.5,>10 km,15-49,1913,Private Car,30,Private Car,30,Bus,7.5437680817785155
 3088,Private Car,30,1010902,46,Female,10.5,>10 km,15-49,1914,Private Car,30,Private Car,30,Private Car,30
 3089,Taxi,30,1010902,46,Female,10.5,>10 km,15-49,1915,Taxi,30,Taxi,30,Taxi,30
-3090,Taxi,30,1010902,46,Female,10.5,>10 km,15-49,1916,Taxi,30,Taxi,30,Bus,7.5
+3090,Taxi,30,1010902,46,Female,10.5,>10 km,15-49,1916,Taxi,30,Taxi,30,Bus,5.371076327745349
 3091,Walking,15,1010902,46,Female,1.2,1-2 km,15-49,1917,Walking,15,Walking,15,Walking,15
 3092,Taxi,20,1010902,46,Female,7,5-7 km,15-49,1918,Taxi,20,Bicycle,3.625,Taxi,20
 3093,Private Car,15,1010903,21,Male,5.25,5-7 km,15-49,1919,Private Car,15,Private Car,15,Private Car,15
 3094,Private Car,15,1010903,21,Male,5.25,5-7 km,15-49,1920,Private Car,15,Private Car,15,Private Car,15
-3095,Private Car,30,1010903,21,Male,10.5,>10 km,15-49,1921,Private Car,30,Private Car,30,Bus,7.5
-3096,Private Car,30,1010903,21,Male,10.5,>10 km,15-49,1922,Private Car,30,Private Car,30,Bus,7.5
+3095,Private Car,30,1010903,21,Male,10.5,>10 km,15-49,1921,Private Car,30,Private Car,30,Bus,5.2000048725564465
+3096,Private Car,30,1010903,21,Male,10.5,>10 km,15-49,1922,Private Car,30,Private Car,30,Bus,6.084456425873277
 3097,Walking,5,1010903,21,Male,0.4,0-1 km,15-49,1923,Private Car,3.5000000000000004,Walking,5,Walking,5
 3098,Walking,10,1010903,21,Male,0.8,0-1 km,15-49,1924,Walking,10,Walking,10,Walking,10
-3099,Private Car,60,1011001,34,Male,21,>10 km,15-49,1925,Private Car,60,Private Car,60,Bus,25
-3100,Private Car,120,1011001,34,Male,42,>10 km,15-49,1926,Private Car,120,Private Car,120,Bus,7.5
+3099,Private Car,60,1011001,34,Male,21,>10 km,15-49,1925,Private Car,60,Private Car,60,Bus,10.809986123301398
+3100,Private Car,120,1011001,34,Male,42,>10 km,15-49,1926,Private Car,120,Private Car,120,Bus,6.475514364311292
 3101,Private Car,60,1011001,34,Male,21,>10 km,15-49,1927,Private Car,60,Private Car,60,Private Car,60
 3102,Walking,60,1011001,34,Male,4.8,3-5 km,15-49,1928,Private Car,15.75,Walking,60,Walking,60
-3103,Private Car,30,1011001,34,Male,10.5,>10 km,15-49,1929,Private Car,30,Private Car,30,Bus,7.5
+3103,Private Car,30,1011001,34,Male,10.5,>10 km,15-49,1929,Private Car,30,Private Car,30,Bus,5.811973466316207
 3104,Private Car,40,1011001,34,Male,14,>10 km,15-49,1930,Private Car,40,Private Car,40,Private Car,40
 3105,Taxi,60,1011302,48,Female,21,>10 km,15-49,1931,Taxi,60,Taxi,60,Taxi,60
 3106,Taxi,30,1011302,48,Female,10.5,>10 km,15-49,1932,Taxi,30,Taxi,30,Taxi,30
-3107,Taxi,90,1011302,48,Female,31.5,>10 km,15-49,1933,Taxi,90,Taxi,90,Bus,12.5
+3107,Taxi,90,1011302,48,Female,31.5,>10 km,15-49,1933,Taxi,90,Taxi,90,Bus,5.579784620850608
 3108,Taxi,20,1011303,22,Female,7,5-7 km,15-49,1934,Taxi,20,Taxi,20,Taxi,20
 3109,Taxi,30,1011303,22,Female,10.5,>10 km,15-49,1935,Taxi,30,Taxi,30,Taxi,30
 3110,Private Car,30,1011402,50,Female,10.5,>10 km,50-70,1936,Private Car,30,Private Car,30,Private Car,30
@@ -3650,128 +3650,128 @@ trip_id,trip_mode,trip_duration,participant_id,age,sex,trip_distance,trip_distan
 3127,Short Walking,11.488717135705796,1011407,20,Male,0.9190973708564637,0-1 km,15-49,3649,Short Walking,11.488717135705796,Short Walking,11.488717135705796,Short Walking,11.488717135705796
 3146,Short Walking,4.94263248329797,1011602,35,Female,0.3954105986638376,0-1 km,15-49,3650,Short Walking,4.94263248329797,Short Walking,4.94263248329797,Short Walking,4.94263248329797
 3201,Short Walking,3.808612632330915,1020704,19,Female,0.30468901058647313,0-1 km,15-49,3651,Short Walking,3.808612632330915,Short Walking,3.808612632330915,Short Walking,3.808612632330915
-5,NA,NA,690101,36,Male,21,>10 km,15-49,3652,NA,NA,NA,NA,Short Walking,0.3998903609088078
-14,NA,NA,690301,52,Female,10.5,>10 km,50-70,3653,NA,NA,NA,NA,Short Walking,0.06310988669434996
-15,NA,NA,690301,52,Female,21,>10 km,50-70,3654,NA,NA,NA,NA,Short Walking,1.2810380572778939
-50,NA,NA,690901,33,Male,14,>10 km,15-49,3655,NA,NA,NA,NA,Short Walking,5.059594623306795
-84,NA,NA,691301,27,Male,35,>10 km,15-49,3656,NA,NA,NA,NA,Short Walking,0.01226808895149527
-87,NA,NA,691302,23,Female,14,>10 km,15-49,3657,NA,NA,NA,NA,Short Walking,0.6313090800984155
-89,NA,NA,691305,22,Male,24.5,>10 km,15-49,3658,NA,NA,NA,NA,Short Walking,0.25523983335649614
-90,NA,NA,691305,22,Male,35,>10 km,15-49,3659,NA,NA,NA,NA,Short Walking,0.36492653865887587
-99,NA,NA,691402,50,Female,15.75,>10 km,50-70,3660,NA,NA,NA,NA,Short Walking,9.426116709960342
-100,NA,NA,691402,50,Female,21,>10 km,50-70,3661,NA,NA,NA,NA,Short Walking,0.5998416267927899
-111,NA,NA,691405,17,Female,17.5,>10 km,15-49,3662,NA,NA,NA,NA,Short Walking,1.4658518373083134
-115,NA,NA,691406,18,Female,17.5,>10 km,15-49,3663,NA,NA,NA,NA,Short Walking,3.9029265176860948
-117,NA,NA,691406,18,Female,17.5,>10 km,15-49,3664,NA,NA,NA,NA,Short Walking,0.8073843623416681
-118,NA,NA,691501,42,Male,10.5,>10 km,15-49,3665,NA,NA,NA,NA,Short Walking,0.995746391266055
-119,NA,NA,691501,42,Male,21,>10 km,15-49,3666,NA,NA,NA,NA,Short Walking,1.9364806790113362
-120,NA,NA,691501,42,Male,31.5,>10 km,15-49,3667,NA,NA,NA,NA,Short Walking,0.5020355271687
-121,NA,NA,691502,32,Female,21,>10 km,15-49,3668,NA,NA,NA,NA,Short Walking,1.1997085788750497
-123,NA,NA,691502,32,Female,21,>10 km,15-49,3669,NA,NA,NA,NA,Short Walking,0.09572465750407382
-153,NA,NA,700401,49,Male,21,>10 km,15-49,3670,NA,NA,NA,NA,Short Walking,2.610190775434169
-167,NA,NA,700701,29,Male,10.5,>10 km,15-49,3671,NA,NA,NA,NA,Short Walking,6.1453609956548565
-169,NA,NA,700701,29,Male,21,>10 km,15-49,3672,NA,NA,NA,NA,Short Walking,1.7377255007933534
-174,NA,NA,700701,29,Male,10.5,>10 km,15-49,3673,NA,NA,NA,NA,Short Walking,1.0812902554768213
-175,NA,NA,700701,29,Male,10.5,>10 km,15-49,3674,NA,NA,NA,NA,Short Walking,0.078105482047212
-176,NA,NA,700701,29,Male,21,>10 km,15-49,3675,NA,NA,NA,NA,Short Walking,0.35887680503449354
-177,NA,NA,700701,29,Male,10.5,>10 km,15-49,3676,NA,NA,NA,NA,Short Walking,0.04403130299405317
-179,NA,NA,700702,27,Female,17.5,>10 km,15-49,3677,NA,NA,NA,NA,Short Walking,1.9945764901406244
-180,NA,NA,700702,27,Female,21,>10 km,15-49,3678,NA,NA,NA,NA,Short Walking,0.34595893522182797
-182,NA,NA,700702,27,Female,21,>10 km,15-49,3679,NA,NA,NA,NA,Short Walking,2.7916039919593576
-190,NA,NA,700801,48,Male,21,>10 km,15-49,3680,NA,NA,NA,NA,Short Walking,2.9844989577158363
-204,NA,NA,700902,31,Female,21,>10 km,15-49,3681,NA,NA,NA,NA,Short Walking,0.10729494417268479
-290,NA,NA,710304,24,Male,10.5,>10 km,15-49,3682,NA,NA,NA,NA,Short Walking,18.767145116072843
-423,NA,NA,720401,32,Male,10.5,>10 km,15-49,3683,NA,NA,NA,NA,Short Walking,2.362973630262007
-424,NA,NA,720401,32,Male,14,>10 km,15-49,3684,NA,NA,NA,NA,Short Walking,8.268081253815549
-541,NA,NA,731202,30,Female,10.5,>10 km,15-49,3685,NA,NA,NA,NA,Short Walking,1.9087232190641283
-886,NA,NA,780601,30,Female,10.5,>10 km,15-49,3686,NA,NA,NA,NA,Short Walking,0.8939194348723681
-887,NA,NA,780601,30,Female,10.5,>10 km,15-49,3687,NA,NA,NA,NA,Short Walking,0.25824615743102575
-906,NA,NA,781101,40,Male,10.5,>10 km,15-49,3688,NA,NA,NA,NA,Short Walking,5.267026577524243
-907,NA,NA,781101,40,Male,14,>10 km,15-49,3689,NA,NA,NA,NA,Short Walking,0.8477535335267556
-934,NA,NA,781601,49,Male,10.5,>10 km,15-49,3690,NA,NA,NA,NA,Short Walking,0.7521326475564877
-1050,NA,NA,791202,35,Female,21,>10 km,15-49,3691,NA,NA,NA,NA,Short Walking,0.6055497677526039
-1051,NA,NA,791202,35,Female,42,>10 km,15-49,3692,NA,NA,NA,NA,Short Walking,0.6959583667329838
-1085,NA,NA,800102,22,Female,10.5,>10 km,15-49,3693,NA,NA,NA,NA,Short Walking,0.37990581367790555
-1102,NA,NA,800901,57,Male,10.5,>10 km,50-70,3694,NA,NA,NA,NA,Short Walking,3.399325746691699
-1133,NA,NA,810101,55,Male,21,>10 km,50-70,3695,NA,NA,NA,NA,Short Walking,1.1461785921697858
-1135,NA,NA,810101,55,Male,21,>10 km,50-70,3696,NA,NA,NA,NA,Short Walking,0.05862663243512135
-1140,NA,NA,810201,47,Female,10.5,>10 km,15-49,3697,NA,NA,NA,NA,Short Walking,0.013516863213126527
-1141,NA,NA,810201,47,Female,10.5,>10 km,15-49,3698,NA,NA,NA,NA,Short Walking,3.081942760200412
-1163,NA,NA,810401,57,Male,10.5,>10 km,50-70,3699,NA,NA,NA,NA,Short Walking,1.1022371355634288
-1164,NA,NA,810401,57,Male,10.5,>10 km,50-70,3700,NA,NA,NA,NA,Short Walking,0.6689749011537052
-1165,NA,NA,810401,57,Male,21,>10 km,50-70,3701,NA,NA,NA,NA,Short Walking,0.4431424785561747
-1209,NA,NA,811502,38,Female,10.5,>10 km,15-49,3702,NA,NA,NA,NA,Short Walking,2.109392344209134
-1228,NA,NA,820201,33,Male,21,>10 km,15-49,3703,NA,NA,NA,NA,Short Walking,1.0717421806009175
-1270,NA,NA,821001,65,Male,10.5,>10 km,50-70,3704,NA,NA,NA,NA,Short Walking,0.031569985306914836
-1278,NA,NA,821006,35,Male,17.5,>10 km,15-49,3705,NA,NA,NA,NA,Short Walking,0.2082524315445669
-1283,NA,NA,821301,47,Male,19.25,>10 km,15-49,3706,NA,NA,NA,NA,Short Walking,0.13112759422309406
-1284,NA,NA,821301,47,Male,10.5,>10 km,15-49,3707,NA,NA,NA,NA,Short Walking,0.0779396558634441
-1365,NA,NA,831001,36,Male,15.75,>10 km,15-49,3708,NA,NA,NA,NA,Short Walking,0.9182226293305432
-1485,NA,NA,850101,31,Male,10.5,>10 km,15-49,3709,NA,NA,NA,NA,Short Walking,7.0147539685447775
-1486,NA,NA,850101,31,Male,15.75,>10 km,15-49,3710,NA,NA,NA,NA,Short Walking,1.808701582335537
-1505,NA,NA,850401,24,Male,10.5,>10 km,15-49,3711,NA,NA,NA,NA,Short Walking,0.551943356103408
-1536,NA,NA,851101,31,Male,10.5,>10 km,15-49,3712,NA,NA,NA,NA,Short Walking,0.449025839628507
-1537,NA,NA,851101,31,Male,26.25,>10 km,15-49,3713,NA,NA,NA,NA,Short Walking,1.9047694050365018
-1559,NA,NA,851601,39,Male,10.5,>10 km,15-49,3714,NA,NA,NA,NA,Short Walking,10.878035474406776
-1560,NA,NA,851601,39,Male,31.5,>10 km,15-49,3715,NA,NA,NA,NA,Short Walking,0.7543808407257789
-1767,NA,NA,880601,42,Male,21,>10 km,15-49,3716,NA,NA,NA,NA,Short Walking,0.3278449106009072
-1838,NA,NA,890401,41,Male,10.5,>10 km,15-49,3717,NA,NA,NA,NA,Short Walking,0.012758742853296048
-1878,NA,NA,890702,29,Female,21,>10 km,15-49,3718,NA,NA,NA,NA,Short Walking,1.3936796400293627
-1906,NA,NA,891301,32,Male,10.5,>10 km,15-49,3719,NA,NA,NA,NA,Short Walking,0.5535341216389845
-1907,NA,NA,891301,32,Male,21,>10 km,15-49,3720,NA,NA,NA,NA,Short Walking,2.255521785955467
-1908,NA,NA,891301,32,Male,21,>10 km,15-49,3721,NA,NA,NA,NA,Short Walking,4.246228640338707
-1914,NA,NA,891402,35,Female,21,>10 km,15-49,3722,NA,NA,NA,NA,Short Walking,3.906971419059431
-1961,NA,NA,900501,49,Male,10.5,>10 km,15-49,3723,NA,NA,NA,NA,Short Walking,6.004193471904142
-1962,NA,NA,900501,49,Male,10.5,>10 km,15-49,3724,NA,NA,NA,NA,Short Walking,1.1442600340946443
-1996,NA,NA,901002,28,Female,21,>10 km,15-49,3725,NA,NA,NA,NA,Short Walking,4.066498174389954
-1997,NA,NA,901002,28,Female,31.5,>10 km,15-49,3726,NA,NA,NA,NA,Short Walking,1.0028358556065577
-2060,NA,NA,910401,46,Male,10.5,>10 km,15-49,3727,NA,NA,NA,NA,Short Walking,0.5563149660714433
-2061,NA,NA,910401,46,Male,21,>10 km,15-49,3728,NA,NA,NA,NA,Short Walking,0.06432467073692079
-2214,NA,NA,920902,53,Female,45.5,>10 km,50-70,3729,NA,NA,NA,NA,Short Walking,4.138713904702594
-2215,NA,NA,920902,53,Female,21,>10 km,50-70,3730,NA,NA,NA,NA,Short Walking,0.3999738461869786
-2216,NA,NA,920902,53,Female,10.5,>10 km,50-70,3731,NA,NA,NA,NA,Short Walking,0.2190121225788944
-2316,NA,NA,930101,39,Male,10.5,>10 km,15-49,3732,NA,NA,NA,NA,Short Walking,1.4893137998779764
-2329,NA,NA,930201,29,Female,21,>10 km,15-49,3733,NA,NA,NA,NA,Short Walking,2.770295314837276
-2330,NA,NA,930201,29,Female,31.5,>10 km,15-49,3734,NA,NA,NA,NA,Short Walking,0.7699423329884382
-2331,NA,NA,930201,29,Female,10.5,>10 km,15-49,3735,NA,NA,NA,NA,Short Walking,0.2156258419842157
-2405,NA,NA,931601,38,Male,17.5,>10 km,15-49,3736,NA,NA,NA,NA,Short Walking,1.0252259460908133
-2408,NA,NA,931601,38,Male,10.5,>10 km,15-49,3737,NA,NA,NA,NA,Short Walking,0.02336817389527001
-2425,NA,NA,940201,23,Female,24.5,>10 km,15-49,3738,NA,NA,NA,NA,Short Walking,5.635608985521658
-2429,NA,NA,940201,23,Female,47.25,>10 km,15-49,3739,NA,NA,NA,NA,Short Walking,0.2149528104953452
-2444,NA,NA,940801,22,Female,21,>10 km,15-49,3740,NA,NA,NA,NA,Short Walking,7.199328232954106
-2583,NA,NA,960502,30,Female,10.5,>10 km,15-49,3741,NA,NA,NA,NA,Short Walking,3.723086812469175
-2585,NA,NA,960502,30,Female,15.75,>10 km,15-49,3742,NA,NA,NA,NA,Short Walking,0.39165745976245586
-2697,NA,NA,961502,30,Female,10.5,>10 km,15-49,3743,NA,NA,NA,NA,Short Walking,0.4787853976941043
-2716,NA,NA,970304,28,Male,21,>10 km,15-49,3744,NA,NA,NA,NA,Short Walking,0.14169951956393156
-2718,NA,NA,970701,60,Male,21,>10 km,50-70,3745,NA,NA,NA,NA,Short Walking,1.912473312193501
-2719,NA,NA,970701,60,Male,10.5,>10 km,50-70,3746,NA,NA,NA,NA,Short Walking,5.647529715927764
-2721,NA,NA,970701,60,Male,10.5,>10 km,50-70,3747,NA,NA,NA,NA,Short Walking,1.1093319330946554
-2723,NA,NA,970701,60,Male,21,>10 km,50-70,3748,NA,NA,NA,NA,Short Walking,1.0190326337154512
-2737,NA,NA,971101,63,Male,14,>10 km,50-70,3749,NA,NA,NA,NA,Short Walking,1.784110623467714
-2747,NA,NA,971201,52,Female,14,>10 km,50-70,3750,NA,NA,NA,NA,Short Walking,0.5539051651162656
-2748,NA,NA,971303,20,Male,14,>10 km,15-49,3751,NA,NA,NA,NA,Short Walking,0.044259367941221935
-2751,NA,NA,971303,20,Male,12.25,>10 km,15-49,3752,NA,NA,NA,NA,Short Walking,0.05437053313610255
-2753,NA,NA,971303,20,Male,21,>10 km,15-49,3753,NA,NA,NA,NA,Short Walking,1.7203737792568268
-2755,NA,NA,971303,20,Male,21,>10 km,15-49,3754,NA,NA,NA,NA,Short Walking,1.5202039449185791
-2758,NA,NA,971303,20,Male,10.5,>10 km,15-49,3755,NA,NA,NA,NA,Short Walking,1.0799043014163212
-2775,NA,NA,980401,58,Female,10.5,>10 km,50-70,3756,NA,NA,NA,NA,Short Walking,1.5349494593561825
-2776,NA,NA,980401,58,Female,10.5,>10 km,50-70,3757,NA,NA,NA,NA,Short Walking,0.40367462645392993
-2797,NA,NA,980701,67,Male,10.5,>10 km,50-70,3758,NA,NA,NA,NA,Short Walking,2.0090874358034942
-2833,NA,NA,981503,21,Male,10.5,>10 km,15-49,3759,NA,NA,NA,NA,Short Walking,3.737482740850004
-2834,NA,NA,981503,21,Male,10.5,>10 km,15-49,3760,NA,NA,NA,NA,Short Walking,0.11670217319427716
-3031,NA,NA,1010502,55,Female,17.5,>10 km,50-70,3761,NA,NA,NA,NA,Short Walking,0.502250541894815
-3035,NA,NA,1010504,22,Male,10.5,>10 km,15-49,3762,NA,NA,NA,NA,Short Walking,0.6021582269823609
-3037,NA,NA,1010504,22,Male,21,>10 km,15-49,3763,NA,NA,NA,NA,Short Walking,2.0872598699973817
-3039,NA,NA,1010507,18,Male,21,>10 km,15-49,3764,NA,NA,NA,NA,Short Walking,2.9513133461678356
-3041,NA,NA,1010507,18,Male,10.5,>10 km,15-49,3765,NA,NA,NA,NA,Short Walking,4.6475726882592845
-3066,NA,NA,1010703,28,Male,21,>10 km,15-49,3766,NA,NA,NA,NA,Short Walking,0.3513623394681354
-3081,NA,NA,1010710,41,Male,10.5,>10 km,15-49,3767,NA,NA,NA,NA,Short Walking,0.042699396604461384
-3082,NA,NA,1010901,55,Male,15.75,>10 km,50-70,3768,NA,NA,NA,NA,Short Walking,0.20425309350217785
-3087,NA,NA,1010902,46,Female,10.5,>10 km,15-49,3769,NA,NA,NA,NA,Short Walking,0.30766381203787946
-3090,NA,NA,1010902,46,Female,10.5,>10 km,15-49,3770,NA,NA,NA,NA,Short Walking,1.0985190424820812
-3095,NA,NA,1010903,21,Male,10.5,>10 km,15-49,3771,NA,NA,NA,NA,Short Walking,1.685114890072776
-3096,NA,NA,1010903,21,Male,10.5,>10 km,15-49,3772,NA,NA,NA,NA,Short Walking,0.6642304042060589
-3099,NA,NA,1011001,34,Male,21,>10 km,15-49,3773,NA,NA,NA,NA,Short Walking,0.9115207185839556
-3100,NA,NA,1011001,34,Male,42,>10 km,15-49,3774,NA,NA,NA,NA,Short Walking,0.7811401623838349
-3103,NA,NA,1011001,34,Male,10.5,>10 km,15-49,3775,NA,NA,NA,NA,Short Walking,0.7633374280439237
-3107,NA,NA,1011302,48,Female,31.5,>10 km,15-49,3776,NA,NA,NA,NA,Short Walking,4.566355393933808
+5,NA,NA,690101,36,Male,0.03199122887270463,>10 km,15-49,3652,NA,NA,NA,NA,Short Walking,0.3998903609088078
+14,NA,NA,690301,52,Female,0.005048790935547997,>10 km,50-70,3653,NA,NA,NA,NA,Short Walking,0.06310988669434996
+15,NA,NA,690301,52,Female,0.10248304458223151,>10 km,50-70,3654,NA,NA,NA,NA,Short Walking,1.2810380572778939
+50,NA,NA,690901,33,Male,0.4047675698645436,>10 km,15-49,3655,NA,NA,NA,NA,Short Walking,5.059594623306795
+84,NA,NA,691301,27,Male,9.814471161196216e-4,>10 km,15-49,3656,NA,NA,NA,NA,Short Walking,0.01226808895149527
+87,NA,NA,691302,23,Female,0.05050472640787324,>10 km,15-49,3657,NA,NA,NA,NA,Short Walking,0.6313090800984155
+89,NA,NA,691305,22,Male,0.020419186668519693,>10 km,15-49,3658,NA,NA,NA,NA,Short Walking,0.25523983335649614
+90,NA,NA,691305,22,Male,0.029194123092710068,>10 km,15-49,3659,NA,NA,NA,NA,Short Walking,0.36492653865887587
+99,NA,NA,691402,50,Female,0.7540893367968273,>10 km,50-70,3660,NA,NA,NA,NA,Short Walking,9.426116709960342
+100,NA,NA,691402,50,Female,0.047987330143423185,>10 km,50-70,3661,NA,NA,NA,NA,Short Walking,0.5998416267927899
+111,NA,NA,691405,17,Female,0.11726814698466506,>10 km,15-49,3662,NA,NA,NA,NA,Short Walking,1.4658518373083134
+115,NA,NA,691406,18,Female,0.31223412141488754,>10 km,15-49,3663,NA,NA,NA,NA,Short Walking,3.9029265176860948
+117,NA,NA,691406,18,Female,0.06459074898733344,>10 km,15-49,3664,NA,NA,NA,NA,Short Walking,0.8073843623416681
+118,NA,NA,691501,42,Male,0.07965971130128441,>10 km,15-49,3665,NA,NA,NA,NA,Short Walking,0.995746391266055
+119,NA,NA,691501,42,Male,0.1549184543209069,>10 km,15-49,3666,NA,NA,NA,NA,Short Walking,1.9364806790113362
+120,NA,NA,691501,42,Male,0.040162842173496,>10 km,15-49,3667,NA,NA,NA,NA,Short Walking,0.5020355271687
+121,NA,NA,691502,32,Female,0.09597668631000397,>10 km,15-49,3668,NA,NA,NA,NA,Short Walking,1.1997085788750497
+123,NA,NA,691502,32,Female,0.007657972600325904,>10 km,15-49,3669,NA,NA,NA,NA,Short Walking,0.09572465750407382
+153,NA,NA,700401,49,Male,0.20881526203473352,>10 km,15-49,3670,NA,NA,NA,NA,Short Walking,2.610190775434169
+167,NA,NA,700701,29,Male,0.4916288796523885,>10 km,15-49,3671,NA,NA,NA,NA,Short Walking,6.1453609956548565
+169,NA,NA,700701,29,Male,0.13901804006346827,>10 km,15-49,3672,NA,NA,NA,NA,Short Walking,1.7377255007933534
+174,NA,NA,700701,29,Male,0.0865032204381457,>10 km,15-49,3673,NA,NA,NA,NA,Short Walking,1.0812902554768213
+175,NA,NA,700701,29,Male,0.00624843856377696,>10 km,15-49,3674,NA,NA,NA,NA,Short Walking,0.078105482047212
+176,NA,NA,700701,29,Male,0.028710144402759482,>10 km,15-49,3675,NA,NA,NA,NA,Short Walking,0.35887680503449354
+177,NA,NA,700701,29,Male,0.003522504239524253,>10 km,15-49,3676,NA,NA,NA,NA,Short Walking,0.04403130299405317
+179,NA,NA,700702,27,Female,0.15956611921124997,>10 km,15-49,3677,NA,NA,NA,NA,Short Walking,1.9945764901406244
+180,NA,NA,700702,27,Female,0.027676714817746237,>10 km,15-49,3678,NA,NA,NA,NA,Short Walking,0.34595893522182797
+182,NA,NA,700702,27,Female,0.2233283193567486,>10 km,15-49,3679,NA,NA,NA,NA,Short Walking,2.7916039919593576
+190,NA,NA,700801,48,Male,0.2387599166172669,>10 km,15-49,3680,NA,NA,NA,NA,Short Walking,2.9844989577158363
+204,NA,NA,700902,31,Female,0.008583595533814782,>10 km,15-49,3681,NA,NA,NA,NA,Short Walking,0.10729494417268479
+290,NA,NA,710304,24,Male,1.5013716092858274,>10 km,15-49,3682,NA,NA,NA,NA,Short Walking,18.767145116072843
+423,NA,NA,720401,32,Male,0.18903789042096053,>10 km,15-49,3683,NA,NA,NA,NA,Short Walking,2.362973630262007
+424,NA,NA,720401,32,Male,0.6614465003052439,>10 km,15-49,3684,NA,NA,NA,NA,Short Walking,8.268081253815549
+541,NA,NA,731202,30,Female,0.15269785752513026,>10 km,15-49,3685,NA,NA,NA,NA,Short Walking,1.9087232190641283
+886,NA,NA,780601,30,Female,0.07151355478978945,>10 km,15-49,3686,NA,NA,NA,NA,Short Walking,0.8939194348723681
+887,NA,NA,780601,30,Female,0.02065969259448206,>10 km,15-49,3687,NA,NA,NA,NA,Short Walking,0.25824615743102575
+906,NA,NA,781101,40,Male,0.42136212620193947,>10 km,15-49,3688,NA,NA,NA,NA,Short Walking,5.267026577524243
+907,NA,NA,781101,40,Male,0.06782028268214044,>10 km,15-49,3689,NA,NA,NA,NA,Short Walking,0.8477535335267556
+934,NA,NA,781601,49,Male,0.06017061180451901,>10 km,15-49,3690,NA,NA,NA,NA,Short Walking,0.7521326475564877
+1050,NA,NA,791202,35,Female,0.04844398142020832,>10 km,15-49,3691,NA,NA,NA,NA,Short Walking,0.6055497677526039
+1051,NA,NA,791202,35,Female,0.055676669338638705,>10 km,15-49,3692,NA,NA,NA,NA,Short Walking,0.6959583667329838
+1085,NA,NA,800102,22,Female,0.030392465094232442,>10 km,15-49,3693,NA,NA,NA,NA,Short Walking,0.37990581367790555
+1102,NA,NA,800901,57,Male,0.27194605973533587,>10 km,50-70,3694,NA,NA,NA,NA,Short Walking,3.399325746691699
+1133,NA,NA,810101,55,Male,0.09169428737358286,>10 km,50-70,3695,NA,NA,NA,NA,Short Walking,1.1461785921697858
+1135,NA,NA,810101,55,Male,0.004690130594809707,>10 km,50-70,3696,NA,NA,NA,NA,Short Walking,0.05862663243512135
+1140,NA,NA,810201,47,Female,0.0010813490570501223,>10 km,15-49,3697,NA,NA,NA,NA,Short Walking,0.013516863213126527
+1141,NA,NA,810201,47,Female,0.24655542081603296,>10 km,15-49,3698,NA,NA,NA,NA,Short Walking,3.081942760200412
+1163,NA,NA,810401,57,Male,0.0881789708450743,>10 km,50-70,3699,NA,NA,NA,NA,Short Walking,1.1022371355634288
+1164,NA,NA,810401,57,Male,0.053517992092296414,>10 km,50-70,3700,NA,NA,NA,NA,Short Walking,0.6689749011537052
+1165,NA,NA,810401,57,Male,0.03545139828449397,>10 km,50-70,3701,NA,NA,NA,NA,Short Walking,0.4431424785561747
+1209,NA,NA,811502,38,Female,0.1687513875367307,>10 km,15-49,3702,NA,NA,NA,NA,Short Walking,2.109392344209134
+1228,NA,NA,820201,33,Male,0.0857393744480734,>10 km,15-49,3703,NA,NA,NA,NA,Short Walking,1.0717421806009175
+1270,NA,NA,821001,65,Male,0.0025255988245531866,>10 km,50-70,3704,NA,NA,NA,NA,Short Walking,0.031569985306914836
+1278,NA,NA,821006,35,Male,0.016660194523565354,>10 km,15-49,3705,NA,NA,NA,NA,Short Walking,0.2082524315445669
+1283,NA,NA,821301,47,Male,0.010490207537847523,>10 km,15-49,3706,NA,NA,NA,NA,Short Walking,0.13112759422309406
+1284,NA,NA,821301,47,Male,0.006235172469075528,>10 km,15-49,3707,NA,NA,NA,NA,Short Walking,0.0779396558634441
+1365,NA,NA,831001,36,Male,0.07345781034644346,>10 km,15-49,3708,NA,NA,NA,NA,Short Walking,0.9182226293305432
+1485,NA,NA,850101,31,Male,0.5611803174835822,>10 km,15-49,3709,NA,NA,NA,NA,Short Walking,7.0147539685447775
+1486,NA,NA,850101,31,Male,0.14469612658684294,>10 km,15-49,3710,NA,NA,NA,NA,Short Walking,1.808701582335537
+1505,NA,NA,850401,24,Male,0.044155468488272634,>10 km,15-49,3711,NA,NA,NA,NA,Short Walking,0.551943356103408
+1536,NA,NA,851101,31,Male,0.03592206717028056,>10 km,15-49,3712,NA,NA,NA,NA,Short Walking,0.449025839628507
+1537,NA,NA,851101,31,Male,0.15238155240292012,>10 km,15-49,3713,NA,NA,NA,NA,Short Walking,1.9047694050365018
+1559,NA,NA,851601,39,Male,0.8702428379525421,>10 km,15-49,3714,NA,NA,NA,NA,Short Walking,10.878035474406776
+1560,NA,NA,851601,39,Male,0.060350467258062306,>10 km,15-49,3715,NA,NA,NA,NA,Short Walking,0.7543808407257789
+1767,NA,NA,880601,42,Male,0.026227592848072575,>10 km,15-49,3716,NA,NA,NA,NA,Short Walking,0.3278449106009072
+1838,NA,NA,890401,41,Male,0.0010206994282636838,>10 km,15-49,3717,NA,NA,NA,NA,Short Walking,0.012758742853296048
+1878,NA,NA,890702,29,Female,0.11149437120234902,>10 km,15-49,3718,NA,NA,NA,NA,Short Walking,1.3936796400293627
+1906,NA,NA,891301,32,Male,0.04428272973111876,>10 km,15-49,3719,NA,NA,NA,NA,Short Walking,0.5535341216389845
+1907,NA,NA,891301,32,Male,0.18044174287643733,>10 km,15-49,3720,NA,NA,NA,NA,Short Walking,2.255521785955467
+1908,NA,NA,891301,32,Male,0.33969829122709655,>10 km,15-49,3721,NA,NA,NA,NA,Short Walking,4.246228640338707
+1914,NA,NA,891402,35,Female,0.3125577135247545,>10 km,15-49,3722,NA,NA,NA,NA,Short Walking,3.906971419059431
+1961,NA,NA,900501,49,Male,0.4803354777523314,>10 km,15-49,3723,NA,NA,NA,NA,Short Walking,6.004193471904142
+1962,NA,NA,900501,49,Male,0.09154080272757154,>10 km,15-49,3724,NA,NA,NA,NA,Short Walking,1.1442600340946443
+1996,NA,NA,901002,28,Female,0.32531985395119634,>10 km,15-49,3725,NA,NA,NA,NA,Short Walking,4.066498174389954
+1997,NA,NA,901002,28,Female,0.08022686844852461,>10 km,15-49,3726,NA,NA,NA,NA,Short Walking,1.0028358556065577
+2060,NA,NA,910401,46,Male,0.04450519728571546,>10 km,15-49,3727,NA,NA,NA,NA,Short Walking,0.5563149660714433
+2061,NA,NA,910401,46,Male,0.005145973658953663,>10 km,15-49,3728,NA,NA,NA,NA,Short Walking,0.06432467073692079
+2214,NA,NA,920902,53,Female,0.3310971123762075,>10 km,50-70,3729,NA,NA,NA,NA,Short Walking,4.138713904702594
+2215,NA,NA,920902,53,Female,0.031997907694958284,>10 km,50-70,3730,NA,NA,NA,NA,Short Walking,0.3999738461869786
+2216,NA,NA,920902,53,Female,0.017520969806311553,>10 km,50-70,3731,NA,NA,NA,NA,Short Walking,0.2190121225788944
+2316,NA,NA,930101,39,Male,0.1191451039902381,>10 km,15-49,3732,NA,NA,NA,NA,Short Walking,1.4893137998779764
+2329,NA,NA,930201,29,Female,0.22162362518698211,>10 km,15-49,3733,NA,NA,NA,NA,Short Walking,2.770295314837276
+2330,NA,NA,930201,29,Female,0.06159538663907505,>10 km,15-49,3734,NA,NA,NA,NA,Short Walking,0.7699423329884382
+2331,NA,NA,930201,29,Female,0.017250067358737253,>10 km,15-49,3735,NA,NA,NA,NA,Short Walking,0.2156258419842157
+2405,NA,NA,931601,38,Male,0.08201807568726506,>10 km,15-49,3736,NA,NA,NA,NA,Short Walking,1.0252259460908133
+2408,NA,NA,931601,38,Male,0.0018694539116216008,>10 km,15-49,3737,NA,NA,NA,NA,Short Walking,0.02336817389527001
+2425,NA,NA,940201,23,Female,0.4508487188417326,>10 km,15-49,3738,NA,NA,NA,NA,Short Walking,5.635608985521658
+2429,NA,NA,940201,23,Female,0.017196224839627617,>10 km,15-49,3739,NA,NA,NA,NA,Short Walking,0.2149528104953452
+2444,NA,NA,940801,22,Female,0.5759462586363284,>10 km,15-49,3740,NA,NA,NA,NA,Short Walking,7.199328232954106
+2583,NA,NA,960502,30,Female,0.297846944997534,>10 km,15-49,3741,NA,NA,NA,NA,Short Walking,3.723086812469175
+2585,NA,NA,960502,30,Female,0.031332596780996466,>10 km,15-49,3742,NA,NA,NA,NA,Short Walking,0.39165745976245586
+2697,NA,NA,961502,30,Female,0.038302831815528335,>10 km,15-49,3743,NA,NA,NA,NA,Short Walking,0.4787853976941043
+2716,NA,NA,970304,28,Male,0.011335961565114525,>10 km,15-49,3744,NA,NA,NA,NA,Short Walking,0.14169951956393156
+2718,NA,NA,970701,60,Male,0.15299786497548007,>10 km,50-70,3745,NA,NA,NA,NA,Short Walking,1.912473312193501
+2719,NA,NA,970701,60,Male,0.4518023772742211,>10 km,50-70,3746,NA,NA,NA,NA,Short Walking,5.647529715927764
+2721,NA,NA,970701,60,Male,0.08874655464757243,>10 km,50-70,3747,NA,NA,NA,NA,Short Walking,1.1093319330946554
+2723,NA,NA,970701,60,Male,0.08152261069723608,>10 km,50-70,3748,NA,NA,NA,NA,Short Walking,1.0190326337154512
+2737,NA,NA,971101,63,Male,0.14272884987741713,>10 km,50-70,3749,NA,NA,NA,NA,Short Walking,1.784110623467714
+2747,NA,NA,971201,52,Female,0.04431241320930125,>10 km,50-70,3750,NA,NA,NA,NA,Short Walking,0.5539051651162656
+2748,NA,NA,971303,20,Male,0.0035407494352977546,>10 km,15-49,3751,NA,NA,NA,NA,Short Walking,0.044259367941221935
+2751,NA,NA,971303,20,Male,0.004349642650888204,>10 km,15-49,3752,NA,NA,NA,NA,Short Walking,0.05437053313610255
+2753,NA,NA,971303,20,Male,0.13762990234054615,>10 km,15-49,3753,NA,NA,NA,NA,Short Walking,1.7203737792568268
+2755,NA,NA,971303,20,Male,0.12161631559348633,>10 km,15-49,3754,NA,NA,NA,NA,Short Walking,1.5202039449185791
+2758,NA,NA,971303,20,Male,0.0863923441133057,>10 km,15-49,3755,NA,NA,NA,NA,Short Walking,1.0799043014163212
+2775,NA,NA,980401,58,Female,0.1227959567484946,>10 km,50-70,3756,NA,NA,NA,NA,Short Walking,1.5349494593561825
+2776,NA,NA,980401,58,Female,0.032293970116314394,>10 km,50-70,3757,NA,NA,NA,NA,Short Walking,0.40367462645392993
+2797,NA,NA,980701,67,Male,0.16072699486427952,>10 km,50-70,3758,NA,NA,NA,NA,Short Walking,2.0090874358034942
+2833,NA,NA,981503,21,Male,0.2989986192680003,>10 km,15-49,3759,NA,NA,NA,NA,Short Walking,3.737482740850004
+2834,NA,NA,981503,21,Male,0.009336173855542172,>10 km,15-49,3760,NA,NA,NA,NA,Short Walking,0.11670217319427716
+3031,NA,NA,1010502,55,Female,0.0401800433515852,>10 km,50-70,3761,NA,NA,NA,NA,Short Walking,0.502250541894815
+3035,NA,NA,1010504,22,Male,0.048172658158588864,>10 km,15-49,3762,NA,NA,NA,NA,Short Walking,0.6021582269823609
+3037,NA,NA,1010504,22,Male,0.16698078959979054,>10 km,15-49,3763,NA,NA,NA,NA,Short Walking,2.0872598699973817
+3039,NA,NA,1010507,18,Male,0.23610506769342682,>10 km,15-49,3764,NA,NA,NA,NA,Short Walking,2.9513133461678356
+3041,NA,NA,1010507,18,Male,0.37180581506074273,>10 km,15-49,3765,NA,NA,NA,NA,Short Walking,4.6475726882592845
+3066,NA,NA,1010703,28,Male,0.02810898715745083,>10 km,15-49,3766,NA,NA,NA,NA,Short Walking,0.3513623394681354
+3081,NA,NA,1010710,41,Male,0.0034159517283569108,>10 km,15-49,3767,NA,NA,NA,NA,Short Walking,0.042699396604461384
+3082,NA,NA,1010901,55,Male,0.016340247480174225,>10 km,50-70,3768,NA,NA,NA,NA,Short Walking,0.20425309350217785
+3087,NA,NA,1010902,46,Female,0.024613104963030357,>10 km,15-49,3769,NA,NA,NA,NA,Short Walking,0.30766381203787946
+3090,NA,NA,1010902,46,Female,0.0878815233985665,>10 km,15-49,3770,NA,NA,NA,NA,Short Walking,1.0985190424820812
+3095,NA,NA,1010903,21,Male,0.13480919120582208,>10 km,15-49,3771,NA,NA,NA,NA,Short Walking,1.685114890072776
+3096,NA,NA,1010903,21,Male,0.053138432336484714,>10 km,15-49,3772,NA,NA,NA,NA,Short Walking,0.6642304042060589
+3099,NA,NA,1011001,34,Male,0.07292165748671645,>10 km,15-49,3773,NA,NA,NA,NA,Short Walking,0.9115207185839556
+3100,NA,NA,1011001,34,Male,0.06249121299070679,>10 km,15-49,3774,NA,NA,NA,NA,Short Walking,0.7811401623838349
+3103,NA,NA,1011001,34,Male,0.061066994243513896,>10 km,15-49,3775,NA,NA,NA,NA,Short Walking,0.7633374280439237
+3107,NA,NA,1011302,48,Female,0.3653084315147046,>10 km,15-49,3776,NA,NA,NA,NA,Short Walking,4.566355393933808
