@@ -4710,7 +4710,7 @@ server <- shinyServer(function(input, output, session){
     
     plotly::ggplotly(ggplot(data = accra_msi, aes(x = Modes, y = value, 
                                             fill = variable)) + 
-                       geom_bar(stat = 'identity', position = 'dodge') + 
+                       geom_bar(stat = 'identity', position = 'dodge', color = 'black') + 
                        theme_minimal()
     )
     
