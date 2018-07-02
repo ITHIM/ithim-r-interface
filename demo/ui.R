@@ -127,7 +127,12 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   #             accra_scenarios),
                                                   #HTML("<hr>"),
                                                   
-                                                 
+                                                  tags$div(
+                                                    tags$h4(
+                                                      tags$b(HTML("<font color='red'>Prototype</font>"))
+                                                    )
+                                                  ),
+                                                  hr(),
                                                   
                                                   tags$div(
                                                     tags$h4(
