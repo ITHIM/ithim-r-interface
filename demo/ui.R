@@ -127,6 +127,29 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   #             accra_scenarios),
                                                   #HTML("<hr>"),
                                                   
+                                                 
+                                                  
+                                                  tags$div(
+                                                    tags$h4(
+                                                      tags$b(HTML("<font color='black'>Scenario 1</font>")),
+                                                      HTML("<font color='black'>walk to car</font>"),
+                                                      br(),
+                                                      tags$b(HTML("<font color='black'>Scenario 2</font>")),
+                                                      HTML("<font color='black'>short car to bike</font>"),
+                                                      br(),
+                                                      tags$b(HTML("<font color='black'>Scenario 3</font>")),
+                                                      HTML("<font color='black'>long  car to bus</font>"),
+                                                      HTML("<hr>"))
+                                                    
+                                                    
+                                                    ),
+                                                      
+                                                      
+                                                      # tags$b("Scenario 1"), "walk to car")),
+                                                  #   Scenario 2 short car to bike
+                                                  #   Scenario 3 long  car to bus "
+                                                  # )),
+                                                  
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
                                                                    radioButtons("inAccraPop", "Gender: ", accra_population),
                                                                    HTML("<hr>"),
