@@ -4456,6 +4456,7 @@ server <- shinyServer(function(input, output, session){
     # scenario <- "scen1"
     # ac <- "All"
     # sc <- "All"
+    # type = "Duration"
     
     dataset <- accra_trips
     bd <- filter(accra_trips, !is.na(trip_mode) & trip_mode != "Short Walking")
@@ -4504,7 +4505,8 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal())
       
       
-    }else if (type == "Distance"){
+    }
+    else if (type == "Distance"){
       dist <- dataset %>% group_by(trip_mode) %>% summarise(baseline_dist = sum(trip_distance))
       dist1 <- dataset %>% group_by(scen1_mode) %>% summarise(scen1_dist = sum(trip_distance)) %>% rename(trip_mode = scen1_mode)
       dist2 <- dataset %>% group_by(scen2_mode) %>% summarise(scen2_dist = sum(trip_distance)) %>% rename(trip_mode = scen2_mode)
@@ -4539,8 +4541,11 @@ server <- shinyServer(function(input, output, session){
                  geom_bar(stat = 'identity', position = "dodge", color = "black") + 
                  theme_minimal() + xlab('Mode') + ylab('Distance (km)') + labs(title = "Mode distance (km)"))
       
-    }else {
+    }
+    else {
       
+      print(identical(dataset, accra_trips))
+      # browser()
       
       dur <- dataset %>% group_by(trip_mode) %>% summarise(baseline_dur = sum(trip_duration))
       dur1 <- dataset %>% group_by(scen1_mode) %>% summarise(scen1_dur = sum(scen1_duration)) %>% rename(trip_mode = scen1_mode)
