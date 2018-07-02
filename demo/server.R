@@ -4497,12 +4497,19 @@ server <- shinyServer(function(input, output, session){
       bd <- left_join(bd, scen2, by = "trip_mode")
       bd <- left_join(bd, scen3, by = "trip_mode")
       
-      bd <- reshape2::melt(bd)
+      bd <- rename(bd, "Baseline" = baseline_n,
+                     "Scenario 1" = scen1_n,
+                     "Scenario 2" = scen2_n,
+                     "Scenario 3" = scen3_n
+      )
       
+      
+      
+      bd <- reshape2::melt(bd)
       
       ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-                 theme_minimal())
+                 theme_minimal() + xlab('Mode') + ylab('Proportion (%)') + labs(title = "Mode distribution"))
       
       
     }
@@ -4528,6 +4535,13 @@ server <- shinyServer(function(input, output, session){
       dist <- left_join(dist, dist1, by = "trip_mode")
       dist <- left_join(dist, dist2, by = "trip_mode")
       dist <- left_join(dist, dist3, by = "trip_mode")
+      
+      
+      dist <- rename(dist, "Baseline" = baseline_dist,
+                    "Scenario 1" = scen1_dist,
+                    "Scenario 2" = scen2_dist,
+                    "Scenario 3" = scen3_dist
+      )
       
       # Remove short walking
       dist <- filter(dist, trip_mode != 'Short Walking')
@@ -4568,6 +4582,12 @@ server <- shinyServer(function(input, output, session){
       dur <- left_join(dur, dur1, by = "trip_mode")
       dur <- left_join(dur, dur2, by = "trip_mode")
       dur <- left_join(dur, dur3, by = "trip_mode")
+      
+      dur <- rename(dur, "Baseline" = baseline_dur,
+                    "Scenario 1" = scen1_dur,
+                    "Scenario 2" = scen2_dur,
+                    "Scenario 3" = scen3_dur
+      )
       
       
       
