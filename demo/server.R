@@ -4635,10 +4635,19 @@ server <- shinyServer(function(input, output, session){
       
       d <- d %>% select(cause, age.band, gender, scenario1_deaths, 
                                         scenario2_deaths, scenario3_deaths)
+      d <- rename(d, 'Scenario 1' = scenario1_deaths,
+                  'Scenario 2' = scenario2_deaths,
+                  'Scenario 3' = scenario3_deaths)
     }else{
       
       d <- d %>% select(cause, age.band, gender, scenario1_ylls,
                                         scenario2_ylls, scenario3_ylls)
+      
+      d <- rename(d, 'Scenario 1' = scenario1_ylls,
+                  'Scenario 2' = scenario2_ylls,
+                  'Scenario 3' = scenario3_ylls)
+      
+      
     }
     
     d <- reshape2::melt(d)
