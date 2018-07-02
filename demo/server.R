@@ -4633,11 +4633,11 @@ server <- shinyServer(function(input, output, session){
     
     if (outcome == "Deaths"){
       
-      d <- d %>% select(cause, age.band, gender, baseline_deaths, scenario1_deaths, 
+      d <- d %>% select(cause, age.band, gender, scenario1_deaths, 
                                         scenario2_deaths, scenario3_deaths)
     }else{
       
-      d <- d %>% select(cause, age.band, gender, baseline_ylls, scenario1_ylls,
+      d <- d %>% select(cause, age.band, gender, scenario1_ylls,
                                         scenario2_ylls, scenario3_ylls)
     }
     

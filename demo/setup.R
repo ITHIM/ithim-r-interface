@@ -34,7 +34,14 @@ accra_modes <- accra_modes[!is.na(accra_modes)]
 accra_modes <- subset(accra_modes, !(accra_modes %in% c("Short Walking")))
 
 accra_health_data <- read_csv("data/accra/health_outcomes.csv")
+
+# Remove total 
 accra_health_data <- filter(accra_health_data, cause != "total")
+
+# Remove baseline columns
+accra_health_data <- select(accra_health_data, -c(baseline_ylls, baseline_deaths))
+
+
 
 
 accra_msi <- read_csv("data/accra/injuries/mode-specific-injuries.csv")
