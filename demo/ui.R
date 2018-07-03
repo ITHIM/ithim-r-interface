@@ -164,9 +164,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   ),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
-                                                                   radioButtons("inAccraHealthPop", "Gender: ", c('Male', 'Female')),
+                                                                   radioButtons("inAccraHealthPop", "Gender: ", accra_population),
                                                                    HTML("<hr>"),
-                                                                   radioButtons("inAccraHealthAges", "Age: ", accra_age_cat)
+                                                                   radioButtons("inAccraHealthAges", "Age: ", accra_ages)
                                                   ),
                                                   
                                                   HTML("<hr>"),
