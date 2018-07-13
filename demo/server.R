@@ -4459,14 +4459,10 @@ server <- shinyServer(function(input, output, session){
     # type = "Duration"
     
     dataset <- accra_trips
-    bd <- filter(accra_trips, !is.na(trip_mode) & trip_mode != "Short Walking")
-    bdnr <- nrow(bd)
-    
     
     if (ac != "All"){
       
       dataset <- filter(dataset, age_cat == ac)
-      bd <- filter(bd, age_cat == ac)
       
     }
     
@@ -4474,23 +4470,27 @@ server <- shinyServer(function(input, output, session){
     if (sc != "All"){
       
       dataset <- filter(dataset, sex == sc)
-      bd <- filter(bd, sex == sc)
       
     }
     if (type == "Trips"){
       
-      scen1 <- filter(dataset, !is.na(scen1_mode) & scen1_mode != "Short Walking")
+      # Remove short walking, 99, Train, Other and Unspecified modes
+      dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
+      bd <- filter(dataset, scenario == 'Baseline')
+      bdnr <- nrow(bd)
+      
+      scen1 <- filter(dataset, scenario == 'Scenario 1')
       scen1nr <- nrow(scen1)
-      scen2 <- filter(dataset, !is.na(scen2_mode) & scen2_mode != "Short Walking")
+      scen2 <- filter(dataset, scenario == 'Scenario 2')
       scen2nr <- nrow(scen2)
-      scen3 <- filter(dataset, !is.na(scen3_mode) & scen3_mode != "Short Walking")
+      scen3 <- filter(dataset, scenario == 'Scenario 3')
       scen3nr <- nrow(scen3)
       
       bd <- bd %>% group_by(trip_mode) %>%  summarise(baseline_n = round(n()/bdnr * 100, 1))
       
-      scen1 <- scen1 %>% group_by(scen1_mode) %>%  summarise(scen1_n = round(n()/scen1nr * 100, 1)) %>% rename(trip_mode = scen1_mode)
-      scen2 <- scen2 %>% group_by(scen2_mode) %>%  summarise(scen2_n = round(n()/scen2nr * 100, 1)) %>% rename(trip_mode = scen2_mode)
-      scen3 <- scen3 %>% group_by(scen3_mode) %>%  summarise(scen3_n = round(n()/scen3nr * 100, 1)) %>% rename(trip_mode = scen3_mode)
+      scen1 <- scen1 %>% group_by(trip_mode) %>%  summarise(scen1_n = round(n()/scen1nr * 100, 1))
+      scen2 <- scen2 %>% group_by(trip_mode) %>%  summarise(scen2_n = round(n()/scen2nr * 100, 1))
+      scen3 <- scen3 %>% group_by(trip_mode) %>%  summarise(scen3_n = round(n()/scen3nr * 100, 1))
       
       
       bd <- left_join(bd, scen1, by = "trip_mode")
@@ -4514,10 +4514,14 @@ server <- shinyServer(function(input, output, session){
       
     }
     else if (type == "Distance"){
-      dist <- dataset %>% group_by(trip_mode) %>% summarise(baseline_dist = sum(trip_distance))
-      dist1 <- dataset %>% group_by(scen1_mode) %>% summarise(scen1_dist = sum(trip_distance)) %>% rename(trip_mode = scen1_mode)
-      dist2 <- dataset %>% group_by(scen2_mode) %>% summarise(scen2_dist = sum(trip_distance)) %>% rename(trip_mode = scen2_mode)
-      dist3 <- dataset %>% group_by(scen3_mode) %>% summarise(scen3_dist = sum(trip_distance)) %>% rename(trip_mode = scen3_mode)
+      
+      # Remove 99, Train, Other and Unspecified modes
+      dataset <- filter(dataset, ! trip_mode %in% c("99", "Train", "Other", "Unspecified"))
+      
+      dist <- filter(dataset, scenario == 'Baseline') %>% group_by(trip_mode) %>% summarise(baseline_dist = sum(trip_distance))
+      dist1 <- filter(dataset, scenario == 'Scenario 1') %>% group_by(trip_mode) %>% summarise(scen1_dist = sum(trip_distance))
+      dist2 <- filter(dataset, scenario == 'Scenario 2') %>% group_by(trip_mode) %>% summarise(scen2_dist = sum(trip_distance))
+      dist3 <- filter(dataset, scenario == 'Scenario 3') %>% group_by(trip_mode) %>% summarise(scen3_dist = sum(trip_distance))
       
       dist <- filter(dist, !is.na(trip_mode))
       dist1 <- filter(dist1, !is.na(trip_mode))
@@ -4558,13 +4562,14 @@ server <- shinyServer(function(input, output, session){
     }
     else {
       
-      print(identical(dataset, accra_trips))
+      # Remove 99, Train, Other and Unspecified modes
+      dataset <- filter(dataset, ! trip_mode %in% c("99", "Train", "Other", "Unspecified"))
       # browser()
       
-      dur <- dataset %>% group_by(trip_mode) %>% summarise(baseline_dur = sum(trip_duration))
-      dur1 <- dataset %>% group_by(scen1_mode) %>% summarise(scen1_dur = sum(scen1_duration)) %>% rename(trip_mode = scen1_mode)
-      dur2 <- dataset %>% group_by(scen2_mode) %>% summarise(scen2_dur = sum(scen2_duration)) %>% rename(trip_mode = scen2_mode)
-      dur3 <- dataset %>% group_by(scen3_mode) %>% summarise(scen3_dur = sum(scen3_duration)) %>% rename(trip_mode = scen3_mode)
+      dur <- filter(dataset, scenario == 'Baseline') %>% group_by(trip_mode) %>% summarise(baseline_dur = sum(trip_duration))
+      dur1 <- filter(dataset, scenario == 'Scenario 1') %>% group_by(trip_mode) %>% summarise(scen1_dur = sum(trip_duration))
+      dur2 <- filter(dataset, scenario == 'Scenario 2') %>% group_by(trip_mode) %>% summarise(scen2_dur = sum(trip_duration))
+      dur3 <- filter(dataset, scenario == 'Scenario 3') %>% group_by(trip_mode) %>% summarise(scen3_dur = sum(trip_duration))
       
       dur <- filter(dur, !is.na(trip_mode))
       dur1 <- filter(dur1, !is.na(trip_mode))
