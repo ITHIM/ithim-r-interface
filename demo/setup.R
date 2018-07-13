@@ -24,7 +24,7 @@ reqs <- as.numeric(lapply(pkgs, require, character.only = TRUE))
 # 
 # if(!require(shiny)) devtools::install_github("shiny", "rstudio")
 
-accra_trips <- read.csv("data/accra/baseline_and_three_scenarios.csv", header = T, stringsAsFactors = F)
+accra_trips <- read_csv("data/accra/baseline_and_three_scenarios.csv")#, header = T, stringsAsFactors = F)
 
 accra_age_cat <- unique(accra_trips$age_cat)
 accra_modes <- unique(accra_trips$trip_mode)
