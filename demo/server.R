@@ -4801,10 +4801,10 @@ server <- shinyServer(function(input, output, session){
   }
   
   
-  output$plotScenariosDeaths <- renderPlotly({
+  output$plotScenariosHealthOutcome <- renderPlotly({
     
     #if ()
-    get_health_plot(outcome = "Deaths", ac = input$inAccraHealthAges, sc = input$inAccraHealthPop)
+    get_health_plot(outcome = input$inAccraHealthOutcome, ac = input$inAccraHealthAges, sc = input$inAccraHealthPop)
     
     
     
