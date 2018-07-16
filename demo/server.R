@@ -4652,16 +4652,17 @@ server <- shinyServer(function(input, output, session){
   
   get_health_plot <- function(outcome, ac, sc){
     
-    #ac <- "All"
-    #sc <- "Male"
-    outcome <- "Deaths"
-    
-    accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
+    # ac <- "All"
+    # sc <- "Male"
+    # outcome <- "Ylls"
     
     lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
     
     
-    d <- accra_deaths
+    if (outcome == "Deaths")
+      d <- read_csv("data/accra/health/total_deaths.csv")
+    else
+      d <- read_csv("data/accra/health/total_ylls.csv")
     
     if (ac != "All")
       d <- filter(d, age.band == ac)
@@ -4686,7 +4687,7 @@ server <- shinyServer(function(input, output, session){
     }
     
     dn1 <- select(d, age.band, gender, ends_with('inj'))
-    dn1$base_deaths_inj <- NULL
+    dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
     dn1$cause <- 'road injuries'
     names(dn1)[3:5] <- c("scen1", "scen2", "scen3")
     
