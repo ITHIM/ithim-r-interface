@@ -10,6 +10,8 @@ accra_population <- c('All', 'Male', 'Female')
 
 accra_ages <- append('All', accra_age_cat)
 
+accra_health_ages <- append('All', accra_health_age_cat)
+
 accra_travel_modes <- append('All', accra_modes)
 
 accra_scenarios <- c('scen1' = '50% Walk trips to Car',
@@ -166,7 +168,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
                                                                    radioButtons("inAccraHealthPop", "Gender: ", accra_population),
                                                                    HTML("<hr>"),
-                                                                   radioButtons("inAccraHealthAges", "Age: ", accra_ages)
+                                                                   radioButtons("inAccraHealthAges", "Age: ", accra_health_ages)
                                                   ),
                                                   
                                                   HTML("<hr>"),
