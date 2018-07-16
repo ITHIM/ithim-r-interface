@@ -188,8 +188,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     
                                                     
                                                     tabPanel('Health',
-                                                             plotlyOutput("plotScenariosDeaths"),
-                                                             plotlyOutput("plotScenariosYLLs")
+                                                             plotlyOutput("plotScenariosHealthOutcome")
                                                              
                                                                           
                                                              ),
