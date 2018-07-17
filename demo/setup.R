@@ -43,8 +43,12 @@ accra_ap <- left_join(select(accra_pa, participant_id, age_cat, sex), accra_ap)
 # Remove participant id and age from the dataset
 accra_ap <- select(accra_ap, -c(participant_id))
 
+names(accra_ap)[3:6] <- c("Baseline", "Scenario 1", "Scenario 2", "Scenario 3")
+
 # Remove participant id and age from the dataset
 accra_pa <- select(accra_pa, -c(participant_id, age))
+
+names(accra_pa)[3:6] <- c("Baseline", "Scenario 1", "Scenario 2", "Scenario 3")
 
 accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
 
