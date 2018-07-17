@@ -186,8 +186,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              
                                                     ),
                                                     
-                                                    tabPanel('Physical Activity'#,
-                                                             #plotlyOutput("plotScenariosPA")
+                                                    tabPanel('Physical Activity',
+                                                             plotlyOutput("plotScenariosPA")
                                                     ),
                                                     
                                                     
