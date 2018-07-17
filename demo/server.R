@@ -4756,6 +4756,12 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosPA <- renderPlotly({
     
+    accra_pa <- read_csv("data/accra/pa/pa_total_mmet_weekly.csv")
+
+    accra_pa_melted <- reshape2::melt(select(accra_pa, -c(participant_id, age)))
+
+    plotly::ggplotly(ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + geom_boxplot() + theme_minimal())
+    
   })
   
   
