@@ -4652,6 +4652,10 @@ server <- shinyServer(function(input, output, session){
   
   get_health_plot <- function(outcome, ac, sc){
     
+    # outcome <- "Deaths"
+    # ac <- "All"
+    # sc <- "All"
+    
     lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
     
     
@@ -4672,7 +4676,7 @@ server <- shinyServer(function(input, output, session){
     for (i in 2:nrow(lt)){
       
       dn1 <- select(d, age.band, gender, ends_with(lt$acronym[i])) 
-      dn1$cause <- lt$acronym[i]
+        dn1$cause <- lt$GBD_name[i]
       names(dn1)[3:5] <- c("Scenario 1", "Scenario 2", "Scenario 3")
       
       if (is.null(nd))
@@ -4694,7 +4698,7 @@ server <- shinyServer(function(input, output, session){
     # Combine all cancers together
     
     # Remove cancers from the master table
-    cc <- nd %>% filter(str_detect(cause, "c$"))
+    cc <- nd %>% filter(str_detect(cause, "cancer$"))
     nd <- filter(nd,! cause %in% cc$cause)
     
     cc1 <- cc %>% group_by(age.band, gender, variable) %>% summarise(cause = 'combined cancers', value = sum(value)) %>% as.data.frame()
@@ -4706,14 +4710,20 @@ server <- shinyServer(function(input, output, session){
     d2 <- d2[c(2,1,3)]
     d3 <- rbind(d1, d2)
     
+    #Replace space with line break
+    d3$cause <- gsub(" ", "\n", d3$cause)
+    
+    # browser()
+    
     p <- ggplot(data = d3, aes(x = cause, y = value,
-                                                           fill = variable)) +
-                       geom_bar(stat = 'identity', position = "dodge", color = "black") +
-                       theme_minimal()
+                               fill = variable)) +
+      geom_bar(stat = 'identity', position = "dodge", color = "black") +
+      theme_minimal()# +
+      #theme(axis.text.x = element_text(size=rel(0.5)))#angle=90))
     
     
     
-    p <- p + labs(title = paste0(outcome)) + xlab("Cause") + ylab(outcome)
+    p <- p + labs(title = paste0(outcome)) + xlab("\nCause\n") + ylab(outcome)
     
     plotly::ggplotly(p)
     
