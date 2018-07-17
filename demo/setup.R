@@ -35,6 +35,8 @@ accra_modes <- subset(accra_modes, !(accra_modes %in% c("Short Walking")))
 
 accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
 
+accra_ylls <- read_csv("data/accra/health/total_ylls.csv")
+
 accra_health_age_cat <- unique(accra_deaths$age.band)
 
 lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")

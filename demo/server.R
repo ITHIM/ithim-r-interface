@@ -4656,9 +4656,9 @@ server <- shinyServer(function(input, output, session){
     
     
     if (outcome == "Deaths")
-      d <- read_csv("data/accra/health/total_deaths.csv")
+      d <- accra_deaths
     else
-      d <- read_csv("data/accra/health/total_ylls.csv")
+      d <- accra_ylls
     
     if (ac != "All")
       d <- filter(d, age.band == ac)
