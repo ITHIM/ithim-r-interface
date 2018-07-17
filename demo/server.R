@@ -4756,8 +4756,6 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosPA <- renderPlotly({
     
-    accra_pa <- read_csv("data/accra/pa/pa_total_mmet_weekly.csv")
-    
     if (input$inAccraPAAges != "All")
       accra_pa <- filter(accra_pa, age_cat == input$inAccraPAAges)
     

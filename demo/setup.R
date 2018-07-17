@@ -33,6 +33,8 @@ accra_modes <- accra_modes[!is.na(accra_modes)]
 
 accra_modes <- subset(accra_modes, !(accra_modes %in% c("Short Walking")))
 
+accra_pa <- read_csv("data/accra/pa/pa_total_mmet_weekly.csv")
+
 accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
 
 accra_ylls <- read_csv("data/accra/health/total_ylls.csv")
