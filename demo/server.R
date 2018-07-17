@@ -4652,10 +4652,6 @@ server <- shinyServer(function(input, output, session){
   
   get_health_plot <- function(outcome, ac, sc){
     
-    # ac <- "All"
-    # sc <- "Male"
-    # outcome <- "Ylls"
-    
     lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
     
     
@@ -4717,83 +4713,6 @@ server <- shinyServer(function(input, output, session){
     
     
     
-    
-    # if (outcome == "Deaths"){
-    #   
-    #   d <- d %>% select(cause, age.band, gender, scenario1_deaths, 
-    #                                     scenario2_deaths, scenario3_deaths)
-    #   d <- rename(d, 'Scenario 1' = scenario1_deaths,
-    #               'Scenario 2' = scenario2_deaths,
-    #               'Scenario 3' = scenario3_deaths)
-    # }else{
-    #   
-    #   d <- d %>% select(cause, age.band, gender, scenario1_ylls,
-    #                                     scenario2_ylls, scenario3_ylls)
-    #   
-    #   d <- rename(d, 'Scenario 1' = scenario1_ylls,
-    #               'Scenario 2' = scenario2_ylls,
-    #               'Scenario 3' = scenario3_ylls)
-    #   
-    #   
-    # }
-    # 
-    # d <- reshape2::melt(d)
-    # 
-    # p <- NULL
-    # 
-    # if (ac == "All" && sc == "All"){
-    #   d1 <- d %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-    #   d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "total", value = sum(value)) %>% as.data.frame()
-    #   d2 <- d2[c(2,1,3)]
-    #   d3 <- rbind(d1, d2)
-    #   p <- ggplot(data = d3, 
-    #               aes(x = cause, y = value, 
-    #                                        fill = variable)) + 
-    #     geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-    #     theme_minimal()
-    # }else if (ac == "All" && sc != "All"){
-    #   # sc <- "Male"
-    #   
-    #   d1 <- d %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-    #   d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "total", value = sum(value)) %>% as.data.frame()
-    #   d2 <- d2[c(2,1,3)]
-    #   d3 <- rbind(d1, d2)
-    #   
-    #   p <- ggplot(data = d3, aes(x = cause, y = value, 
-    #                                              fill = variable#, 
-    #                                              #interaction = age.band#,
-    #                                              #label = age.band
-    #                                              )) + 
-    #                           geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-    #                           theme_minimal() #+
-    #                           #geom_text(aes(label = age.band), position = position_dodge(0.8),
-    #                            #         vjust = 1, size = 2, color = "black", family = "Georgia")
-    #                         
-    #   
-    # }else if (ac != "All" && sc == "All"){
-    #   
-    #   d1 <- d %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-    #   d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "total", value = sum(value)) %>% as.data.frame()
-    #   d2 <- d2[c(2,1,3)]
-    #   d3 <- rbind(d1, d2)
-    #   
-    #   
-    #   p <- ggplot(data = d3, aes(x = cause, y = value, fill = variable)) + #, interaction = gender)) + 
-    #     geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-    #     theme_minimal()
-    #   
-    # }else{
-    #   
-    #   d1 <- d %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-    #   d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "total", value = sum(value)) %>% as.data.frame()
-    #   d2 <- d2[c(2,1,3)]
-    #   d3 <- rbind(d1, d2)
-    #   
-    #   p <- ggplot(data = d3, aes(x = cause, y = value, fill = variable)) + 
-    #     geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-    #     theme_minimal()
-    #   
-    # }
     p <- p + labs(title = paste0(outcome)) + xlab("Cause") + ylab(outcome)
     
     plotly::ggplotly(p)
