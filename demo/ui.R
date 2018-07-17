@@ -206,8 +206,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              plotlyOutput("plotScenariosPA")
                                                     ),
                                                     
-                                                    tabPanel('Air Pollution'#,
-                                                             #plotlyOutput("plotScenariosAP")
+                                                    tabPanel('Air Pollution',
+                                                             plotlyOutput("plotScenariosAP")
                                                     ),
                                                     
                                                     
