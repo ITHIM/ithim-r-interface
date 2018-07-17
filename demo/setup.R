@@ -35,6 +35,9 @@ accra_modes <- subset(accra_modes, !(accra_modes %in% c("Short Walking")))
 
 accra_pa <- read_csv("data/accra/pa/pa_total_mmet_weekly.csv")
 
+# Remove participant id and age from the dataset
+accra_pa <- select(accra_pa, -c(participant_id, age))
+
 accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
 
 accra_ylls <- read_csv("data/accra/health/total_ylls.csv")

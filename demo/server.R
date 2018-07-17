@@ -4763,7 +4763,7 @@ server <- shinyServer(function(input, output, session){
       accra_pa <- filter(accra_pa, sex == input$inAccraPAPop)
     
 
-    accra_pa_melted <- reshape2::melt(select(accra_pa, -c(participant_id, age)))
+    accra_pa_melted <- reshape2::melt(accra_pa)
 
     plotly::ggplotly(ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + geom_boxplot() + theme_minimal())
     
