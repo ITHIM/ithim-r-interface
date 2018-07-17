@@ -4740,16 +4740,7 @@ server <- shinyServer(function(input, output, session){
     
   })
   
-  
-  output$plotScenariosYLLs <- renderPlotly({
-    
-    #if ()
-    get_health_plot(outcome = "YLLs", ac = input$inAccraHealthAges, sc = input$inAccraHealthPop)
-    
-    
-    
-  })
-  
+
   output$plotInjuries <- renderPlotly({
     
     
@@ -4760,15 +4751,7 @@ server <- shinyServer(function(input, output, session){
                        theme_minimal()
     )
     
-    
-    
   })
-  
-  
-  
-  
-  
-  
   
   
 })
