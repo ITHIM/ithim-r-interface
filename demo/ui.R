@@ -186,12 +186,20 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              
                                                     ),
                                                     
+                                                    tabPanel('Physical Activity'#,
+                                                             #plotlyOutput("plotScenariosPA")
+                                                    ),
+                                                    
                                                     
                                                     tabPanel('Health',
                                                              plotlyOutput("plotScenariosHealthOutcome")
                                                              
                                                                           
                                                              )
+                                                    
+                                                    
+                                                    
+                                                    
                                                     #,
                                                     # tabPanel('Road Injuries',
                                                     #           plotlyOutput('plotInjuries')
