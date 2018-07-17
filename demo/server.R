@@ -4744,9 +4744,18 @@ server <- shinyServer(function(input, output, session){
   output$plotInjuries <- renderPlotly({
     
     
+    if (input$inAccraAges != "All")
+      accra_msi <- filter(accra_msi, age_cat == input$inAccraAges)
     
-    plotly::ggplotly(ggplot(data = accra_msi, aes(x = Modes, y = value, 
-                                            fill = variable)) + 
+    if (input$inAccraPop != "All")
+      accra_msi <- filter(accra_msi, sex == input$inAccraPop)
+    
+    
+    accra_msi <- accra_msi %>% group_by(age_cat, sex, scenario, variable) %>% summarise(value = sum(value))
+    
+    
+    plotly::ggplotly(ggplot(data = accra_msi, aes(x = variable, y = value, 
+                                                  fill = scenario)) + 
                        geom_bar(stat = 'identity', position = 'dodge', color = 'black') + 
                        theme_minimal()
     )
@@ -4781,9 +4790,15 @@ server <- shinyServer(function(input, output, session){
     
     accra_ap_melted <- reshape2::melt(accra_ap)
     
-    plotly::ggplotly(ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + geom_boxplot() + theme_minimal())
+    plotly::ggplotly(ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + 
+                       geom_boxplot() +
+                       ggtitle(expression(atop("Rainfall", atop(italic("Location"), "")))) +
+                       theme_minimal())
     
   })
+  
+  
+  
   
   
 })
