@@ -4770,5 +4770,21 @@ server <- shinyServer(function(input, output, session){
   })
   
   
+  output$plotScenariosAP <- renderPlotly({
+    
+    if (input$inAccraAPAges != "All")
+      accra_ap <- filter(accra_ap, age_cat == input$inAccraAPAges)
+    
+    if (input$inAccraAPPop != "All")
+      accra_ap <- filter(accra_ap, sex == input$inAccraAPPop)
+    
+    
+    accra_ap_melted <- reshape2::melt(accra_ap)
+    
+    plotly::ggplotly(ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + geom_boxplot() + theme_minimal())
+    
+  })
+  
+  
 })
 
