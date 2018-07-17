@@ -172,6 +172,13 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   ),
                                                   
                                                   
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Air Pollution'",
+                                                                   radioButtons("inAccraAPPop", "Gender: ", accra_population),
+                                                                   HTML("<hr>"),
+                                                                   radioButtons("inAccraAPAges", "Age: ", accra_ages)
+                                                  ),
+                                                  
+                                                  
                                                   
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
@@ -197,6 +204,10 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     
                                                     tabPanel('Physical Activity',
                                                              plotlyOutput("plotScenariosPA")
+                                                    ),
+                                                    
+                                                    tabPanel('Air Pollution'#,
+                                                             #plotlyOutput("plotScenariosAP")
                                                     ),
                                                     
                                                     
