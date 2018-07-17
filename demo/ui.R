@@ -167,9 +167,11 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    )
                                                   ),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
-                                                                   radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes),
-                                                                   HTML("<hr>"),
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health' || input.accraConditionedPanels == 'Road Injuries'",
+                                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
+                                                                    radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes),
+                                                                    HTML("<hr>")
+                                                                    ),
                                                                    radioButtons("inAccraHealthPop", "Gender: ", accra_population),
                                                                    HTML("<hr>"),
                                                                    radioButtons("inAccraHealthAges", "Age: ", accra_health_ages)
