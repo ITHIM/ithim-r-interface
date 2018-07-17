@@ -4754,5 +4754,10 @@ server <- shinyServer(function(input, output, session){
   })
   
   
+  output$plotScenariosPA <- renderPlotly({
+    
+  })
+  
+  
 })
 
