@@ -4744,14 +4744,14 @@ server <- shinyServer(function(input, output, session){
   output$plotInjuries <- renderPlotly({
     
     
-    if (input$inAccraAges != "All")
-      accra_msi <- filter(accra_msi, age_cat == input$inAccraAges)
+    if (input$inAccraHealthAges != "All")
+      accra_msi <- filter(accra_msi, age_cat == input$inAccraHealthAges)
     
-    if (input$inAccraPop != "All")
-      accra_msi <- filter(accra_msi, sex == input$inAccraPop)
+    if (input$inAccraHealthPop != "All")
+      accra_msi <- filter(accra_msi, sex == input$inAccraHealthPop)
     
-    
-    accra_msi <- accra_msi %>% group_by(age_cat, sex, scenario, variable) %>% summarise(value = sum(value))
+    # browser()
+    accra_msi <- accra_msi %>% group_by(scenario, variable) %>% summarise(value = sum(value))
     
     
     plotly::ggplotly(ggplot(data = accra_msi, aes(x = variable, y = value, 
