@@ -157,7 +157,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   #   Scenario 3 long  car to bus "
                                                   # )),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels != 'Health'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && input.accraConditionedPanels != 'Road Injuries'",
                                                                    radioButtons("inAccraPop", "Gender: ", accra_population),
                                                                    HTML("<hr>"),
                                                                    radioButtons("inAccraAges", "Age: ", accra_ages),
@@ -198,16 +198,11 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     
                                                     tabPanel('Health',
                                                              plotlyOutput("plotScenariosHealthOutcome")
+                                                    ),
+                                                    tabPanel('Road Injuries',
+                                                              plotlyOutput('plotInjuries')
+
                                                     )
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    #,
-                                                    # tabPanel('Road Injuries',
-                                                    #           plotlyOutput('plotInjuries')
-                                                    # 
-                                                    # )
                                                     
                                                     
                                                     #tabPanel('Health Outcomes',
