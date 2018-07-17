@@ -4756,11 +4756,11 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosPA <- renderPlotly({
     
-    if (input$inAccraPAAges != "All")
-      accra_pa <- filter(accra_pa, age_cat == input$inAccraPAAges)
+    if (input$inAccraAges != "All")
+      accra_pa <- filter(accra_pa, age_cat == input$inAccraAges)
     
-    if (input$inAccraPAPop != "All")
-      accra_pa <- filter(accra_pa, sex == input$inAccraPAPop)
+    if (input$inAccraPop != "All")
+      accra_pa <- filter(accra_pa, sex == input$inAccraPop)
     
 
     accra_pa_melted <- reshape2::melt(accra_pa)
@@ -4772,11 +4772,11 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosAP <- renderPlotly({
     
-    if (input$inAccraAPAges != "All")
-      accra_ap <- filter(accra_ap, age_cat == input$inAccraAPAges)
+    if (input$inAccraAges != "All")
+      accra_ap <- filter(accra_ap, age_cat == input$inAccraAges)
     
-    if (input$inAccraAPPop != "All")
-      accra_ap <- filter(accra_ap, sex == input$inAccraAPPop)
+    if (input$inAccraPop != "All")
+      accra_ap <- filter(accra_ap, sex == input$inAccraPop)
     
     
     accra_ap_melted <- reshape2::melt(accra_ap)

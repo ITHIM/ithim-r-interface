@@ -157,26 +157,28 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   #   Scenario 3 long  car to bus "
                                                   # )),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels != 'Health'",
                                                                    radioButtons("inAccraPop", "Gender: ", accra_population),
                                                                    HTML("<hr>"),
                                                                    radioButtons("inAccraAges", "Age: ", accra_ages),
-                                                                   HTML("<hr>"),
-                                                                   radioButtons("inAccraTripTypes", "Type: ", accra_trip_types)
+                                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
+                                                                                    HTML("<hr>"),
+                                                                                    radioButtons("inAccraTripTypes", "Type: ", accra_trip_types)
+                                                                   )
                                                   ),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Physical Activity'",
-                                                                   radioButtons("inAccraPAPop", "Gender: ", accra_population),
-                                                                   HTML("<hr>"),
-                                                                   radioButtons("inAccraPAAges", "Age: ", accra_ages)
-                                                  ),
-                                                  
-                                                  
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Air Pollution'",
-                                                                   radioButtons("inAccraAPPop", "Gender: ", accra_population),
-                                                                   HTML("<hr>"),
-                                                                   radioButtons("inAccraAPAges", "Age: ", accra_ages)
-                                                  ),
+                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Physical Activity'",
+                                                  #                  radioButtons("inAccraPAPop", "Gender: ", accra_population),
+                                                  #                  HTML("<hr>"),
+                                                  #                  radioButtons("inAccraPAAges", "Age: ", accra_ages)
+                                                  # ),
+                                                  # 
+                                                  # 
+                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Air Pollution'",
+                                                  #                  radioButtons("inAccraAPPop", "Gender: ", accra_population),
+                                                  #                  HTML("<hr>"),
+                                                  #                  radioButtons("inAccraAPAges", "Age: ", accra_ages)
+                                                  # ),
                                                   
                                                   
                                                   
@@ -210,12 +212,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              plotlyOutput("plotScenariosAP")
                                                     ),
                                                     
-                                                    
                                                     tabPanel('Health',
                                                              plotlyOutput("plotScenariosHealthOutcome")
-                                                             
-                                                                          
-                                                             )
+                                                    )
                                                     
                                                     
                                                     
