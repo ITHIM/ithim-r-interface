@@ -167,22 +167,6 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    )
                                                   ),
                                                   
-                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Physical Activity'",
-                                                  #                  radioButtons("inAccraPAPop", "Gender: ", accra_population),
-                                                  #                  HTML("<hr>"),
-                                                  #                  radioButtons("inAccraPAAges", "Age: ", accra_ages)
-                                                  # ),
-                                                  # 
-                                                  # 
-                                                  # conditionalPanel(condition = "input.accraConditionedPanels == 'Air Pollution'",
-                                                  #                  radioButtons("inAccraAPPop", "Gender: ", accra_population),
-                                                  #                  HTML("<hr>"),
-                                                  #                  radioButtons("inAccraAPAges", "Age: ", accra_ages)
-                                                  # ),
-                                                  
-                                                  
-                                                  
-                                                  
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
                                                                    radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes),
                                                                    HTML("<hr>"),
