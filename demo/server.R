@@ -4757,6 +4757,13 @@ server <- shinyServer(function(input, output, session){
   output$plotScenariosPA <- renderPlotly({
     
     accra_pa <- read_csv("data/accra/pa/pa_total_mmet_weekly.csv")
+    
+    if (input$inAccraPAAges != "All")
+      accra_pa <- filter(accra_pa, age_cat == input$inAccraPAAges)
+    
+    if (input$inAccraPAPop != "All")
+      accra_pa <- filter(accra_pa, sex == input$inAccraPAPop)
+    
 
     accra_pa_melted <- reshape2::melt(select(accra_pa, -c(participant_id, age)))
 
