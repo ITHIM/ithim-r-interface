@@ -4710,7 +4710,7 @@ server <- shinyServer(function(input, output, session){
     d2 <- d2[c(2,1,3)]
     d3 <- rbind(d1, d2)
     
-    p <- ggplot(data = reshape2::melt(d3), aes(x = cause, y = value,
+    p <- ggplot(data = d3, aes(x = cause, y = value,
                                                            fill = variable)) +
                        geom_bar(stat = 'identity', position = "dodge", color = "black") +
                        theme_minimal()
