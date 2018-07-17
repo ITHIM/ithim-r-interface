@@ -58,12 +58,7 @@ accra_health_age_cat <- unique(accra_deaths$age.band)
 
 lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 
-accra_msi <- read_csv("data/accra/injuries/mode-specific-injuries.csv")
-
-accra_msi <- reshape2::melt(accra_msi)
-
-accra_msi$Modes <- factor(accra_msi$Modes, levels=unique(accra_msi$Modes))
-
+accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
 
 source("data-processing.R")
