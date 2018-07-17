@@ -4677,7 +4677,7 @@ server <- shinyServer(function(input, output, session){
       
       dn1 <- select(d, age.band, gender, ends_with(lt$acronym[i])) 
       dn1$cause <- lt$acronym[i]
-      names(dn1)[3:5] <- c("scen1", "scen2", "scen3")
+      names(dn1)[3:5] <- c("Scenario 1", "Scenario 2", "Scenario 3")
       
       if (is.null(nd))
         nd <- dn1
@@ -4689,7 +4689,7 @@ server <- shinyServer(function(input, output, session){
     dn1 <- select(d, age.band, gender, ends_with('inj'))
     dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
     dn1$cause <- 'road injuries'
-    names(dn1)[3:5] <- c("scen1", "scen2", "scen3")
+    names(dn1)[3:5] <- c("Scenario 1", "Scenario 2", "Scenario 3")
     
     nd <- rbind(nd, dn1)
     
