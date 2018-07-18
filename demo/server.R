@@ -4656,7 +4656,7 @@ server <- shinyServer(function(input, output, session){
     # ac <- "All"
     # sc <- "All"
     
-    lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
+    # lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
     
     
     if (outcome == "Deaths")
