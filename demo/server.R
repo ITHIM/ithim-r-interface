@@ -4792,7 +4792,7 @@ server <- shinyServer(function(input, output, session){
     
     plotly::ggplotly(ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + 
                        geom_boxplot() +
-                       ggtitle(expression(atop("Rainfall", atop(italic("Location"), "")))) +
+                       # ggtitle(expression(atop("Rainfall", atop(italic("Location"), "")))) +
                        theme_minimal())
     
   })
