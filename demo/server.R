@@ -4734,7 +4734,7 @@ server <- shinyServer(function(input, output, session){
   output$plotScenariosHealthOutcome <- renderPlotly({
     
     #if ()
-    get_health_plot(outcome = input$inAccraHealthOutcome, ac = input$inAccraHealthAges, sc = input$inAccraHealthPop)
+    get_health_plot(outcome = input$inAccraHealthOutcome, ac = input$inAccraHealthAges, sc = input$inAccraPop)
     
     
     
@@ -4747,8 +4747,8 @@ server <- shinyServer(function(input, output, session){
     if (input$inAccraHealthAges != "All")
       accra_msi <- filter(accra_msi, age_cat == input$inAccraHealthAges)
     
-    if (input$inAccraHealthPop != "All")
-      accra_msi <- filter(accra_msi, sex == input$inAccraHealthPop)
+    if (input$inAccraPop != "All")
+      accra_msi <- filter(accra_msi, sex == input$inAccraPop)
     
     # browser()
     accra_msi <- accra_msi %>% group_by(scenario, variable) %>% summarise(value = sum(value))

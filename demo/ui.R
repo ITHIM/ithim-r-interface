@@ -157,9 +157,11 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   #   Scenario 3 long  car to bus "
                                                   # )),
                                                   
+                                                  radioButtons("inAccraPop", "Gender: ", accra_population),
+                                                  HTML("<hr>"),
+                                                  
                                                   conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && input.accraConditionedPanels != 'Road Injuries'",
-                                                                   radioButtons("inAccraPop", "Gender: ", accra_population),
-                                                                   HTML("<hr>"),
+                                                                   
                                                                    radioButtons("inAccraAges", "Age: ", accra_ages),
                                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
                                                                                     HTML("<hr>"),
@@ -169,8 +171,6 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health' || input.accraConditionedPanels == 'Road Injuries'",
                                                                    
-                                                                   radioButtons("inAccraHealthPop", "Gender: ", accra_population),
-                                                                   HTML("<hr>"),
                                                                    radioButtons("inAccraHealthAges", "Age: ", accra_health_ages),
                                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
                                                                                     HTML("<hr>"),
