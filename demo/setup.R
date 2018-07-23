@@ -54,6 +54,11 @@ accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
 
 accra_ylls <- read_csv("data/accra/health/total_ylls.csv")
 
+# Round health burden to two digits
+accra_deaths[, 3:ncol(accra_deaths)] <- round(accra_deaths[, 3:ncol(accra_deaths)], 2)
+
+accra_ylls[, 3:ncol(accra_ylls)] <- round(accra_ylls[, 3:ncol(accra_ylls)], 2)
+
 accra_health_age_cat <- unique(accra_deaths$age.band)
 
 lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
