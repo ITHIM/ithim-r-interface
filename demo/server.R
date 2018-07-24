@@ -4725,7 +4725,8 @@ server <- shinyServer(function(input, output, session){
     
     
     
-    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab(title)
+    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab(title) +
+      scale_colour_manual(values = c("blue", "green", "yellow"))
     
     plotly::ggplotly(p)
     
@@ -4759,7 +4760,8 @@ server <- shinyServer(function(input, output, session){
     plotly::ggplotly(ggplot(data = accra_msi, aes(x = variable, y = value, 
                                                   fill = scenario)) + 
                        geom_bar(stat = 'identity', position = 'dodge', color = 'black') + 
-                       theme_minimal()
+                       theme_minimal() + 
+                       scale_colour_manual(values = c("red", "blue", "green", "yellow"))
     )
     
   })
