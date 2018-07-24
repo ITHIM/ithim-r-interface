@@ -4657,12 +4657,14 @@ server <- shinyServer(function(input, output, session){
     # sc <- "All"
     
     # lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
+    title <- "Reduction in Years of Life Lost (YLL)"
     
-    
-    if (outcome == "Deaths")
+    if (outcome == "Deaths"){
       d <- accra_deaths
-    else
+      title <- "Averted number of Deaths"
+    }else{
       d <- accra_ylls
+    }
     
     if (ac != "All")
       d <- filter(d, age.band == ac)
@@ -4723,7 +4725,7 @@ server <- shinyServer(function(input, output, session){
     
     
     
-    p <- p + labs(title = paste0(outcome)) + xlab("\nCause\n") + ylab(outcome)
+    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab(title)
     
     plotly::ggplotly(p)
     
