@@ -4708,7 +4708,7 @@ server <- shinyServer(function(input, output, session){
     
     dn1 <- select(d, age.band, gender, ends_with('inj'))
     dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
-    dn1$cause <- 'road injuries'
+    dn1$cause <- 'Road Injuries'
     names(dn1)[3:5] <- c("Scenario 1", "Scenario 2", "Scenario 3")
     
     nd <- rbind(nd, dn1)
@@ -4721,7 +4721,7 @@ server <- shinyServer(function(input, output, session){
     cc <- nd %>% filter(str_detect(cause, "cancer$"))
     nd <- filter(nd,! cause %in% cc$cause)
     
-    cc1 <- cc %>% group_by(age.band, gender, variable) %>% summarise(cause = 'combined cancers', value = sum(value)) %>% as.data.frame()
+    cc1 <- cc %>% group_by(age.band, gender, variable) %>% summarise(cause = 'Combined Cancers', value = sum(value)) %>% as.data.frame()
     
     nd <- rbind(nd, cc1)
     
