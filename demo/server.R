@@ -4508,8 +4508,14 @@ server <- shinyServer(function(input, output, session){
       bd <- reshape2::melt(bd)
       
       ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
-                 geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-                 theme_minimal() + xlab('Mode') + ylab('Proportion (%)') + labs(title = "Mode distribution"))
+                 geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
+                 scale_fill_manual(values = accra_cols)  +
+                 guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                 guides(colour = FALSE) +
+                 theme_minimal() + 
+                 xlab('Mode') + 
+                 ylab('Proportion (%)') + 
+                 labs(title = "Mode distribution"))
       
       
     }
@@ -4556,8 +4562,14 @@ server <- shinyServer(function(input, output, session){
       
       # Plot
       ggplotly(ggplot(data = distm, aes(x = trip_mode, y = value, fill = variable)) + 
-                 geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-                 theme_minimal() + xlab('Mode') + ylab('Distance (km)') + labs(title = "Mode distance (km)"))
+                 geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
+                 scale_fill_manual(values = accra_cols)  +
+                 guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                 guides(colour = FALSE) +
+                 theme_minimal() + 
+                 xlab('Mode') + 
+                 ylab('Distance (km)') + 
+                 labs(title = "Mode distance (km)"))
       
     }
     else {
@@ -4609,8 +4621,14 @@ server <- shinyServer(function(input, output, session){
       
       # Plot
       ggplotly(ggplot(data = durh, aes(x = trip_mode, y = value, fill = variable)) + 
-                 geom_bar(stat = 'identity', position = "dodge", color = "black") + 
-                 theme_minimal() + xlab('Mode') + ylab('Duration (hours)') + labs(title = "Mode Duration (hours)"))
+                 geom_bar(stat = 'identity', position = "dodge", color = "black" , alpha = 0.5) + 
+                 scale_fill_manual(values = accra_cols)  +
+                 guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                 guides(colour = FALSE) +
+                 theme_minimal() + 
+                 xlab('Mode') + 
+                 ylab('Duration (hours)') + 
+                 labs(title = "Mode Duration (hours)"))
       
     }
     
@@ -4715,18 +4733,17 @@ server <- shinyServer(function(input, output, session){
     #Replace space with line break
     d3$cause <- gsub(" ", "\n", d3$cause)
     
-    # browser()
+    
     
     p <- ggplot(data = d3, aes(x = cause, y = value,
                                fill = variable)) +
-      geom_bar(stat = 'identity', position = "dodge", color = "black") +
-      theme_minimal()# +
-      #theme(axis.text.x = element_text(size=rel(0.5)))#angle=90))
+      geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
+      scale_fill_manual(values = accra_cols)  +
+      guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+      guides(colour = FALSE) +
+      theme_minimal()
     
-    
-    
-    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab(title) +
-      scale_colour_manual(values = c("blue", "green", "yellow"))
+    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab(title) 
     
     plotly::ggplotly(p)
     
@@ -4756,12 +4773,13 @@ server <- shinyServer(function(input, output, session){
     # browser()
     accra_msi <- accra_msi %>% group_by(scenario, variable) %>% summarise(value = sum(value))
     
-    
     plotly::ggplotly(ggplot(data = accra_msi, aes(x = variable, y = value, 
                                                   fill = scenario)) + 
-                       geom_bar(stat = 'identity', position = 'dodge', color = 'black') + 
-                       theme_minimal() + 
-                       scale_colour_manual(values = c("red", "blue", "green", "yellow"))
+                       geom_bar(stat = "identity", position = "dodge", colour = "black", alpha = 0.5) + 
+                       scale_fill_manual(values = accra_cols)  +
+                       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                       guides(colour = FALSE) +
+                       theme_minimal()
     )
     
   })
@@ -4778,7 +4796,12 @@ server <- shinyServer(function(input, output, session){
 
     accra_pa_melted <- reshape2::melt(accra_pa)
 
-    plotly::ggplotly(ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + geom_boxplot() + theme_minimal())
+    plotly::ggplotly(ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + 
+                       geom_boxplot(alpha = 0.5) + 
+                       scale_fill_manual(values = accra_cols)  +
+                       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                       guides(colour = FALSE) +
+                       theme_minimal())
     
   })
   
@@ -4795,8 +4818,10 @@ server <- shinyServer(function(input, output, session){
     accra_ap_melted <- reshape2::melt(accra_ap)
     
     plotly::ggplotly(ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + 
-                       geom_boxplot() +
-                       # ggtitle(expression(atop("Rainfall", atop(italic("Location"), "")))) +
+                       geom_boxplot(alpha = 0.5) + 
+                       scale_fill_manual(values = accra_cols)  +
+                       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                       guides(colour = FALSE) +
                        theme_minimal())
     
   })
