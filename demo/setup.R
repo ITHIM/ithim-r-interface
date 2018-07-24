@@ -68,6 +68,8 @@ lt <- filter(lt, GBD_name != 'Stroke')
 
 accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
+accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", "Scenario 2" = "darkgreen", "Scenario 3" = "orange")
+
 
 source("data-processing.R")
 # Functions
