@@ -4741,9 +4741,10 @@ server <- shinyServer(function(input, output, session){
       scale_fill_manual(values = accra_cols)  +
       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
       guides(colour = FALSE) +
+      ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
       theme_minimal()
     
-    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab(title) 
+    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab('<- Harms     Benefits ->') 
     
     plotly::ggplotly(p)
     
