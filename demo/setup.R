@@ -64,7 +64,7 @@ accra_health_age_cat <- unique(accra_deaths$age.band)
 lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 
 # Remove stroke
-lt <- filter(lt, GBD_name != 'Stroke')
+#lt <- filter(lt, GBD_name != 'Stroke')
 
 accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
