@@ -4715,15 +4715,19 @@ server <- shinyServer(function(input, output, session){
     
     nd <- reshape2::melt(nd)
     
-    # Combine all cancers together
+    # # Combine all cancers together
+    # 
+    # # Remove cancers from the master table
+    # cc <- nd %>% filter(str_detect(cause, "cancer$"))
+    # nd <- filter(nd,! cause %in% cc$cause)
     
-    # Remove cancers from the master table
-    cc <- nd %>% filter(str_detect(cause, "cancer$"))
-    nd <- filter(nd,! cause %in% cc$cause)
+    nd$value[nd$cause == "Neoplasms"] <- nd$value[nd$cause == "Neoplasms"] - 
+      nd$value[nd$cause == "Tracheal, bronchus, and lung cancer"]
     
-    cc1 <- cc %>% group_by(age.band, gender, variable) %>% summarise(cause = 'Combined Cancers', value = sum(value)) %>% as.data.frame()
+    nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
     
-    nd <- rbind(nd, cc1)
+    #cc1 <- cc %>% group_by(age.band, gender, variable) %>% summarise(cause = 'Combined Cancers', value = sum(value)) %>% as.data.frame()
+    #nd <- rbind(nd, cc1)
     
     d1 <- nd %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
     d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "Total", value = sum(value)) %>% as.data.frame()
