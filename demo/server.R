@@ -4476,35 +4476,36 @@ server <- shinyServer(function(input, output, session){
       
       # Remove short walking, 99, Train, Other and Unspecified modes
       dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
-      bd <- filter(dataset, scenario == 'Baseline')
-      bdnr <- nrow(bd)
       
-      scen1 <- filter(dataset, scenario == 'Scenario 1')
-      scen1nr <- nrow(scen1)
-      scen2 <- filter(dataset, scenario == 'Scenario 2')
-      scen2nr <- nrow(scen2)
-      scen3 <- filter(dataset, scenario == 'Scenario 3')
-      scen3nr <- nrow(scen3)
+      # Remove short walking, 99, Train, Other and Unspecified modes
+      dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
       
-      bd <- bd %>% group_by(trip_mode) %>%  summarise(baseline_n = round(n()/bdnr * 100, 1))
+      # Trip mode plot
       
-      scen1 <- scen1 %>% group_by(trip_mode) %>%  summarise(scen1_n = round(n()/scen1nr * 100, 1))
-      scen2 <- scen2 %>% group_by(trip_mode) %>%  summarise(scen2_n = round(n()/scen2nr * 100, 1))
-      scen3 <- scen3 %>% group_by(trip_mode) %>%  summarise(scen3_n = round(n()/scen3nr * 100, 1))
+      total_ind <- length(unique(dataset$participant_id))
       
+      l <- list()
+      for (i in 1:length(unique(dataset$scenario))){
+        
+        bd <- filter(dataset, scenario == unique(dataset$scenario)[i])
+        bdnr <- nrow(bd)
+        
+        bd <- bd %>% group_by(trip_mode) %>%  summarise(pert = n())
+        
+        bd <- bd %>%  select(trip_mode, pert) %>% 
+          setNames(c("trip_mode",unique(dataset$scenario)[i])) 
+        
+        l[[i]] <- bd
+        
+      }
       
-      bd <- left_join(bd, scen1, by = "trip_mode")
-      bd <- left_join(bd, scen2, by = "trip_mode")
-      bd <- left_join(bd, scen3, by = "trip_mode")
-      
-      bd <- rename(bd, "Baseline" = baseline_n,
-                     "Scenario 1" = scen1_n,
-                     "Scenario 2" = scen2_n,
-                     "Scenario 3" = scen3_n
-      )
-      
-      
-      
+      bd <- NULL
+      for (i in 1:length(l)){
+        if (i == 1)
+          bd <- l[[i]]
+        else
+          bd <- left_join(bd, l[[i]], by = "trip_mode")
+      }
       bd <- reshape2::melt(bd)
       
       ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
