@@ -4490,7 +4490,7 @@ server <- shinyServer(function(input, output, session){
         bd <- filter(dataset, scenario == unique(dataset$scenario)[i])
         bdnr <- nrow(bd)
         
-        bd <- bd %>% group_by(trip_mode) %>%  summarise(pert = n())
+        bd <- bd %>% group_by(trip_mode) %>%  summarise(pert = round(n()/bdnr * 100, 1))
         
         bd <- bd %>%  select(trip_mode, pert) %>% 
           setNames(c("trip_mode",unique(dataset$scenario)[i])) 
@@ -4515,7 +4515,7 @@ server <- shinyServer(function(input, output, session){
                  guides(colour = FALSE) +
                  theme_minimal() + 
                  xlab('Mode') + 
-                 ylab('Proportion (%)') + 
+                 ylab('Percentage (%)') + 
                  labs(title = "Mode distribution"))
       
       
