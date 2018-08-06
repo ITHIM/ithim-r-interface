@@ -24,7 +24,7 @@ reqs <- as.numeric(lapply(pkgs, require, character.only = TRUE))
 # 
 # if(!require(shiny)) devtools::install_github("shiny", "rstudio")
 
-accra_trips <- read_csv("data/accra/baseline_and_three_scenarios.csv")#, header = T, stringsAsFactors = F)
+accra_trips <- read_csv("data/accra/baseline_and_scenarios.csv")#, header = T, stringsAsFactors = F)
 
 accra_age_cat <- unique(accra_trips$age_cat)
 accra_modes <- unique(accra_trips$trip_mode)
@@ -68,7 +68,9 @@ lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 
 accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
-accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", "Scenario 2" = "darkgreen", "Scenario 3" = "orange")
+accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", 
+                "Scenario 2" = "darkgreen", "Scenario 3" = "orange",
+                "Scenario 4" = "darkblue", "Scenario 5" = "purple")
 
 
 source("data-processing.R")
