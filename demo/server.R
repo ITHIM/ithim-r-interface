@@ -4566,7 +4566,8 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal() + 
                  xlab('Mode') + 
                  ylab('Distance (km)') + 
-                 labs(title = "Mode distance (km)"))
+                 labs(title = "Mode distance  per person per week (km)")
+      )
       
     }
     else {
@@ -4625,7 +4626,8 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal() + 
                  xlab('Mode') + 
                  ylab('Duration (hours)') + 
-                 labs(title = "Mode Duration (hours)"))
+                 labs(title = "Mode Duration per person per week (hours)")
+      )
       
     }
       
