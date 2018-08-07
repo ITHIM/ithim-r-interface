@@ -4669,6 +4669,8 @@ server <- shinyServer(function(input, output, session){
     # lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
     title <- "Reduction in Years of Life Lost (YLL)"
     
+    lt <- arrange(lt, GBD_name)
+    
     if (outcome == "Deaths"){
       d <- accra_deaths
       title <- "Averted number of Deaths"
@@ -4684,12 +4686,12 @@ server <- shinyServer(function(input, output, session){
     
     
     nd <- NULL
-    
+    # browser()
     for (i in 2:nrow(lt)){
       
       dn1 <- select(d, age.band, gender, ends_with(lt$acronym[i])) 
-        dn1$cause <- lt$GBD_name[i]
-      names(dn1)[3:5] <- c("Scenario 1", "Scenario 2", "Scenario 3")
+      names(dn1)[3:ncol(dn1)] <- paste('Scenario', 1:(ncol(dn1) - 2), sep = ' ')
+      dn1$cause <- lt$GBD_name[i]
       
       if (is.null(nd))
         nd <- dn1
@@ -4700,10 +4702,12 @@ server <- shinyServer(function(input, output, session){
     
     dn1 <- select(d, age.band, gender, ends_with('inj'))
     dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
+    names(dn1)[3:ncol(dn1)] <- paste('Scenario', 1:(ncol(dn1) - 2), sep = ' ')
     dn1$cause <- 'Road Injuries'
-    names(dn1)[3:5] <- c("Scenario 1", "Scenario 2", "Scenario 3")
     
     nd <- rbind(nd, dn1)
+    
+    # nd$cause <- factor(nd$cause, as.character(nd$cause))
     
     nd <- reshape2::melt(nd)
     
@@ -4718,9 +4722,6 @@ server <- shinyServer(function(input, output, session){
     
     nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
     
-    #cc1 <- cc %>% group_by(age.band, gender, variable) %>% summarise(cause = 'Combined Cancers', value = sum(value)) %>% as.data.frame()
-    #nd <- rbind(nd, cc1)
-    
     d1 <- nd %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
     d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "Total", value = sum(value)) %>% as.data.frame()
     d2 <- d2[c(2,1,3)]
@@ -4731,7 +4732,7 @@ server <- shinyServer(function(input, output, session){
     
     
     
-    p <- ggplot(data = d3, aes(x = cause, y = value,
+    p <- ggplot(data = d3, aes(x = reorder(cause, -value), y = value,
                                fill = variable)) +
       geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
       scale_fill_manual(values = accra_cols)  +
@@ -4740,7 +4741,7 @@ server <- shinyServer(function(input, output, session){
       ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
       theme_minimal()
     
-    p <- p + labs(title = paste0(title)) + xlab("\nCause\n") + ylab('<- Harms     Benefits ->') 
+    p <- p + labs(title = paste0(title)) + xlab("\n Cause \n") + ylab('<- Harms     Benefits ->') 
     
     plotly::ggplotly(p)
     
