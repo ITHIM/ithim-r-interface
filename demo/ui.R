@@ -139,17 +139,23 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   tags$div(
                                                     tags$h4(
                                                       tags$b(HTML("<font color='black'>Scenario 1</font>")),
-                                                      HTML("<font color='black'>walk to car</font>"),
+                                                      HTML("<font color='black'>bus + walk -> car</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 2</font>")),
-                                                      HTML("<font color='black'>short car to bike</font>"),
+                                                      HTML("<font color='black'>long trips from car + taxi -> bus</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 3</font>")),
-                                                      HTML("<font color='black'>long  car to bus</font>"),
+                                                      HTML("<font color='black'>bus + walk -> mbike</font>"),
+                                                      br(),
+                                                      tags$b(HTML("<font color='black'>Scenario 4</font>")),
+                                                      HTML("<font color='black'>short trips from car + taxi + mbike -> cycle</font>"),
+                                                      br(),
+                                                      tags$b(HTML("<font color='black'>Scenario 5</font>")),
+                                                      HTML("<font color='black'>short trips from car + taxi -> walk</font>"),
                                                       HTML("<hr>"))
                                                     
                                                     
-                                                    ),
+                                                  ),
                                                       
                                                       
                                                       # tags$b("Scenario 1"), "walk to car")),
