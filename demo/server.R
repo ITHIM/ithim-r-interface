@@ -4466,24 +4466,28 @@ server <- shinyServer(function(input, output, session){
       
     }
     
+    # total_ind
+    total_ind <- length(unique(dataset$participant_id))
+    
+    # browser()
+    
+    # filter(dataset, scenario == 'Baseline') %>% 
+    
     if (type == "Trips"){
       
       # Remove short walking, 99, Train, Other and Unspecified modes
-      dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
-      
-      # Trip mode plot
-      total_ind <- length(unique(dataset$participant_id))
+      trip_dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
       
       l <- list()
-      for (i in 1:length(unique(dataset$scenario))){
+      for (i in 1:length(unique(trip_dataset$scenario))){
         
-        bd <- filter(dataset, scenario == unique(dataset$scenario)[i])
+        bd <- filter(trip_dataset, scenario == unique(trip_dataset$scenario)[i])
         bdnr <- nrow(bd)
         
         bd <- bd %>% group_by(trip_mode) %>%  summarise(pert = round(n()/bdnr * 100, 1))
         
         bd <- bd %>%  select(trip_mode, pert) %>% 
-          setNames(c("trip_mode",unique(dataset$scenario)[i])) 
+          setNames(c("trip_mode",unique(trip_dataset$scenario)[i])) 
         
         l[[i]] <- bd
         
@@ -4511,31 +4515,25 @@ server <- shinyServer(function(input, output, session){
     }
     else if (type == "Distance"){
       
-      # Remove short walking, 99, Train, Other and Unspecified modes
-      dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
-      
-      # Trip mode plot
-      total_ind <- length(unique(dataset$participant_id))
+      # Remove 99, Train, Other and Unspecified modes
+      distance_dataset <- dataset
+      #filter(dataset, ! trip_mode %in% c("99", "Train", "Other", "Unspecified"))
       
       l <- list()
-      for (i in 1:length(unique(dataset$scenario))){
+      for (i in 1:length(unique(distance_dataset$scenario))){
         # i <- 1
-        dist <- dataset %>% filter(scenario == unique(dataset$scenario)[i]) %>% 
+        dist <- distance_dataset %>% filter(scenario == unique(distance_dataset$scenario)[i]) %>% 
           group_by(trip_mode) %>% 
           summarise(sum_dist = sum(trip_distance))
         
         dist <- filter(dist, !is.na(trip_mode))
         
-        if (dist$trip_mode %in% "Short Walking"){
-          
-          dist$sum_dist[dist$trip_mode == "Walking"] <- 
+        dist$sum_dist[dist$trip_mode == "Walking"] <- 
             dist$sum_dist[dist$trip_mode == "Walking"] + 
             dist$sum_dist[dist$trip_mode == "Short Walking"]
-          
-        }
         
         dist <- dist %>%  select(trip_mode, sum_dist) %>% 
-          setNames(c("trip_mode",unique(dataset$scenario)[i])) 
+          setNames(c("trip_mode",unique(distance_dataset$scenario)[i])) 
         
         l[[i]] <- dist
         
@@ -4573,30 +4571,24 @@ server <- shinyServer(function(input, output, session){
     else {
       
       # Remove short walking, 99, Train, Other and Unspecified modes
-      dataset <- filter(dataset, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
-      
-      # Trip mode plot
-      total_ind <- length(unique(dataset$participant_id))
+      duration_dataset <- dataset
+      # filter(dataset, !trip_mode %in% c("99", "Train", "Other", "Unspecified"))
       
       l <- list()
-      for (i in 1:length(unique(dataset$scenario))){
+      for (i in 1:length(unique(duration_dataset$scenario))){
         # i <- 1
-        dur <- dataset %>% filter(scenario == unique(dataset$scenario)[i]) %>% 
+        dur <- duration_dataset %>% filter(scenario == unique(duration_dataset$scenario)[i]) %>% 
           group_by(trip_mode) %>% 
           summarise(sum_dur = sum(trip_duration))
         
         dur <- filter(dur, !is.na(trip_mode))
         
-        if (dur$trip_mode %in% "Short Walking"){
-        
         dur$sum_dur[dur$trip_mode == "Walking"] <- 
           dur$sum_dur[dur$trip_mode == "Walking"] + 
           dur$sum_dur[dur$trip_mode == "Short Walking"]
         
-        }
-        
         dur <- dur %>%  select(trip_mode, sum_dur) %>% 
-          setNames(c("trip_mode",unique(dataset$scenario)[i])) 
+          setNames(c("trip_mode",unique(duration_dataset$scenario)[i])) 
         
         l[[i]] <- dur
         
@@ -4824,6 +4816,23 @@ server <- shinyServer(function(input, output, session){
     
   })
   
+  
+  
+  output$accra_mode_dist <- DT::renderDataTable(
+      DT::datatable(accra_mode_share, options = list(paging = FALSE, autoWidth = F))
+    )
+  
+  
+  output$accra_mode_dist <- renderTable({
+    accra_mode_share
+  }, spacing = "xs")
+  
+  
+  output$accra_mode_dist <- renderTable({ 
+    accra_mode_share
+  }, striped = TRUE, bordered = F,  
+    hover = TRUE, spacing = 'xs',  width = '20%')  
+
   
   
   
