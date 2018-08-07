@@ -43,12 +43,16 @@ accra_ap <- left_join(select(accra_pa, participant_id, age_cat, sex), accra_ap)
 # Remove participant id and age from the dataset
 accra_ap <- select(accra_ap, -c(participant_id))
 
-names(accra_ap)[3:6] <- c("Baseline", "Scenario 1", "Scenario 2", "Scenario 3")
+names(accra_ap)[3:ncol(accra_ap)] <- c("Baseline", paste('Scenario', 1:(ncol(accra_ap) - 3), sep = ' '))
+
+# c("Baseline", paste('Scenario', 1:5, sep = ' '))
 
 # Remove participant id and age from the dataset
 accra_pa <- select(accra_pa, -c(participant_id, age))
 
-names(accra_pa)[3:6] <- c("Baseline", "Scenario 1", "Scenario 2", "Scenario 3")
+names(accra_pa)[3:ncol(accra_pa)] <- c("Baseline", paste('Scenario', 1:(ncol(accra_pa) - 3), sep = ' '))
+
+# c("Baseline", paste('Scenario', 1:5, sep = ' '))
 
 accra_deaths <- read_csv("data/accra/health/total_deaths.csv")
 
@@ -68,9 +72,16 @@ lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 
 accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
-accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", 
-                "Scenario 2" = "darkgreen", "Scenario 3" = "orange",
-                "Scenario 4" = "darkblue", "Scenario 5" = "purple")
+# accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", 
+#                 "Scenario 2" = "darkgreen", "Scenario 3" = "orange",
+#                 "Scenario 4" = "darkblue", "Scenario 5" = "purple")
+
+accra_cols <- c("Baseline" = "#e41a1c", 
+                "Scenario 1" = "#377eb8", 
+                "Scenario 2" = "#4daf4a", 
+                "Scenario 3" = "#984ea3",
+                "Scenario 4" = "#80b1d3", 
+                "Scenario 5" = "#cc4c02")
 
 
 source("data-processing.R")
