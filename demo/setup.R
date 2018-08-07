@@ -72,6 +72,9 @@ lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 
 accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
+
+accra_mode_share <- read_csv('data/accra/trips/trip_modes_pert.csv')
+
 # accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", 
 #                 "Scenario 2" = "darkgreen", "Scenario 3" = "orange",
 #                 "Scenario 4" = "darkblue", "Scenario 5" = "purple")
