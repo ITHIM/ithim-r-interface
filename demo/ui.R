@@ -156,6 +156,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     
                                                     
                                                   ),
+                                                  
+                                                  # div(
+                                                  #   DT::dataTableOutput("accra_mode_dist")
+                                                  # ),
+                                                  
+                                                  tableOutput('accra_mode_dist'),
+                                                  HTML("<hr>"),
+                                                  
                                                       
                                                       
                                                       # tags$b("Scenario 1"), "walk to car")),
