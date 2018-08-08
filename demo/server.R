@@ -4659,13 +4659,13 @@ server <- shinyServer(function(input, output, session){
     # sc <- "All"
     
     # lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
-    title <- "Reduction in Years of Life Lost (YLL)"
+    title <- "Reduction in Years of Life Lost (YLL) - compared with Ref Scenario 1"
     
     lt <- arrange(lt, GBD_name)
     
     if (outcome == "Deaths"){
       d <- accra_deaths
-      title <- "Averted number of Deaths"
+      title <- "Averted number of Deaths - compared with Ref Scenario 1"
     }else{
       d <- accra_ylls
     }
@@ -4772,7 +4772,7 @@ server <- shinyServer(function(input, output, session){
       ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
       theme_minimal()
     
-    p <- p + labs(title = paste0(title)) + xlab("\n Cause \n") + ylab('<- Harms     Benefits ->') 
+    p <- p + labs(title = paste0(title)) + xlab("") + ylab('<- Harms     Benefits ->') 
     
     plotly::ggplotly(p)
     
@@ -4807,6 +4807,7 @@ server <- shinyServer(function(input, output, session){
                        geom_bar(stat = "identity", position = "dodge", colour = "black", alpha = 0.5) + 
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+                       labs(title = 'Road injuries deaths by mode per year', x = '', y = "Deaths") +
                        guides(colour = FALSE) +
                        theme_minimal()
     )
@@ -4830,6 +4831,7 @@ server <- shinyServer(function(input, output, session){
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
+                       labs(title = 'Marginal METh per week', x = '', y = "MMETh") +
                        theme_minimal())
     
   })
@@ -4851,6 +4853,7 @@ server <- shinyServer(function(input, output, session){
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
+                       labs(title = 'PM 2.5 concentration per year', x = '', y = "PM 2.5 10^-6 / m^3") +
                        theme_minimal())
     
   })
