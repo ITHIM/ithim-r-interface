@@ -4691,18 +4691,23 @@ server <- shinyServer(function(input, output, session){
       
     }
     
-    dn1 <- select(d, age.band, gender, ends_with('inj'))
-    #dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
-    names(dn1)[3:ncol(dn1)] <- append('Baseline', paste('Scenario', 1:(ncol(dn1) - 3), sep = ' '))
-    dn1$cause <- 'Road Injuries'
-    
-    
     # Remove scenario 1
     nd[['Scenario 1']] <- NULL
-    dn1[['Scenario 1']] <- NULL
     
-    
-    nd <- rbind(nd, dn1)
+    if (input$inAccraInjury){
+      
+      dn1 <- select(d, age.band, gender, ends_with('inj'))
+      #dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
+      names(dn1)[3:ncol(dn1)] <- append('Baseline', paste('Scenario', 1:(ncol(dn1) - 3), sep = ' '))
+      dn1$cause <- 'Road Injuries'
+      
+      # Remove scenario 1
+      dn1[['Scenario 1']] <- NULL
+      
+      
+      nd <- rbind(nd, dn1)
+      
+    }
     
     # Rename total cancers
     nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
