@@ -4857,20 +4857,37 @@ server <- shinyServer(function(input, output, session){
   
   
   
-  output$accra_mode_dist <- DT::renderDataTable(
-      DT::datatable(accra_mode_share, options = list(paging = FALSE, autoWidth = F))
-    )
+  # output$accra_mode_dist <- DT::renderDataTable(
+  #     DT::datatable(accra_mode_share, options = list(paging = FALSE, autoWidth = F))
+  #   )
   
   
-  output$accra_mode_dist <- renderTable({
+  # output$accra_mode_dist <- renderTable({
+  #   accra_mode_share
+  # }, spacing = "xs")
+  
+  
+  output$accra_mode_dist <- DT::renderDataTable({
+    
     accra_mode_share
-  }, spacing = "xs")
-  
-  
-  output$accra_mode_dist <- renderTable({ 
-    accra_mode_share
-  }, striped = TRUE, bordered = F,  
-    hover = TRUE, spacing = 'xs',  width = '30px')  
+    
+  }
+  ,server=F
+  ,selection = 'single'
+  ,rownames = F
+  ,class = "nowrap row-border"
+  ,options = list(
+    scrollX = T
+    ,dom = 't'          # enable/disable horizontal scroll
+    ,bFilter = T        # enable/disable the up-right filter
+    ,bSort = F          # enable/disable the sorting feature for all columns
+    ,bInfo = F          # enable/disable the 'Showing 1 to 10 of 10 entries'
+    ,bPaginate = T      # enable/disable the paginate feature
+    ,searchHighlight = T
+    ,bLengthChange = F
+    ,pageLength = 20
+  )
+  )
 
   
   
