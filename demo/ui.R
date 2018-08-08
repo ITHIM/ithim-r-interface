@@ -160,16 +160,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   # div(
                                                   #   DT::dataTableOutput("accra_mode_dist")
                                                   # ),
-                                                  
-                                                  tableOutput('accra_mode_dist'),
+                                                  bsCollapsePanel("Trip Distribution", DT::dataTableOutput("accra_mode_dist")),
+                                                
                                                   HTML("<hr>"),
-                                                  
-                                                      
-                                                      
-                                                      # tags$b("Scenario 1"), "walk to car")),
-                                                  #   Scenario 2 short car to bike
-                                                  #   Scenario 3 long  car to bus "
-                                                  # )),
                                                   
                                                   radioButtons("inAccraPop", "Gender: ", accra_population),
                                                   HTML("<hr>"),
