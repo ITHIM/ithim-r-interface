@@ -139,19 +139,19 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   tags$div(
                                                     tags$h4(
                                                       tags$b(HTML("<font color='black'>Scenario 1</font>")),
-                                                      HTML("<font color='black'>bus + walk -> car</font>"),
+                                                      HTML("<font color='black'>bus + walk to car</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 2</font>")),
-                                                      HTML("<font color='black'>long trips from car + taxi -> bus</font>"),
+                                                      HTML("<font color='black'>long trips from car + taxi to bus</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 3</font>")),
-                                                      HTML("<font color='black'>bus + walk -> mbike</font>"),
+                                                      HTML("<font color='black'>car + taxi to mbike</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 4</font>")),
-                                                      HTML("<font color='black'>short trips from car + taxi + mbike -> cycle</font>"),
+                                                      HTML("<font color='black'>short trips from car + taxi + mbike to cycle</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 5</font>")),
-                                                      HTML("<font color='black'>short trips from car + taxi -> walk</font>"),
+                                                      HTML("<font color='black'>short trips from car + taxi to walk</font>"),
                                                       HTML("<hr>"))
                                                     
                                                     
