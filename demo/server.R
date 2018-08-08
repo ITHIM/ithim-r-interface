@@ -4680,9 +4680,8 @@ server <- shinyServer(function(input, output, session){
     nd <- NULL
     # browser()
     for (i in 2:nrow(lt)){
-      
       dn1 <- select(d, age.band, gender, ends_with(lt$acronym[i])) 
-      names(dn1)[3:ncol(dn1)] <- paste('Scenario', 1:(ncol(dn1) - 2), sep = ' ')
+      names(dn1)[3:ncol(dn1)] <- append('Baseline', paste('Scenario', 1:(ncol(dn1) - 3), sep = ' '))
       dn1$cause <- lt$GBD_name[i]
       
       if (is.null(nd))
@@ -4693,15 +4692,23 @@ server <- shinyServer(function(input, output, session){
     }
     
     dn1 <- select(d, age.band, gender, ends_with('inj'))
-    dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
-    names(dn1)[3:ncol(dn1)] <- paste('Scenario', 1:(ncol(dn1) - 2), sep = ' ')
+    #dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
+    names(dn1)[3:ncol(dn1)] <- append('Baseline', paste('Scenario', 1:(ncol(dn1) - 3), sep = ' '))
     dn1$cause <- 'Road Injuries'
     
-    nd <- rbind(nd, dn1)
     
-    # nd$cause <- factor(nd$cause, as.character(nd$cause))
+    # Remove scenario 1
+    nd[['Scenario 1']] <- NULL
+    dn1[['Scenario 1']] <- NULL
+    
+    
+    nd <- rbind(nd, dn1)
+    bd <- nd
     
     nd <- reshape2::melt(nd)
+    
+    nd$cause <- factor(nd$cause, levels = unique(bd$cause))
+    nd <- nd[order(nd$cause),]
     
     # # Combine all cancers together
     # 
@@ -4722,9 +4729,10 @@ server <- shinyServer(function(input, output, session){
     #Replace space with line break
     d3$cause <- gsub(" ", "\n", d3$cause)
     
+    d3$cause <- factor(d3$cause, levels = unique(d3$cause))
+    d3 <- d3[order(d3$cause),]
     
-    
-    p <- ggplot(data = d3, aes(x = reorder(cause, -value), y = value,
+    p <- ggplot(data = d3, aes(x = cause, y = value,
                                fill = variable)) +
       geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
       scale_fill_manual(values = accra_cols)  +
@@ -4831,7 +4839,7 @@ server <- shinyServer(function(input, output, session){
   output$accra_mode_dist <- renderTable({ 
     accra_mode_share
   }, striped = TRUE, bordered = F,  
-    hover = TRUE, spacing = 'xs',  width = '20%')  
+    hover = TRUE, spacing = 'xs',  width = '30px')  
 
   
   
