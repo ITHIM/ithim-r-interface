@@ -138,7 +138,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   tags$div(
                                                     tags$h4(
-                                                      tags$b(HTML("<font color='black'>Scenario 1</font>")),
+                                                      tags$b(HTML("<font color='black'>Scenario 1 (Reference) </font>")),
                                                       HTML("<font color='black'>bus + walk to car</font>"),
                                                       br(),
                                                       tags$b(HTML("<font color='black'>Scenario 2</font>")),
