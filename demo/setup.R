@@ -75,9 +75,13 @@ accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
 
 accra_mode_share <- read_csv('data/accra/trips/trip_modes_pert.csv')
 
-# accra_cols <- c("Baseline" = "red", "Scenario 1" = "blue", 
-#                 "Scenario 2" = "darkgreen", "Scenario 3" = "orange",
-#                 "Scenario 4" = "darkblue", "Scenario 5" = "purple")
+
+# Add percentage sign
+for (i in 2:ncol(accra_mode_share)){
+  
+  accra_mode_share[[i]] <- paste(accra_mode_share[[i]], '%', sep="")
+  
+}
 
 accra_cols <- c("Baseline" = "#e41a1c", 
                 "Scenario 1" = "#377eb8", 
