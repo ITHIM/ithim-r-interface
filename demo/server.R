@@ -4703,6 +4703,10 @@ server <- shinyServer(function(input, output, session){
     
     
     nd <- rbind(nd, dn1)
+    
+    # Rename total cancers
+    nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
+    
     bd <- nd
     
     nd <- reshape2::melt(nd)
@@ -4716,7 +4720,7 @@ server <- shinyServer(function(input, output, session){
     # cc <- nd %>% filter(str_detect(cause, "cancer$"))
     # nd <- filter(nd,! cause %in% cc$cause)
     
-    nd$value[nd$cause == "Neoplasms"] <- nd$value[nd$cause == "Neoplasms"] - 
+    nd$value[nd$cause == "Total Cancers"] <- nd$value[nd$cause == "Total Cancers"] - 
       nd$value[nd$cause == "Tracheal, bronchus, and lung cancer"]
     
     nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
@@ -4729,8 +4733,12 @@ server <- shinyServer(function(input, output, session){
     #Replace space with line break
     d3$cause <- gsub(" ", "\n", d3$cause)
     
+    
+    
     d3$cause <- factor(d3$cause, levels = unique(d3$cause))
     d3 <- d3[order(d3$cause),]
+    
+    
     
     p <- ggplot(data = d3, aes(x = cause, y = value,
                                fill = variable)) +
