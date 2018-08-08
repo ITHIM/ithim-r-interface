@@ -98,6 +98,13 @@ server <- shinyServer(function(input, output, session){
   # Create a session specific placeholder to contain all region specific datasets
   sessionData <- NULL
   
+  to_download <- NULL
+  
+  # To set initialize to_download
+  observe({
+    to_download$plot_data <<- NULL
+  })
+  
   observe({
     input$inRegions
     
@@ -4502,6 +4509,8 @@ server <- shinyServer(function(input, output, session){
       }
       bd <- reshape2::melt(bd)
       
+      to_download$plot_data <<- bd
+      
       ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
                  scale_fill_manual(values = accra_cols)  +
@@ -4511,6 +4520,9 @@ server <- shinyServer(function(input, output, session){
                  xlab('Mode') + 
                  ylab('Percentage (%)') + 
                  labs(title = "Mode distribution"))
+      
+      
+      
       
     }
     else if (type == "Distance"){
@@ -4555,6 +4567,8 @@ server <- shinyServer(function(input, output, session){
       
       distm$value <- distm$value / total_ind
       
+      to_download$plot_data <<- distm
+      
       # Plot
       ggplotly(ggplot(data = distm, aes(x = trip_mode, y = value, fill = variable)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
@@ -4566,6 +4580,8 @@ server <- shinyServer(function(input, output, session){
                  ylab('Distance (km)') + 
                  labs(title = "Mode distance  per person per week (km)")
       )
+      
+      
       
     }
     else {
@@ -4609,6 +4625,8 @@ server <- shinyServer(function(input, output, session){
       
       dur$value <- round(dur$value / (60 * total_ind), 2)
       
+      to_download$plot_data <<- dur
+      
       # Plot
       ggplotly(ggplot(data = dur, aes(x = trip_mode, y = value, fill = variable)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black" , alpha = 0.5) + 
@@ -4620,6 +4638,8 @@ server <- shinyServer(function(input, output, session){
                  ylab('Duration (hours)') + 
                  labs(title = "Mode Duration per person per week (hours)")
       )
+      
+      
       
     }
       
@@ -4890,6 +4910,17 @@ server <- shinyServer(function(input, output, session){
     ,bLengthChange = F
     ,pageLength = 20
   )
+  )
+  
+  
+  output$download_data <- downloadHandler(
+    filename = function() {
+      paste("test.csv", sep="")
+    },
+    content = function(file) {
+      
+      write.csv(to_download$plot_data, file)
+    }
   )
 
   

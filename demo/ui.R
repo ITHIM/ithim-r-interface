@@ -193,13 +193,18 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   HTML("<hr>"),
                                                   div(HTML("<font color=\"#FF0000\">Preliminary Results</font>"))
                                                   
+                                                  #HTML("<hr>"),
+                                                  #downloadLink("download_data", "Download Data")
+                                                  
                                                 ),
                                                 
                                                 mainPanel(
+                                                  downloadLink("download_data", "Download Data"),
                                                   tabsetPanel (
                                                     
                                                     tabPanel('Mode',
                                                              plotlyOutput("plotAccraModes")
+                                                             
                                                              
                                                     ),
                                                     
