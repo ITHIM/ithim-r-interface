@@ -4736,7 +4736,7 @@ server <- shinyServer(function(input, output, session){
     if (input$inAccraCombineCauses){
       nd1 <- filter(nd, cause == 'Road Injuries')
       d1 <- filter(nd, cause != 'Road Injuries') %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-      d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "NCD", value = sum(value)) %>% as.data.frame()
+      d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "Combined NCDs", value = sum(value)) %>% as.data.frame()
       nd2 <- d2[c(2,1,3)]
       
       d1 <- nd1 %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()

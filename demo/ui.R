@@ -190,7 +190,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                                     HTML("<hr>"),
                                                                                     radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes),
                                                                                     HTML("<hr>"),
-                                                                                    checkboxInput("inAccraCombineCauses", "Combine NCD", F),
+                                                                                    checkboxInput("inAccraCombineCauses", "Combine NCDs", F),
                                                                                     HTML("<hr>"),
                                                                                     checkboxInput("inAccraInjury", "Show Injuries", T)
                                                                                     
