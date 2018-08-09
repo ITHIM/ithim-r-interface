@@ -4463,14 +4463,18 @@ server <- shinyServer(function(input, output, session){
     
     dataset <- accra_trips
     
+    sub_pop <- ""
+    
     if (ac != "All"){
       
       dataset <- filter(dataset, age_cat == ac)
+      sub_pop <- paste(sub_pop, 'age group:', ac, sep = " ")
       
     }
     if (sc != "All"){
       
       dataset <- filter(dataset, sex == sc)
+      sub_pop <- paste(sub_pop, 'sex group:', tolower(sc), sep = " ")
       
     }
     
@@ -4521,7 +4525,7 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal() + 
                  xlab('Mode') + 
                  ylab('Percentage (%)') + 
-                 labs(title = "Mode distribution"))
+                 labs(title = paste("Mode distribution", sub_pop, sep = "\n")))
       
       
       
@@ -4581,8 +4585,8 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal() + 
                  xlab('Mode') + 
                  ylab('Distance (km)') + 
-                 labs(title = "Mode distance  per person per week (km)")
-      )
+                 labs(title = paste("Mode distance  per person per week (km)", sub_pop, sep = "\n")))
+      
       
       
       
@@ -4640,8 +4644,9 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal() + 
                  xlab('Mode') + 
                  ylab('Duration (hours)') + 
-                 labs(title = "Mode Duration per person per week (hours)")
+                 labs(title = paste("Mode Duration per person per week (hours)", sub_pop, sep = "\n"))
       )
+      
       
       
       
@@ -4694,11 +4699,17 @@ server <- shinyServer(function(input, output, session){
       d <- accra_ylls
     }
     
-    if (ac != "All")
-      d <- filter(d, age.band == ac)
+    sub_pop <- "\n"
     
-    if (sc != "All")
+    if (ac != "All"){
+      d <- filter(d, age.band == ac)
+      sub_pop <- paste(sub_pop, 'age group:', ac, sep = " ")
+    }
+    
+    if (sc != "All"){
       d <- filter(d, gender == sc)
+      sub_pop <- paste(sub_pop, 'sex group:', tolower(sc), sep = " ")
+    }
     
     
     nd <- NULL
@@ -4798,7 +4809,7 @@ server <- shinyServer(function(input, output, session){
       ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
       theme_minimal()
     
-    p <- p + labs(title = paste0(title)) + xlab("") + ylab('<- Harms     Benefits ->') 
+    p <- p + labs(title = paste0(title, sub_pop, sep = "\n")) + xlab("") + ylab('<- Harms     Benefits ->') 
     
     plotly::ggplotly(p)
     
@@ -4819,11 +4830,17 @@ server <- shinyServer(function(input, output, session){
   output$plotInjuries <- renderPlotly({
     
     
-    if (input$inAccraHealthAges != "All")
-      accra_msi <- filter(accra_msi, age_cat == input$inAccraHealthAges)
+    sub_pop <- "\n"
     
-    if (input$inAccraPop != "All")
+    if (input$inAccraHealthAges != "All"){
+      accra_msi <- filter(accra_msi, age_cat == input$inAccraHealthAges)
+      sub_pop <- paste(sub_pop, 'age group:', input$inAccraHealthAges, sep = " ")
+    }
+    
+    if (input$inAccraPop != "All"){
       accra_msi <- filter(accra_msi, sex == input$inAccraPop)
+      sub_pop <- paste(sub_pop, 'sex group:', tolower(input$inAccraPop), sep = " ")
+    }
     
     # browser()
     accra_msi <- accra_msi %>% group_by(scenario, variable) %>% summarise(value = sum(value))
@@ -4836,7 +4853,7 @@ server <- shinyServer(function(input, output, session){
                        geom_bar(stat = "identity", position = "dodge", colour = "black", alpha = 0.5) + 
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
-                       labs(title = 'Road injuries deaths by mode per year', x = '', y = "Deaths") +
+                       labs(title = paste('Road injuries deaths by mode per year', sub_pop, sep = '\n'), x = '', y = "Deaths") +
                        guides(colour = FALSE) +
                        theme_minimal()
     )
@@ -4846,11 +4863,17 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosPA <- renderPlotly({
     
-    if (input$inAccraAges != "All")
-      accra_pa <- filter(accra_pa, age_cat == input$inAccraAges)
+    sub_pop <- "\n"
     
-    if (input$inAccraPop != "All")
+    if (input$inAccraAges != "All"){
+      accra_pa <- filter(accra_pa, age_cat == input$inAccraAges)
+      sub_pop <- paste(sub_pop, 'age group:', input$inAccraAges, sep = " ")
+    }
+    
+    if (input$inAccraPop != "All"){
       accra_pa <- filter(accra_pa, sex == input$inAccraPop)
+      sub_pop <- paste(sub_pop, 'sex group:', input$inAccraPop, sep = " ")
+    }
     
     to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_pa
     to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'pa-mmeth'
@@ -4862,7 +4885,7 @@ server <- shinyServer(function(input, output, session){
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
-                       labs(title = 'Marginal METh per week', x = '', y = "MMETh") +
+                       labs(title = paste('Marginal METh per week', sub_pop, sep = '\n'), x = '', y = "MMETh") +
                        theme_minimal())
     
   })
@@ -4870,11 +4893,17 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosAP <- renderPlotly({
     
-    if (input$inAccraAges != "All")
-      accra_ap <- filter(accra_ap, age_cat == input$inAccraAges)
+    sub_pop <- "\n"
     
-    if (input$inAccraPop != "All")
+    if (input$inAccraAges != "All"){
+      accra_ap <- filter(accra_ap, age_cat == input$inAccraAges)
+      sub_pop <- paste(sub_pop, 'age group:', input$inAccraAges, sep = " ")
+    }
+    
+    if (input$inAccraPop != "All"){
       accra_ap <- filter(accra_ap, sex == input$inAccraPop)
+      sub_pop <- paste(sub_pop, 'sex group:', input$inAccraPop, sep = " ")
+    }
     
     to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_ap
     to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'ap-pm2.5'
@@ -4887,7 +4916,7 @@ server <- shinyServer(function(input, output, session){
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
-                       labs(title = 'PM 2.5 concentration per year', x = '', y = "PM 2.5 10^-6 / m^3") +
+                       labs(title = paste('PM 2.5 concentration per year', sub_pop, sep = '\n') , x = '', y = "PM 2.5 10^-6 / m^3") +
                        theme_minimal())
     
   })
