@@ -4879,14 +4879,24 @@ server <- shinyServer(function(input, output, session){
     to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'pa-mmeth'
 
     accra_pa_melted <- reshape2::melt(accra_pa)
+    
+    ylim <- matrix(nrow = 6, ncol = 2)
+    
+    ylim[1, 1:2] <- boxplot.stats(filter(accra_pa_melted, variable == 'Baseline')$value)$stats[c(1, 5)]
+    
+    for(i in 1:5){
+      ylim[i + 1, 1:2] <- boxplot.stats(filter(accra_pa_melted, variable == paste0('Scenario ', i))$value)$stats[c(1, 5)]
+    }
 
-    plotly::ggplotly(ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + 
+    p <- ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + 
                        geom_boxplot(alpha = 0.5) + 
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
                        labs(title = paste('Marginal METh per week', sub_pop, sep = '\n'), x = '', y = "MMETh") +
-                       theme_minimal())
+                       theme_minimal()
+  
+    plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
   })
   
