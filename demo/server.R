@@ -4911,13 +4911,23 @@ server <- shinyServer(function(input, output, session){
     
     accra_ap_melted <- reshape2::melt(accra_ap)
     
-    plotly::ggplotly(ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + 
-                       geom_boxplot(alpha = 0.5) + 
-                       scale_fill_manual(values = accra_cols)  +
-                       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
-                       guides(colour = FALSE) +
-                       labs(title = paste('PM 2.5 concentration per year', sub_pop, sep = '\n') , x = '', y = "PM 2.5 10^-6 / m^3") +
-                       theme_minimal())
+    ylim <- matrix(nrow = 6, ncol = 2)
+    
+    ylim[1, 1:2] <- boxplot.stats(filter(accra_ap_melted, variable == 'Baseline')$value)$stats[c(1, 5)]
+    
+    for(i in 1:5){
+      ylim[i + 1, 1:2] <- boxplot.stats(filter(accra_ap_melted, variable == paste0('Scenario ', i))$value)$stats[c(1, 5)]
+    }
+    
+    p <- ggplot(accra_ap_melted, aes(x = variable, y = value, fill = variable)) + 
+      geom_boxplot(alpha = 0.5, outlier.shape = "") + 
+      scale_fill_manual(values = accra_cols)  +
+      guides(fill = guide_legend(override.aes = list(colour = NULL))) +
+      guides(colour = FALSE) +
+      labs(title = paste('PM 2.5 concentration per year', sub_pop, sep = '\n') , x = '', y = "PM 2.5 10^-6 / m^3") +
+      theme_minimal()
+    
+    plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
   })
   
