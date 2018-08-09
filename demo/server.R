@@ -4510,8 +4510,8 @@ server <- shinyServer(function(input, output, session){
       }
       bd <- reshape2::melt(bd)
       
-      to_download$plot_data <<- bd
-      to_download$plot_data_name <<- paste0('mode-', tolower(type))
+      to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- bd
+      to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
       
       ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
@@ -4569,8 +4569,8 @@ server <- shinyServer(function(input, output, session){
       
       distm$value <- distm$value / total_ind
       
-      to_download$plot_data <<- distm
-      to_download$plot_data_name <<- paste0('mode-', tolower(type))
+      to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- distm
+      to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
       
       # Plot
       ggplotly(ggplot(data = distm, aes(x = trip_mode, y = value, fill = variable)) + 
@@ -4628,8 +4628,8 @@ server <- shinyServer(function(input, output, session){
       
       dur$value <- round(dur$value / (60 * total_ind), 2)
       
-      to_download$plot_data <<- dur
-      to_download$plot_data_name <<- paste0('mode-', tolower(type))
+      to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- dur
+      to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
       
       # Plot
       ggplotly(ggplot(data = dur, aes(x = trip_mode, y = value, fill = variable)) + 
@@ -4786,8 +4786,8 @@ server <- shinyServer(function(input, output, session){
     d3 <- d3[order(d3$cause),]
     
     
-    to_download$plot_data <<- d3
-    to_download$plot_data_name <<- paste0(tolower(outcome), '-burden')
+    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- d3
+    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0(tolower(outcome), '-burden')
     
     p <- ggplot(data = d3, aes(x = cause, y = value,
                                fill = variable)) +
@@ -4828,8 +4828,8 @@ server <- shinyServer(function(input, output, session){
     # browser()
     accra_msi <- accra_msi %>% group_by(scenario, variable) %>% summarise(value = sum(value))
     
-    to_download$plot_data <<- accra_msi
-    to_download$plot_data_name <<- 'road-injury-deaths'
+    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_msi
+    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'road-injury-deaths'
     
     plotly::ggplotly(ggplot(data = accra_msi, aes(x = variable, y = value, 
                                                   fill = scenario)) + 
@@ -4852,8 +4852,8 @@ server <- shinyServer(function(input, output, session){
     if (input$inAccraPop != "All")
       accra_pa <- filter(accra_pa, sex == input$inAccraPop)
     
-    to_download$plot_data <<- accra_pa
-    to_download$plot_data_name <<- 'pa-mmeth'
+    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_pa
+    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'pa-mmeth'
 
     accra_pa_melted <- reshape2::melt(accra_pa)
 
@@ -4876,8 +4876,8 @@ server <- shinyServer(function(input, output, session){
     if (input$inAccraPop != "All")
       accra_ap <- filter(accra_ap, sex == input$inAccraPop)
     
-    to_download$plot_data <<- accra_ap
-    to_download$plot_data_name <<- 'ap-pm2.5'
+    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_ap
+    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'ap-pm2.5'
     
     
     accra_ap_melted <- reshape2::melt(accra_ap)
@@ -4928,12 +4928,19 @@ server <- shinyServer(function(input, output, session){
   
   
   output$download_data <- downloadHandler(
+    
     filename = function() {
-      paste(to_download$plot_data_name, ".csv", sep="")
+      
+      
+      
+      print(to_download$plot_data_name[[isolate(input$accraConditionedPanels)]])
+      
+      paste(to_download$plot_data_name[[isolate(input$accraConditionedPanels)]], ".csv", sep="")
     },
     content = function(file) {
+      input$accraConditionedPanels
       
-      write.csv(to_download$plot_data, file)
+      write_csv(to_download$plot_data[[isolate(input$accraConditionedPanels)]], file)
     }
   )
 
