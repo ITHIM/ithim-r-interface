@@ -4830,7 +4830,7 @@ server <- shinyServer(function(input, output, session){
   output$plotInjuries <- renderPlotly({
     
     
-    sub_pop <- "\n"
+    sub_pop <- ""
     
     if (input$inAccraHealthAges != "All"){
       accra_msi <- filter(accra_msi, age_cat == input$inAccraHealthAges)
@@ -4863,7 +4863,7 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosPA <- renderPlotly({
     
-    sub_pop <- "\n"
+    sub_pop <- ""
     
     if (input$inAccraAges != "All"){
       accra_pa <- filter(accra_pa, age_cat == input$inAccraAges)
@@ -4872,7 +4872,7 @@ server <- shinyServer(function(input, output, session){
     
     if (input$inAccraPop != "All"){
       accra_pa <- filter(accra_pa, sex == input$inAccraPop)
-      sub_pop <- paste(sub_pop, 'sex group:', input$inAccraPop, sep = " ")
+      sub_pop <- paste(sub_pop, 'sex group:', tolower(input$inAccraPop), sep = " ")
     }
     
     to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_pa
@@ -4893,7 +4893,7 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosAP <- renderPlotly({
     
-    sub_pop <- "\n"
+    sub_pop <- ""
     
     if (input$inAccraAges != "All"){
       accra_ap <- filter(accra_ap, age_cat == input$inAccraAges)
@@ -4902,7 +4902,7 @@ server <- shinyServer(function(input, output, session){
     
     if (input$inAccraPop != "All"){
       accra_ap <- filter(accra_ap, sex == input$inAccraPop)
-      sub_pop <- paste(sub_pop, 'sex group:', input$inAccraPop, sep = " ")
+      sub_pop <- paste(sub_pop, 'sex group:', tolower(input$inAccraPop), sep = " ")
     }
     
     to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_ap
