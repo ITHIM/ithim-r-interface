@@ -71,6 +71,7 @@ lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 #lt <- filter(lt, GBD_name != 'Stroke')
 
 accra_msi <- read_csv("data/accra/injuries/deaths_by_mode_long.csv")
+accra_msi$value <- round(accra_msi$value)
 
 
 accra_mode_share <- read_csv('data/accra/trips/trip_modes_pert.csv')
