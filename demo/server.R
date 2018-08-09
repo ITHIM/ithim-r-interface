@@ -4972,6 +4972,22 @@ server <- shinyServer(function(input, output, session){
       write_csv(to_download$plot_data[[isolate(input$accraConditionedPanels)]], file)
     }
   )
+  
+  
+  observe({input$inAccraAges
+    if (input$inAccraAges %in% c('All', '15-49'))
+      updateTextInput(session, "inAccraHealthAges", NULL, input$inAccraAges)
+    else
+      updateTextInput(session, "inAccraHealthAges", NULL, '50-69')
+  })
+  
+  
+  observe({input$inAccraHealthAges
+    if (input$inAccraHealthAges %in% c('All', '15-49'))
+      updateTextInput(session, "inAccraAges", NULL, input$inAccraHealthAges)
+    else
+      updateTextInput(session, "inAccraAges", NULL, '50-70')
+  })
 
   
   
