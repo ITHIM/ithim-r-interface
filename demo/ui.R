@@ -164,29 +164,53 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                 
                                                   HTML("<hr>"),
                                                   
-                                                  radioButtons("inAccraPop", "Gender: ", accra_population),
-                                                  HTML("<hr>"),
+                                                  fluidRow(
+                                                    column(width = 4,
+                                                      radioButtons("inAccraPop", "Gender: ", accra_population)
+                                                    ),
+                                                  
+                                                  
+                                                  #HTML("<hr>"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && input.accraConditionedPanels != 'Road Injuries'",
                                                                    
-                                                                   radioButtons("inAccraAges", "Age: ", accra_ages),
+                                                                   column(width = 4,
+                                                                   radioButtons("inAccraAges", "Age: ", accra_ages)
+                                                                   ),
                                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Mode'",
-                                                                                    HTML("<hr>"),
+                                                                                    column(width = 4,
+                                                                                    #HTML("<hr>"),
                                                                                     radioButtons("inAccraTripTypes", "Type: ", accra_trip_types)
+                                                                                    )
                                                                    )
                                                   ),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health' || input.accraConditionedPanels == 'Road Injuries'",
                                                                    
-                                                                   radioButtons("inAccraHealthAges", "Age: ", accra_health_ages),
+                                                                   column(width = 4,
+                                                                    radioButtons("inAccraHealthAges", "Age: ", accra_health_ages)
+                                                                   ),
                                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
-                                                                                    HTML("<hr>"),
-                                                                                    radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes),
-                                                                                    HTML("<hr>"),
-                                                                                    checkboxInput("inAccraCombineCauses", "Combine NCDs", F),
-                                                                                    HTML("<hr>"),
-                                                                                    checkboxInput("inAccraInjury", "Show Injuries", T)
+                                                                                    column(width = 4,
+                                                                                      radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes)
+                                                                                    )
+                                                                                    #HTML("<hr>"),
                                                                                     
+                                                                                    
+                                                                   )
+                                                  )
+                                                  
+                                                  ),
+                                                  
+                                                  
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
+                                                                   fluidRow(
+                                                                     column(width = 4,
+                                                                            checkboxInput("inAccraCombineCauses", "Combine NCDs", F)
+                                                                     ),
+                                                                     column(width = 4,
+                                                                            checkboxInput("inAccraInjury", "Show Injuries", T)
+                                                                     )
                                                                    )
                                                   ),
                                                   
