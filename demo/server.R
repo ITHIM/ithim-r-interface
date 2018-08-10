@@ -4571,7 +4571,7 @@ server <- shinyServer(function(input, output, session){
       
       distm <- reshape2::melt(dist, by = trip_mode)
       
-      distm$value <- distm$value / total_ind
+      distm$value <- round(distm$value / total_ind, 2)
       
       to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- distm
       to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
