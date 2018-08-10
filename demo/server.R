@@ -4985,7 +4985,7 @@ server <- shinyServer(function(input, output, session){
   ,server=F
   ,selection = 'single'
   ,rownames = F
-  , caption = 'PM 2.5 concentration (10^-6 / m^3)'
+  , caption = 'PM 2.5 emissions (10^-6 / m^3)'
   ,class = "nowrap row-border"
   ,options = list(
     scrollX = T
