@@ -4807,7 +4807,8 @@ server <- shinyServer(function(input, output, session){
       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
       guides(colour = FALSE) +
       ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
-      theme_minimal()
+      theme_minimal() + 
+      theme(axis.text.x=element_text(size=rel(0.8)))
     
     p <- p + labs(title = paste0(title, sub_pop, sep = "\n")) + xlab("") + ylab('<- Harms     Benefits ->') 
     
@@ -4895,7 +4896,7 @@ server <- shinyServer(function(input, output, session){
                        guides(colour = FALSE) +
                        labs(title = paste('Marginal METh per week', sub_pop, sep = '\n'), x = '', y = "MMETh") +
                        theme_minimal()
-  
+    
     plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
   })
