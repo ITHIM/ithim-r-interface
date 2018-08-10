@@ -67,6 +67,10 @@ accra_health_age_cat <- unique(accra_deaths$age.band)
 
 lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
 
+# Rename two diseases to remove last spaces
+lt$GBD_name[lt$GBD_name == 'Chronic respiratory diseases'] <- 'Chronic respiratory-diseases'
+lt$GBD_name[lt$GBD_name == 'Ischemic heart disease'] <- 'Ischemic heart-disease'
+
 # Remove stroke
 #lt <- filter(lt, GBD_name != 'Stroke')
 
