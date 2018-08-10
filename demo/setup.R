@@ -92,6 +92,8 @@ for (i in 2:ncol(accra_mode_share)){
 accra_pm_conc <- read_csv('data/accra/ap/conc_pm.csv')
 accra_pm_conc <- round(accra_pm_conc, 1)
 
+names(accra_pm_conc) <- c("Baseline", paste('Scenario', (1:(ncol(accra_pm_conc) - 1)), sep = ' '))
+
 accra_cols <- c("Baseline" = "#e41a1c", 
                 "Scenario 1" = "#377eb8", 
                 "Scenario 2" = "#4daf4a", 
