@@ -4977,6 +4977,30 @@ server <- shinyServer(function(input, output, session){
   )
   
   
+  output$accra_pm_conc <- DT::renderDataTable({
+    
+    accra_pm_conc
+    
+  }
+  ,server=F
+  ,selection = 'single'
+  ,rownames = F
+  , caption = 'PM 2.5 concentration (10^-6 / m^3)'
+  ,class = "nowrap row-border"
+  ,options = list(
+    scrollX = T
+    ,dom = 't'          # enable/disable horizontal scroll
+    ,bFilter = T        # enable/disable the up-right filter
+    ,bSort = F          # enable/disable the sorting feature for all columns
+    ,bInfo = F          # enable/disable the 'Showing 1 to 10 of 10 entries'
+    ,bPaginate = T      # enable/disable the paginate feature
+    ,searchHighlight = T
+    ,bLengthChange = F
+    ,pageLength = 20
+  )
+  )
+  
+  
   output$download_data <- downloadHandler(
     
     filename = function() {
