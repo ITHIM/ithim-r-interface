@@ -4789,7 +4789,7 @@ server <- shinyServer(function(input, output, session){
     d3 <- rbind(d1, d2)
     
     #Replace space with line break
-    d3$cause <- gsub(" ", "\n", d3$cause)
+    #d3$cause <- gsub(" ", "\n", d3$cause)
     
     
     
@@ -4808,7 +4808,7 @@ server <- shinyServer(function(input, output, session){
       guides(colour = FALSE) +
       ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
       theme_minimal() + 
-      theme(axis.text.x=element_text(size=rel(0.8)))
+      theme(axis.text.x=element_text(size = rel(0.8)))
     
     p <- p + labs(title = paste0(title, sub_pop, sep = "\n")) + xlab("") + ylab('<- Harms     Benefits ->') 
     
