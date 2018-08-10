@@ -238,7 +238,11 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     
                                                     tabPanel('Air Pollution',
                                                              plotlyOutput("plotScenariosAP"),
-                                                             DT::dataTableOutput("accra_pm_conc")
+                                                             #fluidRow(
+                                                              # column(width = 10,
+                                                                  DT::dataTableOutput("accra_pm_conc")
+                                                              #)
+                                                             #)
                                                     ),
                                                     
                                                     tabPanel('Road Injuries',
