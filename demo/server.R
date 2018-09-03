@@ -4859,7 +4859,7 @@ server <- shinyServer(function(input, output, session){
                        geom_bar(stat = "identity", position = "dodge", colour = "black", alpha = 0.5) + 
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
-                       labs(title = paste('Road injuries deaths by mode per year', sub_pop, sep = '\n'), x = '', y = "Deaths") +
+                       labs(title = paste('Road traffic fatalities by mode per year', sub_pop, sep = '\n'), x = '', y = "Deaths") +
                        guides(colour = FALSE) +
                        theme_minimal()
     )
