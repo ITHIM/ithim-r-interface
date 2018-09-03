@@ -4932,10 +4932,11 @@ server <- shinyServer(function(input, output, session){
   ,server=F
   ,rownames = T
   ,options = list(
+    scrollX = T,
     dom = 't',
     bSort = F,          # enable/disable the sorting feature for all columns
     bInfo = F,          # enable/disable the 'Showing 1 to 10 of 10 entries'
-    bLengthChange = F,
+    bLengthChange = T,
     pageLength = 7,
     bFilter = T,        # enable/disable the up-right filter
     bSort = F,          # enable/disable the sorting feature for all columns
@@ -5033,10 +5034,11 @@ server <- shinyServer(function(input, output, session){
   ,server=F
   ,rownames = T
   ,options = list(
+    scrollX = T,
     dom = 't',
     bSort = F,          # enable/disable the sorting feature for all columns
     bInfo = F,          # enable/disable the 'Showing 1 to 10 of 10 entries'
-    bLengthChange = F,
+    bLengthChange = T,
     pageLength = 8,
     bFilter = T,        # enable/disable the up-right filter
     bSort = F,          # enable/disable the sorting feature for all columns
