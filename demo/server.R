@@ -5037,7 +5037,7 @@ server <- shinyServer(function(input, output, session){
     bSort = F,          # enable/disable the sorting feature for all columns
     bInfo = F,          # enable/disable the 'Showing 1 to 10 of 10 entries'
     bLengthChange = F,
-    pageLength = 7,
+    pageLength = 8,
     bFilter = T,        # enable/disable the up-right filter
     bSort = F,          # enable/disable the sorting feature for all columns
     bInfo = F          # enable/disable the 'Showing 1 to 10 of 10 entries'
