@@ -4928,6 +4928,9 @@ server <- shinyServer(function(input, output, session){
   
   output$plotScenariosPATable <- DT::renderDataTable({
     
+    input$inAccraAges
+    input$inAccraPop
+    
     tables$PA
     
   }
@@ -5029,6 +5032,10 @@ server <- shinyServer(function(input, output, session){
   
   
   output$accra_pm_conc <- DT::renderDataTable({
+    
+    input$inAccraAges
+    input$inAccraPop
+    
     
     rbind(accra_pm_conc, tables$AP)
     
