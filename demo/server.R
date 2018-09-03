@@ -4978,7 +4978,7 @@ server <- shinyServer(function(input, output, session){
       scale_fill_manual(values = accra_cols)  +
       guides(fill = guide_legend(override.aes = list(colour = NULL))) +
       guides(colour = FALSE) +
-      labs(title = paste('PM 2.5 concentration per year', sub_pop, sep = '\n') , x = '', y = "PM 2.5 10^-6 / m^3") +
+      labs(title = paste('PM 2.5 personal exposure', sub_pop, sep = '\n') , x = '', y = "PM 2.5 10^-6 / m^3") +
       theme_minimal()
     
     plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
@@ -5028,7 +5028,7 @@ server <- shinyServer(function(input, output, session){
   ,server=F
   ,selection = 'single'
   ,rownames = F
-  , caption = 'PM 2.5 emissions (10^-6 / m^3)'
+  , caption = 'PM 2.5 background (10^-6 / m^3)'
   ,class = "nowrap row-border"
   ,options = list(
     scrollX = T
