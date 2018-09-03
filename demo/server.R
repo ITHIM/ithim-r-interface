@@ -4927,7 +4927,21 @@ server <- shinyServer(function(input, output, session){
     
     tables$PA
     
-  })
+  }
+  ,server=F
+  ,rownames = T
+  ,options = list(
+    dom = 't',
+    bSort = F,          # enable/disable the sorting feature for all columns
+    bInfo = F,          # enable/disable the 'Showing 1 to 10 of 10 entries'
+    bLengthChange = F,
+    pageLength = 7,
+    bFilter = T,        # enable/disable the up-right filter
+    bSort = F,          # enable/disable the sorting feature for all columns
+    bInfo = F          # enable/disable the 'Showing 1 to 10 of 10 entries'
+  )
+  
+  )
   
   
   
