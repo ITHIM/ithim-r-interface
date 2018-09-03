@@ -100,10 +100,18 @@ server <- shinyServer(function(input, output, session){
   
   to_download <- NULL
   
+  tables <- NULL
+  
   # To set initialize to_download
   observe({
     to_download$plot_data <<- NULL
     to_download$plot_data_name <<- NULL
+  })
+  
+  
+  # To set initialize to_download
+  observe({
+    tables$PA <<- NULL
   })
   
   observe({
@@ -4647,9 +4655,6 @@ server <- shinyServer(function(input, output, session){
                  labs(title = paste("Mode Duration per person per week (hours)", sub_pop, sep = "\n"))
       )
       
-      
-      
-      
     }
       
   }
@@ -4894,12 +4899,36 @@ server <- shinyServer(function(input, output, session){
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
+                       # stat_summary(fun.y=mean, geom="point", shape=20, size=10, color="red", fill="red") +
                        labs(title = paste('Marginal METh per week', sub_pop, sep = '\n'), x = '', y = "MMETh") +
                        theme_minimal()
+    
+    ymax <- as.data.frame(ggplot_build(p)$data)
+    ymax <- round(ymax$ymax, 2)
+    
+    tables$PA <<- as.data.frame(do.call(cbind, lapply(accra_pa, summary)))
+    tables$PA <<- select(tables$PA, -c(sex, age_cat))
+    td <- tables$PA
+    tables$PA <<- as.data.frame(lapply(tables$PA, function(x) round(as.numeric(as.character(x)), 2)))
+    rownames(tables$PA) <<- rownames(td)
+    
+    tables$PA <<- rbind(tables$PA[1:5,],ymax,tables$PA[-(1:5),])
+    rownames(tables$PA)[6] <<- "ymax"
+    
+    # as.data.frame(ggplot_build(p)$data)
+    # tables$PA <<- select(tables$PA, fill, lower, middle, upper)
+    # tables$PA[,2:ncol(tables$PA)] <<- round(tables$PA[,2:ncol(tables$PA)], 2)
     
     plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
   })
+  
+  output$plotScenariosPATable <- DT::renderDataTable({
+    
+    tables$PA
+    
+  })
+  
   
   
   output$plotScenariosAP <- renderPlotly({
@@ -5005,8 +5034,6 @@ server <- shinyServer(function(input, output, session){
     
     filename = function() {
       
-      
-      
       print(to_download$plot_data_name[[isolate(input$accraConditionedPanels)]])
       
       paste(to_download$plot_data_name[[isolate(input$accraConditionedPanels)]], ".csv", sep="")
@@ -5033,9 +5060,6 @@ server <- shinyServer(function(input, output, session){
     else
       updateTextInput(session, "inAccraAges", NULL, '50-70')
   })
-
-  
-  
   
   
 })
