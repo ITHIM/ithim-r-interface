@@ -112,6 +112,7 @@ server <- shinyServer(function(input, output, session){
   # To set initialize to_download
   observe({
     tables$PA <<- NULL
+    tables$AP <<- NULL
   })
   
   observe({
@@ -4981,6 +4982,22 @@ server <- shinyServer(function(input, output, session){
       labs(title = paste('PM 2.5 personal exposure', sub_pop, sep = '\n') , x = '', y = "PM 2.5 10^-6 / m^3") +
       theme_minimal()
     
+    
+    ymax <- as.data.frame(ggplot_build(p)$data)
+    ymax <- round(ymax$ymax, 2)
+    
+    tables$AP <<- as.data.frame(do.call(cbind, lapply(accra_ap, summary)))
+    tables$AP <<- select(tables$AP, -c(sex, age_cat))
+    td <- tables$AP
+    tables$AP <<- as.data.frame(lapply(tables$AP, function(x) round(as.numeric(as.character(x)), 2)))
+    rownames(tables$AP) <<- rownames(td)
+    
+    tables$AP <<- rbind(tables$AP[1:5,],ymax,tables$AP[-(1:5),])
+    rownames(tables$AP)[6] <<- "ymax"
+    
+    names(tables$AP) <<- names(accra_pm_conc)
+    
+    
     plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
   })
@@ -5010,12 +5027,12 @@ server <- shinyServer(function(input, output, session){
   
   output$accra_pm_conc <- DT::renderDataTable({
     
-    accra_pm_conc
+    rbind(accra_pm_conc, tables$AP)
     
   }
   ,server=F
   ,selection = 'single'
-  ,rownames = F
+  ,rownames = T
   , caption = 'PM 2.5 background (10^-6 / m^3)'
   ,class = "nowrap row-border"
   ,options = list(
