@@ -4985,18 +4985,6 @@ server <- shinyServer(function(input, output, session){
     
   })
   
-  
-  
-  # output$accra_mode_dist <- DT::renderDataTable(
-  #     DT::datatable(accra_mode_share, options = list(paging = FALSE, autoWidth = F))
-  #   )
-  
-  
-  # output$accra_mode_dist <- renderTable({
-  #   accra_mode_share
-  # }, spacing = "xs")
-  
-  
   output$accra_mode_dist <- DT::renderDataTable({
     
     accra_mode_share
