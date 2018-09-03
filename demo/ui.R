@@ -233,7 +233,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     ),
                                                     
                                                     tabPanel('Physical Activity',
-                                                             plotlyOutput("plotScenariosPA")
+                                                             plotlyOutput("plotScenariosPA"),
+                                                             DT::dataTableOutput("plotScenariosPATable")
                                                     ),
                                                     
                                                     tabPanel('Air Pollution',
