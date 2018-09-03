@@ -91,7 +91,10 @@ for (i in 2:ncol(accra_mode_share)){
 names(accra_mode_share)[3:ncol(accra_mode_share)] <- paste('Sc', 1:5)
 
 accra_pm_conc <- read_csv('data/accra/ap/conc_pm.csv')
-accra_pm_conc <- round(accra_pm_conc, 1)
+# accra_pm_conc <- as.data.frame(accra_pm_conc)
+accra_pm_conc <- round(accra_pm_conc, 2)
+
+rownames(accra_pm_conc) <- "background conc."
 
 names(accra_pm_conc) <- c("Baseline", paste('Scenario', (1:(ncol(accra_pm_conc) - 1)), sep = ' '))
 
