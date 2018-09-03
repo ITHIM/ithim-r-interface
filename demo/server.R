@@ -5031,21 +5031,18 @@ server <- shinyServer(function(input, output, session){
     
   }
   ,server=F
-  ,selection = 'single'
   ,rownames = T
-  , caption = 'PM 2.5 background (10^-6 / m^3)'
-  ,class = "nowrap row-border"
   ,options = list(
-    scrollX = T
-    ,dom = 't'          # enable/disable horizontal scroll
-    ,bFilter = T        # enable/disable the up-right filter
-    ,bSort = F          # enable/disable the sorting feature for all columns
-    ,bInfo = F          # enable/disable the 'Showing 1 to 10 of 10 entries'
-    ,bPaginate = T      # enable/disable the paginate feature
-    ,searchHighlight = T
-    ,bLengthChange = F
-    ,pageLength = 20
+    dom = 't',
+    bSort = F,          # enable/disable the sorting feature for all columns
+    bInfo = F,          # enable/disable the 'Showing 1 to 10 of 10 entries'
+    bLengthChange = F,
+    pageLength = 7,
+    bFilter = T,        # enable/disable the up-right filter
+    bSort = F,          # enable/disable the sorting feature for all columns
+    bInfo = F          # enable/disable the 'Showing 1 to 10 of 10 entries'
   )
+  
   )
   
   
