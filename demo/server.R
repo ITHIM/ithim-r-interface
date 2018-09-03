@@ -4916,6 +4916,8 @@ server <- shinyServer(function(input, output, session){
     tables$PA <<- rbind(tables$PA[1:5,],ymax,tables$PA[-(1:5),])
     rownames(tables$PA)[6] <<- "ymax"
     
+    names(tables$PA) <<- names(accra_pm_conc)
+    
     # as.data.frame(ggplot_build(p)$data)
     # tables$PA <<- select(tables$PA, fill, lower, middle, upper)
     # tables$PA[,2:ncol(tables$PA)] <<- round(tables$PA[,2:ncol(tables$PA)], 2)
