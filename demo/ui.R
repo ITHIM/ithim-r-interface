@@ -252,6 +252,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     ),
                                                     tabPanel('Health',
                                                              plotlyOutput("plotScenariosHealthOutcome", height = "90%")
+                                                    ),
+                                                    tabPanel('Uncertainty',
+                                                             plotlyOutput("plotWhatIfScenariosUncertainty", height = "90%")
                                                     )
                                                     
                                                     

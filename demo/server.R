@@ -4833,6 +4833,13 @@ server <- shinyServer(function(input, output, session){
     
   })
   
+  
+  output$plotWhatIfScenariosUncertainty <- renderPlotly({
+    
+    
+    
+  })
+  
 
   output$plotInjuries <- renderPlotly({
     
