@@ -172,7 +172,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   #HTML("<hr>"),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && input.accraConditionedPanels != 'Road Injuries'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && 
+                                                                   input.accraConditionedPanels != 'Road Injuries' &&
+                                                                   input.accraConditionedPanels != 'Uncertainty'",
                                                                    
                                                                    column(width = 4,
                                                                    radioButtons("inAccraAges", "Age: ", accra_ages)
@@ -185,12 +187,15 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    )
                                                   ),
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health' || input.accraConditionedPanels == 'Road Injuries'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health' 
+                                                                   || input.accraConditionedPanels == 'Road Injuries'
+                                                                   || input.accraConditionedPanels == 'Uncertainty'",
                                                                    
                                                                    column(width = 4,
                                                                     radioButtons("inAccraHealthAges", "Age: ", accra_health_ages)
                                                                    ),
-                                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
+                                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'
+                                                                                    || input.accraConditionedPanels == 'Uncertainty'",
                                                                                     column(width = 4,
                                                                                       radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes)
                                                                                     )
@@ -203,7 +208,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   ),
                                                   
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health'
+                                                                   || input.accraConditionedPanels == 'Uncertainty'",
                                                                    fluidRow(
                                                                      column(width = 4,
                                                                             checkboxInput("inAccraCombineCauses", "Combine NCDs", F)
