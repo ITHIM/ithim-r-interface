@@ -98,6 +98,8 @@ rownames(accra_pm_conc) <- "background conc."
 
 names(accra_pm_conc) <- c("Baseline", paste('Scenario', (1:(ncol(accra_pm_conc) - 1)), sep = ' '))
 
+accra_health_uncertain <- readr::read_rds("data/accra/health/uncertainty/six_by_five_scenarios_1024.Rds")
+
 accra_cols <- c("Baseline" = "#e41a1c", 
                 "Scenario 1" = "#377eb8", 
                 "Scenario 2" = "#4daf4a", 
