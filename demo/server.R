@@ -5016,7 +5016,7 @@ server <- shinyServer(function(input, output, session){
                           ymin = SEv - sd,
                           ymax = SEv + sd,
                           env_name = name)) +
-      geom_bar(stat = 'identity', position = "dodge2", color = 'black') +
+      geom_bar(stat = 'identity', position = "dodge2", color = 'black', alpha = 0.5) +
       scale_fill_manual(values = accra_cols)  +
       labs(title = paste0(title, sub_pop, sep = "\n"), y = paste(outcome, "(value ± s.d.)"), x = "") + 
       geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), position = position_dodge2(), colour="black") +
