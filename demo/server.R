@@ -4847,6 +4847,14 @@ server <- shinyServer(function(input, output, session){
     ac = input$inAccraHealthAges
     sc = input$inAccraPop
     
+    title <- "Reduction in Years of Life Lost (YLL) - compared with Ref Scenario 1"
+    
+    if (outcome == "Deaths"){
+      title <- "Averted number of Deaths - compared with Ref Scenario 1"
+    }
+    
+    sub_pop <- "\n"
+    
     lt <- arrange(lt, GBD_name)
     
     
@@ -4882,8 +4890,6 @@ server <- shinyServer(function(input, output, session){
       
       d <- rename(d, "age.band" = "age_cat")
       d <- rename(d, "gender" = "sex")
-      
-      sub_pop <- "\n"
       
       if (ac != "All"){
         d <- filter(d, age.band == ac)
@@ -5011,7 +5017,8 @@ server <- shinyServer(function(input, output, session){
                           ymax = SEv + sd,
                           env_name = name)) +
       geom_bar(stat = 'identity', position = "dodge2", color = 'black') +
-      labs(y = paste(outcome, "(value ± s.d.)"), x = "") + 
+      scale_fill_manual(values = accra_cols)  +
+      labs(title = paste0(title, sub_pop, sep = "\n"), y = paste(outcome, "(value ± s.d.)"), x = "") + 
       geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), position = position_dodge2(), colour="black") +
       theme_classic() 
     
