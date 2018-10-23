@@ -5011,7 +5011,7 @@ server <- shinyServer(function(input, output, session){
                           ymax = SEv + sd,
                           env_name = name)) +
       geom_bar(stat = 'identity', position = "dodge2", color = 'black') +
-      labs(y =" Value ± s.d.", x = "Scenario") + 
+      labs(y = paste(outcome, "(value ± s.d.)"), x = "") + 
       geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), position = position_dodge2(), colour="black") +
       theme_classic() 
     
