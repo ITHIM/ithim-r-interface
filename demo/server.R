@@ -4851,12 +4851,16 @@ server <- shinyServer(function(input, output, session){
     
     
     env_sum <- list()
+    # browser()
     
+    # print(input$inAccraEnvSc)
     
-    for (wi in 1:(length(accra_health_uncertain$uncertain))){
+    for (wi in 1:(length(input$inAccraEnvSc))){
       # wi <- 1
       
-      scen <- names(accra_health_uncertain$not_uncertain)[wi]
+      # scen <- names(accra_health_uncertain$not_uncertain)[wi]
+      
+      scen <- input$inAccraEnvSc[wi]
       
       obj <- list()
       
@@ -4990,11 +4994,11 @@ server <- shinyServer(function(input, output, session){
     
     tds$name <- as.factor(tds$name)
     
-    tds$name  <- factor(tds$name , levels = c("now",
-                                              "less_background_AP",
-                                              "less_background_PA",
-                                              "more_chronic_disease",
-                                              "safer"))
+    # tds$name  <- factor(tds$name , levels = c("now",
+    #                                           "less_background_AP",
+    #                                           "less_background_PA",
+    #                                           "more_chronic_disease",
+    #                                           "safer"))
     
     tds <- arrange(tds, cause, variable, name)
     
