@@ -23,8 +23,11 @@ accra_health_outcomes <- c("Deaths", "YLLs")
 
 accra_trip_types <- c("Trips", "Distance", "Duration")
 
-
-
+accra_env_scen <- c('Now' = "now",
+                    "safer" = "Safer",
+                    "More chronic disease" = "more_chronic_disease",
+                    "Less background AP" = "less_background_AP",
+                    "Less background PA"= "less_background_PA" )
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
@@ -164,10 +167,22 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                 
                                                   HTML("<hr>"),
                                                   
+                                                  
+                                                  fluidRow(
+                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Uncertainty'",
+                                                                     column(width = 12,
+                                                                            checkboxGroupInput("inAccraEnvSc", "Env Scenarios: ", accra_env_scen, selected = accra_env_scen[1],
+                                                                                               inline = T)
+                                                                     ),
+                                                                     HTML("<hr>")
+                                                                     )
+                                                  ),
+                                                  
                                                   fluidRow(
                                                     column(width = 4,
                                                       radioButtons("inAccraPop", "Gender: ", accra_population)
                                                     ),
+                                                    
                                                   
                                                   
                                                   #HTML("<hr>"),
