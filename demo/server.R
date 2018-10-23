@@ -4864,15 +4864,18 @@ server <- shinyServer(function(input, output, session){
         
         ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$ylls
         
+        if (outcome == "Deaths")
+          ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$deaths
+        
         ldat$index <- i
         
         obj[[i]] <- ldat
         
       }
    
-      outcome <- "Deaths"
-      ac <- "All"
-      sc <- "All"
+      #outcome <- "Deaths"
+      #ac <- "All"
+      #sc <- "All"
       
       d <-  bind_rows(obj)
       
