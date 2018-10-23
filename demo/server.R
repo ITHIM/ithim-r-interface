@@ -5020,7 +5020,7 @@ server <- shinyServer(function(input, output, session){
       scale_fill_manual(values = accra_cols)  +
       labs(title = paste0(title, sub_pop, sep = "\n"), y = paste(outcome, "(value ± s.d.)"), x = "") + 
       geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), position = position_dodge2(), colour="black") +
-      theme_classic() 
+      theme_minimal() 
     
     plotly::ggplotly(fp, tooltip = c("x", "y", "fill", "env_name"))
     
