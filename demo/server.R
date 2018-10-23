@@ -4984,12 +4984,12 @@ server <- shinyServer(function(input, output, session){
     
     tds <- sum_dat %>% # the names of the new data frame and the data frame to be summarised
       group_by(name, cause, variable) %>%   # the grouping variable
-      summarise(mv = mean(value),  # calculates the mean of each group
-                sdv = sd(value), # calculates the standard deviation of each group
+      summarise(mean = mean(value),  # calculates the mean of each group
+                sd = sd(value), # calculates the standard deviation of each group
                 nv = n(),  # calculates the sample size per group
                 SEv = sd(value)/sqrt(n()),
-                ymin = mv - SEv,
-                ymax = mv + SEv)
+                ymin = mean - SEv,
+                ymax = mean + SEv)
     
     
     tds$name <- as.factor(tds$name)
@@ -5005,15 +5005,17 @@ server <- shinyServer(function(input, output, session){
     tds$int <- interaction(tds$name, tds$cause, tds$variable)
     
     
-    fp <- ggplot(tds, aes(x = cause, y = mv, fill = variable, group = int, ymin = ymin,
-                          ymax = ymax,
-                          name = name)) +
+    fp <- ggplot(tds, aes(x = cause, y = mean, fill = variable, group = int, 
+                          SE = SEv,
+                          ymin = SEv - sd,
+                          ymax = SEv + sd,
+                          env_name = name)) +
       geom_bar(stat = 'identity', position = "dodge2", color = 'black') +
-      labs(y="Value ± s.d.", x = "Scenario") + 
-      geom_errorbar(aes(ymin = mv - sdv, ymax = mv + sdv), position = position_dodge2(), colour="black") +
+      labs(y =" Value ± s.d.", x = "Scenario") + 
+      geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), position = position_dodge2(), colour="black") +
       theme_classic() 
     
-    plotly::ggplotly(fp, tooltip = c("x", "y", "fill", "name"))
+    plotly::ggplotly(fp, tooltip = c("x", "y", "fill", "env_name"))
     
     
     
