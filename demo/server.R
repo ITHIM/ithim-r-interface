@@ -4843,6 +4843,10 @@ server <- shinyServer(function(input, output, session){
     show_injury = T
     combined_NCDs = F
     
+    outcome = input$inAccraHealthOutcome
+    ac = input$inAccraHealthAges
+    sc = input$inAccraPop
+    
     lt <- arrange(lt, GBD_name)
     
     
@@ -4865,18 +4869,7 @@ server <- shinyServer(function(input, output, session){
         obj[[i]] <- ldat
         
       }
-      
-      # tds <- td %>% # the names of the new data frame and the data frame to be summarised
-      #   group_by(name, cause, variable) %>%   # the grouping variable
-      #   summarise(mv = mean(value),  # calculates the mean of each group
-      #             sdv = sd(value), # calculates the standard deviation of each group
-      #             nv = n(),  # calculates the sample size per group
-      #             SEv = sd(value)/sqrt(n()),
-      #             ymin = mv - SEv,
-      #             ymax = mv + SEv) 
-      
-      
-      
+   
       outcome <- "Deaths"
       ac <- "All"
       sc <- "All"
@@ -4924,7 +4917,7 @@ server <- shinyServer(function(input, output, session){
       # Remove scenario 1
       nd[['Scenario 1']] <- NULL
       
-      if (show_injury){
+      if (input$inAccraInjury){
         
         dn1 <- select(d, age.band, gender, index, ends_with('inj'))
         #dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
@@ -4965,7 +4958,7 @@ server <- shinyServer(function(input, output, session){
         bd <- nd
         
         
-        if (combined_NCDs){
+        if (input$inAccraCombineCauses){
           nd1 <- filter(nd, cause == 'Road Injuries')
           d1 <- filter(nd, cause != 'Road Injuries') %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
           d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Combined NCDs", value = sum(value)) %>% as.data.frame()
