@@ -24,7 +24,7 @@ accra_health_outcomes <- c("Deaths", "YLLs")
 accra_trip_types <- c("Trips", "Distance", "Duration")
 
 accra_env_scen <- c('Now' = "now",
-                    "safer" = "Safer",
+                    "Safer" = "safer",
                     "More chronic disease" = "more_chronic_disease",
                     "Less background AP" = "less_background_AP",
                     "Less background PA"= "less_background_PA" )
