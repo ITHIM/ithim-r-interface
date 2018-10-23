@@ -4836,12 +4836,12 @@ server <- shinyServer(function(input, output, session){
   
   output$plotWhatIfScenariosUncertainty <- renderPlotly({
     
-    outcome = 'Deaths'
-    index = i
-    ac = "All"
-    sc = "All"
-    show_injury = T
-    combined_NCDs = F
+    # outcome = 'Deaths'
+    # index = i
+    # ac = "All"
+    # sc = "All"
+    # show_injury = T
+    # combined_NCDs = F
     
     outcome = input$inAccraHealthOutcome
     ac = input$inAccraHealthAges
@@ -4873,22 +4873,11 @@ server <- shinyServer(function(input, output, session){
         
       }
    
-      #outcome <- "Deaths"
-      #ac <- "All"
-      #sc <- "All"
       
       d <-  bind_rows(obj)
       
       d <- rename(d, "age.band" = "age_cat")
       d <- rename(d, "gender" = "sex")
-      
-      
-      
-      # if (outcome == "Deaths"){
-      #   d <- ds
-      # }else{
-      #   d <- ds
-      # }
       
       sub_pop <- "\n"
       
@@ -4930,10 +4919,7 @@ server <- shinyServer(function(input, output, session){
         # Remove scenario 1
         dn1[['Scenario 1']] <- NULL
         
-        
         nd <- rbind(nd, dn1)
-        
-        
         
         # Rename total cancers
         nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
@@ -4988,8 +4974,6 @@ server <- shinyServer(function(input, output, session){
         env_sum[[wi]] <- d3
       }
     }
-    
-    #d3$cause <- gsub(" ", "\n", d3$cause)
     
     sum_dat <- bind_rows(env_sum)
     
