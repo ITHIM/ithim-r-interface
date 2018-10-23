@@ -4990,8 +4990,8 @@ server <- shinyServer(function(input, output, session){
     
     tds <- sum_dat %>% # the names of the new data frame and the data frame to be summarised
       group_by(name, cause, variable) %>%   # the grouping variable
-      summarise(mean = mean(value),  # calculates the mean of each group
-                sd = sd(value), # calculates the standard deviation of each group
+      summarise(mean = round(mean(value),1),  # calculates the mean of each group
+                sd = round(sd(value),1), # calculates the standard deviation of each group
                 nv = n(),  # calculates the sample size per group
                 SEv = sd(value)/sqrt(n()),
                 ymin = mean - SEv,
