@@ -227,7 +227,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                    || input.accraConditionedPanels == 'Uncertainty'",
                                                                    fluidRow(
                                                                      column(width = 4,
-                                                                            checkboxInput("inAccraCombineCauses", "Combine NCDs", F)
+                                                                            checkboxInput("inAccraCombineCauses", "Combine NCDs", T)
                                                                      ),
                                                                      column(width = 4,
                                                                             checkboxInput("inAccraInjury", "Show Injuries", T)
