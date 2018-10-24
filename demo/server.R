@@ -4861,8 +4861,6 @@ server <- shinyServer(function(input, output, session){
     env_sum <- list()
     # browser()
     
-    # print(input$inAccraEnvSc)
-    
     for (wi in 1:(length(input$inAccraEnvSc))){
       # wi <- 1
       
@@ -5002,6 +5000,15 @@ server <- shinyServer(function(input, output, session){
     
     
     tds$name <- as.factor(tds$name)
+    
+    if (any(tds$name == "now")){
+      browser()
+      scen_names <-  as.character(unique(tds$name))
+      index <- which(scen_names == "now")
+      rest_scen <- scen_names[-index]
+      
+      tds$name  <- factor(tds$name , levels = c("now", rest_scen))
+    }
     
     # tds$name  <- factor(tds$name , levels = c("now",
     #                                           "less_background_AP",
