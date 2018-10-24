@@ -4995,7 +4995,10 @@ server <- shinyServer(function(input, output, session){
                 nv = n(),  # calculates the sample size per group
                 SEv = sd(value)/sqrt(n()),
                 ymin = mean - SEv,
-                ymax = mean + SEv)
+                ymax = mean + SEv,
+                l_interval = round(0.95 * mean, 1),
+                u_interval = round(1.05 * mean, 1)
+              )
     
     
     tds$name <- as.factor(tds$name)
@@ -5019,7 +5022,7 @@ server <- shinyServer(function(input, output, session){
       geom_bar(stat = 'identity', position = "dodge2", color = 'black', alpha = 0.5) +
       scale_fill_manual(values = accra_cols)  +
       labs(title = paste0(title, sub_pop, sep = "\n"), y = paste(outcome, "(value ± s.d.)"), x = "") + 
-      geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd), position = position_dodge2(), colour="black") +
+      geom_errorbar(aes(ymin = l_interval, ymax = u_interval), position = position_dodge2(), colour="black") +
       theme_minimal() 
     
     plotly::ggplotly(fp, tooltip = c("x", "y", "fill", "env_name"))
