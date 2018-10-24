@@ -4995,14 +4995,14 @@ server <- shinyServer(function(input, output, session){
                 ymin = mean - SEv,
                 ymax = mean + SEv,
                 l_interval = round(0.95 * mean, 1),
-                u_interval = round(1.05 * mean, 1)
+                u_interval = round(1.05 * mean, 1),
+                interval = paste(l_interval, u_interval, sep = "-")
               )
     
     
     tds$name <- as.factor(tds$name)
     
     if (any(tds$name == "now")){
-      browser()
       scen_names <-  as.character(unique(tds$name))
       index <- which(scen_names == "now")
       rest_scen <- scen_names[-index]
@@ -5025,14 +5025,15 @@ server <- shinyServer(function(input, output, session){
                           SE = SEv,
                           ymin = SEv - sd,
                           ymax = SEv + sd,
-                          env_name = name)) +
+                          env_name = name,
+                          interval = interval)) +
       geom_bar(stat = 'identity', position = "dodge2", color = 'black', alpha = 0.5) +
       scale_fill_manual(values = accra_cols)  +
       labs(title = paste0(title, sub_pop, sep = "\n"), y = paste(outcome, "(value ± s.d.)"), x = "") + 
       geom_errorbar(aes(ymin = l_interval, ymax = u_interval), position = position_dodge2(), colour="black") +
       theme_minimal() 
     
-    plotly::ggplotly(fp, tooltip = c("x", "y", "fill", "env_name"))
+    plotly::ggplotly(fp, tooltip = c("env_name", "x", "y", "fill", "interval"))
     
     
     
