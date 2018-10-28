@@ -5039,6 +5039,25 @@ server <- shinyServer(function(input, output, session){
     
   })
   
+  output$plotWhatIfScenariosVOI <- renderPlotly({
+    
+    evppi.m <- reshape2::melt(evppi)
+    
+    evppi.m$value <- round(evppi.m$value)
+    evppi.m$rv <- cut(evppi.m$value,breaks=11,dig.lab=2,labels=seq(0, 100, by = 10))
+    
+    
+    p <- ggplot(evppi.m, aes(Var2, Var1, fill = rv)) + # + geom_tile() + coord_flip() +
+      geom_tile() + #colour = "white"
+      scale_fill_brewer() +
+      labs(x = "", y = "", title = "asdasdad")
+    
+    plotly::ggplotly(p, tooltip = c("env_name", "x", "y", "fill", "interval"))
+    
+    
+    
+  })
+  
 
   output$plotInjuries <- renderPlotly({
     
