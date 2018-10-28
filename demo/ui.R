@@ -276,6 +276,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     ),
                                                     tabPanel('Uncertainty',
                                                              plotlyOutput("plotWhatIfScenariosUncertainty", height = "90%")
+                                                    ),
+                                                    tabPanel('VOI',
+                                                             plotlyOutput("plotWhatIfScenariosVOI", height = "90%")
                                                     )
                                                     
                                                     
