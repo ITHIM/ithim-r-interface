@@ -100,6 +100,14 @@ names(accra_pm_conc) <- c("Baseline", paste('Scenario', (1:(ncol(accra_pm_conc) 
 
 accra_health_uncertain <- readr::read_rds("data/accra/health/uncertainty/six_by_five_scenarios_1024.Rds")
 
+evppi <- accra_health_uncertain$uncertain$now$evppi
+
+parameter_names <- c('walk-to-bus time','cycling mMETs','walking mMETs','background PM2.5','traffic PM2.5 share',
+                     'non-travel PA','street safety','non-communicable disease burden','all-cause mortality (PA)','IHD (PA)',
+                     'cancer (PA)','lung cancer (PA)','stroke (PA)','diabetes (PA)','IHD (AP)','lung cancer (AP)',
+                     'COPD (AP)','stroke (AP)')
+labs <- rownames(evppi)
+
 accra_cols <- c("Baseline" = "#e41a1c", 
                 "Scenario 1" = "#377eb8", 
                 "Scenario 2" = "#4daf4a", 
