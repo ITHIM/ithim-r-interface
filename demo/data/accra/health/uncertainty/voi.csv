@@ -1,0 +1,19 @@
+,base,scen2,scen3,scen4,scen5
+walk-to-bus time,0.1,0.1,0.7,0.1,0.6
+cycling mMETs,0.2,0.1,0.1,4,0.3
+walking mMETs,5,3,0.2,0.5,5
+background PM2.5,0.3,0.5,0.2,0.5,0.1
+traffic PM2.5 share,1.8,3.4,0.6,0.2,0.5
+non-travel PA,2.6,1.4,1.4,3.7,3
+traffic injury burden,5,20,60,1,0.2
+NCD burden,1.2,0.2,0.1,4.3,1.9
+RR heart disease (PA),0.2,0.3,0.3,0.7,0.1
+RR other cancer (PA),0.2,0.2,0.1,0.1,0.1
+RR lung cancer (PA),1.3,0.3,0.1,1,1.2
+RR stroke (PA),0.2,0.2,0.1,1.6,0.2
+RR diabetes (PA),0.3,0.2,0.1,0.2,0.2
+RR heart disease (AP),0.7,1.3,1.7,0.1,0
+RR lung cancer (AP),0.2,0.1,0.1,0.1,0.1
+RR COPD (AP),0.1,0.1,0.1,0.2,0.2
+RR stroke (AP),0.1,0.1,0.1,0.1,0
+amount of motorcycling,1,1,40,1,1
