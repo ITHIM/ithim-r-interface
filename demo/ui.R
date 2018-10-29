@@ -171,7 +171,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   HTML("<hr>"),
                                                   
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Uncertainty'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Sensitivity to secular trends'",
                                                                    fluidRow(column(width = 12,
                                                                             checkboxGroupInput("inAccraEnvSc", "What-if Scenarios: ", accra_env_scen, selected = accra_env_scen[1],
                                                                                                inline = T)
@@ -195,7 +195,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && 
                                                                    input.accraConditionedPanels != 'Road Injuries' &&
-                                                                   input.accraConditionedPanels != 'Uncertainty'",
+                                                                   input.accraConditionedPanels != 'Sensitivity to secular trends'",
                                                                    
                                                                    column(width = 4,
                                                                    radioButtons("inAccraAges", "Age: ", accra_ages)
@@ -210,13 +210,13 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health' 
                                                                    || input.accraConditionedPanels == 'Road Injuries'
-                                                                   || input.accraConditionedPanels == 'Uncertainty'",
+                                                                   || input.accraConditionedPanels == 'Sensitivity to secular trends'",
                                                                    
                                                                    column(width = 4,
                                                                     radioButtons("inAccraHealthAges", "Age: ", accra_health_ages)
                                                                    ),
                                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Health'
-                                                                                    || input.accraConditionedPanels == 'Uncertainty'",
+                                                                                    || input.accraConditionedPanels == 'Sensitivity to secular trends'",
                                                                                     column(width = 4,
                                                                                       radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes)
                                                                                     )
@@ -232,7 +232,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'
-                                                                   || input.accraConditionedPanels == 'Uncertainty'",
+                                                                   || input.accraConditionedPanels == 'Sensitivity to secular trends'",
                                                                    fluidRow(
                                                                      column(width = 4,
                                                                             checkboxInput("inAccraCombineCauses", "Combine NCDs", T)
@@ -290,7 +290,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                     tabPanel('Health',
                                                              plotlyOutput("plotScenariosHealthOutcome", height = "90%")
                                                     ),
-                                                    tabPanel('Uncertainty',
+                                                    tabPanel('Sensitivity to secular trends',
                                                              plotlyOutput("plotWhatIfScenariosUncertainty", height = "90%")
                                                     ),
                                                     tabPanel('VOI',
