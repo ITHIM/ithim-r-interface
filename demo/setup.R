@@ -106,7 +106,7 @@ parameter_names <- c('walk-to-bus time','cycling mMETs','walking mMETs','backgro
                      'non-travel PA','street safety','non-communicable disease burden','all-cause mortality (PA)','IHD (PA)',
                      'cancer (PA)','lung cancer (PA)','stroke (PA)','diabetes (PA)','IHD (AP)','lung cancer (AP)',
                      'COPD (AP)','stroke (AP)')
-labs <- rownames(evppi)
+rownames(evppi) <- parameter_names
 
 accra_cols <- c("Baseline" = "#e41a1c", 
                 "Scenario 1" = "#377eb8", 
