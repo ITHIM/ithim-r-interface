@@ -5043,13 +5043,13 @@ server <- shinyServer(function(input, output, session){
     
     evppi.m <- reshape2::melt(evppi)
     
-    evppi.m$value <- round(evppi.m$value)
-    evppi.m$rv <- cut(evppi.m$value,breaks=11,dig.lab=2,labels=seq(0, 100, by = 10))
+    evppi.m$value <- round(evppi.m$value, 1)
+    #evppi.m$rv <- cut(evppi.m$value,breaks=11,dig.lab=2,labels=seq(0, 100, by = 10))
     
     
-    p <- ggplot(evppi.m, aes(Var2, Var1, fill = rv)) + # + geom_tile() + coord_flip() +
+    p <- ggplot(evppi.m, aes(Var2, Var1, fill = value)) + # + geom_tile() + coord_flip() +
       geom_tile() + #colour = "white"
-      scale_fill_brewer() +
+      scale_fill_gradient(low = "white", high = "darkred") +
       labs(x = "", y = "", title = "By how much (%) could we reduce uncertainty in\n the outcome if we knew this parameter perfectly?")
     
     plotly::ggplotly(p, tooltip = c("env_name", "x", "y", "fill", "interval"))
