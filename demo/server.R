@@ -4689,23 +4689,43 @@ server <- shinyServer(function(input, output, session){
   
   get_health_plot <- function(outcome, ac, sc){
     
-    # outcome <- "Deaths"
-    # ac <- "All"
-    # sc <- "All"
-    
-    # lt <- read_csv("data/accra/health/disease_outcomes_lookup.csv")
     title <- "Reduction in Years of Life Lost (YLL) - compared with Ref Scenario 1"
     
-    lt <- arrange(lt, GBD_name)
-    
     if (outcome == "Deaths"){
-      d <- accra_deaths
       title <- "Averted number of Deaths - compared with Ref Scenario 1"
-    }else{
-      d <- accra_ylls
     }
     
     sub_pop <- "\n"
+    
+    lt <- arrange(lt, GBD_name)
+    
+    
+    env_sum <- list()
+    # browser()
+    
+    
+    scen <- 'now'
+    
+    obj <- list()
+    
+    for (i in 1:length(accra_health_uncertain$uncertain[[scen]]$outcomes)){
+      
+      ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$ylls
+      
+      if (outcome == "Deaths")
+        ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$deaths
+      
+      ldat$index <- i
+      
+      obj[[i]] <- ldat
+      
+    }
+    
+    
+    d <-  bind_rows(obj)
+    
+    d <- rename(d, "age.band" = "age_cat")
+    d <- rename(d, "gender" = "sex")
     
     if (ac != "All"){
       d <- filter(d, age.band == ac)
@@ -4717,12 +4737,12 @@ server <- shinyServer(function(input, output, session){
       sub_pop <- paste(sub_pop, 'sex group:', tolower(sc), sep = " ")
     }
     
-    
     nd <- NULL
     # browser()
     for (i in 2:nrow(lt)){
-      dn1 <- select(d, age.band, gender, ends_with(lt$acronym[i])) 
-      names(dn1)[3:ncol(dn1)] <- append('Baseline', paste('Scenario', 1:(ncol(dn1) - 3), sep = ' '))
+      # i <- 2
+      dn1 <- select(d, age.band, gender, index, ends_with(lt$acronym[i])) 
+      names(dn1)[4:ncol(dn1)] <- append('Baseline', paste('Scenario', 2:(ncol(dn1) - 3), sep = ' '))
       dn1$cause <- lt$GBD_name[i]
       
       if (is.null(nd))
@@ -4737,89 +4757,122 @@ server <- shinyServer(function(input, output, session){
     
     if (input$inAccraInjury){
       
-      dn1 <- select(d, age.band, gender, ends_with('inj'))
+      dn1 <- select(d, age.band, gender, index, ends_with('inj'))
       #dn1$base_deaths_inj <- dn1$base_yll_inj <- NULL
-      names(dn1)[3:ncol(dn1)] <- append('Baseline', paste('Scenario', 1:(ncol(dn1) - 3), sep = ' '))
+      names(dn1)[4:ncol(dn1)] <- append('Baseline', paste('Scenario', 2:(ncol(dn1) - 3), sep = ' '))
       dn1$cause <- 'Road Injuries'
       
       # Remove scenario 1
       dn1[['Scenario 1']] <- NULL
       
-      
       nd <- rbind(nd, dn1)
       
+      # Rename total cancers
+      nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
+      
+      bd <- nd
+      
+      nd <- bd
+      
+      nd <- reshape2::melt(nd, id.vars = c("age.band", "gender", "cause", "index"))
+      
+      nd$cause <- factor(nd$cause, levels = unique(bd$cause))
+      nd <- nd[order(nd$cause),]
+      
+      # # Combine all cancers together
+      # 
+      # # Remove cancers from the master table
+      # cc <- nd %>% filter(str_detect(cause, "cancer$"))
+      # nd <- filter(nd,! cause %in% cc$cause)
+      
+      nd$value[nd$cause == "Total Cancers"] <- nd$value[nd$cause == "Total Cancers"] - 
+        nd$value[nd$cause == "Tracheal, bronchus, and lung cancer"]
+      
+      nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
+      
+      bd <- nd
+      
+      
+      if (input$inAccraCombineCauses){
+        nd1 <- filter(nd, cause == 'Road Injuries')
+        d1 <- filter(nd, cause != 'Road Injuries') %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
+        d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Combined NCDs", value = sum(value)) %>% as.data.frame()
+        nd2 <- d2[c(3,1,4,2)]
+        
+        
+        d1 <- nd1 %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
+        d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = 'Road Injuries', value = sum(value)) %>% as.data.frame()
+        d2 <- d2[c(3, 1, 4, 2)]
+        
+        nd <- NULL
+        nd <- rbind(nd2, d2)
+        
+      }
+      
+      d1 <- nd %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
+      d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Total", value = sum(value)) %>% as.data.frame()
+      d2 <- d2[c(3, 1, 4, 2)]
+      d3 <- rbind(d1, d2)
+      
+      d3$name <- scen
+      
+      
+      env_sum[[1]] <- d3
     }
     
-    # Rename total cancers
-    nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
-    
-    bd <- nd
-    
-    nd <- reshape2::melt(nd)
-    
-    nd$cause <- factor(nd$cause, levels = unique(bd$cause))
-    nd <- nd[order(nd$cause),]
-    
-    # # Combine all cancers together
-    # 
-    # # Remove cancers from the master table
-    # cc <- nd %>% filter(str_detect(cause, "cancer$"))
-    # nd <- filter(nd,! cause %in% cc$cause)
-    
-    nd$value[nd$cause == "Total Cancers"] <- nd$value[nd$cause == "Total Cancers"] - 
-      nd$value[nd$cause == "Tracheal, bronchus, and lung cancer"]
-    
-    nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
-    
-    bd <- nd
+    sum_dat <- bind_rows(env_sum)
     
     
-    if (input$inAccraCombineCauses){
-      nd1 <- filter(nd, cause == 'Road Injuries')
-      d1 <- filter(nd, cause != 'Road Injuries') %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-      d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "Combined NCDs", value = sum(value)) %>% as.data.frame()
-      nd2 <- d2[c(2,1,3)]
+    tds <- sum_dat %>% # the names of the new data frame and the data frame to be summarised
+      group_by(name, cause, variable) %>%   # the grouping variable
+      summarise(mean = round(mean(value),1),  # calculates the mean of each group
+                sd = round(sd(value),1), # calculates the standard deviation of each group
+                nv = n(),  # calculates the sample size per group
+                SEv = sd(value)/sqrt(n()),
+                ymin = mean - SEv,
+                ymax = mean + SEv,
+                l_interval = round(0.95 * mean, 1),
+                u_interval = round(1.05 * mean, 1),
+                interval = paste(l_interval, u_interval, sep = "-")
+      )
+    
+    
+    tds$name <- as.factor(tds$name)
+    
+    if (any(tds$name == "now")){
+      scen_names <-  as.character(unique(tds$name))
+      index <- which(scen_names == "now")
+      rest_scen <- scen_names[-index]
       
-      d1 <- nd1 %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-      d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = 'Road Injuries', value = sum(value)) %>% as.data.frame()
-      d2 <- d2[c(2,1,3)]
-      
-      nd <- NULL
-      nd <- rbind(nd2, d2)
-      
+      tds$name  <- factor(tds$name , levels = c("now", rest_scen))
     }
     
-    d1 <- nd %>% group_by(cause, variable) %>% summarise(value = sum(value)) %>% as.data.frame()
-    d2 <- data.frame(d1) %>% group_by(variable) %>% summarise(cause = "Total", value = sum(value)) %>% as.data.frame()
-    d2 <- d2[c(2,1,3)]
-    d3 <- rbind(d1, d2)
+    # tds$name  <- factor(tds$name , levels = c("now",
+    #                                           "less_background_AP",
+    #                                           "less_background_PA",
+    #                                           "more_chronic_disease",
+    #                                           "safer"))
     
-    #Replace space with line break
-    #d3$cause <- gsub(" ", "\n", d3$cause)
+    tds <- arrange(tds, cause, variable, name)
     
-    
-    
-    d3$cause <- factor(d3$cause, levels = unique(d3$cause))
-    d3 <- d3[order(d3$cause),]
+    tds$int <- interaction(tds$name, tds$cause, tds$variable)
     
     
-    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- d3
-    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0(tolower(outcome), '-burden')
-    
-    p <- ggplot(data = d3, aes(x = cause, y = value,
-                               fill = variable)) +
-      geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
+    fp <- ggplot(tds, aes(x = cause, y = mean, fill = variable, group = int, 
+                          SE = SEv,
+                          ymin = SEv - sd,
+                          ymax = SEv + sd,
+                          env_name = name,
+                          interval = interval)) +
+      geom_bar(stat = 'identity', position = "dodge2", color = 'black', alpha = 0.5) +
       scale_fill_manual(values = accra_cols)  +
-      guides(fill = guide_legend(override.aes = list(colour = NULL))) +
-      guides(colour = FALSE) +
-      ylim(-1 * (max(abs(d3$value)) + 5), max(abs(d3$value)) + 5) + 
-      theme_minimal() + 
-      theme(axis.text.x=element_text(size = rel(0.8)))
+      labs(title = paste0(title, sub_pop, sep = "\n"), y = paste('<- Harms     Benefits ->'), x = "") + 
+      theme_minimal() 
     
-    p <- p + labs(title = paste0(title, sub_pop, sep = "\n")) + xlab("") + ylab('<- Harms     Benefits ->') 
+    if (input$inAccraErrorBars == "1")
+      fp <- fp + geom_errorbar(aes(ymin = l_interval, ymax = u_interval), position = position_dodge2(), colour="black")
     
-    plotly::ggplotly(p)
-    
+    plotly::ggplotly(fp, tooltip = c("env_name", "x", "y", "fill", "interval"))
     
   }
   
