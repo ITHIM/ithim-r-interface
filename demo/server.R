@@ -5050,7 +5050,7 @@ server <- shinyServer(function(input, output, session){
     p <- ggplot(evppi.m, aes(Var2, Var1, fill = rv)) + # + geom_tile() + coord_flip() +
       geom_tile() + #colour = "white"
       scale_fill_brewer() +
-      labs(x = "", y = "", title = "asdasdad")
+      labs(x = "", y = "", title = "By how much (%) could we reduce uncertainty in\n the outcome if we knew this parameter perfectly?")
     
     plotly::ggplotly(p, tooltip = c("env_name", "x", "y", "fill", "interval"))
     
