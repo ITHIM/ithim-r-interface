@@ -178,6 +178,9 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                      )
                                                   ),
                                                   
+                                                  
+                                                  conditionalPanel(condition = "input.accraConditionedPanels != 'VOI'"
+                                                                   ,
                                                   fluidRow(
                                                     column(width = 4,
                                                       radioButtons("inAccraPop", "Gender: ", accra_population)
@@ -218,6 +221,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                                     
                                                                                     
                                                                    )
+                                                  )
+                                                  
                                                   )
                                                   
                                                   ),
