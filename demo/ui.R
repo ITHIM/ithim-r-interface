@@ -29,6 +29,8 @@ accra_env_scen <- c('Now' = "now",
                     "Less background air pollution" = "less_background_AP",
                     "Less non-transport physical activity" =  "less_background_PA" )
 
+accra_error_bars <- c("On" = 1,
+                      "Off" = 0)
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
@@ -169,14 +171,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                   HTML("<hr>"),
                                                   
                                                   
-                                                  fluidRow(
-                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Uncertainty'",
-                                                                     column(width = 12,
-                                                                            checkboxGroupInput("inAccraEnvSc", "Env Scenarios: ", accra_env_scen, selected = accra_env_scen[1],
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Uncertainty'",
+                                                                   fluidRow(column(width = 12,
+                                                                            checkboxGroupInput("inAccraEnvSc", "What-if Scenarios: ", accra_env_scen, selected = accra_env_scen[1],
                                                                                                inline = T)
-                                                                     ),
-                                                                     HTML("<hr>")
                                                                      )
+                                                                     
+                                                                     ),
+                                                                   HTML("<hr>")
                                                   ),
                                                   
                                                   
@@ -238,6 +240,14 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                                      column(width = 4,
                                                                             checkboxInput("inAccraInjury", "Show Injuries", T)
                                                                      )
+                                                                   )
+                                                  ),
+                                                  
+                                                  
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Health'",
+                                                                   fluidRow(column(width = 12,
+                                                                                   radioButtons("inAccraErrorBars", "Error bars: ", accra_error_bars, selected = accra_error_bars[1])
+                                                                   )
                                                                    )
                                                   ),
                                                   
