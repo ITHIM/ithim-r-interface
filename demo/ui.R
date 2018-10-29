@@ -24,10 +24,11 @@ accra_health_outcomes <- c("Deaths", "YLLs")
 accra_trip_types <- c("Trips", "Distance", "Duration")
 
 accra_env_scen <- c('Now' = "now",
-                    "Safer" = "safer",
-                    "More chronic disease" = "more_chronic_disease",
-                    "Less background AP" = "less_background_AP",
-                    "Less background PA"= "less_background_PA" )
+                    "Safer streets" = "safer",
+                    "Higher non-communicable disease burden" = "more_chronic_disease",
+                    "Less background air pollution" = "less_background_AP",
+                    "Less non-transport physical activity" =  "less_background_PA" )
+
 
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
