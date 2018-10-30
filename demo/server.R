@@ -4767,58 +4767,59 @@ server <- shinyServer(function(input, output, session){
       
       nd <- rbind(nd, dn1)
       
-      # Rename total cancers
-      nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
-      
-      bd <- nd
-      
-      nd <- bd
-      
-      nd <- reshape2::melt(nd, id.vars = c("age.band", "gender", "cause", "index"))
-      
-      nd$cause <- factor(nd$cause, levels = unique(bd$cause))
-      nd <- nd[order(nd$cause),]
-      
-      # # Combine all cancers together
-      # 
-      # # Remove cancers from the master table
-      # cc <- nd %>% filter(str_detect(cause, "cancer$"))
-      # nd <- filter(nd,! cause %in% cc$cause)
-      
-      nd$value[nd$cause == "Total Cancers"] <- nd$value[nd$cause == "Total Cancers"] - 
-        nd$value[nd$cause == "Tracheal, bronchus, and lung cancer"]
-      
-      nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
-      
-      bd <- nd
-      
-      
-      if (input$inAccraCombineCauses){
-        nd1 <- filter(nd, cause == 'Road Injuries')
-        d1 <- filter(nd, cause != 'Road Injuries') %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
-        d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Combined NCDs", value = sum(value)) %>% as.data.frame()
-        nd2 <- d2[c(3,1,4,2)]
-        
-        
-        d1 <- nd1 %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
-        d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = 'Road Injuries', value = sum(value)) %>% as.data.frame()
-        d2 <- d2[c(3, 1, 4, 2)]
-        
-        nd <- NULL
-        nd <- rbind(nd2, d2)
-        
-      }
-      
-      d1 <- nd %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
-      d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Total", value = sum(value)) %>% as.data.frame()
-      d2 <- d2[c(3, 1, 4, 2)]
-      d3 <- rbind(d1, d2)
-      
-      d3$name <- scen
-      
-      
-      env_sum[[1]] <- d3
     }
+    
+    # Rename total cancers
+    nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
+    
+    bd <- nd
+    
+    nd <- bd
+    
+    nd <- reshape2::melt(nd, id.vars = c("age.band", "gender", "cause", "index"))
+    
+    nd$cause <- factor(nd$cause, levels = unique(bd$cause))
+    nd <- nd[order(nd$cause),]
+    
+    # # Combine all cancers together
+    # 
+    # # Remove cancers from the master table
+    # cc <- nd %>% filter(str_detect(cause, "cancer$"))
+    # nd <- filter(nd,! cause %in% cc$cause)
+    
+    nd$value[nd$cause == "Total Cancers"] <- nd$value[nd$cause == "Total Cancers"] - 
+      nd$value[nd$cause == "Tracheal, bronchus, and lung cancer"]
+    
+    nd <- filter(nd, cause != "Tracheal, bronchus, and lung cancer")
+    
+    bd <- nd
+    
+    
+    if (input$inAccraCombineCauses){
+      nd1 <- filter(nd, cause == 'Road Injuries')
+      d1 <- filter(nd, cause != 'Road Injuries') %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
+      d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Combined NCDs", value = sum(value)) %>% as.data.frame()
+      nd2 <- d2[c(3,1,4,2)]
+      
+      
+      d1 <- nd1 %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
+      d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = 'Road Injuries', value = sum(value)) %>% as.data.frame()
+      d2 <- d2[c(3, 1, 4, 2)]
+      
+      nd <- NULL
+      nd <- rbind(nd2, d2)
+      
+    }
+    
+    d1 <- nd %>% group_by(cause, variable, index) %>% summarise(value = sum(value)) %>% as.data.frame()
+    d2 <- data.frame(d1) %>% group_by(variable, index) %>% summarise(cause = "Total", value = sum(value)) %>% as.data.frame()
+    d2 <- d2[c(3, 1, 4, 2)]
+    d3 <- rbind(d1, d2)
+    
+    d3$name <- scen
+    
+    
+    env_sum[[1]] <- d3
     
     sum_dat <- bind_rows(env_sum)
     
