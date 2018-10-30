@@ -109,6 +109,7 @@ parameter_names <- c('walk-to-bus time','cycling mMETs','walking mMETs','backgro
 rownames(evppi) <- parameter_names
 
 voi <- read_csv("data/accra/health/uncertainty/voi.csv")
+voi[,2:ncol(voi)] <- round(voi[,2:ncol(voi)],1)
 voi <- rename(voi, var = X1)
 
 accra_cols <- c("Baseline" = "#e41a1c", 
