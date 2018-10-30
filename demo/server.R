@@ -4857,7 +4857,9 @@ server <- shinyServer(function(input, output, session){
     
     tds$int <- interaction(tds$name, tds$cause, tds$variable)
     
-    
+    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- tds
+    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste('health-burden',tolower(outcome), 
+                                                                                  tolower(ac),tolower(sc), sep = "-")
     fp <- ggplot(tds, aes(x = cause, y = mean, fill = variable, group = int, 
                           SE = SEv,
                           ymin = SEv - sd,
