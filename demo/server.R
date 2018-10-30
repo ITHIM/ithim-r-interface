@@ -5098,9 +5098,8 @@ server <- shinyServer(function(input, output, session){
     evppi.m <- rename(evppi.m, scenario = variable)
     evppi.m <- rename(evppi.m, variable = var)
     
-    evppi.m$value <- round(evppi.m$value, 1)
+    # evppi.m$value <- round(evppi.m$value, 1)
     #evppi.m$rv <- cut(evppi.m$value,breaks=11,dig.lab=2,labels=seq(0, 100, by = 10))
-    
     
     p <- ggplot(evppi.m, aes(scenario, variable, fill = value)) + # + geom_tile() + coord_flip() +
       geom_tile() + #colour = "white"
