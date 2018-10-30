@@ -5038,7 +5038,6 @@ server <- shinyServer(function(input, output, session){
     
     sum_dat <- bind_rows(env_sum)
     
-    
     tds <- sum_dat %>% # the names of the new data frame and the data frame to be summarised
       group_by(name, cause, variable) %>%   # the grouping variable
       summarise(mean = round(mean(value),1),  # calculates the mean of each group
@@ -5073,7 +5072,6 @@ server <- shinyServer(function(input, output, session){
     
     tds$int <- interaction(tds$name, tds$cause, tds$variable)
     
-    
     fp <- ggplot(tds, aes(x = cause, y = mean, fill = variable, group = int, 
                           SE = SEv,
                           ymin = SEv - sd,
@@ -5093,6 +5091,9 @@ server <- shinyServer(function(input, output, session){
   })
   
   output$plotWhatIfScenariosVOI <- renderPlotly({
+    
+    to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- voi
+    to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'voi'
     
     evppi.m <- reshape2::melt(voi)
     evppi.m <- rename(evppi.m, scenario = variable)
