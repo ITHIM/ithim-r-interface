@@ -4985,6 +4985,8 @@ server <- shinyServer(function(input, output, session){
         
         nd <- rbind(nd, dn1)
         
+      }
+        
         # Rename total cancers
         nd$cause[nd$cause == "Neoplasms"] <- 'Total Cancers'
         
@@ -5036,7 +5038,6 @@ server <- shinyServer(function(input, output, session){
         
         
         env_sum[[wi]] <- d3
-      }
     }
     
     sum_dat <- bind_rows(env_sum)
