@@ -5115,7 +5115,11 @@ server <- shinyServer(function(input, output, session){
       scale_fill_gradient(low = "white", high = "darkred") +
       labs(x = "", y = "", title = "By how much (%) could we reduce uncertainty in\n the outcome if we knew this parameter perfectly?")
     
-    plotly::ggplotly(p, tooltip = c("env_name", "x", "y", "fill", "interval"))
+    l <- plotly_build(p)
+    l$layout$margin$b <- l$layout$margin$b + 30
+    l
+    
+    #plotly::ggplotly(p, tooltip = c("env_name", "x", "y", "fill", "interval"))
     
     
   })
