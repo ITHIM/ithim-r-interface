@@ -4832,8 +4832,8 @@ server <- shinyServer(function(input, output, session){
                 SEv = sd(value)/sqrt(n()),
                 ymin = mean - SEv,
                 ymax = mean + SEv,
-                l_interval = quantile(value,0.025),##RJ round(0.95 * mean, 1),
-                u_interval = quantile(value,0.975),##RJ round(1.05 * mean, 1),
+                l_interval = round(quantile(value,0.025), 1),
+                u_interval = round(quantile(value,0.975), 1),
                 interval = paste(l_interval, u_interval, sep = "-")
       )
     
@@ -5050,8 +5050,8 @@ server <- shinyServer(function(input, output, session){
                 SEv = sd(value)/sqrt(n()),
                 ymin = mean - SEv,
                 ymax = mean + SEv,
-                l_interval = quantile(value,0.025),##RJ round(0.95 * mean, 1),
-                u_interval = quantile(value,0.975),##RJ round(1.05 * mean, 1),
+                l_interval = round(quantile(value,0.025), 1),
+                u_interval = round(quantile(value,0.975), 1),
                 interval = paste(l_interval, u_interval, sep = "-")
               )
     
