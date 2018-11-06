@@ -5100,7 +5100,7 @@ server <- shinyServer(function(input, output, session){
                           interval = interval)) +
       geom_bar(stat = 'identity', position = "dodge2", color = 'black', alpha = 0.5) +
       scale_fill_manual(values = accra_cols)  +
-      labs(title = paste0(title, sub_pop, sep = "\n"), y = paste(outcome, "(value ± (5%))"), x = "") + 
+      labs(title = paste0(title, sub_pop, sep = "\n"), y = paste('<- Harms     Benefits ->'), x = "") + 
       geom_errorbar(aes(ymin = l_interval, ymax = u_interval), position = position_dodge2(), colour="black") +
       theme_minimal() 
     
