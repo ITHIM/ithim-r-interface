@@ -4724,8 +4724,10 @@ server <- shinyServer(function(input, output, session){
     
     d <-  bind_rows(obj)
     
-    d <- rename(d, "age.band" = "age_cat")
-    d <- rename(d, "gender" = "sex")
+    d <- plyr::rename(d, c("age_cat" = "age.band"))
+    # d <- rename(d, "age.band" = "age_cat")
+    d <- plyr::rename(d, c("sex" = "gender"))
+    # d <- rename(d, "gender" = "sex")
     
     if (ac != "All"){
       d <- filter(d, age.band == ac)
@@ -4950,8 +4952,12 @@ server <- shinyServer(function(input, output, session){
       
       d <-  bind_rows(obj)
       
-      d <- rename(d, "age.band" = "age_cat")
-      d <- rename(d, "gender" = "sex")
+      
+      d <- plyr::rename(d, c("age_cat" = "age.band"))
+      # d <- rename(d, "age.band" = "age_cat")
+      d <- plyr::rename(d, c("sex" = "gender"))
+      # d <- rename(d, "gender" = "sex")
+      
       
       if (ac != "All"){
         d <- filter(d, age.band == ac)
@@ -5110,8 +5116,12 @@ server <- shinyServer(function(input, output, session){
     to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'voi'
     
     evppi.m <- reshape2::melt(voi)
-    evppi.m <- rename(evppi.m, scenario = variable)
-    evppi.m <- rename(evppi.m, variable = var)
+    
+    evppi.m <- plyr::rename(evppi.m, c("variable" = "scenario"))
+    # evppi.m <- rename(evppi.m, scenario = variable)
+    evppi.m <- plyr::rename(evppi.m, c("var" = "variable"))
+    # evppi.m <- rename(evppi.m, variable = var)
+    
     
     # evppi.m$value <- round(evppi.m$value, 1)
     #evppi.m$rv <- cut(evppi.m$value,breaks=11,dig.lab=2,labels=seq(0, 100, by = 10))
