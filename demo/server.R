@@ -4834,7 +4834,7 @@ server <- shinyServer(function(input, output, session){
                 ymax = mean + SEv,
                 l_interval = round(quantile(value,0.025), 1),
                 u_interval = round(quantile(value,0.975), 1),
-                interval = paste(l_interval, u_interval, sep = "-")
+                interval = paste(l_interval, u_interval, sep = " - ")
       )
     
     
@@ -5052,7 +5052,7 @@ server <- shinyServer(function(input, output, session){
                 ymax = mean + SEv,
                 l_interval = round(quantile(value,0.025), 1),
                 u_interval = round(quantile(value,0.975), 1),
-                interval = paste(l_interval, u_interval, sep = "-")
+                interval = paste(l_interval, u_interval, sep = " - ")
               )
     
     
