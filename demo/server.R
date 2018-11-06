@@ -4917,6 +4917,14 @@ server <- shinyServer(function(input, output, session){
     env_sum <- list()
     # browser()
     
+    if (ac != "All"){
+      sub_pop <- paste(sub_pop, 'age group:', ac, sep = " ")
+    }
+    
+    if (sc != "All"){
+      sub_pop <- paste(sub_pop, 'sex group:', tolower(sc), sep = " ")
+    }
+    
     for (wi in 1:(length(input$inAccraEnvSc))){
       # wi <- 1
       
@@ -4947,12 +4955,10 @@ server <- shinyServer(function(input, output, session){
       
       if (ac != "All"){
         d <- filter(d, age.band == ac)
-        sub_pop <- paste(sub_pop, 'age group:', ac, sep = " ")
       }
       
       if (sc != "All"){
         d <- filter(d, gender == sc)
-        sub_pop <- paste(sub_pop, 'sex group:', tolower(sc), sep = " ")
       }
       
       nd <- NULL
