@@ -14,12 +14,7 @@ accra_health_ages <- append('All', accra_health_age_cat)
 
 accra_travel_modes <- append('All', accra_modes)
 
-accra_scenarios <- c('scen1' = '50% Walk trips to Car',
-                     'scen2' = '<= 7k long Car trips to bike',
-                     'scen3' = 'Long Car trips to Bus')
-
 accra_health_outcomes <- c("Deaths", "YLLs")
-
 
 accra_trip_types <- c("Trips", "Distance", "Duration")
 
@@ -131,11 +126,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra",
                                                 sidebarPanel(
-                                                  #radioButtons(inputId = "inAccraScenario", label = "Scenario:", 
-                                                  #             accra_scenarios),
-                                                  #HTML("<hr>"),
-                                                  
-                                                  tags$div(
+                                                                                                    tags$div(
                                                     tags$h4(
                                                       tags$b(HTML("<font color='red'>Prototype</font>"))
                                                     )
