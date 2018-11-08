@@ -4877,6 +4877,9 @@ server <- shinyServer(function(input, output, session){
     if (input$inAccraErrorBars == "1")
       fp <- fp + geom_errorbar(aes(ymin = l_interval, ymax = u_interval), position = position_dodge2(), colour="black")
     
+    if (!input$inAccraCombineCauses)
+      fp <- fp + theme(axis.text.x = element_text(angle = 90, hjust = 1, size = rel(0.8)))
+    
     plotly::ggplotly(fp, tooltip = c("env_name", "x", "y", "fill", "interval"))
     
   }
@@ -5103,6 +5106,9 @@ server <- shinyServer(function(input, output, session){
       labs(title = paste0(title, sub_pop, sep = "\n"), y = paste('<- Harms     Benefits ->'), x = "") + 
       geom_errorbar(aes(ymin = l_interval, ymax = u_interval), position = position_dodge2(), colour="black") +
       theme_minimal() 
+    
+    if (!input$inAccraCombineCauses)
+      fp <- fp + theme(axis.text.x = element_text(angle = 90, hjust = 1, size = rel(0.8)))
     
     plotly::ggplotly(fp, tooltip = c("env_name", "x", "y", "fill", "interval"))
     
