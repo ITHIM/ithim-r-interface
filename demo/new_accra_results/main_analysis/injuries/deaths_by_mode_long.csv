@@ -1,0 +1,145 @@
+"age_cat","sex","scenario","variable","value"
+"15-49","female","Baseline","bicycle",0.0849318503767374
+"15-49","female","Baseline","bus",1.44431213960726
+"15-49","female","Baseline","car",4.09878615670567
+"15-49","female","Baseline","motorcycle",4.86347572529672
+"15-49","female","Baseline","pedestrian",33.755600556991
+"15-49","female","Baseline","total",44.2471064289774
+"15-49","female","Scenario 1","bicycle",0.141406709718443
+"15-49","female","Scenario 1","bus",0.174957454667025
+"15-49","female","Scenario 1","car",12.198024322631
+"15-49","female","Scenario 1","motorcycle",7.20370334300597
+"15-49","female","Scenario 1","pedestrian",49.562927735806
+"15-49","female","Scenario 1","total",69.2810195658285
+"15-49","female","Scenario 2","bicycle",0.0632501613072667
+"15-49","female","Scenario 2","bus",1.63242830310387
+"15-49","female","Scenario 2","car",1.77826633264032
+"15-49","female","Scenario 2","motorcycle",3.93472633018374
+"15-49","female","Scenario 2","pedestrian",23.8658868273466
+"15-49","female","Scenario 2","total",31.2745579545818
+"15-49","female","Scenario 3","bicycle",0.136137830002035
+"15-49","female","Scenario 3","bus",0.169280861453448
+"15-49","female","Scenario 3","car",11.1162978339941
+"15-49","female","Scenario 3","motorcycle",31.092886274623
+"15-49","female","Scenario 3","pedestrian",48.726573909632
+"15-49","female","Scenario 3","total",91.2411767097045
+"15-49","female","Scenario 4","bicycle",11.7854477901097
+"15-49","female","Scenario 4","bus",0.18244655087222
+"15-49","female","Scenario 4","car",11.9201431368391
+"15-49","female","Scenario 4","motorcycle",6.78258688344483
+"15-49","female","Scenario 4","pedestrian",49.1652908037052
+"15-49","female","Scenario 4","total",79.8359151649711
+"15-49","female","Scenario 5","bicycle",0.138827878523307
+"15-49","female","Scenario 5","bus",0.174014998537191
+"15-49","female","Scenario 5","car",11.8399964830095
+"15-49","female","Scenario 5","motorcycle",7.10472574961671
+"15-49","female","Scenario 5","pedestrian",55.2856770103489
+"15-49","female","Scenario 5","total",74.5432421200356
+"15-49","male","Baseline","bicycle",15.3945202767347
+"15-49","male","Baseline","bus",6.46871310668837
+"15-49","male","Baseline","car",26.3667844865743
+"15-49","male","Baseline","motorcycle",30.5304764149887
+"15-49","male","Baseline","pedestrian",132.226638289072
+"15-49","male","Baseline","total",210.987132574058
+"15-49","male","Scenario 1","bicycle",25.631002390396
+"15-49","male","Scenario 1","bus",0.718909338476419
+"15-49","male","Scenario 1","car",61.5348471595492
+"15-49","male","Scenario 1","motorcycle",44.9757542574189
+"15-49","male","Scenario 1","pedestrian",192.524767144274
+"15-49","male","Scenario 1","total",325.385280290115
+"15-49","male","Scenario 2","bicycle",11.4645552455567
+"15-49","male","Scenario 2","bus",8.30616240745476
+"15-49","male","Scenario 2","car",6.67219737841457
+"15-49","male","Scenario 2","motorcycle",24.7976823239898
+"15-49","male","Scenario 2","pedestrian",94.9333220465463
+"15-49","male","Scenario 2","total",146.173919401962
+"15-49","male","Scenario 3","bicycle",24.675979330494
+"15-49","male","Scenario 3","bus",0.696731837085977
+"15-49","male","Scenario 3","car",55.0328001087368
+"15-49","male","Scenario 3","motorcycle",163.420705654379
+"15-49","male","Scenario 3","pedestrian",189.276477763001
+"15-49","male","Scenario 3","total",433.102694693696
+"15-49","male","Scenario 4","bicycle",65.3519751225069
+"15-49","male","Scenario 4","bus",0.748167986270071
+"15-49","male","Scenario 4","car",60.6911798213025
+"15-49","male","Scenario 4","motorcycle",38.4197405719557
+"15-49","male","Scenario 4","pedestrian",190.980397065819
+"15-49","male","Scenario 4","total",356.191460567854
+"15-49","male","Scenario 5","bicycle",25.1635703381364
+"15-49","male","Scenario 5","bus",0.715227319817793
+"15-49","male","Scenario 5","car",60.3720203441901
+"15-49","male","Scenario 5","motorcycle",44.3648056360698
+"15-49","male","Scenario 5","pedestrian",210.951500003361
+"15-49","male","Scenario 5","total",341.567123641575
+"50-69","female","Baseline","bicycle",0
+"50-69","female","Baseline","bus",0.32592260737776
+"50-69","female","Baseline","car",0.992051426755595
+"50-69","female","Baseline","motorcycle",0.690987812321347
+"50-69","female","Baseline","pedestrian",7.03160299144873
+"50-69","female","Baseline","total",9.04056483790344
+"50-69","female","Scenario 1","bicycle",0
+"50-69","female","Scenario 1","bus",0.0541917803525293
+"50-69","female","Scenario 1","car",2.46369925240012
+"50-69","female","Scenario 1","motorcycle",1.06944470014632
+"50-69","female","Scenario 1","pedestrian",9.86177990818477
+"50-69","female","Scenario 1","total",13.4491156410838
+"50-69","female","Scenario 2","bicycle",0
+"50-69","female","Scenario 2","bus",0.377152812896361
+"50-69","female","Scenario 2","car",0.224258614985092
+"50-69","female","Scenario 2","motorcycle",0.540792334332821
+"50-69","female","Scenario 2","pedestrian",5.22116886977066
+"50-69","female","Scenario 2","total",6.36337263198494
+"50-69","female","Scenario 3","bicycle",0
+"50-69","female","Scenario 3","bus",0.0514013520140848
+"50-69","female","Scenario 3","car",2.44194902144932
+"50-69","female","Scenario 3","motorcycle",9.68212799304828
+"50-69","female","Scenario 3","pedestrian",9.69518830373106
+"50-69","female","Scenario 3","total",21.8706666702427
+"50-69","female","Scenario 4","bicycle",2.54355347696527
+"50-69","female","Scenario 4","bus",0.0578731761288434
+"50-69","female","Scenario 4","car",2.42730881190968
+"50-69","female","Scenario 4","motorcycle",0.98788503841452
+"50-69","female","Scenario 4","pedestrian",9.78257542267205
+"50-69","female","Scenario 4","total",15.7991959260904
+"50-69","female","Scenario 5","bicycle",0
+"50-69","female","Scenario 5","bus",0.0537284996146848
+"50-69","female","Scenario 5","car",2.44519519552483
+"50-69","female","Scenario 5","motorcycle",1.05343824347731
+"50-69","female","Scenario 5","pedestrian",11.0407970804794
+"50-69","female","Scenario 5","total",14.5931590190962
+"50-69","male","Baseline","bicycle",0
+"50-69","male","Baseline","bus",1.21310702465808
+"50-69","male","Baseline","car",5.52867933361972
+"50-69","male","Baseline","motorcycle",5.69588200791564
+"50-69","male","Baseline","pedestrian",32.3286239496607
+"50-69","male","Baseline","total",44.7662923158541
+"50-69","male","Scenario 1","bicycle",0
+"50-69","male","Scenario 1","bus",0.13314733204896
+"50-69","male","Scenario 1","car",10.8577130169849
+"50-69","male","Scenario 1","motorcycle",8.80471104630784
+"50-69","male","Scenario 1","pedestrian",45.0832291784412
+"50-69","male","Scenario 1","total",64.8788005737829
+"50-69","male","Scenario 2","bicycle",0
+"50-69","male","Scenario 2","bus",1.57452776980083
+"50-69","male","Scenario 2","car",1.34805170935478
+"50-69","male","Scenario 2","motorcycle",4.46210326474248
+"50-69","male","Scenario 2","pedestrian",23.5622014469889
+"50-69","male","Scenario 2","total",30.946884190887
+"50-69","male","Scenario 3","bicycle",0
+"50-69","male","Scenario 3","bus",0.126391277378871
+"50-69","male","Scenario 3","car",10.632926621393
+"50-69","male","Scenario 3","motorcycle",46.1866856924861
+"50-69","male","Scenario 3","pedestrian",44.3216744741968
+"50-69","male","Scenario 3","total",101.267678065455
+"50-69","male","Scenario 4","bicycle",16.5332710003323
+"50-69","male","Scenario 4","bus",0.142060555436335
+"50-69","male","Scenario 4","car",10.6527335585293
+"50-69","male","Scenario 4","motorcycle",7.55137011114593
+"50-69","male","Scenario 4","pedestrian",44.7211548185881
+"50-69","male","Scenario 4","total",79.600590044032
+"50-69","male","Scenario 5","bicycle",0
+"50-69","male","Scenario 5","bus",0.132025658379956
+"50-69","male","Scenario 5","car",10.676609591216
+"50-69","male","Scenario 5","motorcycle",8.67322622228895
+"50-69","male","Scenario 5","pedestrian",53.1616276511023
+"50-69","male","Scenario 5","total",72.6434891229871
