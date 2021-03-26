@@ -4703,24 +4703,22 @@ server <- shinyServer(function(input, output, session){
     env_sum <- list()
     # browser()
     
-    
     scen <- 'now'
     
     obj <- list()
     
-    for (i in 1:length(accra_health_uncertain$uncertain[[scen]]$outcomes)){
+    for (i in 1:length(accra_health_uncertain[[scen]]$outcomes)){
       
-      ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$ylls
+      ldat <- accra_health_uncertain[[scen]]$outcomes[[i]]$ylls
       
       if (outcome == "Deaths")
-        ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$deaths
+        ldat <- accra_health_uncertain[[scen]]$outcomes[[i]]$deaths
       
       ldat$index <- i
       
       obj[[i]] <- ldat
       
     }
-    
     
     d <-  bind_rows(obj)
     
@@ -4735,7 +4733,7 @@ server <- shinyServer(function(input, output, session){
     }
     
     if (sc != "All"){
-      d <- filter(d, gender == sc)
+      d <- filter(d, gender == tolower(sc))
       sub_pop <- paste(sub_pop, 'sex group:', tolower(sc), sep = " ")
     }
     
@@ -4932,34 +4930,32 @@ server <- shinyServer(function(input, output, session){
     
     for (wi in 1:(length(input$inAccraEnvSc))){
       # wi <- 1
-      
-      # scen <- names(accra_health_uncertain$not_uncertain)[wi]
+      # 
+      # scen <- names(accra_health_uncertain)[wi]
       
       scen <- input$inAccraEnvSc[wi]
       
       obj <- list()
       
-      for (i in 1:length(accra_health_uncertain$uncertain[[scen]]$outcomes)){
-        
-        ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$ylls
+      for (i in 1:length(accra_health_uncertain[[scen]]$outcomes)){
+        i <- 1
+        ldat <- accra_health_uncertain[[scen]]$outcomes[[i]]$ylls
         
         if (outcome == "Deaths")
-          ldat <- accra_health_uncertain$uncertain[[scen]]$outcomes[[i]]$hb$deaths
+          ldat <- accra_health_uncertain[[scen]]$outcomes[[i]]$deaths
         
         ldat$index <- i
         
         obj[[i]] <- ldat
         
       }
-   
       
       d <-  bind_rows(obj)
       
       
-      d <- plyr::rename(d, c("age_cat" = "age.band"))
-      # d <- rename(d, "age.band" = "age_cat")
-      d <- plyr::rename(d, c("sex" = "gender"))
-      # d <- rename(d, "gender" = "sex")
+      d <- rename(d, "age.band" = "age_cat")
+      d <- rename(d, "gender" = "sex")
+      #d <- rename(d, "gender" = "sex")
       
       
       if (ac != "All"){
@@ -4967,7 +4963,7 @@ server <- shinyServer(function(input, output, session){
       }
       
       if (sc != "All"){
-        d <- filter(d, gender == sc)
+        d <- filter(d, gender == tolower(sc))
       }
       
       nd <- NULL
@@ -5135,10 +5131,10 @@ server <- shinyServer(function(input, output, session){
     p <- ggplot(evppi.m, aes(scenario, variable, fill = value)) + # + geom_tile() + coord_flip() +
       geom_tile() + #colour = "white"
       scale_fill_gradient(low = "white", high = "darkred") +
-      labs(x = "", y = "", title = "By how much (%) could we reduce uncertainty in\n the outcome if we knew this parameter perfectly?")
+      labs(x = "", y = "", title = "By how much (%) could we reduce uncertainty in\n the outcome if we knew this parameter perfectly?") + 
+      theme(axis.text.x = element_text(angle = 45, size = 8))
     
-    l <- plotly_build(p)
-    l$layout$margin$b <- l$layout$margin$b + 30
+    l <- ggplotly(p, height = 0.8*as.numeric(input$dimension[2]))
     l
     
     #plotly::ggplotly(p, tooltip = c("env_name", "x", "y", "fill", "interval"))
