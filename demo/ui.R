@@ -4,7 +4,7 @@ source("modules/csv_module.R")
 source("ITHIM_var_setup.r")
 
 countryExData <- read_csv("data/countryExData.csv")
-countryExData <- select(countryExData, c("ISO3V10", "Country"))
+countryExData <- dplyr::select(countryExData, c("ISO3V10", "Country"))
 
 accra_population <- c('All', 'Male', 'Female')
 
@@ -27,21 +27,41 @@ accra_env_scen <- c('Now' = "now",
 accra_error_bars <- c("On" = 1,
                       "Off" = 0)
 
-ui <- fluidPage(theme = shinytheme("cerulean"),
+ui <- fluidPage(
+  
+  tags$head(tags$script('
+                        var dimension = [0, 0];
+                        $(document).on("shiny:connected", function(e) {
+                        dimension[0] = window.innerWidth;
+                        dimension[1] = window.innerHeight;
+                        Shiny.onInputChange("dimension", dimension);
+                        });
+                        $(window).resize(function(e) {
+                        dimension[0] = window.innerWidth;
+                        dimension[1] = window.innerHeight;
+                        Shiny.onInputChange("dimension", dimension);
+                        });
+                        ')),
+  
+  
+  theme = shinytheme("cerulean"),
                 title = "Integrated Transport and Health Impact Modelling Tool (ITHIM)",
                 useShinyjs(),
-                titlePanel(fluidRow(
+                titlePanel(
+                  fluidRow(
                   column(4, tags$a(img(src="./assets/mrc-cam.png", style = "height:50px"), href="http://www.mrc-epid.cam.ac.uk", target="_blank", align="left")),
                   #column(2, tags$a(img(src="cam.png", style = "height:50px"), href="http://www.cam.ac.uk", target="_blank"), align = 'left'),
                   column(2, offset = 6, div(tags$a(img(src="./assets/cedar.png", style = "height:50px"), href="http://www.cedar.iph.cam.ac.uk/", target="_blank")), align="right")
-                  
-                )),
+
+                )
+                
+                ),
                 
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      
-                                     slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
-                                     ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
+                                     # slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
+                                     # ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
                                      
                                      
                                      br(),
@@ -285,7 +305,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                                                              plotlyOutput("plotWhatIfScenariosUncertainty", height = "90%")
                                                     ),
                                                     tabPanel('VOI',
-                                                             plotlyOutput("plotWhatIfScenariosVOI", height = "90%")
+                                                             plotlyOutput("plotWhatIfScenariosVOI", width = "auto")
                                                     )
                                                     
                                                     
