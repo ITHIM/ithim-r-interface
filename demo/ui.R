@@ -60,8 +60,8 @@ ui <- fluidPage(
                 tabsetPanel(id="tabBox_next_previous",
                             tabPanel("Introduction",
                                      
-                                     # slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
-                                     # ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
+                                     slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
+                                     ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
                                      
                                      
                                      br(),
