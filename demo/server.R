@@ -4938,7 +4938,6 @@ server <- shinyServer(function(input, output, session){
       obj <- list()
       
       for (i in 1:length(accra_health_uncertain[[scen]]$outcomes)){
-        i <- 1
         ldat <- accra_health_uncertain[[scen]]$outcomes[[i]]$ylls
         
         if (outcome == "Deaths")
