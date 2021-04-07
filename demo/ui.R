@@ -144,7 +144,7 @@ ui <- fluidPage(
                                      )
                             ),
                             navbarMenu("Predefined Case Studies",
-                                       tabPanel("Accra", 
+                                       tabPanel("Accra", value = "accra_tab",
                                                 sidebarPanel(
                                                                                                     tags$div(
                                                     tags$h4(
@@ -628,7 +628,7 @@ ui <- fluidPage(
                             ),
                             tabPanel('About',
                                      includeHTML("about.html")),
-                            selected = 2
+                            selected = "accra_tab"
                             
                             
                             
