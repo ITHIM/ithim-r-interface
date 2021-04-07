@@ -146,9 +146,9 @@ ui <- fluidPage(
                             navbarMenu("Predefined Case Studies",
                                        tabPanel("Accra", value = "accra_tab",
                                                 sidebarPanel(
-                                                                                                    tags$div(
+                                                  tags$div(
                                                     tags$h4(
-                                                      tags$b(HTML("<font color='red'>Prototype</font>"))
+                                                      tags$b(HTML("<font color='black'>Accra Model</font>"))
                                                     )
                                                   ),
                                                   hr(),
