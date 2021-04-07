@@ -57,7 +57,7 @@ ui <- fluidPage(
                 
                 ),
                 
-                tabsetPanel(id="tabBox_next_previous",
+                tabsetPanel(id = "tabBox_next_previous",
                             tabPanel("Introduction",
                                      
                                      slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
@@ -144,7 +144,7 @@ ui <- fluidPage(
                                      )
                             ),
                             navbarMenu("Predefined Case Studies",
-                                       tabPanel("Accra",
+                                       tabPanel("Accra", 
                                                 sidebarPanel(
                                                                                                     tags$div(
                                                     tags$h4(
@@ -627,7 +627,8 @@ ui <- fluidPage(
                                        
                             ),
                             tabPanel('About',
-                                     includeHTML("about.html"))
+                                     includeHTML("about.html")),
+                            selected = 2
                             
                             
                             
