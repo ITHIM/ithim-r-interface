@@ -5219,7 +5219,7 @@ server <- shinyServer(function(input, output, session){
     tables$PA <<- as.data.frame(do.call(cbind, lapply(accra_pa, summary)))
     tables$PA <<- select(tables$PA, -c(sex, age_cat))
     td <- tables$PA
-    tables$PA <<- as.data.frame(lapply(tables$PA, function(x) round(as.numeric(as.character(x)), 2)))
+    tables$PA <<- as.data.frame(lapply(tables$PA, function(x) round(as.numeric(as.character(x)), 1)))
     rownames(tables$PA) <<- rownames(td)
     
     tables$PA <<- rbind(tables$PA[1:5,],ymax,tables$PA[-(1:5),])
@@ -5312,7 +5312,6 @@ server <- shinyServer(function(input, output, session){
     
     names(tables$AP) <<- names(accra_pm_conc)
     
-    
     plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
   })
@@ -5345,8 +5344,13 @@ server <- shinyServer(function(input, output, session){
     input$inAccraAges
     input$inAccraPop
     
+    accra_pm_conc_tbl <- rbind(accra_pm_conc, tables$AP)
     
-    rbind(accra_pm_conc, tables$AP)
+    accra_pm_conc_tbl <- sapply(accra_pm_conc_tbl, as.numeric) %>% as.data.frame()
+    
+    rownames(accra_pm_conc_tbl) <- rownames(rbind(accra_pm_conc, tables$AP))
+    
+    accra_pm_conc_tbl %>% mutate(across(where(is.numeric), sprintf, fmt = '%.1f'))
     
   }
   ,server=F
