@@ -4654,7 +4654,7 @@ server <- shinyServer(function(input, output, session){
                  theme_minimal() + 
                  xlab('Mode') + 
                  ylab('Duration (hours)') + 
-                 labs(title = paste("Mode Duration per person per week (hours)", sub_pop, sep = "\n"))
+                 labs(title = paste("Mode duration per person per week (hours)", sub_pop, sep = "\n"))
       )
       
     }
