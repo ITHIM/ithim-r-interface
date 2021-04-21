@@ -88,7 +88,6 @@ accra_mode_share <- read_csv('new_accra_results/main_analysis/trips/trip_modes_p
 
 accra_mode_share <- accra_mode_share %>% mutate(across(where(is.numeric), sprintf, fmt = '%.1f'))
 
-
 # Add percentage sign
 for (i in 2:ncol(accra_mode_share)){
   
@@ -99,8 +98,7 @@ for (i in 2:ncol(accra_mode_share)){
 names(accra_mode_share)[3:ncol(accra_mode_share)] <- paste('Sc', 1:5)
 
 accra_pm_conc <- read_csv('new_accra_results/main_analysis/ap/conc_pm.csv')
-# accra_pm_conc <- as.data.frame(accra_pm_conc)
-accra_pm_conc <- round(accra_pm_conc, 2)
+accra_pm_conc <- accra_pm_conc %>% mutate(across(where(is.numeric), sprintf, fmt = '%.1f'))
 
 rownames(accra_pm_conc) <- "background conc."
 
