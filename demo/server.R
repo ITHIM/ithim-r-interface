@@ -4521,12 +4521,13 @@ server <- shinyServer(function(input, output, session){
         else
           bd <- left_join(bd, l[[i]], by = "trip_mode")
       }
-      bd <- reshape2::melt(bd)
+      
+      bd <- reshape2::melt(bd) %>% rename(Scenario = variable)
       
       to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- bd
       to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
       
-      ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = variable)) + 
+      ggplotly(ggplot(data = bd, aes(x = trip_mode, y = value, fill = Scenario)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
                  scale_fill_manual(values = accra_cols)  +
                  guides(fill = guide_legend(override.aes = list(colour = NULL))) +
@@ -4578,7 +4579,7 @@ server <- shinyServer(function(input, output, session){
       # Remove short walking, 99, Train, Other and Unspecified modes
       dist <- filter(dist, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
       
-      distm <- reshape2::melt(dist, by = trip_mode)
+      distm <- reshape2::melt(dist, by = trip_mode) %>% rename(Scenario = variable)
       
       distm$value <- round(distm$value / total_ind, 2)
       
@@ -4586,7 +4587,7 @@ server <- shinyServer(function(input, output, session){
       to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
       
       # Plot
-      ggplotly(ggplot(data = distm, aes(x = trip_mode, y = value, fill = variable)) + 
+      ggplotly(ggplot(data = distm, aes(x = trip_mode, y = value, fill = Scenario)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black", alpha = 0.5) + 
                  scale_fill_manual(values = accra_cols)  +
                  guides(fill = guide_legend(override.aes = list(colour = NULL))) +
@@ -4637,7 +4638,7 @@ server <- shinyServer(function(input, output, session){
       # Remove short walking, 99, Train, Other and Unspecified modes
       dur <- filter(dur, ! trip_mode %in% c('Short Walking', "99", "Train", "Other", "Unspecified"))
       
-      dur <- reshape2::melt(dur, by = trip_mode)
+      dur <- reshape2::melt(dur, by = trip_mode) %>% rename(Scenario = variable)
       
       dur$value <- round(dur$value / (60 * total_ind), 2)
       
@@ -4645,7 +4646,7 @@ server <- shinyServer(function(input, output, session){
       to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- paste0('mode-', tolower(type))
       
       # Plot
-      ggplotly(ggplot(data = dur, aes(x = trip_mode, y = value, fill = variable)) + 
+      ggplotly(ggplot(data = dur, aes(x = trip_mode, y = value, fill = Scenario)) + 
                  geom_bar(stat = 'identity', position = "dodge", color = "black" , alpha = 0.5) + 
                  scale_fill_manual(values = accra_cols)  +
                  guides(fill = guide_legend(override.aes = list(colour = NULL))) +
