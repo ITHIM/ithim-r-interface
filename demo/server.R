@@ -5210,7 +5210,7 @@ server <- shinyServer(function(input, output, session){
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
                        guides(colour = FALSE) +
                        # stat_summary(fun.y=mean, geom="point", shape=20, size=10, color="red", fill="red") +
-                       labs(title = paste('Marginal METh per week', sub_pop, sep = '\n'), x = '', y = "MMETh") +
+                       labs(title = paste('Marginal MET-hours per week', sub_pop, sep = '\n'), x = '', y = "Marginal MET-hours per week") +
                        theme_minimal()
     
     ymax <- as.data.frame(ggplot_build(p)$data)
