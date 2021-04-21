@@ -1021,7 +1021,7 @@ server <- shinyServer(function(input, output, session){
       if (input$inHealthVarSwitch == "YLL")
         h1$yAxis(title = list(text = 'YLL (Absolute Numbers)'))
       else if (input$inHealthVarSwitch == "Deaths")
-        h1$yAxis(title = list(text = 'Averted number of Deaths'))
+        h1$yAxis(title = list(text = 'Averted number of deaths'))
       
     }else{
       h1$subtitle(text = HTML("Sorry: Not Enough Data to Display Selected Population (Population Size = 0)"), 
@@ -1033,7 +1033,7 @@ server <- shinyServer(function(input, output, session){
     if (input$inHealthVarSwitch == "YLL")
       h1$title(text = "Reduction in Years of Life Lost (YLL) for the Selected Region")
     else
-      h1$title(text = "Averted number of Deaths for the Selected Region")
+      h1$title(text = "Averted number of deaths for the Selected Region")
     h1$set(dom = "plotHealth")
     h1$exporting(enabled = T)
     return(h1)
@@ -1108,7 +1108,7 @@ server <- shinyServer(function(input, output, session){
     if (input$inHealthVarSwitch == "YLL")
       h1$title(text = "Reduction in percentage of Years of Life Lost (YLL) for the Selected Region")
     else
-      h1$title(text = "Reduction in percentage of Deaths for the Selected Region")
+      h1$title(text = "Reduction in percentage of deaths for the Selected Region")
     h1$tooltip(valueSuffix= '%')
     h1$set(dom = "plotHealthReduction")
     h1$exporting(enabled = T)
@@ -4256,7 +4256,7 @@ server <- shinyServer(function(input, output, session){
         
       
       h1$series(a$params$series)
-      h1$title(text = 'Baseline Number of Deaths Prevented by Active Travel')
+      h1$title(text = 'Baseline number of deaths prevented by Active Travel')
       h1$yAxis(title = list(text = 'Prevented deaths per year'))
     }
     h1$set(dom = "plotBaselineDeaths")
@@ -4320,7 +4320,7 @@ server <- shinyServer(function(input, output, session){
       
       
       h1$series(a$params$series)
-      h1$title(text = 'Scenario Number of Deaths Prevented by Active Travel')
+      h1$title(text = 'Scenario number of deaths prevented by Active Travel')
       h1$yAxis(title = list(text = 'Prevented deaths per year'))
       
       
@@ -4693,7 +4693,7 @@ server <- shinyServer(function(input, output, session){
     title <- "Reduction in Years of Life Lost (YLL) - compared with Ref Scenario 1"
     
     if (outcome == "Deaths"){
-      title <- "Averted number of Deaths - compared with Ref Scenario 1"
+      title <- "Averted number of deaths - compared with Ref Scenario 1"
     }
     
     sub_pop <- "\n"
@@ -4910,7 +4910,7 @@ server <- shinyServer(function(input, output, session){
     title <- "Reduction in Years of Life Lost (YLL) - compared with Ref Scenario 1"
     
     if (outcome == "Deaths"){
-      title <- "Averted number of Deaths - compared with Ref Scenario 1"
+      title <- "Averted number of deaths - compared with Ref Scenario 1"
     }
     
     sub_pop <- "\n"
