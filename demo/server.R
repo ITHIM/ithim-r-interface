@@ -5227,7 +5227,7 @@ server <- shinyServer(function(input, output, session){
     
     temp_rnames <- rownames(tables$PA)
     
-    tables$PA <<- sapply(tables$PA, as.numeric) %>% as.data.frame()
+    tables$PA <<- sapply(tables$PA, as.numeric) %>% as.data.frame() %>% round(1)
     
     tables$PA <<- tables$PA %>% mutate(across(where(is.numeric), sprintf, fmt = '%.1f'))
     
@@ -5348,7 +5348,7 @@ server <- shinyServer(function(input, output, session){
     
     accra_pm_conc_tbl <- rbind(accra_pm_conc, tables$AP)
     
-    accra_pm_conc_tbl <- sapply(accra_pm_conc_tbl, as.numeric) %>% as.data.frame()
+    accra_pm_conc_tbl <- sapply(accra_pm_conc_tbl, as.numeric) %>% as.data.frame() %>% round(1)
     
     rownames(accra_pm_conc_tbl) <- rownames(rbind(accra_pm_conc, tables$AP))
     
