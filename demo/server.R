@@ -5194,17 +5194,17 @@ server <- shinyServer(function(input, output, session){
     to_download$plot_data[[isolate(input$accraConditionedPanels)]] <<- accra_pa
     to_download$plot_data_name[[isolate(input$accraConditionedPanels)]] <<- 'pa-mmeth'
 
-    accra_pa_melted <- reshape2::melt(accra_pa)
+    accra_pa_melted <- reshape2::melt(accra_pa) %>% rename(Scenario = variable)
     
     ylim <- matrix(nrow = 6, ncol = 2)
     
-    ylim[1, 1:2] <- boxplot.stats(filter(accra_pa_melted, variable == 'Baseline')$value)$stats[c(1, 5)]
+    ylim[1, 1:2] <- boxplot.stats(filter(accra_pa_melted, Scenario == 'Baseline')$value)$stats[c(1, 5)]
     
     for(i in 1:5){
-      ylim[i + 1, 1:2] <- boxplot.stats(filter(accra_pa_melted, variable == paste0('Scenario ', i))$value)$stats[c(1, 5)]
+      ylim[i + 1, 1:2] <- boxplot.stats(filter(accra_pa_melted, Scenario == paste0('Scenario ', i))$value)$stats[c(1, 5)]
     }
 
-    p <- ggplot(accra_pa_melted, aes(x = variable, y = value, fill = variable)) + 
+    p <- ggplot(accra_pa_melted, aes(x = Scenario, y = value, fill = Scenario)) + 
                        geom_boxplot(alpha = 0.5) + 
                        scale_fill_manual(values = accra_cols)  +
                        guides(fill = guide_legend(override.aes = list(colour = NULL))) +
