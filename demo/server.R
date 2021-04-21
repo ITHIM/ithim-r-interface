@@ -5225,11 +5225,13 @@ server <- shinyServer(function(input, output, session){
     tables$PA <<- rbind(tables$PA[1:5,],ymax,tables$PA[-(1:5),])
     rownames(tables$PA)[6] <<- "ymax"
     
-    names(tables$PA) <<- names(accra_pm_conc)
+    temp_rnames <- rownames(tables$PA)
     
-    # as.data.frame(ggplot_build(p)$data)
-    # tables$PA <<- select(tables$PA, fill, lower, middle, upper)
-    # tables$PA[,2:ncol(tables$PA)] <<- round(tables$PA[,2:ncol(tables$PA)], 2)
+    tables$PA <<- sapply(tables$PA, as.numeric) %>% as.data.frame()
+    
+    tables$PA <<- tables$PA %>% mutate(across(where(is.numeric), sprintf, fmt = '%.1f'))
+    
+    rownames(tables$PA) <<- temp_rnames
     
     plotly::ggplotly(p + coord_cartesian(ylim = c(min(ylim[,1]), max(ylim[,2]))))
     
