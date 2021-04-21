@@ -60,8 +60,8 @@ ui <- fluidPage(
                 tabsetPanel(id = "tabBox_next_previous",
                             tabPanel("Introduction",
                                      
-                                     slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
-                                     ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
+                                     # slickR(obj = c('./www/assets/james1.jpg', './www/assets/leandro.jpg'#, './www/assets/rahul.jpg'
+                                     # ), slickOpts=list(dots = T, autoplay = T, arrows = F, pauseOnHover = F, fade = T, speed = 750), slideId = 'ex1', width = "100%"),
                                      
                                      
                                      br(),
@@ -182,7 +182,7 @@ ui <- fluidPage(
                                                   HTML("<hr>"),
                                                   
                                                   
-                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Sensitivity to secular trends'",
+                                                  conditionalPanel(condition = "input.accraConditionedPanels == 'Sensitivity Analysis'",
                                                                    fluidRow(column(width = 12,
                                                                             checkboxGroupInput("inAccraEnvSc", "What-if Scenarios: ", accra_env_scen, selected = accra_env_scen[1],
                                                                                                inline = T)
@@ -206,7 +206,7 @@ ui <- fluidPage(
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels != 'Health'  && 
                                                                    input.accraConditionedPanels != 'Road Injuries' &&
-                                                                   input.accraConditionedPanels != 'Sensitivity to secular trends'",
+                                                                   input.accraConditionedPanels != 'Sensitivity Analysis'",
                                                                    
                                                                    column(width = 4,
                                                                    radioButtons("inAccraAges", "Age: ", accra_ages)
@@ -221,13 +221,13 @@ ui <- fluidPage(
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health' 
                                                                    || input.accraConditionedPanels == 'Road Injuries'
-                                                                   || input.accraConditionedPanels == 'Sensitivity to secular trends'",
+                                                                   || input.accraConditionedPanels == 'Sensitivity Analysis'",
                                                                    
                                                                    column(width = 4,
                                                                     radioButtons("inAccraHealthAges", "Age: ", accra_health_ages)
                                                                    ),
                                                                    conditionalPanel(condition = "input.accraConditionedPanels == 'Health'
-                                                                                    || input.accraConditionedPanels == 'Sensitivity to secular trends'",
+                                                                                    || input.accraConditionedPanels == 'Sensitivity Analysis'",
                                                                                     column(width = 4,
                                                                                       radioButtons("inAccraHealthOutcome", "Outcome: ", accra_health_outcomes)
                                                                                     )
@@ -243,7 +243,7 @@ ui <- fluidPage(
                                                   
                                                   
                                                   conditionalPanel(condition = "input.accraConditionedPanels == 'Health'
-                                                                   || input.accraConditionedPanels == 'Sensitivity to secular trends'",
+                                                                   || input.accraConditionedPanels == 'Sensitivity Analysis'",
                                                                    fluidRow(
                                                                      column(width = 4,
                                                                             checkboxInput("inAccraCombineCauses", "Combine NCDs", T)
