@@ -301,7 +301,7 @@ ui <- fluidPage(
                                                     tabPanel('Health',
                                                              plotlyOutput("plotScenariosHealthOutcome", height = "90%")
                                                     ),
-                                                    tabPanel('Sensitivity to secular trends',
+                                                    tabPanel('Sensitivity Analysis',
                                                              plotlyOutput("plotWhatIfScenariosUncertainty", height = "90%")
                                                     ),
                                                     tabPanel('VOI',
