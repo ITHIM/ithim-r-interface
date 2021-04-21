@@ -86,6 +86,8 @@ accra_msi$value <- round(accra_msi$value)
 
 accra_mode_share <- read_csv('new_accra_results/main_analysis/trips/trip_modes_pert.csv')
 
+accra_mode_share <- accra_mode_share %>% mutate(across(where(is.numeric), sprintf, fmt = '%.1f'))
+
 
 # Add percentage sign
 for (i in 2:ncol(accra_mode_share)){
