@@ -262,11 +262,7 @@ ui <- fluidPage(
                                                                    )
                                                   ),
                                                   
-                                                  HTML("<hr>"),
-                                                  div(HTML("<font color=\"#FF0000\">Preliminary Results</font>"))
-                                                  
-                                                  #HTML("<hr>"),
-                                                  #downloadLink("download_data", "Download Data")
+                                                  HTML("<hr>")
                                                   
                                                 ),
                                                 
